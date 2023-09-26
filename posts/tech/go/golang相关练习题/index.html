@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Golang相关练习题 | X14n&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？ defer是做什么用的，如果一个程序里面有多个defer会怎么样？ 切片的底层是怎么实现的？interface的两种用法了解吗？了解interface的底层实现吗？ 怎么用的map，会有并发问题吗？怎么">
+<meta name="author" content="x14n">
+<link rel="canonical" href="https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
+<link rel="icon" type="image/png" sizes="16x16" href="https://XianCH.github.io/img/main.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://XianCH.github.io/img/main.png">
+<link rel="apple-touch-icon" href="https://XianCH.github.io/img/main.png">
+<link rel="mask-icon" href="https://XianCH.github.io/img/main.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta property="og:title" content="Golang相关练习题" />
+<meta property="og:description" content="基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？ defer是做什么用的，如果一个程序里面有多个defer会怎么样？ 切片的底层是怎么实现的？interface的两种用法了解吗？了解interface的底层实现吗？ 怎么用的map，会有并发问题吗？怎么" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/" />
+<meta property="og:image" content="https://XianCH.github.io/postsImg/golangtest.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-22T09:54:06+00:00" />
+<meta property="article:modified_time" content="2023-09-22T09:54:06+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://XianCH.github.io/postsImg/golangtest.png" />
+<meta name="twitter:title" content="Golang相关练习题"/>
+<meta name="twitter:description" content="基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？ defer是做什么用的，如果一个程序里面有多个defer会怎么样？ 切片的底层是怎么实现的？interface的两种用法了解吗？了解interface的底层实现吗？ 怎么用的map，会有并发问题吗？怎么"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://XianCH.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "👨🏻‍💻 技术",
+          "item": "https://XianCH.github.io/posts/tech/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Golang相关练习题",
+      "item": "https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Golang相关练习题",
+  "name": "Golang相关练习题",
+  "description": "基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？ defer是做什么用的，如果一个程序里面有多个defer会怎么样？ 切片的底层是怎么实现的？interface的两种用法了解吗？了解interface的底层实现吗？ 怎么用的map，会有并发问题吗？怎么",
+  "keywords": [
+    ""
+  ],
+  "articleBody": " 基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？ defer是做什么用的，如果一个程序里面有多个defer会怎么样？ 切片的底层是怎么实现的？interface的两种用法了解吗？了解interface的底层实现吗？ 怎么用的map，会有并发问题吗？怎么求一个map的长度（len就可以，害）。sync.Map可以用len来求长度吗？（应该是想要问sync.Map的底层吧） 有缓冲和无缓冲channel的区别 select中如果没有default会出现什么情况？（select会阻塞，直到有case可以执行）case中的通道被关闭了会出现什么情况？（只有这一个的话会死循环，可以用,ok判断一下） map是有序的吗？map底层实现怎么处理hash碰撞的问题？ recover和panic的实现原理 是否了解反射 普通的map加锁使用与直接用sync.map有什么区别？（分别说了使用上和性能上） 并发相关 golang协程的调度，聊聊对GMP模型的理解 怎么实现并发？ 怎么让协程等待？ 聊聊goroutine泄漏？怎么避免和排查goroutine泄漏的问题？ goroutine的状态机 聊聊channel的特性，从nil的channel中取数据会发生什么？ 其他 哪些情况下会panic？所有的panic都可以recover吗？recover函数的使用过程，是怎么捕获的？ context是做什么用的？ 有什么办法可以获得函数调用的链路？ 怎么处理协程运行的超时问题？ 怎么优雅地关闭通道？ 从面向对象的角度聊聊java和golang的区别 golang的GC golang的http路由实现懂吗，可以描述一下吗？ golang程序hang住了可能是什么原因（说了可能死循环导致无法GC，golang1.13），怎么排查（可以用pprof） 数据结构 数组查找的时间复杂度是多少，为什么？ 了解跳表吗？ 你知道哪些树结构，各自的优缺点分别是什么？（回答的时候再回答一下应用场景就更好了） 操作系统 用过锁吗？读写锁加读锁的时候会阻塞写操作吗？会阻塞读操作吗？（用过，会，不会） Linux 用过ps命令解决过什么问题吗？查询出来的结果各个字段有什么含义？ 了解僵尸进程吗？怎么避免？ 怎么根据pid获取父进程的pid（回答说去/proc下面），怎么根据pid找执行路径呢？怎么根据端口号找pid（回答说lsof -i，用netstat也可以但是我不知道，面试官补充的） 数据库 Redis和MySQL的区别，什么时候用Redis，什么时候用MySQL（这里我说了下我们服务用到的场景）？如果让你设计一个秒杀系统，要怎么设计？（面试官后来提示了一下说redis又一个自增key） MySQL 有几种隔离级别？默认级别是什么？可重复读是怎么解决幻读的？了解mvcc嘛？下面几种mysql哪个会用到联合索引 linked：https://juejin.cn/post/6967618371844046856\n",
+  "wordCount" : "1219",
+  "inLanguage": "zh",
+  "image":"https://XianCH.github.io/postsImg/golangtest.png","datePublished": "2023-09-22T09:54:06Z",
+  "dateModified": "2023-09-22T09:54:06Z",
+  "author":[{
+    "@type": "Person",
+    "name": "x14n"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "X14n's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://XianCH.github.io/img/favicon.icon"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://XianCH.github.io/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
+            <img src="https://XianCH.github.io/img/main.png" alt="logo" aria-label="logo"
+                 height="35">x14n&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <h1 class="post-title">
+                Golang相关练习题
+            </h1>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-09-22
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1219字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>3分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>x14n
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://XianCH.github.io/tags/golang/" style="color: var(--secondary)!important;">golang</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://XianCH.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId:  null , 
+                                region:  null , 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/golangtest.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul><ul>
+                <li>
+                    <a href="#%e5%9f%ba%e7%a1%80%e7%9b%b8%e5%85%b3" aria-label="基础相关">基础相关</a></li>
+                <li>
+                    <a href="#%e5%b9%b6%e5%8f%91%e7%9b%b8%e5%85%b3" aria-label="并发相关">并发相关</a></li>
+                <li>
+                    <a href="#%e5%85%b6%e4%bb%96" aria-label="其他">其他</a></li></ul>
+                    
+                <li>
+                    <a href="#%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84" aria-label="数据结构">数据结构</a></li>
+                <li>
+                    <a href="#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f" aria-label="操作系统">操作系统</a></li>
+                <li>
+                    <a href="#linux" aria-label="Linux">Linux</a></li>
+                <li>
+                    <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93" aria-label="数据库">数据库</a><ul>
+                        
+                <li>
+                    <a href="#mysql" aria-label="MySQL">MySQL</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h2 id="heading"><a hidden class="anchor" aria-hidden="true" href="#heading">#</a></h2>
+<h3 id="基础相关">基础相关<a hidden class="anchor" aria-hidden="true" href="#基础相关">#</a></h3>
+<ol>
+<li>var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？</li>
+<li>defer是做什么用的，如果一个程序里面有多个defer会怎么样？</li>
+<li>切片的底层是怎么实现的？interface的两种用法了解吗？了解interface的底层实现吗？</li>
+<li>怎么用的map，会有并发问题吗？怎么求一个map的长度（len就可以，害）。sync.Map可以用len来求长度吗？（应该是想要问sync.Map的底层吧）</li>
+<li>有缓冲和无缓冲channel的区别</li>
+<li>select中如果没有default会出现什么情况？（select会阻塞，直到有case可以执行）case中的通道被关闭了会出现什么情况？（只有这一个的话会死循环，可以用,ok判断一下）</li>
+<li>map是有序的吗？map底层实现怎么处理hash碰撞的问题？</li>
+<li>recover和panic的实现原理</li>
+<li>是否了解反射</li>
+<li>普通的map加锁使用与直接用sync.map有什么区别？（分别说了使用上和性能上）</li>
+</ol>
+<h3 id="并发相关">并发相关<a hidden class="anchor" aria-hidden="true" href="#并发相关">#</a></h3>
+<ol>
+<li>golang协程的调度，聊聊对GMP模型的理解</li>
+<li>怎么实现并发？</li>
+<li>怎么让协程等待？</li>
+<li>聊聊goroutine泄漏？怎么避免和排查goroutine泄漏的问题？</li>
+<li>goroutine的状态机</li>
+<li>聊聊channel的特性，从nil的channel中取数据会发生什么？</li>
+</ol>
+<h3 id="其他">其他<a hidden class="anchor" aria-hidden="true" href="#其他">#</a></h3>
+<ol>
+<li>哪些情况下会panic？所有的panic都可以recover吗？recover函数的使用过程，是怎么捕获的？</li>
+<li>context是做什么用的？</li>
+<li>有什么办法可以获得函数调用的链路？</li>
+<li>怎么处理协程运行的超时问题？</li>
+<li>怎么优雅地关闭通道？</li>
+<li>从面向对象的角度聊聊java和golang的区别</li>
+<li>golang的GC</li>
+<li>golang的http路由实现懂吗，可以描述一下吗？</li>
+<li>golang程序hang住了可能是什么原因（说了可能死循环导致无法GC，golang1.13），怎么排查（可以用pprof）</li>
+</ol>
+<h2 id="数据结构">数据结构<a hidden class="anchor" aria-hidden="true" href="#数据结构">#</a></h2>
+<ol>
+<li>数组查找的时间复杂度是多少，为什么？</li>
+<li>了解跳表吗？</li>
+<li>你知道哪些树结构，各自的优缺点分别是什么？（回答的时候再回答一下应用场景就更好了）</li>
+</ol>
+<h2 id="操作系统">操作系统<a hidden class="anchor" aria-hidden="true" href="#操作系统">#</a></h2>
+<ol>
+<li>用过锁吗？读写锁加读锁的时候会阻塞写操作吗？会阻塞读操作吗？（用过，会，不会）</li>
+</ol>
+<h2 id="linux">Linux<a hidden class="anchor" aria-hidden="true" href="#linux">#</a></h2>
+<ol>
+<li>用过ps命令解决过什么问题吗？查询出来的结果各个字段有什么含义？</li>
+<li>了解僵尸进程吗？怎么避免？</li>
+<li>怎么根据pid获取父进程的pid（回答说去/proc下面），怎么根据pid找执行路径呢？怎么根据端口号找pid（回答说lsof -i，用netstat也可以但是我不知道，面试官补充的）</li>
+</ol>
+<h2 id="数据库">数据库<a hidden class="anchor" aria-hidden="true" href="#数据库">#</a></h2>
+<ol>
+<li>Redis和MySQL的区别，什么时候用Redis，什么时候用MySQL（这里我说了下我们服务用到的场景）？如果让你设计一个秒杀系统，要怎么设计？（面试官后来提示了一下说redis又一个自增key）</li>
+</ol>
+<h3 id="mysql">MySQL<a hidden class="anchor" aria-hidden="true" href="#mysql">#</a></h3>
+<ol>
+<li>有几种隔离级别？默认级别是什么？可重复读是怎么解决幻读的？了解mvcc嘛？下面几种mysql哪个会用到联合索引</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"></code></pre></div><p>linked：https://juejin.cn/post/6967618371844046856</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://XianCH.github.io/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>go数据结构与算法（更新中）</span>
+  </a>
+  <a class="next" href="https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>arch安装以及i3wm配置</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+<div>
+    <details class="comments_details">
+        <summary style="cursor: pointer; margin: 50px 0 20px 0;width: 130px;">
+            <span style="font-size: 20px;color: var(--content);">...</span>
+        </summary>
+        <div id="tcomment"></div>
+    </details>
+    <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js">
+    </script>
+    <script>
+        twikoo.init({
+            envId:  null ,
+        el: "#tcomment",
+            lang: 'zh-CN',
+            region:  null ,
+        path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        })
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>
+        Copyright
+        &copy;
+        -2023
+        <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
+        All Rights Reserved
+    </span>
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;"></a>&nbsp;
+    <span>
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null"
+           style="display:inline-block;text-decoration:none;height:20px;color:#939393;">
+            <img src="" style="float:left;margin: 0px 5px 0px 0px;"/>
+            
+        </a>
+    </span>
+    <span id="busuanzi_container">
+        <span class="fa fa-user"></span> <span id="busuanzi_value_site_uv"></span>
+        <span class="fa fa-eye"></span> <span id="busuanzi_value_site_pv"></span>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+</body>
+
+</html>

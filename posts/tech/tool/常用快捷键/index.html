@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>常用快捷键 | X14n&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl&#43;b 然">
+<meta name="author" content="x14n">
+<link rel="canonical" href="https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
+<link rel="icon" type="image/png" sizes="16x16" href="https://XianCH.github.io/img/main.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://XianCH.github.io/img/main.png">
+<link rel="apple-touch-icon" href="https://XianCH.github.io/img/main.png">
+<link rel="mask-icon" href="https://XianCH.github.io/img/main.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta property="og:title" content="常用快捷键" />
+<meta property="og:description" content="tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl&#43;b 然" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" />
+<meta property="og:image" content="https://XianCH.github.io/postsImg/hotkey.jpg" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-23T07:20:24+00:00" />
+<meta property="article:modified_time" content="2023-09-22T07:20:24+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://XianCH.github.io/postsImg/hotkey.jpg" />
+<meta name="twitter:title" content="常用快捷键"/>
+<meta name="twitter:description" content="tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl&#43;b 然"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://XianCH.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "👨🏻‍💻 技术",
+          "item": "https://XianCH.github.io/posts/tech/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "常用快捷键",
+      "item": "https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "常用快捷键",
+  "name": "常用快捷键",
+  "description": "tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl+b 然",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl+b 然后对应快捷键执行命令 会话常用快捷操作 快捷键 说明 ? 所有快捷键，q退出 :new sessionName 创建新会话 s 切换会话 $ 重命名当前会话 d 离开会话返回shell（与tmux detach功能相同） Ctrl+z 挂起会话，返回shell 窗口常用快捷操作 快捷键 说明 c 创建新窗口 w 显示窗口 数字键 选择对应窗口 p 前一个窗口 n 后一个窗口 f 查找窗口 , 重命名窗口 \u0026 关闭窗口（带提示） 窗格常用快捷键 快捷键 说明 % 垂直分割 ” 水平分割 o 切换窗格 x 关闭窗格 space 切换窗格布局 q 显示窗格编号，按对应数字选择窗格 { 与上一个窗格调换位置 } 与下一个窗格调换位置 z 当前窗格最大化 ! 取消所有窗口保留当前窗口 Ctrl+方向键 以1个单元格为单位移动边缘以调整当前窗格大小 Alt+方向键 以5个单元格为单位移动边缘以调整当前窗格大小 vim 使用技巧 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim 使用技巧) 下面的命令是我常用的一些快捷键操作，我使用的编辑器是 vscode，安装了 vim 插件。\n如何在 vscode 中使用 vim？可以看看我的 vscode 配置\n光标移动 # hjkl：左下上右 gj 和 gk：移动至下一个或者上一个物理行，当一行出现 linewrap 时，使用 j 和 k 并不能按照视觉看到的一行进行移动 {：跳转至向上寻找的第一个段落首部的前一行 }：跳转至向下寻找的第一个段落尾部的后一行 (：跳转至向上寻找的第一个段落首部的所在行 )：跳转至向下寻找的第一个段落尾部的所在行 w：下一个单词开头 b：上一个单词开头 e：下一个单词结尾 ge：上一个单词结尾 gg：跳转到第一行 G：跳转到最后一行 + gg：跳转到第 number 行 :：跳转到第 number 行 %：匹配对应括号，并进行跳转 * 和 #：匹配当前光标所在的单词，移动光标到下一个或上一个 f、F、 t 和 T，行内光标跳转 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f、F、 t 和 T，行内光标跳转) f：当前行跳转到光标后的指定字符，按 ; 跳转到下一个指定字符 F：当前行跳转到光标前的指定字符，按 ; 跳转到下一个指定字符 t：当前行跳转到光标后的指定字符前的一个字符，按 ; 跳转到下一个指定字符前一个字符 T：当前行跳转到光标前的指定字符后的一个字符，按 ; 跳转到下一个指定字符后一个字符 一般，我只用 f 和 F。\n模式切换 # v：normal 模式进入 visual 模式 V: normal 模式进入 visual 模式，并选中当前行 i: normal 模式进入 insert 模式，光标出现在当前选中字符前 I: normal 模式进入 insert 模式，光标出现在行首 a: normal 模式进入 insert 模式，光标出现在当前选中字符后 A: normal 模式进入 insert 模式，光标出现在行尾 esc: 从 visual 和 insert 模式退回到 normal 模式 o：在当前行下方插入一行，并进入 insert 模式 O：在当前行上方插入一行，并进入 insert 模式\n插入、删除、复制、粘贴 # 在模式切换中已经包含了插入的相关快捷键。\ngi：在上一个做出变化的地方进入插入模式 x：删除当前光标所在的字符 dd：删除当前行 cc：删除当前行，并进入 insert 模式 D：删除从当前光标至行尾的内容 C：删除从当前贯标至行尾的内容，并进入 insert 模式 yy：复制当前行 Y：与 yy 相同 yl：复制当前光标下的字符 yas：复制一个句子 yap：复制一个段落 p: 粘贴剪切板至光标后 P：粘贴剪切板至光标前 gP: 与 P 相同，只不过将光标置于粘贴内容的后面 gp: 与 p 相同，只不过将光标置于粘贴内容的后面 cw：删除从光标所在位置后到一个单词的结尾，并进入 insert 模式（同理可以用 dw 删除，但是不进入 insert 模式） c$：删除从光标所在位置后到本行结尾，并进入 insert 模式（同理可以用 d$ 删除，但是不进入 insert 模式） r：替换当前光标下的字符，按下 r，然后输入一个字符，用来替换当前字符 v + + ：可以使用 v 进入 visual 模式，然后选中区域，最后使用 y、c、d 和 r 对选中区域进行操作。 模式： 可以是 y、d、c等，（可以用于光标跳转的一系列字符） 可以是 w（一个单词的结尾）、$（行尾）、^（行首第一个非空字符）、b（单词的开头）、0(行首) 等等。\n模式：你可以将 operator（y，d，c）作为 verbs，count、a 和 i 作为 adjectives，移动（hjkl、w、$、^、b、0等）作为 objects，例如:\nd3l: 删除光标右侧三个字符 dl：adjectives 可以省略，所以 dl 等价于 d1l diw：删除光标下的单词不包括周围的空格 代码折叠 # zc：折叠代码 zo: 展开代码 zM: 全部折叠 zR: 全部展开 窗口移动 # （1）移动当前所在行的位置\nzz：将当前光标所在行移动到窗口中间 zt: 将当前光标所在行移动到窗口顶部 zb: 将当前光标所在行移动到窗口底部 （2）行移动\nctrl + e：一行一行向下移动 ctrl + d：向下移动窗口显示行数的一半 ctrl + y: 一行一行向上移动 ctrl + u: 向上移动窗口显示行数的一半 分屏操作 # （1）创建分屏\n使用命令：\n:split [file] 或者 :sp [file]：添加一个横屏 :vsplit [file] 或者 :vsp [file]：添加一个竖屏\n使用快捷键：\nctrl + w s：以当前文件添加一个横屏 ctrl + w v：以当前文件添加一个竖屏\n（2）分屏切换\nctrl + w 或者 ctrl + w ：将光标移动到指定方向的分屏\n（3）关闭屏幕和分屏\n:only：只保留当前分屏，关闭其他分屏 ctrl + w c：关闭当前窗口 ctrl + w q: 关闭当前窗口，若只有一个分屏，则退出 vim ctrl + w o: 关闭其他窗口\n（4）增加屏幕高度\ncrtrl + w +：增加高度 ctrl + w -：减小高度\n多光标操作（块操作） # 使用 ctrl + v 进入块操作 可以使用 hkjl、$ 等来插入多光标和移动光标 使用 I 和 A 进入编辑 同样可以使用 v 进入 visual 模式，选中一些行，然后按 A 在每行结尾插入光标进行编辑。\nvisual 模式下的格式化操作 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual 模式下的格式化操作) v 进入 visual 模式，进入 visual 模式后，可以通过 hjkl 选中一些行。可以对选中的行做如下操作。\nJ：把所有行连接起来变成一行 \u003c 或 \u003e：左右缩进 =：自动缩进，格式化代码（非常 nice） 查找和替换 # 替换格式如下，支持正则表达式。\n:[range]s//[string]/[flags] [count] 该命令表示在 range 的每一行中搜索pattern，并将其替换为 string。 count是一个乘以命令的正整数。\n（1）查找\n/：高亮查找到的内容 /\\C：大小写敏感 /\\c: 忽略大小写 /\\\u003c\\\u003e: 整词匹配，注意这里前面是修饰符 \\\u003c，后面是修饰符 \\\u003e，两个组合表示整词匹配（whole word match） *：向下查找当前光标下的 word #：向上查找当前光标下的 word n：跳转到下一个查找到的内容 :nohl：取消高亮 （2）当前行替换\n:s/foo/bar/`：替换当前行查到的**第一个** `foo`，并将其替换为 `bar` `:s/foo/bar/g`：替换当前行查到的所有 `foo`，并将其替换为 `bar （3）全文件替换\n:%s/foo/bar/`：替换当前文件中所有行的**第一个** `foo`，将它们替换为 `bar` `:%s/foo/bar/g`：替换当前文件中所有行的 `foo`，将它们替换为 `bar （4）c flag\n:%s/foo/bar/gc使用 c 标记可以依次确认每个替换。会弹出 replace with foo(y/n/a/q/l)? 确认对话框，按 y 替换匹配项，或按 l 替换匹配项并退出。 按 n 跳过当前匹配，按 q 或 Esc 退出替换。 a 选项替换匹配项和所有剩余匹配项。\n（5）i flag 开启大小写敏感\n:s/foo/bar/gc`: `foo` 不会匹配 `Foo （6）指定查询范围\n:3,10s/foo/bar/g：查询范围为第三行到第十行，将该范围内的 foo 替换为 bar :.,$s/foo/bar/：查询范围为当前行到最后一行，将该范围内的 foo 替换为 bar，. 表示当前行，$ 表示最后一行 :.,+4s/foo/bar/g：查询范围为从当前行开始往下数四行（总共四行），将该范围内的 foo 替换为 bar，. 表示当前行，+4 表示接下来的四行\n# 例如 0y$，表示拷贝当前行。\n0：先到行首 y: 从 开始拷贝，这里是行首 $：表示一直拷贝到行尾 \" hello \"\n# s 需要插件支持，vscode-vim 自带这个功能\na 表示 around，i 表示 inner，s 表示 surround，command 可以是 d c y，obj 可以是引号、双引号、w 和 t，t 表示 tag，对 html 这种标记语言比较有用\ndiw：删除单词，不包括单词周围的符号，例如 \" word \"，光标在 w,删除后变成了 \" \" daw：删除当前单词，包括周围的空白字符，例如 \" word \"，光标在 w,删除后变成了 \"\" da\": 删除双引号中间的内容，包括双引号本身，例如 \" word \"，光标在 w,删除后变成了 `` di\": 删除双引号中间的内容，不包括双引号本身，例如 \" word \"，光标在 w,删除后变成了 \"\" ds\"：删除当前单词周围的双引号，例如 \" word \"，光标在 w,删除后变成了 w 如果把上面的 command d 换成 c，那么删除后会进入到插入模式。\ns` 对写 html 这种标记语言非常有用，例如将下面的 `div` 改成 `p`，可以使用 `cstt`，然后输入 `p`，`c` 表示 `change \u003cdiv\u003e 这是一个段落 \u003c/div\u003e i3 wm ",
+  "wordCount" : "3635",
+  "inLanguage": "zh",
+  "image":"https://XianCH.github.io/postsImg/hotkey.jpg","datePublished": "2023-07-23T07:20:24Z",
+  "dateModified": "2023-09-22T07:20:24Z",
+  "author":[{
+    "@type": "Person",
+    "name": "x14n"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "X14n's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://XianCH.github.io/img/favicon.icon"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://XianCH.github.io/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
+            <img src="https://XianCH.github.io/img/main.png" alt="logo" aria-label="logo"
+                 height="35">x14n&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <h1 class="post-title">
+                常用快捷键
+            </h1>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-07-23
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>3635字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>8分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>x14n
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://XianCH.github.io/tags/tool/" style="color: var(--secondary)!important;">tool</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://XianCH.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId:  null , 
+                                region:  null , 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/hotkey.jpg" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#tmux%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4" aria-label="tmux常用命令">tmux常用命令</a><ul>
+                        
+                <li>
+                    <a href="#%e7%bb%88%e7%ab%af%e4%b8%ad%e4%bd%bf%e7%94%a8-tmux-%e5%91%bd%e4%bb%a4" aria-label="终端中使用 Tmux 命令">终端中使用 Tmux 命令</a></li>
+                <li>
+                    <a href="#tmux-%e5%86%85%e4%bd%bf%e7%94%a8%e5%89%8d%e7%bc%80-ctrlb-%e7%84%b6%e5%90%8e%e5%af%b9%e5%ba%94%e5%bf%ab%e6%8d%b7%e9%94%ae%e6%89%a7%e8%a1%8c%e5%91%bd%e4%bb%a4" aria-label="Tmux 内使用前缀 Ctrl&#43;b 然后对应快捷键执行命令">Tmux 内使用前缀 Ctrl+b 然后对应快捷键执行命令</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bc%9a%e8%af%9d%e5%b8%b8%e7%94%a8%e5%bf%ab%e6%8d%b7%e6%93%8d%e4%bd%9c" aria-label="会话常用快捷操作">会话常用快捷操作</a></li>
+                <li>
+                    <a href="#%e7%aa%97%e5%8f%a3%e5%b8%b8%e7%94%a8%e5%bf%ab%e6%8d%b7%e6%93%8d%e4%bd%9c" aria-label="窗口常用快捷操作">窗口常用快捷操作</a></li>
+                <li>
+                    <a href="#%e7%aa%97%e6%a0%bc%e5%b8%b8%e7%94%a8%e5%bf%ab%e6%8d%b7%e9%94%ae" aria-label="窗格常用快捷键">窗格常用快捷键</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#vim-%e4%bd%bf%e7%94%a8%e6%8a%80%e5%b7%a7-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsvim-%e4%bd%bf%e7%94%a8%e6%8a%80%e5%b7%a7" aria-label="vim 使用技巧 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim 使用技巧)">vim 使用技巧 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim</a> 使用技巧)</a><ul>
+                        
+                <li>
+                    <a href="#%e5%85%89%e6%a0%87%e7%a7%bb%e5%8a%a8-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts%e5%85%89%e6%a0%87%e7%a7%bb%e5%8a%a8" aria-label="光标移动 #">光标移动 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8">#</a></a></li>
+                <li>
+                    <a href="#ff-t-%e5%92%8c-t%e8%a1%8c%e5%86%85%e5%85%89%e6%a0%87%e8%b7%b3%e8%bd%ac-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsff-t-%e5%92%8c-t%e8%a1%8c%e5%86%85%e5%85%89%e6%a0%87%e8%b7%b3%e8%bd%ac" aria-label="f、F、 t 和 T，行内光标跳转 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f、F、 t 和 T，行内光标跳转)"><code>f</code>、<code>F</code>、 <code>t</code> 和 <code>T</code>，行内光标跳转 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f</a>、F、 t 和 T，行内光标跳转)</a></li>
+                <li>
+                    <a href="#%e6%a8%a1%e5%bc%8f%e5%88%87%e6%8d%a2-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts%e6%a8%a1%e5%bc%8f%e5%88%87%e6%8d%a2" aria-label="模式切换 #">模式切换 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2">#</a></a></li>
+                <li>
+                    <a href="#%e6%8f%92%e5%85%a5%e5%88%a0%e9%99%a4%e5%a4%8d%e5%88%b6%e7%b2%98%e8%b4%b4-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts%e6%8f%92%e5%85%a5%e5%88%a0%e9%99%a4%e5%a4%8d%e5%88%b6%e7%b2%98%e8%b4%b4" aria-label="插入、删除、复制、粘贴 #">插入、删除、复制、粘贴 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%8F%92%E5%85%A5%E3%80%81%E5%88%A0%E9%99%A4%E3%80%81%E5%A4%8D%E5%88%B6%E3%80%81%E7%B2%98%E8%B4%B4">#</a></a></li>
+                <li>
+                    <a href="#%e4%bb%a3%e7%a0%81%e6%8a%98%e5%8f%a0-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts%e4%bb%a3%e7%a0%81%e6%8a%98%e5%8f%a0" aria-label="代码折叠 #">代码折叠 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0">#</a></a></li>
+                <li>
+                    <a href="#%e7%aa%97%e5%8f%a3%e7%a7%bb%e5%8a%a8-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts%e7%aa%97%e5%8f%a3%e7%a7%bb%e5%8a%a8" aria-label="窗口移动 #">窗口移动 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E7%AA%97%E5%8F%A3%E7%A7%BB%E5%8A%A8">#</a></a></li>
+                <li>
+                    <a href="#%e5%88%86%e5%b1%8f%e6%93%8d%e4%bd%9c-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts%e5%88%86%e5%b1%8f%e6%93%8d%e4%bd%9c" aria-label="分屏操作 #">分屏操作 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%88%86%E5%B1%8F%E6%93%8D%E4%BD%9C">#</a></a></li>
+                <li>
+                    <a href="#%e5%a4%9a%e5%85%89%e6%a0%87%e6%93%8d%e4%bd%9c%e5%9d%97%e6%93%8d%e4%bd%9c-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts%e5%a4%9a%e5%85%89%e6%a0%87%e6%93%8d%e4%bd%9c%e5%9d%97%e6%93%8d%e4%bd%9c" aria-label="多光标操作（块操作） #">多光标操作（块操作） <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%A4%9A%E5%85%89%E6%A0%87%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9D%97%E6%93%8D%E4%BD%9C%EF%BC%89">#</a></a></li>
+                <li>
+                    <a href="#visual-%e6%a8%a1%e5%bc%8f%e4%b8%8b%e7%9a%84%e6%a0%bc%e5%bc%8f%e5%8c%96%e6%93%8d%e4%bd%9c-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsvisual-%e6%a8%a1%e5%bc%8f%e4%b8%8b%e7%9a%84%e6%a0%bc%e5%bc%8f%e5%8c%96%e6%93%8d%e4%bd%9c" aria-label="visual 模式下的格式化操作 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual 模式下的格式化操作)">visual 模式下的格式化操作 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual</a> 模式下的格式化操作)</a></li>
+                <li>
+                    <a href="#%e6%9f%a5%e6%89%be%e5%92%8c%e6%9b%bf%e6%8d%a2-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts%e6%9f%a5%e6%89%be%e5%92%8c%e6%9b%bf%e6%8d%a2" aria-label="查找和替换 #">查找和替换 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9B%BF%E6%8D%A2">#</a></a></li>
+                <li>
+                    <a href="#start-positioncommandend-position-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts" aria-label="&amp;lt;start position&amp;gt;&amp;lt;command&amp;gt;&amp;lt;end position&amp;gt; #"><code>&lt;start position&gt;&lt;command&gt;&lt;end position&gt;</code> <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#">#</a></a></li>
+                <li>
+                    <a href="#commanda--i--sobj-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts" aria-label="&amp;lt;command&amp;gt;&amp;lt;a | i | s&amp;gt;&amp;lt;obj&amp;gt; #"><code>&lt;command&gt;&lt;a | i | s&gt;&lt;obj&gt;</code> <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#">#</a></a></li></ul>
+                </li>
+                <li>
+                    <a href="#i3-wm" aria-label="i3 wm">i3 wm</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="tmux常用命令">tmux常用命令<a hidden class="anchor" aria-hidden="true" href="#tmux常用命令">#</a></h1>
+<h2 id="终端中使用-tmux-命令">终端中使用 Tmux 命令<a hidden class="anchor" aria-hidden="true" href="#终端中使用-tmux-命令">#</a></h2>
+<ul>
+<li>启动 tmux 使用 <code>-s</code> 命令指定会话名称，使用 <code>-n</code> 命令指定窗口名称</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ tmux new -s sessionName -n window
+</span></span></code></pre></div><ul>
+<li>退出会话(tmux会话内命令)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ tmux detach
+</span></span></code></pre></div><ul>
+<li>退出并关闭会话（窗口,窗格）</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ exit
+</span></span></code></pre></div><ul>
+<li>结束后台的会话</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#通过会话编号
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ tmux kill-session -t 0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#通过会话名称
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ tmux kill-session -t sessionName 
+</span></span></code></pre></div><ul>
+<li>查看所有会话</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ tmux ls
+</span></span></code></pre></div><ul>
+<li>激活会话</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ tmux attach -t sessionName
+</span></span></code></pre></div><h2 id="tmux-内使用前缀-ctrlb-然后对应快捷键执行命令">Tmux 内使用前缀 Ctrl+b 然后对应快捷键执行命令<a hidden class="anchor" aria-hidden="true" href="#tmux-内使用前缀-ctrlb-然后对应快捷键执行命令">#</a></h2>
+<h3 id="会话常用快捷操作">会话常用快捷操作<a hidden class="anchor" aria-hidden="true" href="#会话常用快捷操作">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>?</td>
+<td>所有快捷键，q退出</td>
+</tr>
+<tr>
+<td>:new sessionName</td>
+<td>创建新会话</td>
+</tr>
+<tr>
+<td>s</td>
+<td>切换会话</td>
+</tr>
+<tr>
+<td>$</td>
+<td>重命名当前会话</td>
+</tr>
+<tr>
+<td>d</td>
+<td>离开会话返回shell（与tmux detach功能相同）</td>
+</tr>
+<tr>
+<td>Ctrl+z</td>
+<td>挂起会话，返回shell</td>
+</tr>
+</tbody>
+</table>
+<h3 id="窗口常用快捷操作">窗口常用快捷操作<a hidden class="anchor" aria-hidden="true" href="#窗口常用快捷操作">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>c</td>
+<td>创建新窗口</td>
+</tr>
+<tr>
+<td>w</td>
+<td>显示窗口</td>
+</tr>
+<tr>
+<td>数字键</td>
+<td>选择对应窗口</td>
+</tr>
+<tr>
+<td>p</td>
+<td>前一个窗口</td>
+</tr>
+<tr>
+<td>n</td>
+<td>后一个窗口</td>
+</tr>
+<tr>
+<td>f</td>
+<td>查找窗口</td>
+</tr>
+<tr>
+<td>,</td>
+<td>重命名窗口</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>关闭窗口（带提示）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="窗格常用快捷键">窗格常用快捷键<a hidden class="anchor" aria-hidden="true" href="#窗格常用快捷键">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%</td>
+<td>垂直分割</td>
+</tr>
+<tr>
+<td>”</td>
+<td>水平分割</td>
+</tr>
+<tr>
+<td>o</td>
+<td>切换窗格</td>
+</tr>
+<tr>
+<td>x</td>
+<td>关闭窗格</td>
+</tr>
+<tr>
+<td>space</td>
+<td>切换窗格布局</td>
+</tr>
+<tr>
+<td>q</td>
+<td>显示窗格编号，按对应数字选择窗格</td>
+</tr>
+<tr>
+<td>{</td>
+<td>与上一个窗格调换位置</td>
+</tr>
+<tr>
+<td>}</td>
+<td>与下一个窗格调换位置</td>
+</tr>
+<tr>
+<td>z</td>
+<td>当前窗格最大化</td>
+</tr>
+<tr>
+<td>!</td>
+<td>取消所有窗口保留当前窗口</td>
+</tr>
+<tr>
+<td>Ctrl+方向键</td>
+<td>以1个单元格为单位移动边缘以调整当前窗格大小</td>
+</tr>
+<tr>
+<td>Alt+方向键</td>
+<td>以5个单元格为单位移动边缘以调整当前窗格大小</td>
+</tr>
+</tbody>
+</table>
+<h1 id="vim-使用技巧-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsvim-使用技巧">vim 使用技巧 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim</a> 使用技巧)<a hidden class="anchor" aria-hidden="true" href="#vim-使用技巧-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsvim-使用技巧">#</a></h1>
+<p>下面的命令是我常用的一些快捷键操作，我使用的编辑器是 vscode，安装了 vim 插件。</p>
+<blockquote>
+<p>如何在 vscode 中使用 vim？可以看看我的 <a href="https://www.pengfeixc.com/blogs/developer-handbook/vscode-configurations">vscode 配置</a></p>
+</blockquote>
+<h2 id="光标移动-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts光标移动">光标移动 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8">#</a><a hidden class="anchor" aria-hidden="true" href="#光标移动-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts光标移动">#</a></h2>
+<ul>
+<li><code>hjkl</code>：左下上右</li>
+<li><code>gj</code> 和 <code>gk</code>：移动至下一个或者上一个物理行，当一行出现 linewrap 时，使用 <code>j</code> 和 <code>k</code> 并不能按照视觉看到的一行进行移动</li>
+<li><code>{</code>：跳转至向上寻找的第一个段落首部的前一行</li>
+<li><code>}</code>：跳转至向下寻找的第一个段落尾部的后一行</li>
+<li><code>(</code>：跳转至向上寻找的第一个段落首部的所在行</li>
+<li><code>)</code>：跳转至向下寻找的第一个段落尾部的所在行</li>
+<li><code>w</code>：下一个单词开头</li>
+<li><code>b</code>：上一个单词开头</li>
+<li><code>e</code>：下一个单词结尾</li>
+<li><code>ge</code>：上一个单词结尾</li>
+<li><code>gg</code>：跳转到第一行</li>
+<li><code>G</code>：跳转到最后一行</li>
+<li><code>&lt;number&gt; + gg</code>：跳转到第 number 行</li>
+<li><code>:&lt;number&gt;</code>：跳转到第 number 行</li>
+<li><code>%</code>：匹配对应括号，并进行跳转</li>
+<li><code>*</code> 和 <code>#</code>：匹配当前光标所在的单词，移动光标到下一个或上一个</li>
+</ul>
+<h2 id="ff-t-和-t行内光标跳转-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsff-t-和-t行内光标跳转"><code>f</code>、<code>F</code>、 <code>t</code> 和 <code>T</code>，行内光标跳转 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f</a>、F、 t 和 T，行内光标跳转)<a hidden class="anchor" aria-hidden="true" href="#ff-t-和-t行内光标跳转-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsff-t-和-t行内光标跳转">#</a></h2>
+<ul>
+<li><code>f</code>：当前行跳转到光标后的指定字符，按 <code>;</code> 跳转到下一个指定字符</li>
+<li><code>F</code>：当前行跳转到光标前的指定字符，按 <code>;</code> 跳转到下一个指定字符</li>
+<li><code>t</code>：当前行跳转到光标后的指定字符前的一个字符，按 <code>;</code> 跳转到下一个指定字符前一个字符</li>
+<li><code>T</code>：当前行跳转到光标前的指定字符后的一个字符，按 <code>;</code> 跳转到下一个指定字符后一个字符</li>
+</ul>
+<p>一般，我只用 <code>f</code> 和 <code>F</code>。</p>
+<h2 id="模式切换-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts模式切换">模式切换 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2">#</a><a hidden class="anchor" aria-hidden="true" href="#模式切换-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts模式切换">#</a></h2>
+<p><code>v</code>：normal 模式进入 visual 模式 <code>V</code>: normal 模式进入 visual 模式，并选中当前行 <code>i</code>: normal 模式进入 insert 模式，光标出现在当前选中字符前 <code>I</code>: normal 模式进入 insert 模式，光标出现在行首 <code>a</code>: normal 模式进入 insert 模式，光标出现在当前选中字符后 <code>A</code>: normal 模式进入 insert 模式，光标出现在行尾 <code>esc</code>: 从 visual 和 insert 模式退回到 normal 模式 <code>o</code>：在当前行下方插入一行，并进入 insert 模式 <code>O</code>：在当前行上方插入一行，并进入 insert 模式</p>
+<h2 id="插入删除复制粘贴-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts插入删除复制粘贴">插入、删除、复制、粘贴 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%8F%92%E5%85%A5%E3%80%81%E5%88%A0%E9%99%A4%E3%80%81%E5%A4%8D%E5%88%B6%E3%80%81%E7%B2%98%E8%B4%B4">#</a><a hidden class="anchor" aria-hidden="true" href="#插入删除复制粘贴-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts插入删除复制粘贴">#</a></h2>
+<p>在模式切换中已经包含了插入的相关快捷键。</p>
+<ul>
+<li><code>gi</code>：在上一个做出变化的地方进入插入模式</li>
+<li><code>x</code>：删除当前光标所在的字符</li>
+<li><code>dd</code>：删除当前行</li>
+<li><code>cc</code>：删除当前行，并进入 insert 模式</li>
+<li><code>D</code>：删除从当前光标至行尾的内容</li>
+<li><code>C</code>：删除从当前贯标至行尾的内容，并进入 insert 模式</li>
+<li><code>yy</code>：复制当前行</li>
+<li><code>Y</code>：与 <code>yy</code> 相同</li>
+<li><code>yl</code>：复制当前光标下的字符</li>
+<li><code>yas</code>：复制一个句子</li>
+<li><code>yap</code>：复制一个段落</li>
+<li><code>p</code>: 粘贴剪切板至光标后</li>
+<li><code>P</code>：粘贴剪切板至光标前</li>
+<li><code>gP</code>: 与 <code>P</code> 相同，只不过将光标置于粘贴内容的后面</li>
+<li><code>gp</code>: 与 <code>p</code> 相同，只不过将光标置于粘贴内容的后面</li>
+<li><code>cw</code>：删除从光标所在位置后到一个单词的结尾，并进入 insert 模式（同理可以用 <code>dw</code> 删除，但是不进入 insert 模式）</li>
+<li><code>c$</code>：删除从光标所在位置后到本行结尾，并进入 insert 模式（同理可以用 <code>d$</code> 删除，但是不进入 insert 模式）</li>
+<li><code>r</code>：替换当前光标下的字符，按下 <code>r</code>，然后输入一个字符，用来替换当前字符</li>
+<li><code>v + &lt;select area&gt; + &lt;action&gt;</code>：可以使用 v 进入 visual 模式，然后选中区域，最后使用 <code>y</code>、<code>c</code>、<code>d</code> 和 <code>r</code> 对选中区域进行操作。</li>
+</ul>
+<blockquote>
+<p><code>&lt;command&gt;&lt;pos&gt;</code> 模式：<code>&lt;command&gt;</code> 可以是 <code>y</code>、<code>d</code>、<code>c</code>等，（可以用于光标跳转的一系列字符） 可以是 <code>w</code>（一个单词的结尾）、<code>$</code>（行尾）、<code>^</code>（行首第一个非空字符）、<code>b</code>（单词的开头）、<code>0</code>(行首) 等等。</p>
+</blockquote>
+<blockquote>
+<p><code>&lt;verbs&gt;&lt;adjectives&gt;&lt;objects&gt;</code> 模式：你可以将 operator（<code>y</code>，<code>d</code>，<code>c</code>）作为 verbs，count、a 和 i 作为 adjectives，移动（hjkl、w、$、^、b、0等）作为 objects，例如:</p>
+<ul>
+<li><code>d3l</code>: 删除光标右侧三个字符</li>
+<li><code>dl</code>：adjectives 可以省略，所以 <code>dl</code> 等价于 <code>d1l</code></li>
+<li><code>diw</code>：删除光标下的单词不包括周围的空格</li>
+</ul>
+</blockquote>
+<h2 id="代码折叠-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts代码折叠">代码折叠 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0">#</a><a hidden class="anchor" aria-hidden="true" href="#代码折叠-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts代码折叠">#</a></h2>
+<ul>
+<li><code>zc</code>：折叠代码</li>
+<li><code>zo</code>: 展开代码</li>
+<li><code>zM</code>: 全部折叠</li>
+<li><code>zR</code>: 全部展开</li>
+</ul>
+<h2 id="窗口移动-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts窗口移动">窗口移动 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E7%AA%97%E5%8F%A3%E7%A7%BB%E5%8A%A8">#</a><a hidden class="anchor" aria-hidden="true" href="#窗口移动-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts窗口移动">#</a></h2>
+<p>（1）移动当前所在行的位置</p>
+<ul>
+<li><code>zz</code>：将当前光标所在行移动到窗口中间</li>
+<li><code>zt</code>: 将当前光标所在行移动到窗口顶部</li>
+<li><code>zb</code>: 将当前光标所在行移动到窗口底部</li>
+</ul>
+<p>（2）行移动</p>
+<ul>
+<li><code>ctrl + e</code>：一行一行向下移动</li>
+<li><code>ctrl + d</code>：向下移动窗口显示行数的一半</li>
+<li><code>ctrl + y</code>: 一行一行向上移动</li>
+<li><code>ctrl + u</code>: 向上移动窗口显示行数的一半</li>
+</ul>
+<h2 id="分屏操作-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts分屏操作">分屏操作 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%88%86%E5%B1%8F%E6%93%8D%E4%BD%9C">#</a><a hidden class="anchor" aria-hidden="true" href="#分屏操作-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts分屏操作">#</a></h2>
+<p>（1）创建分屏</p>
+<p>使用命令：</p>
+<p><code>:split [file]</code> 或者 <code>:sp [file]</code>：添加一个横屏 <code>:vsplit [file]</code> 或者 <code>:vsp [file]</code>：添加一个竖屏</p>
+<p>使用快捷键：</p>
+<p><code>ctrl + w s</code>：以当前文件添加一个横屏 <code>ctrl + w v</code>：以当前文件添加一个竖屏</p>
+<p>（2）分屏切换</p>
+<p><code>ctrl + w &lt;arrow&gt;</code> 或者 <code>ctrl + w &lt;hjkl&gt;</code> ：将光标移动到指定方向的分屏</p>
+<p>（3）关闭屏幕和分屏</p>
+<p><code>:only</code>：只保留当前分屏，关闭其他分屏 <code>ctrl + w c</code>：关闭当前窗口 <code>ctrl + w q</code>: 关闭当前窗口，若只有一个分屏，则退出 vim <code>ctrl + w o</code>: 关闭其他窗口</p>
+<p>（4）增加屏幕高度</p>
+<p><code>crtrl + w +</code>：增加高度 <code>ctrl + w -</code>：减小高度</p>
+<h2 id="多光标操作块操作-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts多光标操作块操作">多光标操作（块操作） <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%A4%9A%E5%85%89%E6%A0%87%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9D%97%E6%93%8D%E4%BD%9C%EF%BC%89">#</a><a hidden class="anchor" aria-hidden="true" href="#多光标操作块操作-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts多光标操作块操作">#</a></h2>
+<ol>
+<li>使用 <code>ctrl + v</code> 进入块操作</li>
+<li>可以使用 <code>hkjl</code>、<code>$</code> 等来插入多光标和移动光标</li>
+<li>使用 <code>I</code> 和 <code>A</code> 进入编辑</li>
+</ol>
+<p>同样可以使用 <code>v</code> 进入 visual 模式，选中一些行，然后按 <code>A</code> 在每行结尾插入光标进行编辑。</p>
+<h2 id="visual-模式下的格式化操作-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsvisual-模式下的格式化操作">visual 模式下的格式化操作 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual</a> 模式下的格式化操作)<a hidden class="anchor" aria-hidden="true" href="#visual-模式下的格式化操作-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsvisual-模式下的格式化操作">#</a></h2>
+<p><code>v</code> 进入 visual 模式，进入 visual 模式后，可以通过 <code>hjkl</code> 选中一些行。可以对选中的行做如下操作。</p>
+<ul>
+<li><code>J</code>：把所有行连接起来变成一行</li>
+<li><code>&lt;</code> 或 <code>&gt;</code>：左右缩进</li>
+<li><code>=</code>：自动缩进，格式化代码（非常 nice）</li>
+</ul>
+<h2 id="查找和替换-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts查找和替换">查找和替换 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9B%BF%E6%8D%A2">#</a><a hidden class="anchor" aria-hidden="true" href="#查找和替换-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts查找和替换">#</a></h2>
+<p>替换格式如下，支持正则表达式。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>:<span style="color:#f92672">[</span>range<span style="color:#f92672">]</span>s/&lt;pattern&gt;/<span style="color:#f92672">[</span>string<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>flags<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>count<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>该命令表示在 <code>range</code> 的每一行中搜索<code>pattern</code>，并将其替换为 <code>string</code>。 <code>count</code>是一个乘以命令的正整数。</p>
+<p>（1）查找</p>
+<ul>
+<li><code>/&lt;pattern&gt;</code>：高亮查找到的内容</li>
+<li><code>/\C&lt;pattern&gt;</code>：大小写敏感</li>
+<li><code>/\c&lt;pattern&gt;</code>: 忽略大小写</li>
+<li><code>/\&lt;&lt;pattern&gt;\&gt;</code>: 整词匹配，注意这里前面是修饰符 <code>\&lt;</code>，后面是修饰符 <code>\&gt;</code>，两个组合表示整词匹配（whole word match）</li>
+<li><code>*</code>：向下查找当前光标下的 word</li>
+<li><code>#</code>：向上查找当前光标下的 word</li>
+<li><code>n</code>：跳转到下一个查找到的内容</li>
+<li><code>:nohl</code>：取消高亮</li>
+</ul>
+<p>（2）当前行替换</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>:s<span style="color:#f92672">/</span>foo<span style="color:#f92672">/</span>bar<span style="color:#f92672">/`</span><span style="color:#960050;background-color:#1e0010">：替换当前行查到的</span><span style="color:#f92672">**</span><span style="color:#960050;background-color:#1e0010">第一个</span><span style="color:#f92672">**</span> <span style="color:#f92672">`</span>foo<span style="color:#f92672">`</span><span style="color:#960050;background-color:#1e0010">，并将其替换为</span> <span style="color:#f92672">`</span>bar<span style="color:#f92672">`</span> <span style="color:#f92672">`</span>:s<span style="color:#f92672">/</span>foo<span style="color:#f92672">/</span>bar<span style="color:#f92672">/</span>g<span style="color:#f92672">`</span><span style="color:#960050;background-color:#1e0010">：替换当前行查到的所有</span> <span style="color:#f92672">`</span>foo<span style="color:#f92672">`</span><span style="color:#960050;background-color:#1e0010">，并将其替换为</span> <span style="color:#f92672">`</span>bar
+</span></span></code></pre></div><p>（3）全文件替换</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>:<span style="color:#f92672">%</span>s<span style="color:#f92672">/</span>foo<span style="color:#f92672">/</span>bar<span style="color:#f92672">/`</span><span style="color:#960050;background-color:#1e0010">：替换当前文件中所有行的</span><span style="color:#f92672">**</span><span style="color:#960050;background-color:#1e0010">第一个</span><span style="color:#f92672">**</span> <span style="color:#f92672">`</span>foo<span style="color:#f92672">`</span><span style="color:#960050;background-color:#1e0010">，将它们替换为</span> <span style="color:#f92672">`</span>bar<span style="color:#f92672">`</span> <span style="color:#f92672">`</span>:<span style="color:#f92672">%</span>s<span style="color:#f92672">/</span>foo<span style="color:#f92672">/</span>bar<span style="color:#f92672">/</span>g<span style="color:#f92672">`</span><span style="color:#960050;background-color:#1e0010">：替换当前文件中所有行的</span> <span style="color:#f92672">`</span>foo<span style="color:#f92672">`</span><span style="color:#960050;background-color:#1e0010">，将它们替换为</span> <span style="color:#f92672">`</span>bar
+</span></span></code></pre></div><p>（4）<code>c</code> flag</p>
+<p><code>:%s/foo/bar/gc</code>使用 <code>c</code> 标记可以依次确认每个替换。会弹出 <code>replace with foo(y/n/a/q/l)?</code> 确认对话框，按 <code>y</code> 替换匹配项，或按 <code>l</code> 替换匹配项并退出。 按 <code>n</code> 跳过当前匹配，按 <code>q</code> 或 <code>Esc</code> 退出替换。 <code>a</code> 选项替换匹配项和所有剩余匹配项。</p>
+<p>（5）<code>i</code> flag 开启大小写敏感</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>:s<span style="color:#f92672">/</span>foo<span style="color:#f92672">/</span>bar<span style="color:#f92672">/</span>gc<span style="color:#f92672">`</span>: <span style="color:#f92672">`</span>foo<span style="color:#f92672">`</span> <span style="color:#960050;background-color:#1e0010">不会匹配</span> <span style="color:#f92672">`</span>Foo
+</span></span></code></pre></div><p>（6）指定查询范围</p>
+<p><code>:3,10s/foo/bar/g</code>：查询范围为第三行到第十行，将该范围内的 <code>foo</code> 替换为 <code>bar</code> <code>:.,$s/foo/bar/</code>：查询范围为当前行到最后一行，将该范围内的 <code>foo</code> 替换为 <code>bar</code>，<code>.</code> 表示当前行，<code>$</code> 表示最后一行 <code>:.,+4s/foo/bar/g</code>：查询范围为从当前行开始往下数四行（总共四行），将该范围内的 <code>foo</code> 替换为 <code>bar</code>，<code>.</code> 表示当前行，<code>+4</code> 表示接下来的四行</p>
+<h2 id="start-positioncommandend-position-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts"><code>&lt;start position&gt;&lt;command&gt;&lt;end position&gt;</code> <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#">#</a><a hidden class="anchor" aria-hidden="true" href="#start-positioncommandend-position-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts">#</a></h2>
+<p>例如 <code>0y$</code>，表示拷贝当前行。</p>
+<ul>
+<li><code>0</code>：先到行首</li>
+<li><code>y</code>: 从 <code>&lt;start position&gt;</code> 开始拷贝，这里是行首</li>
+<li><code>$</code>：表示一直拷贝到行尾</li>
+</ul>
+<p>&quot; hello &quot;</p>
+<h2 id="commanda--i--sobj-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts"><code>&lt;command&gt;&lt;a | i | s&gt;&lt;obj&gt;</code> <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#">#</a><a hidden class="anchor" aria-hidden="true" href="#commanda--i--sobj-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts">#</a></h2>
+<blockquote>
+<p><code>s</code> 需要插件支持，vscode-vim 自带这个功能</p>
+</blockquote>
+<p><code>a</code> 表示 around，<code>i</code> 表示 inner，<code>s</code> 表示 surround，<code>command</code> 可以是 <code>d</code> <code>c</code> <code>y</code>，<code>obj</code> 可以是引号、双引号、<code>w</code> 和 <code>t</code>，<code>t</code> 表示 tag，对 html 这种标记语言比较有用</p>
+<ul>
+<li><code>diw</code>：删除单词，不包括单词周围的符号，例如 <code>&quot; word &quot;</code>，光标在 <code>w</code>,删除后变成了 <code>&quot; &quot;</code></li>
+<li><code>daw</code>：删除当前单词，包括周围的空白字符，例如 <code>&quot; word &quot;</code>，光标在 <code>w</code>,删除后变成了 <code>&quot;&quot;</code></li>
+<li><code>da&quot;</code>: 删除双引号中间的内容，包括双引号本身，例如 <code>&quot; word &quot;</code>，光标在 <code>w</code>,删除后变成了 ``</li>
+<li><code>di&quot;</code>: 删除双引号中间的内容，不包括双引号本身，例如 <code>&quot; word &quot;</code>，光标在 <code>w</code>,删除后变成了 <code>&quot;&quot;</code></li>
+<li><code>ds&quot;</code>：删除当前单词周围的双引号，例如 <code>&quot; word &quot;</code>，光标在 <code>w</code>,删除后变成了 <code>w</code></li>
+</ul>
+<p>如果把上面的 command <code>d</code> 换成 <code>c</code>，那么删除后会进入到插入模式。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>s<span style="color:#f92672">`</span> <span style="color:#960050;background-color:#1e0010">对写</span> html <span style="color:#960050;background-color:#1e0010">这种标记语言非常有用，例如将下面的</span> <span style="color:#f92672">`</span><span style="color:#66d9ef">div</span><span style="color:#f92672">`</span> <span style="color:#960050;background-color:#1e0010">改成</span> <span style="color:#f92672">`</span>p<span style="color:#f92672">`</span><span style="color:#960050;background-color:#1e0010">，可以使用</span> <span style="color:#f92672">`</span>cstt<span style="color:#f92672">`</span><span style="color:#960050;background-color:#1e0010">，然后输入</span> <span style="color:#f92672">`</span>p<span style="color:#f92672">`</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#f92672">`</span>c<span style="color:#f92672">`</span> <span style="color:#960050;background-color:#1e0010">表示</span> <span style="color:#f92672">`</span><span style="color:#66d9ef">change</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">这是一个段落</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/</span><span style="color:#66d9ef">div</span><span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><h1 id="i3-wm">i3 wm<a hidden class="anchor" aria-hidden="true" href="#i3-wm">#</a></h1>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>arch安装以及i3wm配置</span>
+  </a>
+  <a class="next" href="https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>关于twitter架构图的思考</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+<div>
+    <details class="comments_details">
+        <summary style="cursor: pointer; margin: 50px 0 20px 0;width: 130px;">
+            <span style="font-size: 20px;color: var(--content);">...</span>
+        </summary>
+        <div id="tcomment"></div>
+    </details>
+    <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js">
+    </script>
+    <script>
+        twikoo.init({
+            envId:  null ,
+        el: "#tcomment",
+            lang: 'zh-CN',
+            region:  null ,
+        path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        })
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>
+        Copyright
+        &copy;
+        -2023
+        <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
+        All Rights Reserved
+    </span>
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;"></a>&nbsp;
+    <span>
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null"
+           style="display:inline-block;text-decoration:none;height:20px;color:#939393;">
+            <img src="" style="float:left;margin: 0px 5px 0px 0px;"/>
+            
+        </a>
+    </span>
+    <span id="busuanzi_container">
+        <span class="fa fa-user"></span> <span id="busuanzi_value_site_uv"></span>
+        <span class="fa fa-eye"></span> <span id="busuanzi_value_site_pv"></span>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+</body>
+
+</html>

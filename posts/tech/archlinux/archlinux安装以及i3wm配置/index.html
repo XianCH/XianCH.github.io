@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>arch安装以及i3wm配置 | X14n&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="这里大概记录自己archlinux的安装过程，还有i3wm的配置">
+<meta name="author" content="x14n">
+<link rel="canonical" href="https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
+<link rel="icon" type="image/png" sizes="16x16" href="https://XianCH.github.io/img/main.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://XianCH.github.io/img/main.png">
+<link rel="apple-touch-icon" href="https://XianCH.github.io/img/main.png">
+<link rel="mask-icon" href="https://XianCH.github.io/img/main.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta property="og:title" content="arch安装以及i3wm配置" />
+<meta property="og:description" content="这里大概记录自己archlinux的安装过程，还有i3wm的配置" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/" />
+<meta property="og:image" content="https://XianCH.github.io/postsImg/arch.jpg" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-30T10:16:51+00:00" />
+<meta property="article:modified_time" content="2023-09-22T10:16:51+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://XianCH.github.io/postsImg/arch.jpg" />
+<meta name="twitter:title" content="arch安装以及i3wm配置"/>
+<meta name="twitter:description" content="这里大概记录自己archlinux的安装过程，还有i3wm的配置"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://XianCH.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "👨🏻‍💻 技术",
+          "item": "https://XianCH.github.io/posts/tech/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "arch安装以及i3wm配置",
+      "item": "https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "arch安装以及i3wm配置",
+  "name": "arch安装以及i3wm配置",
+  "description": "这里大概记录自己archlinux的安装过程，还有i3wm的配置",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "arch安装以及i3wm配置 配置：\nintel\n硬盘处理 lsblk 查看硬盘情况（sda 为机械硬盘，nvme0n1是固态，这里的sda 是u盘)\ncgdisk /dev/nvme0n1\n用于分区表编辑和管理的命令行工具，主要用于处理磁盘的分区表，可以使用cgdisk来创建新的GPT分区表，这将抹去旧的分区表和数据，所以务必谨慎操作\nef00 boot\n8200 swap\n格式化硬盘\n启动分区：\nmkfs.fat -F32 /dev/nvme0n1p1 交换分区：\nmkswap /dev/nvme0n1p2 启动交换分区\nswapon /dev/nvme0n1p2 系统分区：\nmkfs.ext4 /dev/nvme0n1p3 mkfs.ext4 /dev/nvme0n1p4 挂载分区\nmount /dev/nvme0n1p3 /mnt mkdir /mnt/boot mount /dev/nvme0n1p1 /mnt/boot mkdir /mnt/home mount /dev/nvme0n1p4 /mnt/home 然后运行lsblk查看分区情况\n设置pacman服务 通过https://archlinux.org/mirrorlist/ 查看镜像源\n修改镜像源\nvim /etc/pacman.d/mirrorlist 备份镜像源\ncp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup 更新镜像源\nreflector --verbose --latest 15 --sort rate --save /etc/pacman.d/mirrorlist pacman -Sy 安装基本系统以及固件 pacstrap -i /mnt linux-headers linux-firmware base base-devel vim intel-ucode pacstrap /mnt base base-devel linux linux-firmware dhcpcd vim reflector 进入新系统\ngenfstab -U -p /mnt \u003e\u003e /mnt/etc/fstab cat /mnt/etc/fstab arch-chroot /mnt pacman -Syy 设置时区 语言 时区\nls -s /usr/share/zoneinfo/ #点tab ls -s /usr/share/zoneinfo/Asia/ #以此类推 ln -s /usr/share/zoneinfo/Asia/Shanghai \u003e /etc/localtime hwclock --systohc 语言设置\nvim /etc/locale.gen zh_CN.UTF-8 UTF-8 en_US.UTF-8 UTF-8 #选这两个 locale-gen 设置默认语言并更新\n[root@archiso /]# echo LANG=en_US.UTF-8 \u003e /etc/locale.conf [root@archiso /]# vim /etc/locale.conf [root@archiso /]# export LANG=en_US.UTF-8 网络设置 [root@archiso /]# vim /etc/hostname [root@archiso /]# vim /etc/hosts 添加用户 useradd -m -g users -G wheel,storage,power -s /bin/bash x14n EDITOR=vim visudo 在文件中取消%wheel ALL=(ALL:ALL) 的 #\n添加Defaults rootpw\n安装系统引导工具grub, 并生成引导文件 pacman -S os-prober ntfs-3g grub efibootmgr # 这里的/dev/sda1是前面boot所在的分区 #grub-install --efi-directory=/mnt/boot/efi --bootloader-id=Arch --recheck grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub # 生成默认配置文件 grub-mkconfig -o /boot/grub/grub.cfg 安装基础包 pacman -S networkManager systemctl disable netctl systemctl enable NetworkManager pacman -S mtools dosfstools bluez bluez-utils cups xdg-utils xdg-user-dirs alsa-utils pulseaudio pulseaudio-bluetooth reflector openssh pacman -S xf86-video-intel mesa lib32-mesa 基础配置 修改**/etc/pacman.conf**，在文件最后添加如下内容：\n[archlinuxcn] Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch 然后是更新源及安装yay：\npacman -Syyu //更新源，期间会自动下载archlinuxcn的源数据库 pacman -S yay //安装yay pacman -S archlinuxcn-keyring //archlinuxcn相关GPG key，如果不安装这个包会导致后续部分包无法成功安装 i配置 pacman -S xorg-server //sddm安装，如果通过startx命令登录i3wm也可不安装此项 pacman -S sddm //i3wm安装 pacman -S i3wm //或者安装i3gaps，二选一 yay -S i3-gaps //picom、rofi及feh pacman -S rofi picom feh 终端应用\npacman -S alacritty 安装字体文件\npacman -S noto-fonts-cjk powerline-fonts wqy-microhei adobe-source-code-pro-fonts yay -S ttf-apple-emoji 安装字体之后，可以通过如下命令查看系统中安装的字体信息：\nfc-cat | less 安装完成之后启动SDDM，应该就能通过图形化界面进行登录了：\nsystemctl enable sddm systemctl start sddm i3wm配置 i3wm默认的快捷键我不打算一一列出了，查看i3wm的默认配置文件就能看到，i3wm默认配置文件地址：\n~/.config/i3/config 如果此配置文件不存在，或者被修改出错，可以通过如下命令复制一份新的：\nmkdir ~/.config/i3 cp /etc/i3/config ~/.config/i3/config i3wm的配置文件分为两步，分别是修改原有配置及新增配置。\n先是修改原有配置，下列部分是删除或者注释：\n#font pango:monospace 8 #bindsym $mod+d exec --no-startup-id dmenu #bar { # status_command i3status #} 然后是新增部分配置：\n//设置字体及字体大小 font pango:Source Code Pro 12,DejaVu Sans Mono 12 //设置$MOD+d为启动rofi bindsym $mod+d exec --no-startup-id \"rofi -modi drun,run -show drun\" //启动picom exec --no-startup-id picom -b //使用feh设置壁纸，注意壁纸文件必须存在且路径正确 exec --no-startup-id feh --bg-scale ~/zocoxx/wallpaper.jpeg //锁屏，因Win+L快捷键在i3wm默认被占用，我设置的是$MOD+Ctrl+l为锁屏快捷键 bindsym $mod+Ctrl+l exec --no-startup-id i3lock //去除窗口的标题栏，有利有弊，好处是窗口少了额头，坏处是去除标题栏之后部分窗口无法进行鼠标拖动 for_window [class=\"^.*\"] border pixel 0 //设置边框为1像素 new_window pixel 1 //如果安装了输入法，可以使用此命令进行启动输入法 exec --no-startup-id fcitx \u0026 配置完成之后，按$MOD+Shift+r可以快速重启i3wm，如果配置没问题的话，可以看到新的效果了。\nalacritty配置 选择alacritty就是看重其可定制，自然不会选择默认配置了。\nalacritty可选配置文件路径有很多，为了方便，我选择将配置文件放到~/.config目录里面。完整配置文件内容如下：\n# ~/.config/alacritty.yml font: normal: family: Source Code Pro bold: family: Source Code Pro italic: family: Source Code Pro size: 12 window: opacity: 0.7 env: TERM: xterm-256color 我选择配置alacritty使用Source Code Pro字体，且字号大小为12。\n特别提醒一下，alacritty背景透明度设置不是网络流传的window.opacity或者background_opacity，要设置透明度的话建议参考我上述的格式。\n保存即可看到效果。\npolybar设置及启动 polybar需要有默认的配置文件才能启动，所以，创建目录并设置配置文件：\nmkdir ~/.config/polybar cp /etc/polybar/config.ini ~/.config/polybar 不知道是polybar更新版本之后配置文件名称改变还是网上的教程以讹传讹，很多都不带**.ini**后缀，这里建议带上。\n上述config.ini默认包含了一个example的配置，命令行执行如下命令即可看到效果：\npolybar example 要在启动i3wm之后默认启动polybar，需要有个启动脚本，文件名称、路径及内容如下：\n# ~/.config/polybar/launch.sh #!/bin/bash # 终端可能已经有在运行的实例 killall -q polybar # 等待进程被终止 while pgrep -u $UID -x polybar \u003e/dev/null; do sleep 1; done # 运行Polybar，使用默认的配置文件路径 ~/.config/polybar/config.ini polybar example \u0026 echo \"Polybar launched...\" 然后给与启动脚本可执行权限：\nchmod +x ~/.config/polybar/launch.sh 然后i3wm配置文件新加一行：\n# ~/.config/i3/config exec --no-startup-id ~/.config/polybar/launch.sh sudo systemctl restart display-manager\ni3-msg restart\n安装完成后配置 xorg-xrandr 分辨率调整\nxrandr --output your_display_name --mode 1600x900 xrandr --output eDP1 --scale 1.25x1.25 安装中文输入法 配置中文输入法首先需要安装 fcitx 包与 fcitx-im 集合包，还有配置工具 fcitx-configtool：\n1 $ sudo pacman -S fcitx fcitx-im fcitx-configtool 然后编辑 /etc/profile 文件，末尾加入：\n1234 # Fcitxexport GTK_IM_MODULE=fcitxexport QT_IM_MODULE=fcitxexport XMODIFIERS=\"@im=fcitx\" 再到Fcitx#中文选择一个中文输入法包安装：\n1 $ sudo pacman -S fcitx-googlepinyin zsh 1、安装zsh\nsudo pacman -S zsh 2、更改默认终端\nchsh -s /bin/zsh 3、安装oh-my-zsh-git\nsudo pacman -S oh-my-zsh-git 4、默认配置\ncp /usr/share/oh-my-zsh/zshrc ~/.zshrc 5、安装插件 跳转目录、命令高亮、自动建议补全\nsudo pacman -S autojump zsh-syntax-highlighting zsh-autosuggestions oh-my-zsh 找不到插件路径，做下链接 没有目录自己建 mkdir -p /usr/share/oh-my-zsh/custom/plugins/\nsudo ln -s /usr/share/zsh/plugins/zsh-syntax-highlighting /usr/share/oh-my-zsh/custom/plugins/ sudo ln -s /usr/share/zsh/plugins/zsh-autosuggestions /usr/share/oh-my-zsh/custom/plugins/ 6、配置 ~/.zshrc\nplugins=( git autojump zsh-syntax-highlighting zsh-autosuggestions ) Xresources sddm https://github.com/MarianArlt/sddm-chili\nneovim https://taoshu.in/vim/go-vim.html\nHIDPI屏幕 polybar 使用github主题hack\nmpd brightness volume speed battery temperature\nhtop资源监控 管理配置\nrander 文件窗口 https://wiki.archlinux.org/title/ranger\n生成配置文件\nranger --copy-config=all 了解一些基本的 python 知识可能对定制 ranger 会有帮助。\nrc.conf - 选项设置和快捷键 commands.py - 能通过 : 执行的命令 rifle.conf - 指定不同类型的文件的默认打开程序。 scope.sh - 文件预览相关配置 图片预览功能\npacman -S w3m #图片预览工具 移动到回收站 如果想添加一个把文件移动到目录 ~/.local/share/Trash/files/ 的快捷键 DD，把以下这一行添加到 ~/.config/ranger/rc.conf：\nmap DD shell mv %s /home/${USER}/.local/share/Trash/files/ 关联文件打开应用\n文件解压\n锁屏电源 rofi 设置默认应用 粘贴板copyq 音量调节ALSA sudo pacman -S alsa-utils\nsudo pacman -S alsa-plug\nsudo pacman -S pulseaudio-alsa\nsudo pacman -S pavucontrol-qt\nsudo pacman -S pavucontrol\n启用：amixer sset Master unmute\nsudo lspci -v\nlspci | grep Audio\nmpd音乐播放器 常用快捷键\nq ： 退出 ranger\rR : 重新刷新目录\rS : 执行 shell 命令\r: 或者 ; : 控制台\rW : 显示日志\rk : 向上\rj : 向下\rh : 向左\rl : 向右\rg : 到顶部\rG : 到底部\rJ : 半页向下\rK : 半页向上\rgh : 相当于 cd ~\rge : 相当于 cd /etc\rgu : cd /usr\rdd : 剪切\ryy : 复制\rpp : 粘贴\r截图工具 ",
+  "wordCount" : "2591",
+  "inLanguage": "zh",
+  "image":"https://XianCH.github.io/postsImg/arch.jpg","datePublished": "2023-08-30T10:16:51Z",
+  "dateModified": "2023-09-22T10:16:51Z",
+  "author":[{
+    "@type": "Person",
+    "name": "x14n"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "X14n's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://XianCH.github.io/img/favicon.icon"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://XianCH.github.io/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
+            <img src="https://XianCH.github.io/img/main.png" alt="logo" aria-label="logo"
+                 height="35">x14n&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <h1 class="post-title">
+                arch安装以及i3wm配置
+            </h1>
+            <div class="post-description">
+                这里大概记录自己archlinux的安装过程，还有i3wm的配置
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-08-30
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>2591字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>6分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>x14n
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://XianCH.github.io/tags/archlinux/" style="color: var(--secondary)!important;">archLinux</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://XianCH.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId:  null , 
+                                region:  null , 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/arch.jpg" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#arch%e5%ae%89%e8%a3%85%e4%bb%a5%e5%8f%8ai3wm%e9%85%8d%e7%bd%ae" aria-label="arch安装以及i3wm配置">arch安装以及i3wm配置</a><ul>
+                        
+                <li>
+                    <a href="#%e7%a1%ac%e7%9b%98%e5%a4%84%e7%90%86" aria-label="硬盘处理">硬盘处理</a></li>
+                <li>
+                    <a href="#%e8%ae%be%e7%bd%aepacman%e6%9c%8d%e5%8a%a1" aria-label="设置pacman服务">设置pacman服务</a></li>
+                <li>
+                    <a href="#%e5%ae%89%e8%a3%85%e5%9f%ba%e6%9c%ac%e7%b3%bb%e7%bb%9f%e4%bb%a5%e5%8f%8a%e5%9b%ba%e4%bb%b6" aria-label="安装基本系统以及固件">安装基本系统以及固件</a></li>
+                <li>
+                    <a href="#%e8%ae%be%e7%bd%ae%e6%97%b6%e5%8c%ba-%e8%af%ad%e8%a8%80" aria-label="设置时区 语言">设置时区 语言</a></li>
+                <li>
+                    <a href="#%e7%bd%91%e7%bb%9c%e8%ae%be%e7%bd%ae" aria-label="网络设置">网络设置</a></li>
+                <li>
+                    <a href="#%e6%b7%bb%e5%8a%a0%e7%94%a8%e6%88%b7" aria-label="添加用户">添加用户</a></li>
+                <li>
+                    <a href="#%e5%ae%89%e8%a3%85%e7%b3%bb%e7%bb%9f%e5%bc%95%e5%af%bc%e5%b7%a5%e5%85%b7grub-%e5%b9%b6%e7%94%9f%e6%88%90%e5%bc%95%e5%af%bc%e6%96%87%e4%bb%b6" aria-label="安装系统引导工具grub, 并生成引导文件">安装系统引导工具<code>grub</code>, 并生成引导文件</a></li>
+                <li>
+                    <a href="#%e5%ae%89%e8%a3%85%e5%9f%ba%e7%a1%80%e5%8c%85" aria-label="安装基础包">安装基础包</a></li>
+                <li>
+                    <a href="#%e5%9f%ba%e7%a1%80%e9%85%8d%e7%bd%ae" aria-label="基础配置">基础配置</a></li>
+                <li>
+                    <a href="#i%e9%85%8d%e7%bd%ae" aria-label="i配置">i配置</a><ul>
+                        
+                <li>
+                    <a href="#i3wm%e9%85%8d%e7%bd%ae" aria-label="i3wm配置">i3wm配置</a></li>
+                <li>
+                    <a href="#alacritty%e9%85%8d%e7%bd%ae" aria-label="alacritty配置">alacritty配置</a></li>
+                <li>
+                    <a href="#polybar%e8%ae%be%e7%bd%ae%e5%8f%8a%e5%90%af%e5%8a%a8" aria-label="polybar设置及启动">polybar设置及启动</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ae%89%e8%a3%85%e5%ae%8c%e6%88%90%e5%90%8e%e9%85%8d%e7%bd%ae" aria-label="安装完成后配置">安装完成后配置</a></li>
+                <li>
+                    <a href="#%e5%ae%89%e8%a3%85%e4%b8%ad%e6%96%87%e8%be%93%e5%85%a5%e6%b3%95" aria-label="安装中文输入法">安装中文输入法</a></li>
+                <li>
+                    <a href="#zsh" aria-label="zsh">zsh</a></li>
+                <li>
+                    <a href="#xresources" aria-label="Xresources">Xresources</a></li>
+                <li>
+                    <a href="#sddm" aria-label="sddm">sddm</a></li>
+                <li>
+                    <a href="#neovim" aria-label="neovim">neovim</a></li>
+                <li>
+                    <a href="#hidpi%e5%b1%8f%e5%b9%95" aria-label="HIDPI屏幕">HIDPI屏幕</a></li>
+                <li>
+                    <a href="#polybar" aria-label="polybar">polybar</a></li>
+                <li>
+                    <a href="#htop%e8%b5%84%e6%ba%90%e7%9b%91%e6%8e%a7" aria-label="htop资源监控">htop资源监控</a></li>
+                <li>
+                    <a href="#rander-%e6%96%87%e4%bb%b6%e7%aa%97%e5%8f%a3" aria-label="rander 文件窗口">rander 文件窗口</a><ul>
+                        
+                <li>
+                    <a href="#%e7%a7%bb%e5%8a%a8%e5%88%b0%e5%9b%9e%e6%94%b6%e7%ab%99" aria-label="移动到回收站">移动到回收站</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%94%81%e5%b1%8f%e7%94%b5%e6%ba%90" aria-label="锁屏电源">锁屏电源</a></li>
+                <li>
+                    <a href="#rofi" aria-label="rofi">rofi</a></li>
+                <li>
+                    <a href="#%e8%ae%be%e7%bd%ae%e9%bb%98%e8%ae%a4%e5%ba%94%e7%94%a8" aria-label="设置默认应用">设置默认应用</a></li>
+                <li>
+                    <a href="#%e7%b2%98%e8%b4%b4%e6%9d%bfcopyq" aria-label="粘贴板copyq">粘贴板copyq</a></li>
+                <li>
+                    <a href="#%e9%9f%b3%e9%87%8f%e8%b0%83%e8%8a%82alsa" aria-label="音量调节ALSA">音量调节ALSA</a></li>
+                <li>
+                    <a href="#mpd%e9%9f%b3%e4%b9%90%e6%92%ad%e6%94%be%e5%99%a8" aria-label="mpd音乐播放器">mpd音乐播放器</a></li>
+                <li>
+                    <a href="#%e6%88%aa%e5%9b%be%e5%b7%a5%e5%85%b7" aria-label="截图工具">截图工具</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="arch安装以及i3wm配置">arch安装以及i3wm配置<a hidden class="anchor" aria-hidden="true" href="#arch安装以及i3wm配置">#</a></h1>
+<p>配置：</p>
+<p>intel</p>
+<h2 id="硬盘处理">硬盘处理<a hidden class="anchor" aria-hidden="true" href="#硬盘处理">#</a></h2>
+<p>lsblk 查看硬盘情况（sda 为机械硬盘，nvme0n1是固态，这里的sda 是u盘)</p>
+<p><img loading="lazy" src="i3wm%20archlinux.assets/image-20230914112459376.png" alt="image-20230914112459376"  />
+</p>
+<ol>
+<li>
+<p>cgdisk /dev/nvme0n1</p>
+<p>用于分区表编辑和管理的命令行工具，主要用于处理磁盘的分区表，可以使用<code>cgdisk</code>来创建新的GPT分区表，这将抹去旧的分区表和数据，所以务必谨慎操作</p>
+<p>ef00  boot</p>
+<p>8200 swap</p>
+</li>
+<li>
+<p>格式化硬盘</p>
+<p>启动分区：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>mkfs.fat -F32 /dev/nvme0n1p1 
+</span></span></code></pre></div><p>交换分区：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>mkswap /dev/nvme0n1p2
+</span></span></code></pre></div><p>启动交换分区</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>swapon /dev/nvme0n1p2
+</span></span></code></pre></div><p>系统分区：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> mkfs.ext4 /dev/nvme0n1p3
+</span></span><span style="display:flex;"><span> mkfs.ext4 /dev/nvme0n1p4
+</span></span></code></pre></div></li>
+<li>
+<p>挂载分区</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>mount /dev/nvme0n1p3 /mnt
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>mkdir /mnt/boot
+</span></span><span style="display:flex;"><span>mount /dev/nvme0n1p1 /mnt/boot
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> mkdir /mnt/home
+</span></span><span style="display:flex;"><span> mount /dev/nvme0n1p4 /mnt/home
+</span></span></code></pre></div><p>然后运行lsblk查看分区情况</p>
+<p><img loading="lazy" src="i3wm%20archlinux.assets/image-20230914113905501.png" alt="image-20230914113905501"  />
+</p>
+</li>
+</ol>
+<h2 id="设置pacman服务">设置pacman服务<a hidden class="anchor" aria-hidden="true" href="#设置pacman服务">#</a></h2>
+<p>通过https://archlinux.org/mirrorlist/ 查看镜像源</p>
+<p>修改镜像源</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>vim /etc/pacman.d/mirrorlist
+</span></span></code></pre></div><p>备份镜像源</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+</span></span></code></pre></div><p>更新镜像源</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>reflector --verbose --latest 15 --sort rate --save /etc/pacman.d/mirrorlist
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>pacman -Sy
+</span></span></code></pre></div><h2 id="安装基本系统以及固件">安装基本系统以及固件<a hidden class="anchor" aria-hidden="true" href="#安装基本系统以及固件">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>pacstrap -i /mnt linux-headers linux-firmware base base-devel vim intel-ucode 
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>pacstrap /mnt base base-devel linux linux-firmware dhcpcd vim reflector
+</span></span></code></pre></div><p>进入新系统</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cat /mnt/etc/fstab
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>arch-chroot /mnt
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>pacman -Syy
+</span></span></code></pre></div><h2 id="设置时区-语言">设置时区 语言<a hidden class="anchor" aria-hidden="true" href="#设置时区-语言">#</a></h2>
+<p>时区</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ls -s /usr/share/zoneinfo/ #点tab
+</span></span><span style="display:flex;"><span>ls -s /usr/share/zoneinfo/Asia/ #以此类推
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ln -s /usr/share/zoneinfo/Asia/Shanghai &gt; /etc/localtime
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>hwclock --systohc
+</span></span></code></pre></div><p>语言设置</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>vim /etc/locale.gen
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>zh_CN.UTF-8 UTF-8 en_US.UTF-8 UTF-8 #选这两个
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>locale-gen
+</span></span></code></pre></div><p>设置默认语言并更新</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[root@archiso /]# echo LANG=en_US.UTF-8 &gt; /etc/locale.conf
+</span></span><span style="display:flex;"><span>[root@archiso /]# vim /etc/locale.conf
+</span></span><span style="display:flex;"><span>[root@archiso /]# export LANG=en_US.UTF-8
+</span></span></code></pre></div><h2 id="网络设置">网络设置<a hidden class="anchor" aria-hidden="true" href="#网络设置">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[root@archiso /]# vim /etc/hostname
+</span></span><span style="display:flex;"><span>[root@archiso /]# vim /etc/hosts
+</span></span></code></pre></div><p><img loading="lazy" src="i3wm%20archlinux.assets/image-20230914162647923.png" alt="image-20230914162647923"  />
+</p>
+<h2 id="添加用户">添加用户<a hidden class="anchor" aria-hidden="true" href="#添加用户">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>useradd -m -g users -G wheel,storage,power -s /bin/bash x14n
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>EDITOR=vim visudo
+</span></span></code></pre></div><p>在文件中取消%wheel ALL=(ALL:ALL) 的 #</p>
+<p>添加Defaults rootpw</p>
+<h2 id="安装系统引导工具grub-并生成引导文件">安装系统引导工具<code>grub</code>, 并生成引导文件<a hidden class="anchor" aria-hidden="true" href="#安装系统引导工具grub-并生成引导文件">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pacman -S os-prober ntfs-3g grub efibootmgr
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 这里的/dev/sda1是前面boot所在的分区</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#grub-install --efi-directory=/mnt/boot/efi --bootloader-id=Arch --recheck</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>grub-install --target<span style="color:#f92672">=</span>x86_64-efi --efi-directory<span style="color:#f92672">=</span>/boot/efi --bootloader-id<span style="color:#f92672">=</span>grub
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 生成默认配置文件</span>
+</span></span><span style="display:flex;"><span>grub-mkconfig -o /boot/grub/grub.cfg
+</span></span></code></pre></div><h2 id="安装基础包">安装基础包<a hidden class="anchor" aria-hidden="true" href="#安装基础包">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>pacman -S networkManager
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>systemctl disable netctl
+</span></span><span style="display:flex;"><span>systemctl enable NetworkManager
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pacman -S mtools dosfstools bluez bluez-utils cups xdg-utils xdg-user-dirs alsa-utils
+</span></span><span style="display:flex;"><span>pulseaudio pulseaudio-bluetooth reflector openssh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pacman -S xf86-video-intel mesa lib32-mesa 
+</span></span></code></pre></div><h2 id="基础配置">基础配置<a hidden class="anchor" aria-hidden="true" href="#基础配置">#</a></h2>
+<p>修改**/etc/pacman.conf**，在文件最后添加如下内容：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[archlinuxcn]
+</span></span><span style="display:flex;"><span>Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+</span></span></code></pre></div><p>然后是更新源及安装yay：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>pacman -Syyu //更新源，期间会自动下载archlinuxcn的源数据库
+</span></span><span style="display:flex;"><span>pacman -S yay //安装yay
+</span></span><span style="display:flex;"><span>pacman -S archlinuxcn-keyring //archlinuxcn相关GPG key，如果不安装这个包会导致后续部分包无法成功安装
+</span></span></code></pre></div><h2 id="i配置">i配置<a hidden class="anchor" aria-hidden="true" href="#i配置">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>pacman -S xorg-server
+</span></span><span style="display:flex;"><span>//sddm安装，如果通过startx命令登录i3wm也可不安装此项
+</span></span><span style="display:flex;"><span>pacman -S sddm
+</span></span><span style="display:flex;"><span>//i3wm安装
+</span></span><span style="display:flex;"><span>pacman -S i3wm 
+</span></span><span style="display:flex;"><span>//或者安装i3gaps，二选一
+</span></span><span style="display:flex;"><span>yay -S i3-gaps
+</span></span><span style="display:flex;"><span>//picom、rofi及feh
+</span></span><span style="display:flex;"><span>pacman -S rofi picom feh
+</span></span></code></pre></div><p>终端应用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>pacman -S alacritty
+</span></span></code></pre></div><p>安装字体文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>pacman -S noto-fonts-cjk powerline-fonts wqy-microhei adobe-source-code-pro-fonts
+</span></span><span style="display:flex;"><span>yay -S ttf-apple-emoji
+</span></span></code></pre></div><p>安装字体之后，可以通过如下命令查看系统中安装的字体信息：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fc-cat | less
+</span></span></code></pre></div><p>安装完成之后启动SDDM，应该就能通过图形化界面进行登录了：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>systemctl enable sddm
+</span></span><span style="display:flex;"><span>systemctl start sddm
+</span></span></code></pre></div><h3 id="i3wm配置">i3wm配置<a hidden class="anchor" aria-hidden="true" href="#i3wm配置">#</a></h3>
+<p>i3wm默认的快捷键我不打算一一列出了，查看i3wm的默认配置文件就能看到，i3wm默认配置文件地址：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>~/.config/i3/config
+</span></span></code></pre></div><p>如果此配置文件不存在，或者被修改出错，可以通过如下命令复制一份新的：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>mkdir ~/.config/i3
+</span></span><span style="display:flex;"><span>cp /etc/i3/config ~/.config/i3/config
+</span></span></code></pre></div><p>i3wm的配置文件分为两步，分别是修改原有配置及新增配置。</p>
+<p>先是修改原有配置，下列部分是删除或者注释：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#font pango:monospace 8
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#bindsym $mod+d exec --no-startup-id dmenu
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#bar {
+</span></span><span style="display:flex;"><span>#        status_command i3status
+</span></span><span style="display:flex;"><span>#}
+</span></span></code></pre></div><p>然后是新增部分配置：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>//设置字体及字体大小
+</span></span><span style="display:flex;"><span>font pango:Source Code Pro 12,DejaVu Sans Mono 12
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//设置$MOD+d为启动rofi
+</span></span><span style="display:flex;"><span>bindsym $mod+d exec --no-startup-id &#34;rofi -modi drun,run -show drun&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//启动picom
+</span></span><span style="display:flex;"><span>exec --no-startup-id picom -b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//使用feh设置壁纸，注意壁纸文件必须存在且路径正确
+</span></span><span style="display:flex;"><span>exec --no-startup-id feh --bg-scale ~/zocoxx/wallpaper.jpeg
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//锁屏，因Win+L快捷键在i3wm默认被占用，我设置的是$MOD+Ctrl+l为锁屏快捷键
+</span></span><span style="display:flex;"><span>bindsym $mod+Ctrl+l exec --no-startup-id i3lock
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//去除窗口的标题栏，有利有弊，好处是窗口少了额头，坏处是去除标题栏之后部分窗口无法进行鼠标拖动
+</span></span><span style="display:flex;"><span>for_window [class=&#34;^.*&#34;] border pixel 0
+</span></span><span style="display:flex;"><span>//设置边框为1像素
+</span></span><span style="display:flex;"><span>new_window pixel 1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//如果安装了输入法，可以使用此命令进行启动输入法
+</span></span><span style="display:flex;"><span>exec --no-startup-id fcitx &amp;
+</span></span></code></pre></div><p>配置完成之后，按$MOD+Shift+r可以快速重启i3wm，如果配置没问题的话，可以看到新的效果了。</p>
+<h3 id="alacritty配置">alacritty配置<a hidden class="anchor" aria-hidden="true" href="#alacritty配置">#</a></h3>
+<p>选择alacritty就是看重其可定制，自然不会选择默认配置了。</p>
+<p>alacritty可选配置文件路径有很多，为了方便，我选择将配置文件放到~/.config目录里面。完整配置文件内容如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># ~/.config/alacritty.yml
+</span></span><span style="display:flex;"><span>font:
+</span></span><span style="display:flex;"><span>  normal:
+</span></span><span style="display:flex;"><span>    family: Source Code Pro
+</span></span><span style="display:flex;"><span>  bold:
+</span></span><span style="display:flex;"><span>    family: Source Code Pro
+</span></span><span style="display:flex;"><span>  italic:
+</span></span><span style="display:flex;"><span>    family: Source Code Pro
+</span></span><span style="display:flex;"><span>  size: 12
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>window:
+</span></span><span style="display:flex;"><span>  opacity: 0.7
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>env:
+</span></span><span style="display:flex;"><span>  TERM: xterm-256color
+</span></span></code></pre></div><p>我选择配置alacritty使用Source Code Pro字体，且字号大小为12。</p>
+<p>特别提醒一下，alacritty背景透明度设置不是网络流传的window.opacity或者background_opacity，要设置透明度的话建议参考我上述的格式。</p>
+<p>保存即可看到效果。</p>
+<h3 id="polybar设置及启动">polybar设置及启动<a hidden class="anchor" aria-hidden="true" href="#polybar设置及启动">#</a></h3>
+<p>polybar需要有默认的配置文件才能启动，所以，创建目录并设置配置文件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>mkdir ~/.config/polybar
+</span></span><span style="display:flex;"><span>cp /etc/polybar/config.ini ~/.config/polybar
+</span></span></code></pre></div><p>不知道是polybar更新版本之后配置文件名称改变还是网上的教程以讹传讹，很多都不带**.ini**后缀，这里建议带上。</p>
+<p>上述config.ini默认包含了一个example的配置，命令行执行如下命令即可看到效果：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>polybar example
+</span></span></code></pre></div><p>要在启动i3wm之后默认启动polybar，需要有个启动脚本，文件名称、路径及内容如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># ~/.config/polybar/launch.sh</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 终端可能已经有在运行的实例</span>
+</span></span><span style="display:flex;"><span>killall -q polybar
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 等待进程被终止</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> pgrep -u $UID -x polybar &gt;/dev/null; <span style="color:#66d9ef">do</span> sleep 1; <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 运行Polybar，使用默认的配置文件路径 ~/.config/polybar/config.ini</span>
+</span></span><span style="display:flex;"><span>polybar example &amp;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Polybar launched...&#34;</span>
+</span></span></code></pre></div><p>然后给与启动脚本可执行权限：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>chmod +x ~/.config/polybar/launch.sh
+</span></span></code></pre></div><p>然后i3wm配置文件新加一行：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># ~/.config/i3/config
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exec --no-startup-id ~/.config/polybar/launch.sh
+</span></span></code></pre></div><p>sudo systemctl restart display-manager</p>
+<p>i3-msg restart</p>
+<h2 id="安装完成后配置">安装完成后配置<a hidden class="anchor" aria-hidden="true" href="#安装完成后配置">#</a></h2>
+<p><a href="https://archlinux.org/packages/?name=xorg-xrandr">xorg-xrandr</a> 分辨率调整</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>xrandr --output your_display_name --mode 1600x900
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>xrandr --output eDP1 --scale 1.25x1.25
+</span></span></code></pre></div><h2 id="安装中文输入法">安装中文输入法<a hidden class="anchor" aria-hidden="true" href="#安装中文输入法">#</a></h2>
+<p>配置中文输入法首先需要安装 fcitx 包与 fcitx-im 集合包，还有配置工具 fcitx-configtool：</p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>$ sudo pacman -S fcitx fcitx-im fcitx-configtool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>然后编辑 /etc/profile 文件，末尾加入：</p>
+<table>
+<thead>
+<tr>
+<th>1234</th>
+<th># Fcitxexport GTK_IM_MODULE=fcitxexport QT_IM_MODULE=fcitxexport XMODIFIERS=&quot;@im=fcitx&quot;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>再到<a href="https://wiki.archlinux.org/index.php/Fcitx_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E4%B8%AD%E6%96%87">Fcitx#中文</a>选择一个中文输入法包安装：</p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>$ sudo pacman -S fcitx-googlepinyin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="zsh">zsh<a hidden class="anchor" aria-hidden="true" href="#zsh">#</a></h2>
+<p>1、安装zsh</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S zsh
+</span></span></code></pre></div><p>2、更改默认终端</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chsh -s /bin/zsh
+</span></span></code></pre></div><p>3、安装oh-my-zsh-git</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S oh-my-zsh-git
+</span></span></code></pre></div><p>4、默认配置</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp /usr/share/oh-my-zsh/zshrc ~/.zshrc
+</span></span></code></pre></div><p>5、安装插件 跳转目录、命令高亮、自动建议补全</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S autojump zsh-syntax-highlighting zsh-autosuggestions
+</span></span></code></pre></div><p>oh-my-zsh 找不到插件路径，做下链接 没有目录自己建 mkdir -p /usr/share/oh-my-zsh/custom/plugins/</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ln -s /usr/share/zsh/plugins/zsh-syntax-highlighting /usr/share/oh-my-zsh/custom/plugins/
+</span></span><span style="display:flex;"><span>sudo ln -s /usr/share/zsh/plugins/zsh-autosuggestions /usr/share/oh-my-zsh/custom/plugins/
+</span></span></code></pre></div><p>6、配置 ~/.zshrc</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>plugins<span style="color:#f92672">=(</span>
+</span></span><span style="display:flex;"><span>	git
+</span></span><span style="display:flex;"><span>	autojump
+</span></span><span style="display:flex;"><span>	zsh-syntax-highlighting
+</span></span><span style="display:flex;"><span>	zsh-autosuggestions
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><h2 id="xresources">Xresources<a hidden class="anchor" aria-hidden="true" href="#xresources">#</a></h2>
+<h2 id="sddm">sddm<a hidden class="anchor" aria-hidden="true" href="#sddm">#</a></h2>
+<p><a href="https://github.com/MarianArlt/sddm-chili">https://github.com/MarianArlt/sddm-chili</a></p>
+<h2 id="neovim">neovim<a hidden class="anchor" aria-hidden="true" href="#neovim">#</a></h2>
+<p><a href="https://taoshu.in/vim/go-vim.html">https://taoshu.in/vim/go-vim.html</a></p>
+<h2 id="hidpi屏幕">HIDPI屏幕<a hidden class="anchor" aria-hidden="true" href="#hidpi屏幕">#</a></h2>
+<h2 id="polybar">polybar<a hidden class="anchor" aria-hidden="true" href="#polybar">#</a></h2>
+<p>使用github主题hack</p>
+<p>mpd brightness volume speed battery temperature</p>
+<h2 id="htop资源监控">htop资源监控<a hidden class="anchor" aria-hidden="true" href="#htop资源监控">#</a></h2>
+<p>管理配置</p>
+<h2 id="rander-文件窗口">rander 文件窗口<a hidden class="anchor" aria-hidden="true" href="#rander-文件窗口">#</a></h2>
+<p><a href="https://wiki.archlinux.org/title/ranger">https://wiki.archlinux.org/title/ranger</a></p>
+<ol>
+<li>
+<p>生成配置文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ranger --copy-config=all
+</span></span></code></pre></div><p>了解一些基本的 python 知识可能对定制 ranger 会有帮助。</p>
+<ul>
+<li><code>rc.conf</code> - 选项设置和快捷键</li>
+<li><code>commands.py</code> - 能通过 <code>:</code> 执行的命令</li>
+<li><code>rifle.conf</code> - 指定不同类型的文件的默认打开程序。</li>
+<li><code>scope.sh</code> - 文件预览相关配置</li>
+</ul>
+</li>
+<li>
+<p>图片预览功能</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>pacman -S w3m #图片预览工具
+</span></span></code></pre></div></li>
+<li>
+<h3 id="移动到回收站">移动到回收站<a hidden class="anchor" aria-hidden="true" href="#移动到回收站">#</a></h3>
+<p>如果想添加一个把文件移动到目录 <code>~/.local/share/Trash/files/</code> 的快捷键 <code>DD</code>，把以下这一行添加到 <code>~/.config/ranger/rc.conf</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>map DD shell mv %s /home/${USER}/.local/share/Trash/files/
+</span></span></code></pre></div></li>
+<li>
+<p>关联文件打开应用</p>
+</li>
+<li>
+<p>文件解压</p>
+</li>
+</ol>
+<h2 id="锁屏电源">锁屏电源<a hidden class="anchor" aria-hidden="true" href="#锁屏电源">#</a></h2>
+<h2 id="rofi">rofi<a hidden class="anchor" aria-hidden="true" href="#rofi">#</a></h2>
+<h2 id="设置默认应用">设置默认应用<a hidden class="anchor" aria-hidden="true" href="#设置默认应用">#</a></h2>
+<h2 id="粘贴板copyq">粘贴板copyq<a hidden class="anchor" aria-hidden="true" href="#粘贴板copyq">#</a></h2>
+<h2 id="音量调节alsa">音量调节ALSA<a hidden class="anchor" aria-hidden="true" href="#音量调节alsa">#</a></h2>
+<p>sudo pacman -S alsa-utils</p>
+<p>sudo pacman -S alsa-plug</p>
+<p>sudo pacman -S pulseaudio-alsa</p>
+<p>sudo pacman -S pavucontrol-qt</p>
+<p>sudo pacman -S pavucontrol</p>
+<p>启用：amixer sset Master unmute</p>
+<p>sudo lspci -v</p>
+<p>lspci | grep Audio</p>
+<h2 id="mpd音乐播放器">mpd音乐播放器<a hidden class="anchor" aria-hidden="true" href="#mpd音乐播放器">#</a></h2>
+<p>常用快捷键</p>
+<pre><code>q ： 退出 ranger
+R : 重新刷新目录
+S : 执行 shell 命令
+: 或者 ; : 控制台
+W : 显示日志
+k : 向上
+j : 向下
+h : 向左
+l : 向右
+g : 到顶部
+G : 到底部
+J : 半页向下
+K : 半页向上
+gh : 相当于 cd ~
+ge : 相当于 cd /etc
+gu : cd /usr
+dd : 剪切
+yy : 复制
+pp : 粘贴
+</code></pre>
+<h2 id="截图工具">截图工具<a hidden class="anchor" aria-hidden="true" href="#截图工具">#</a></h2>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Golang相关练习题</span>
+  </a>
+  <a class="next" href="https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>常用快捷键</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+<div>
+    <details class="comments_details">
+        <summary style="cursor: pointer; margin: 50px 0 20px 0;width: 130px;">
+            <span style="font-size: 20px;color: var(--content);">...</span>
+        </summary>
+        <div id="tcomment"></div>
+    </details>
+    <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js">
+    </script>
+    <script>
+        twikoo.init({
+            envId:  null ,
+        el: "#tcomment",
+            lang: 'zh-CN',
+            region:  null ,
+        path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        })
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>
+        Copyright
+        &copy;
+        -2023
+        <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
+        All Rights Reserved
+    </span>
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;"></a>&nbsp;
+    <span>
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null"
+           style="display:inline-block;text-decoration:none;height:20px;color:#939393;">
+            <img src="" style="float:left;margin: 0px 5px 0px 0px;"/>
+            
+        </a>
+    </span>
+    <span id="busuanzi_container">
+        <span class="fa fa-user"></span> <span id="busuanzi_value_site_uv"></span>
+        <span class="fa fa-eye"></span> <span id="busuanzi_value_site_pv"></span>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+</body>
+
+</html>

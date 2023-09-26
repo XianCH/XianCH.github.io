@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>springboot学习笔记 | X14n&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="spring boot2学习笔记 一， spring boot2核心技术基础入门 1.spring能做什么 1.1 spring的能力 ![image-20220321190444355](spring boot2学习笔记.assets\image-20220321190444355.png) 二 、为什么用SpringBoot Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can &ldquo;just run&rdquo;. 能快速创建出生产级别的Sp">
+<meta name="author" content="x14n">
+<link rel="canonical" href="https://XianCH.github.io/posts/tech/java/springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
+<link rel="icon" type="image/png" sizes="16x16" href="https://XianCH.github.io/img/main.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://XianCH.github.io/img/main.png">
+<link rel="apple-touch-icon" href="https://XianCH.github.io/img/main.png">
+<link rel="mask-icon" href="https://XianCH.github.io/img/main.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta property="og:title" content="springboot学习笔记" />
+<meta property="og:description" content="spring boot2学习笔记 一， spring boot2核心技术基础入门 1.spring能做什么 1.1 spring的能力 ![image-20220321190444355](spring boot2学习笔记.assets\image-20220321190444355.png) 二 、为什么用SpringBoot Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can &ldquo;just run&rdquo;. 能快速创建出生产级别的Sp" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://XianCH.github.io/posts/tech/java/springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+<meta property="og:image" content="https://XianCH.github.io/postsImg/springboot.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-27T10:16:51+00:00" />
+<meta property="article:modified_time" content="2023-09-22T10:16:51+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://XianCH.github.io/postsImg/springboot.png" />
+<meta name="twitter:title" content="springboot学习笔记"/>
+<meta name="twitter:description" content="spring boot2学习笔记 一， spring boot2核心技术基础入门 1.spring能做什么 1.1 spring的能力 ![image-20220321190444355](spring boot2学习笔记.assets\image-20220321190444355.png) 二 、为什么用SpringBoot Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can &ldquo;just run&rdquo;. 能快速创建出生产级别的Sp"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://XianCH.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "👨🏻‍💻 技术",
+          "item": "https://XianCH.github.io/posts/tech/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "springboot学习笔记",
+      "item": "https://XianCH.github.io/posts/tech/java/springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "springboot学习笔记",
+  "name": "springboot学习笔记",
+  "description": "spring boot2学习笔记 一， spring boot2核心技术基础入门 1.spring能做什么 1.1 spring的能力 ![image-20220321190444355](spring boot2学习笔记.assets\\image-20220321190444355.png) 二 、为什么用SpringBoot Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can \u0026ldquo;just run\u0026rdquo;. 能快速创建出生产级别的Sp",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "spring boot2学习笔记 一，\tspring boot2核心技术基础入门 1.spring能做什么 1.1 spring的能力 ![image-20220321190444355](spring boot2学习笔记.assets\\image-20220321190444355.png)\n二\t、为什么用SpringBoot Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”.\n能快速创建出生产级别的Spring应用\n2.1、SpringBoot优点 Create stand-alone Spring applications\n创建独立Spring应用 Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)\n内嵌web服务器 Provide opinionated ‘starter’ dependencies to simplify your build configuration\n自动starter依赖，简化构建配置 Automatically configure Spring and 3rd party libraries whenever possible\n自动配置Spring以及第三方功能 Provide production-ready features such as metrics, health checks, and externalized configuration\n提供生产级别的监控、健康检查及外部化配置 Absolutely no code generation and no requirement for XML configuration\n无代码生成、无需编写XML 三 ， spring boot开发文档 四，spring boot入门 1，hello world 导入依赖 org.springframework.boot spring-boot-starter-web ![image-20220324143750246](D:\\6 – TypoDoc\\springboot2\\spring boot2学习笔记.assets\\image-20220324143750246.png) 这个依赖导入了开发中大部分的jar包\n1.1 编写主程序 ![image-20220324143859988](D:\\6 – TypoDoc\\springboot2\\spring boot2学习笔记.assets\\image-20220324143859988.png)\n@RestController public class HelloController { @RequestMapping(\"/hello\") public String handle01(){ return \"hello,Spring boot 2!\"; } } @SpringBootApplication public class MainApplication { public static void main(String[] args) { SpringApplication.run(MainApplication.class,args); } } 文件的部署\n用spring boot的插件把整个项目打包成jar包\norg.springframework.boot spring-boot-maven-plugin ![image-20220324144608094](spring boot2学习笔记.assets/image-20220324144608094-16797314654721.png)\n五，\t了解自动配置原理 1.0 依赖管理 org.springframework.boot spring-boot-starter-parent 2.6.4 他的父项目\norg.springframework.boot spring-boot-dependencies 2.6.4 几乎声明了所有开发中常用的依赖版本，和依赖所对应的版本号\n如：\n![image-20220324144411720](.\\spring boot2学习笔记.assets\\image-20220324144411720.png)\n因此在prom.xml中导入依赖的时候不需要写对应的的版本号\n![image-20220324145112721](D:\\6 – TypoDoc\\springboot2\\spring boot2学习笔记.assets\\image-20220324145112721.png)\n如何想自行更换版本：如更换mysql驱动 ​\t上mvn仓库Maven Repository: Search/Browse/Explore (mvnrepository.com)\n![image-20220324145711405](.\\spring boot2学习笔记.assets\\image-20220324145711405.png)\n​\t在porm。xml中输入\n5.1.43 依赖树\n![image-20220324150731469](.\\spring boot2学习笔记.assets\\image-20220324150731469.png)\n2.容器功能 2.1\t组件添加 @Configuration\n基本使用\n#############################Configuration使用示例###################################################### /** * 1、配置类里面使用@Bean标注在方法上给容器注册组件，默认也是单实例的 * 2、配置类本身也是组件 * 3、proxyBeanMethods：代理bean的方法 * Full(proxyBeanMethods = true)、【保证每个@Bean方法被调用多少次返回的组件都是单实例的】 * Lite(proxyBeanMethods = false)【每个@Bean方法被调用多少次返回的组件都是新创建的】 * 组件依赖必须使用Full模式默认。其他默认是否Lite模式 * * * */ @Configuration(proxyBeanMethods = false) //告诉SpringBoot这是一个配置类 == 配置文件 public class MyConfig { /** * Full:外部无论对配置类中的这个组件注册方法调用多少次获取的都是之前注册容器中的单实例对象 * @return */ @Bean //给容器中添加组件。以方法名作为组件的id。返回类型就是组件类型。返回的值，就是组件在容器中的实例 public User user01(){ User zhangsan = new User(\"zhangsan\", 18); //user组件依赖了Pet组件 zhangsan.setPet(tomcatPet()); return zhangsan; } @Bean(\"tom\") public Pet tomcatPet(){ return new Pet(\"tomcat\"); } } ################################@Configuration测试代码如下######################################## @SpringBootConfiguration @EnableAutoConfiguration @ComponentScan(\"com.atguigu.boot\") public class MainApplication { public static void main(String[] args) { //1、返回我们IOC容器 ConfigurableApplicationContext run = SpringApplication.run(MainApplication.class, args); //2、查看容器里面的组件 String[] names = run.getBeanDefinitionNames(); for (String name : names) { System.out.println(name); } //3、从容器中获取组件 Pet tom01 = run.getBean(\"tom\", Pet.class); Pet tom02 = run.getBean(\"tom\", Pet.class); System.out.println(\"组件：\"+(tom01 == tom02)); //4、com.atguigu.boot.config.MyConfig$$EnhancerBySpringCGLIB$$51f1e1ca@1654a892 MyConfig bean = run.getBean(MyConfig.class); System.out.println(bean); //如果@Configuration(proxyBeanMethods = true)代理对象调用方法。SpringBoot总会检查这个组件是否在容器中有。 //保持组件单实例 User user = bean.user01(); User user1 = bean.user01(); System.out.println(user == user1); User user01 = run.getBean(\"user01\", User.class); Pet tom = run.getBean(\"tom\", Pet.class); System.out.println(\"用户的宠物：\"+(user01.getPet() == tom)); } } @Bean、@Component、@Controller、@Service、@Repository\n@ComponentScan、@Import\n* 4、@Import({User.class, DBHelper.class}) * 给容器中自动创建出这两个类型的组件、默认组件的名字就是全类名 * * * */ @Import({User.class, DBHelper.class}) @Configuration(proxyBeanMethods = false) //告诉SpringBoot这是一个配置类 == 配置文件 public class MyConfig { } @Conditional\n条件装配：满足Conditional指定的条件，则进行组件注入\n![image-20220324212837038](.\\spring boot2学习笔记.assets\\image-20220324212837038.png)\n=====================测试条件装配========================== @Configuration(proxyBeanMethods = false) //告诉SpringBoot这是一个配置类 == 配置文件 //@ConditionalOnBean(name = \"tom\") @ConditionalOnMissingBean(name = \"tom\") public class MyConfig { /** * Full:外部无论对配置类中的这个组件注册方法调用多少次获取的都是之前注册容器中的单实例对象 * @return */ @Bean //给容器中添加组件。以方法名作为组件的id。返回类型就是组件类型。返回的值，就是组件在容器中的实例 public User user01(){ User zhangsan = new User(\"zhangsan\", 18); //user组件依赖了Pet组件 zhangsan.setPet(tomcatPet()); return zhangsan; } @Bean(\"tom22\") public Pet tomcatPet(){ return new Pet(\"tomcat\"); } } public static void main(String[] args) { //1、返回我们IOC容器 ConfigurableApplicationContext run = SpringApplication.run(MainApplication.class, args); //2、查看容器里面的组件 String[] names = run.getBeanDefinitionNames(); for (String name : names) { System.out.println(name); } boolean tom = run.containsBean(\"tom\"); System.out.println(\"容器中Tom组件：\"+tom); boolean user01 = run.containsBean(\"user01\"); System.out.println(\"容器中user01组件：\"+user01); boolean tom22 = run.containsBean(\"tom22\"); System.out.println(\"容器中tom22组件：\"+tom22); } 2.2\t原生配置文件引入 @ImportResource ======================beans.xml========================= \u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e ",
+  "wordCount" : "4318",
+  "inLanguage": "zh",
+  "image":"https://XianCH.github.io/postsImg/springboot.png","datePublished": "2022-07-27T10:16:51Z",
+  "dateModified": "2023-09-22T10:16:51Z",
+  "author":[{
+    "@type": "Person",
+    "name": "x14n"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://XianCH.github.io/posts/tech/java/springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "X14n's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://XianCH.github.io/img/favicon.icon"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://XianCH.github.io/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
+            <img src="https://XianCH.github.io/img/main.png" alt="logo" aria-label="logo"
+                 height="35">x14n&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <h1 class="post-title">
+                springboot学习笔记
+            </h1>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2022-07-27
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>4318字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>9分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>x14n
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://XianCH.github.io/tags/java/" style="color: var(--secondary)!important;">java</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://XianCH.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId:  null , 
+                                region:  null , 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/springboot.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#spring-boot2%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0" aria-label="spring boot2学习笔记">spring boot2学习笔记</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%80spring-boot2%e6%a0%b8%e5%bf%83%e6%8a%80%e6%9c%af%e5%9f%ba%e7%a1%80%e5%85%a5%e9%97%a8" aria-label="一，	spring boot2核心技术基础入门">一，	spring boot2核心技术基础入门</a><ul>
+                        
+                <li>
+                    <a href="#1spring%e8%83%bd%e5%81%9a%e4%bb%80%e4%b9%88" aria-label="1.spring能做什么">1.spring能做什么</a><ul>
+                        
+                <li>
+                    <a href="#11-spring%e7%9a%84%e8%83%bd%e5%8a%9b" aria-label="1.1 spring的能力">1.1 spring的能力</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%ba%8c%e4%b8%ba%e4%bb%80%e4%b9%88%e7%94%a8springboot" aria-label="二	、为什么用SpringBoot">二	、为什么用SpringBoot</a><ul>
+                        
+                <li>
+                    <a href="#21springboot%e4%bc%98%e7%82%b9" aria-label="2.1、SpringBoot优点">2.1、SpringBoot优点</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%b8%89--spring-boot%e5%bc%80%e5%8f%91%e6%96%87%e6%a1%a3" aria-label="三 ， spring boot开发文档">三 ， spring boot开发文档</a></li>
+                <li>
+                    <a href="#%e5%9b%9bspring-boot%e5%85%a5%e9%97%a8" aria-label="四，spring boot入门">四，spring boot入门</a><ul>
+                        
+                <li>
+                    <a href="#1hello-world" aria-label="1，hello world">1，hello world</a><ul>
+                        
+                <li>
+                    <a href="#%e5%af%bc%e5%85%a5%e4%be%9d%e8%b5%96" aria-label="导入依赖">导入依赖</a></li>
+                <li>
+                    <a href="#11-%e7%bc%96%e5%86%99%e4%b8%bb%e7%a8%8b%e5%ba%8f" aria-label="1.1 编写主程序">1.1 编写主程序</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%ba%94%e4%ba%86%e8%a7%a3%e8%87%aa%e5%8a%a8%e9%85%8d%e7%bd%ae%e5%8e%9f%e7%90%86" aria-label="五，	了解自动配置原理">五，	了解自动配置原理</a><ul>
+                        <ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#10-%e4%be%9d%e8%b5%96%e7%ae%a1%e7%90%86" aria-label="1.0 依赖管理">1.0 依赖管理</a></li></ul>
+                    </ul>
+                    
+                <li>
+                    <a href="#2%e5%ae%b9%e5%99%a8%e5%8a%9f%e8%83%bd" aria-label="2.容器功能">2.容器功能</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#21%e7%bb%84%e4%bb%b6%e6%b7%bb%e5%8a%a0" aria-label="2.1		组件添加">2.1		组件添加</a></li>
+                <li>
+                    <a href="#22%e5%8e%9f%e7%94%9f%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e5%bc%95%e5%85%a5" aria-label="2.2	原生配置文件引入">2.2	原生配置文件引入</a></li>
+                <li>
+                    <a href="#23%e9%85%8d%e7%bd%ae%e7%bb%91%e5%ae%9a" aria-label="2.3	配置绑定">2.3	配置绑定</a></li>
+                <li>
+                    <a href="#231configurationproperties" aria-label="2.3.1	@ConfigurationProperties">2.3.1	@ConfigurationProperties</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#3%e8%87%aa%e5%8a%a8%e9%85%8d%e7%bd%ae%e5%8e%9f%e7%90%86%e5%85%a5%e9%97%a8" aria-label="3.	自动配置原理入门">3.	自动配置原理入门</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#31%e5%bc%95%e5%af%bc%e5%8a%a0%e8%bd%bd%e8%87%aa%e5%8a%a8%e9%85%8d%e7%bd%ae%e7%b1%bb" aria-label="3.1	引导加载自动配置类">3.1	引导加载自动配置类</a></li>
+                <li>
+                    <a href="#32%e6%8c%89%e9%9c%80%e5%bc%80%e5%90%af%e8%87%aa%e5%8a%a8%e9%85%8d%e7%bd%ae%e9%a1%b9" aria-label="3.2	按需开启自动配置项">3.2	按需开启自动配置项</a></li>
+                <li>
+                    <a href="#33%e4%bf%ae%e6%94%b9%e9%bb%98%e8%ae%a4%e9%85%8d%e7%bd%ae" aria-label="3.3，修改默认配置">3.3，修改默认配置</a></li></ul>
+                    
+                <li>
+                    <a href="#34%e6%80%bb%e7%bb%93" aria-label="3.4	总结">3.4	总结</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="spring-boot2学习笔记">spring boot2学习笔记<a hidden class="anchor" aria-hidden="true" href="#spring-boot2学习笔记">#</a></h1>
+<h2 id="一spring-boot2核心技术基础入门">一，	spring boot2核心技术基础入门<a hidden class="anchor" aria-hidden="true" href="#一spring-boot2核心技术基础入门">#</a></h2>
+<h3 id="1spring能做什么">1.spring能做什么<a hidden class="anchor" aria-hidden="true" href="#1spring能做什么">#</a></h3>
+<h4 id="11-spring的能力">1.1 spring的能力<a hidden class="anchor" aria-hidden="true" href="#11-spring的能力">#</a></h4>
+<p>![image-20220321190444355](spring boot2学习笔记.assets\image-20220321190444355.png)</p>
+<h2 id="二为什么用springboot">二	、为什么用SpringBoot<a hidden class="anchor" aria-hidden="true" href="#二为什么用springboot">#</a></h2>
+<p>Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can &ldquo;just run&rdquo;.</p>
+<p>能快速创建出生产级别的Spring应用</p>
+<h3 id="21springboot优点">2.1、SpringBoot优点<a hidden class="anchor" aria-hidden="true" href="#21springboot优点">#</a></h3>
+<ul>
+<li>
+<p>Create stand-alone Spring applications</p>
+</li>
+<li>
+<ul>
+<li>创建独立Spring应用</li>
+</ul>
+</li>
+<li>
+<p>Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)</p>
+</li>
+<li>
+<ul>
+<li>内嵌web服务器</li>
+</ul>
+</li>
+<li>
+<p>Provide opinionated &lsquo;starter&rsquo; dependencies to simplify your build configuration</p>
+</li>
+<li>
+<ul>
+<li>自动starter依赖，简化构建配置</li>
+</ul>
+</li>
+<li>
+<p>Automatically configure Spring and 3rd party libraries whenever possible</p>
+</li>
+<li>
+<ul>
+<li>自动配置Spring以及第三方功能</li>
+</ul>
+</li>
+<li>
+<p>Provide production-ready features such as metrics, health checks, and externalized configuration</p>
+</li>
+<li>
+<ul>
+<li>提供生产级别的监控、健康检查及外部化配置</li>
+</ul>
+</li>
+<li>
+<p>Absolutely no code generation and no requirement for XML configuration</p>
+</li>
+<li>
+<ul>
+<li>无代码生成、无需编写XML</li>
+</ul>
+</li>
+<li></li>
+<li>
+<h2 id="三--spring-boot开发文档">三 ， spring boot开发文档<a hidden class="anchor" aria-hidden="true" href="#三--spring-boot开发文档">#</a></h2>
+</li>
+<li></li>
+<li>
+<p><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/documentation.html#documentation.io"></a></p>
+</li>
+</ul>
+<h2 id="四spring-boot入门">四，spring boot入门<a hidden class="anchor" aria-hidden="true" href="#四spring-boot入门">#</a></h2>
+<h3 id="1hello-world">1，hello world<a hidden class="anchor" aria-hidden="true" href="#1hello-world">#</a></h3>
+<h4 id="导入依赖">导入依赖<a hidden class="anchor" aria-hidden="true" href="#导入依赖">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dependencies&gt;</span>
+</span></span></code></pre></div><p>![image-20220324143750246](D:\6 &ndash; TypoDoc\springboot2\spring boot2学习笔记.assets\image-20220324143750246.png)
+这个依赖导入了开发中大部分的jar包</p>
+<h4 id="11-编写主程序">1.1 编写主程序<a hidden class="anchor" aria-hidden="true" href="#11-编写主程序">#</a></h4>
+<p>![image-20220324143859988](D:\6 &ndash; TypoDoc\springboot2\spring boot2学习笔记.assets\image-20220324143859988.png)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloController</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/hello&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">handle01</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;hello,Spring boot 2!&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainApplication</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>MainApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span>args<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>文件的部署</p>
+<p>用spring boot的插件把整个项目打包成jar包</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;build&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;plugins&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;plugin&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;/plugin&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/plugins&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/build&gt;</span>
+</span></span></code></pre></div><p>![image-20220324144608094](spring boot2学习笔记.assets/image-20220324144608094-16797314654721.png)</p>
+<h2 id="五了解自动配置原理">五，	了解自动配置原理<a hidden class="anchor" aria-hidden="true" href="#五了解自动配置原理">#</a></h2>
+<h5 id="10-依赖管理">1.0 依赖管理<a hidden class="anchor" aria-hidden="true" href="#10-依赖管理">#</a></h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>    <span style="color:#f92672">&lt;parent&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-parent<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;version&gt;</span>2.6.4<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/parent&gt;</span>
+</span></span></code></pre></div><p>他的父项目</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;parent&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-dependencies<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;version&gt;</span>2.6.4<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/parent&gt;</span>
+</span></span><span style="display:flex;"><span>  
+</span></span></code></pre></div><p>几乎声明了所有开发中常用的依赖版本，和依赖所对应的版本号</p>
+<p>如：</p>
+<p>![image-20220324144411720](.\spring boot2学习笔记.assets\image-20220324144411720.png)</p>
+<p>因此在prom.xml中导入依赖的时候不需要写对应的的版本号</p>
+<p>![image-20220324145112721](D:\6 &ndash; TypoDoc\springboot2\spring boot2学习笔记.assets\image-20220324145112721.png)</p>
+<ol start="3">
+<li>如何想自行更换版本：如更换mysql驱动</li>
+</ol>
+<p>​		上mvn仓库<a href="https://mvnrepository.com/">Maven Repository: Search/Browse/Explore (mvnrepository.com)</a></p>
+<p>![image-20220324145711405](.\spring boot2学习笔记.assets\image-20220324145711405.png)</p>
+<p>​		在porm。xml中输入</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;properties&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;mysql.version&gt;</span>5.1.43<span style="color:#f92672">&lt;/mysql.version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/properties&gt;</span>
+</span></span></code></pre></div><p>依赖树</p>
+<p>![image-20220324150731469](.\spring boot2学习笔记.assets\image-20220324150731469.png)</p>
+<h3 id="2容器功能">2.容器功能<a hidden class="anchor" aria-hidden="true" href="#2容器功能">#</a></h3>
+<h5 id="21组件添加">2.1		组件添加<a hidden class="anchor" aria-hidden="true" href="#21组件添加">#</a></h5>
+<ol>
+<li>
+<p>@Configuration</p>
+<p>基本使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#############################</span>Configuration使用示例<span style="color:#960050;background-color:#1e0010">######################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * 1、配置类里面使用@Bean标注在方法上给容器注册组件，默认也是单实例的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * 2、配置类本身也是组件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * 3、proxyBeanMethods：代理bean的方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *      Full(proxyBeanMethods = true)、【保证每个@Bean方法被调用多少次返回的组件都是单实例的】
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *      Lite(proxyBeanMethods = false)【每个@Bean方法被调用多少次返回的组件都是新创建的】
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *      组件依赖必须使用Full模式默认。其他默认是否Lite模式
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span><span style="color:#f92672">(</span>proxyBeanMethods <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span> <span style="color:#75715e">//告诉SpringBoot这是一个配置类 == 配置文件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyConfig</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * Full:外部无论对配置类中的这个组件注册方法调用多少次获取的都是之前注册容器中的单实例对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Bean</span> <span style="color:#75715e">//给容器中添加组件。以方法名作为组件的id。返回类型就是组件类型。返回的值，就是组件在容器中的实例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">user01</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        User zhangsan <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;zhangsan&#34;</span><span style="color:#f92672">,</span> 18<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//user组件依赖了Pet组件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        zhangsan<span style="color:#f92672">.</span><span style="color:#a6e22e">setPet</span><span style="color:#f92672">(</span>tomcatPet<span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> zhangsan<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Bean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;tom&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Pet <span style="color:#a6e22e">tomcatPet</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Pet<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;tomcat&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">################################</span><span style="color:#a6e22e">@Configuration测试代码如下</span><span style="color:#960050;background-color:#1e0010">########################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootConfiguration</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableAutoConfiguration</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ComponentScan</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.atguigu.boot&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainApplication</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//1、返回我们IOC容器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        ConfigurableApplicationContext run <span style="color:#f92672">=</span> SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>MainApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//2、查看容器里面的组件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        String<span style="color:#f92672">[]</span> names <span style="color:#f92672">=</span> run<span style="color:#f92672">.</span><span style="color:#a6e22e">getBeanDefinitionNames</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String name <span style="color:#f92672">:</span> names<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//3、从容器中获取组件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>        Pet tom01 <span style="color:#f92672">=</span> run<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;tom&#34;</span><span style="color:#f92672">,</span> Pet<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Pet tom02 <span style="color:#f92672">=</span> run<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;tom&#34;</span><span style="color:#f92672">,</span> Pet<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;组件：&#34;</span><span style="color:#f92672">+(</span>tom01 <span style="color:#f92672">==</span> tom02<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//4、com.atguigu.boot.config.MyConfig$$EnhancerBySpringCGLIB$$51f1e1ca@1654a892
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        MyConfig bean <span style="color:#f92672">=</span> run<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span>MyConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>bean<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//如果@Configuration(proxyBeanMethods = true)代理对象调用方法。SpringBoot总会检查这个组件是否在容器中有。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">//保持组件单实例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        User user <span style="color:#f92672">=</span> bean<span style="color:#f92672">.</span><span style="color:#a6e22e">user01</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        User user1 <span style="color:#f92672">=</span> bean<span style="color:#f92672">.</span><span style="color:#a6e22e">user01</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>user <span style="color:#f92672">==</span> user1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        User user01 <span style="color:#f92672">=</span> run<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user01&#34;</span><span style="color:#f92672">,</span> User<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        Pet tom <span style="color:#f92672">=</span> run<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;tom&#34;</span><span style="color:#f92672">,</span> Pet<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;用户的宠物：&#34;</span><span style="color:#f92672">+(</span>user01<span style="color:#f92672">.</span><span style="color:#a6e22e">getPet</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> tom<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>@Bean、@Component、@Controller、@Service、@Repository</p>
+</li>
+<li>
+<p>@ComponentScan、@Import</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#f92672">*</span> 4<span style="color:#960050;background-color:#1e0010">、</span><span style="color:#a6e22e">@Import</span><span style="color:#f92672">({</span>User<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> DBHelper<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">})</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">*</span>      给容器中自动创建出这两个类型的组件<span style="color:#960050;background-color:#1e0010">、</span>默认组件的名字就是全类名
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">*/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Import</span><span style="color:#f92672">({</span>User<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> DBHelper<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span><span style="color:#f92672">(</span>proxyBeanMethods <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span> <span style="color:#75715e">//告诉SpringBoot这是一个配置类 == 配置文件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyConfig</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>@Conditional</p>
+<p>条件装配：满足Conditional指定的条件，则进行组件注入</p>
+<p>![image-20220324212837038](.\spring boot2学习笔记.assets\image-20220324212837038.png)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">=====================</span>测试条件装配<span style="color:#f92672">==========================</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span><span style="color:#f92672">(</span>proxyBeanMethods <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span> <span style="color:#75715e">//告诉SpringBoot这是一个配置类 == 配置文件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//@ConditionalOnBean(name = &#34;tom&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">@ConditionalOnMissingBean</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tom&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyConfig</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * Full:外部无论对配置类中的这个组件注册方法调用多少次获取的都是之前注册容器中的单实例对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Bean</span> <span style="color:#75715e">//给容器中添加组件。以方法名作为组件的id。返回类型就是组件类型。返回的值，就是组件在容器中的实例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">user01</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        User zhangsan <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;zhangsan&#34;</span><span style="color:#f92672">,</span> 18<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//user组件依赖了Pet组件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        zhangsan<span style="color:#f92672">.</span><span style="color:#a6e22e">setPet</span><span style="color:#f92672">(</span>tomcatPet<span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> zhangsan<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Bean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;tom22&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Pet <span style="color:#a6e22e">tomcatPet</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Pet<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;tomcat&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//1、返回我们IOC容器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        ConfigurableApplicationContext run <span style="color:#f92672">=</span> SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>MainApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//2、查看容器里面的组件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        String<span style="color:#f92672">[]</span> names <span style="color:#f92672">=</span> run<span style="color:#f92672">.</span><span style="color:#a6e22e">getBeanDefinitionNames</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String name <span style="color:#f92672">:</span> names<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">boolean</span> tom <span style="color:#f92672">=</span> run<span style="color:#f92672">.</span><span style="color:#a6e22e">containsBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;tom&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;容器中Tom组件：&#34;</span><span style="color:#f92672">+</span>tom<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">boolean</span> user01 <span style="color:#f92672">=</span> run<span style="color:#f92672">.</span><span style="color:#a6e22e">containsBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user01&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;容器中user01组件：&#34;</span><span style="color:#f92672">+</span>user01<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">boolean</span> tom22 <span style="color:#f92672">=</span> run<span style="color:#f92672">.</span><span style="color:#a6e22e">containsBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;tom22&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;容器中tom22组件：&#34;</span><span style="color:#f92672">+</span>tom22<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+</ol>
+<h5 id="22原生配置文件引入">2.2	原生配置文件引入<a hidden class="anchor" aria-hidden="true" href="#22原生配置文件引入">#</a></h5>
+<ol>
+<li>@ImportResource</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>======================beans.xml=========================
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">xmlns:context=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/context&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;haha&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.atguigu.boot.bean.User&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;zhangsan&#34;</span><span style="color:#f92672">&gt;&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;age&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;18&#34;</span><span style="color:#f92672">&gt;&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/bean&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;hehe&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.atguigu.boot.bean.Pet&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;tomcat&#34;</span><span style="color:#f92672">&gt;&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/bean&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/beans&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@ImportResource</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;classpath:beans.xml&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyConfig</span> <span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">======================</span>测试<span style="color:#f92672">=================</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">boolean</span> haha <span style="color:#f92672">=</span> run<span style="color:#f92672">.</span><span style="color:#a6e22e">containsBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;haha&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">boolean</span> hehe <span style="color:#f92672">=</span> run<span style="color:#f92672">.</span><span style="color:#a6e22e">containsBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;hehe&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;haha：&#34;</span><span style="color:#f92672">+</span>haha<span style="color:#f92672">);</span><span style="color:#75715e">//true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;hehe：&#34;</span><span style="color:#f92672">+</span>hehe<span style="color:#f92672">);</span><span style="color:#75715e">//true
+</span></span></span></code></pre></div><h5 id="23配置绑定">2.3	配置绑定<a hidden class="anchor" aria-hidden="true" href="#23配置绑定">#</a></h5>
+<p>如何使用Java读取到properties文件中的内容，并且把它封装到JavaBean中，以供随时使用；</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">getProperties</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> FileNotFoundException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>         Properties pps <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Properties<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>         pps<span style="color:#f92672">.</span><span style="color:#a6e22e">load</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> FileInputStream<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;a.properties&#34;</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>         Enumeration enum1 <span style="color:#f92672">=</span> pps<span style="color:#f92672">.</span><span style="color:#a6e22e">propertyNames</span><span style="color:#f92672">();</span><span style="color:#75715e">//得到配置文件的名字
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>         <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>enum1<span style="color:#f92672">.</span><span style="color:#a6e22e">hasMoreElements</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>             String strKey <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>String<span style="color:#f92672">)</span> enum1<span style="color:#f92672">.</span><span style="color:#a6e22e">nextElement</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>             String strValue <span style="color:#f92672">=</span> pps<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span>strKey<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>             System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>strKey <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;=&#34;</span> <span style="color:#f92672">+</span> strValue<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#75715e">//封装到JavaBean。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>         <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">}</span>
+</span></span></code></pre></div><h5 id="231configurationproperties">2.3.1	@ConfigurationProperties<a hidden class="anchor" aria-hidden="true" href="#231configurationproperties">#</a></h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * 只有在容器中的组件，才会拥有SpringBoot提供的强大功能
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Component</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ConfigurationProperties</span><span style="color:#f92672">(</span>prefix <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;mycar&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String brand<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Integer price<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getBrand</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> brand<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setBrand</span><span style="color:#f92672">(</span>String brand<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">brand</span> <span style="color:#f92672">=</span> brand<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">getPrice</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> price<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setPrice</span><span style="color:#f92672">(</span>Integer price<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">price</span> <span style="color:#f92672">=</span> price<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Car{&#34;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;brand=&#39;&#34;</span> <span style="color:#f92672">+</span> brand <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;\&#39;&#39;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;, price=&#34;</span> <span style="color:#f92672">+</span> price <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;}&#39;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>2.3.3	@EnableConfigurationProperties + @ConfigurationProperties</p>
+<p>2.3.4	@Component + @ConfigurationProperties</p>
+<p>​</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@EnableConfigurationProperties</span><span style="color:#f92672">(</span>Car<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//1、开启Car配置绑定功能
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//2、把这个Car这个组件自动注册到容器中
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyConfig</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="3自动配置原理入门">3.	自动配置原理入门<a hidden class="anchor" aria-hidden="true" href="#3自动配置原理入门">#</a></h3>
+<h5 id="31引导加载自动配置类">3.1	引导加载自动配置类<a hidden class="anchor" aria-hidden="true" href="#31引导加载自动配置类">#</a></h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootConfiguration</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableAutoConfiguration</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ComponentScan</span><span style="color:#f92672">(</span>excludeFilters <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#a6e22e">@Filter</span><span style="color:#f92672">(</span>type <span style="color:#f92672">=</span> FilterType<span style="color:#f92672">.</span><span style="color:#a6e22e">CUSTOM</span><span style="color:#f92672">,</span> classes <span style="color:#f92672">=</span> TypeExcludeFilter<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">),</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">@Filter</span><span style="color:#f92672">(</span>type <span style="color:#f92672">=</span> FilterType<span style="color:#f92672">.</span><span style="color:#a6e22e">CUSTOM</span><span style="color:#f92672">,</span> classes <span style="color:#f92672">=</span> AutoConfigurationExcludeFilter<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span> <span style="color:#f92672">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> SpringBootApplication<span style="color:#f92672">{}</span>
+</span></span></code></pre></div><ol>
+<li>
+<p>@SpringBootConfiguration</p>
+<p>@Configuration.代表当前是一个配置类</p>
+</li>
+<li>
+<p>@ComponentScan</p>
+<p>指定扫描哪些组件，Spring注解。</p>
+</li>
+<li>
+<p>@EnableAutoConfiguration</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@AutoConfigurationPackage</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Import</span><span style="color:#f92672">(</span>AutoConfigurationImportSelector<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> EnableAutoConfiguration <span style="color:#f92672">{}</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>@AutoConfigurationPackage</p>
+<p>自动配置包，指定了默认的包规则</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Import</span><span style="color:#f92672">(</span>AutoConfigurationPackages<span style="color:#f92672">.</span><span style="color:#a6e22e">Registrar</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>  <span style="color:#75715e">//给容器中导入一个组件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> AutoConfigurationPackage <span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//利用Registrar给容器中导入一系列组件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//将指定的一个包下的所有组件导入进来？MainApplication 所在包下。
+</span></span></span></code></pre></div></li>
+<li>
+<p>@Import(AutoConfigurationImportSelector.class)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>1、利用getAutoConfigurationEntry(annotationMetadata);给容器中批量导入一些组件
+</span></span><span style="display:flex;"><span>2、调用List&lt;String&gt; configurations = getCandidateConfigurations(annotationMetadata, attributes)获取到所有需要导入到容器中的配置类
+</span></span><span style="display:flex;"><span>3、利用工厂加载 Map&lt;String, List&lt;String&gt;&gt; loadSpringFactories(@Nullable ClassLoader classLoader)；得到所有的组件
+</span></span><span style="display:flex;"><span>4、从META-INF/spring.factories位置来加载一个文件。
+</span></span><span style="display:flex;"><span>	默认扫描我们当前系统里面所有META-INF/spring.factories位置的文件
+</span></span><span style="display:flex;"><span>    spring-boot-autoconfigure-2.3.4.RELEASE.jar包里面也有META-INF/spring.factories
+</span></span></code></pre></div><p>![image-20220324214138887](.\spring boot2学习笔记.assets\image-20220324214138887.png)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>spring-boot-autoconfigure-2.3.4.RELEASE.jar/META-INF/spring.factories
+</span></span><span style="display:flex;"><span># Auto Configure
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.aop.AopAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.context.LifecycleAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.couchbase.CouchbaseAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.dao.PersistenceExceptionTranslationAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.cassandra.CassandraDataAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.cassandra.CassandraReactiveDataAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.cassandra.CassandraReactiveRepositoriesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.cassandra.CassandraRepositoriesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.couchbase.CouchbaseDataAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.couchbase.CouchbaseReactiveDataAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.couchbase.CouchbaseReactiveRepositoriesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.couchbase.CouchbaseRepositoriesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchDataAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchRepositoriesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.elasticsearch.ReactiveElasticsearchRepositoriesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.elasticsearch.ReactiveElasticsearchRestClientAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.jdbc.JdbcRepositoriesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.ldap.LdapRepositoriesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.mongo.MongoReactiveDataAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.mongo.MongoReactiveRepositoriesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.mongo.MongoRepositoriesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.neo4j.Neo4jDataAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.neo4j.Neo4jRepositoriesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.solr.SolrRepositoriesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.r2dbc.R2dbcDataAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.r2dbc.R2dbcRepositoriesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.r2dbc.R2dbcTransactionManagerAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.redis.RedisReactiveAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.rest.RepositoryRestMvcAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.elasticsearch.ElasticsearchRestClientAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.hazelcast.HazelcastAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.hazelcast.HazelcastJpaDependencyAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.http.codec.CodecsAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.influx.InfluxDbAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.jdbc.JndiDataSourceAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.jms.JmsAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.jms.JndiConnectionFactoryAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.jms.activemq.ActiveMQAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.jms.artemis.ArtemisAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.jersey.JerseyAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.jooq.JooqAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.kafka.KafkaAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.availability.ApplicationAvailabilityAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.ldap.embedded.EmbeddedLdapAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.ldap.LdapAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.mail.MailSenderValidatorAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.mongo.MongoReactiveAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.quartz.QuartzAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.r2dbc.R2dbcAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.rsocket.RSocketMessagingAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.rsocket.RSocketRequesterAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.rsocket.RSocketServerAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.rsocket.RSocketStrategiesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.security.reactive.ReactiveSecurityAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.security.reactive.ReactiveUserDetailsServiceAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.security.rsocket.RSocketSecurityAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.security.saml2.Saml2RelyingPartyAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.sendgrid.SendGridAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.session.SessionAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.security.oauth2.client.reactive.ReactiveOAuth2ClientAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.security.oauth2.resource.reactive.ReactiveOAuth2ResourceServerAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.solr.SolrAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.task.TaskSchedulingAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.transaction.jta.JtaAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.web.client.RestTemplateAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.web.embedded.EmbeddedWebServerFactoryCustomizerAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.web.reactive.HttpHandlerAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.web.reactive.ReactiveWebServerFactoryAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.web.reactive.WebFluxAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.web.reactive.error.ErrorWebFluxAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.web.reactive.function.client.ClientHttpConnectorAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.web.reactive.function.client.WebClientAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.websocket.reactive.WebSocketReactiveAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.websocket.servlet.WebSocketMessagingAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.webservices.WebServicesAutoConfiguration,\
+</span></span><span style="display:flex;"><span>org.springframework.boot.autoconfigure.webservices.client.WebServiceTemplateAutoConfiguration
+</span></span></code></pre></div><p>这是springboot会自动加载的组件</p>
+</li>
+</ul>
+</li>
+</ol>
+<h5 id="32按需开启自动配置项">3.2	按需开启自动配置项<a hidden class="anchor" aria-hidden="true" href="#32按需开启自动配置项">#</a></h5>
+<p>虽然我们127个场景的所有自动配置启动的时候默认全部加载。xxxxAutoConfiguration
+按照条件装配规则（@Conditional），最终会按需配置。</p>
+<h5 id="33修改默认配置">3.3，修改默认配置<a hidden class="anchor" aria-hidden="true" href="#33修改默认配置">#</a></h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Bean</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">@ConditionalOnBean</span><span style="color:#f92672">(</span>MultipartResolver<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>  <span style="color:#75715e">//容器中有这个类型组件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">@ConditionalOnMissingBean</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> DispatcherServlet<span style="color:#f92672">.</span><span style="color:#a6e22e">MULTIPART_RESOLVER_BEAN_NAME</span><span style="color:#f92672">)</span> <span style="color:#75715e">//容器中没有这个名字 multipartResolver 的组件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">public</span> MultipartResolver <span style="color:#a6e22e">multipartResolver</span><span style="color:#f92672">(</span>MultipartResolver resolver<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//给@Bean标注的方法传入了对象参数，这个参数的值就会从容器中找。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">//SpringMVC multipartResolver。防止有些用户配置的文件上传解析器不符合规范
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#75715e">// Detect if the user has created a MultipartResolver but named it incorrectly
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">return</span> resolver<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>给容器中加入了文件上传解析器<span style="color:#960050;background-color:#1e0010">；</span>
+</span></span></code></pre></div><p>SpringBoot默认会在底层配好所有组件。但是如果用户自己配置了的话 以用户配置的优先</p>
+<p>例如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Bean</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">@ConditionalOnMissingBean</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> CharacterEncodingFilter <span style="color:#a6e22e">characterEncodingFilter</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span></code></pre></div><h4 id="34总结">3.4	总结<a hidden class="anchor" aria-hidden="true" href="#34总结">#</a></h4>
+<ol>
+<li>
+<p>SpringBoot启动时先加载所有的自动配置类 xxxxAutoConfiguration</p>
+</li>
+<li>
+<p>每个自动配置类按照条件进行生效（Conditonalxxxx），默认都会绑定配置文件中的值，xxxxProperties里面拿。xxxxProperties和配置文件进行了绑定</p>
+</li>
+<li>
+<p>生效了的配置类会给容器配置相应的组件</p>
+</li>
+<li>
+<p>只要容器中有这些组将，就相当于有了这些功能</p>
+</li>
+<li>
+<p>定制配置</p>
+<ul>
+<li>
+<p>a&gt;用户自己配置Bean替换底层的组件</p>
+</li>
+<li>
+<p>b&gt;用户去看这个组件是获取的配置文件的什么值，自己去配置文件中修改</p>
+<p>xxxxAutoConfiguration &mdash;-&gt;对应的组件&mdash;-&gt;xxxxProperties里面拿值&mdash;&ndash;application.properties</p>
+</li>
+</ul>
+</li>
+</ol>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://XianCH.github.io/posts/tech/distributed/rabbitmq%E5%AD%A6%E4%B9%A0/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>RabbitMq</span>
+  </a>
+  <a class="next" href="https://XianCH.github.io/posts/life/life/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Life</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+<div>
+    <details class="comments_details">
+        <summary style="cursor: pointer; margin: 50px 0 20px 0;width: 130px;">
+            <span style="font-size: 20px;color: var(--content);">...</span>
+        </summary>
+        <div id="tcomment"></div>
+    </details>
+    <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js">
+    </script>
+    <script>
+        twikoo.init({
+            envId:  null ,
+        el: "#tcomment",
+            lang: 'zh-CN',
+            region:  null ,
+        path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        })
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>
+        Copyright
+        &copy;
+        -2023
+        <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
+        All Rights Reserved
+    </span>
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;"></a>&nbsp;
+    <span>
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null"
+           style="display:inline-block;text-decoration:none;height:20px;color:#939393;">
+            <img src="" style="float:left;margin: 0px 5px 0px 0px;"/>
+            
+        </a>
+    </span>
+    <span id="busuanzi_container">
+        <span class="fa fa-user"></span> <span id="busuanzi_value_site_uv"></span>
+        <span class="fa fa-eye"></span> <span id="busuanzi_value_site_pv"></span>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+</body>
+
+</html>

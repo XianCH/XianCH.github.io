@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>tool on X14n&#39;s Blog</title>
+    <link>https://XianCH.github.io/tags/tool/</link>
+    <description>Recent content in tool on X14n&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 23 Jul 2023 07:20:24 +0000</lastBuildDate><atom:link href="https://XianCH.github.io/tags/tool/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>常用快捷键</title>
+      <link>https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Sun, 23 Jul 2023 07:20:24 +0000</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl+b 然</description>
+    </item>
+    
+  </channel>
+</rss>
