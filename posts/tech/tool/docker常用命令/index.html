@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Docker备忘录 | X14n&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="docker备忘录...">
+<meta name="author" content="x14n">
+<link rel="canonical" href="https://XianCH.github.io/posts/tech/tool/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
+<link rel="icon" type="image/png" sizes="16x16" href="https://XianCH.github.io/img/main.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://XianCH.github.io/img/main.png">
+<link rel="apple-touch-icon" href="https://XianCH.github.io/img/main.png">
+<link rel="mask-icon" href="https://XianCH.github.io/img/main.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta property="og:title" content="Docker备忘录" />
+<meta property="og:description" content="docker备忘录..." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://XianCH.github.io/posts/tech/tool/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" />
+<meta property="og:image" content="https://XianCH.github.io/postsImg/docker.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-26T18:52:17+00:00" />
+<meta property="article:modified_time" content="2023-09-26T18:52:17+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://XianCH.github.io/postsImg/docker.png" />
+<meta name="twitter:title" content="Docker备忘录"/>
+<meta name="twitter:description" content="docker备忘录..."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://XianCH.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "👨🏻‍💻 技术",
+          "item": "https://XianCH.github.io/posts/tech/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Docker备忘录",
+      "item": "https://XianCH.github.io/posts/tech/tool/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Docker备忘录",
+  "name": "Docker备忘录",
+  "description": "docker备忘录...",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "docker常用命令 容器 进入容器 docker exec -it contaionName /bin/bash 查看容器日志 docker logs -f contaionName # 停止运行的容器 docker stop [容器ID] # 杀死容器进程 docker kill [容器ID] 镜像 导出镜像\ndocker save 导入镜像\ndocker load docker安装相关软件 redis 运行容器\ndocker run -itd --name redis-test -p 6379:6379 redis docker run --restart=always --log-opt max-size=100m --log-opt max-file=2 -p 6379:6379 --name myredis -v /home/redis/myredis/myredis.conf:/etc/redis/redis.conf -v /home/redis/myredis/data:/data -d redis redis-server /etc/redis/redis.conf --appendonly yes --requirepass 000415 参数说明\n--restart=always 总是开机启动 --log是日志方面的 -p 6379:6379 将6379端口挂载出去 --name 给这个容器取一个名字 -v 数据卷挂载 –appendonly yes 开启redis 持久化 –requirepass 000415 设置密码 （ nacos 下载镜像\ndocker pull nacos/nacos-server:2.0.3 挂载目录\nmkdir -p /usr/local/docker/nacos/conf mkdir -p /usr/local/docker/nacos/data mkdir -p /usr/local/docker/nacos/logs chmod a+w /usr/local/docker/nacos 在/usr/local/docker/nacos/conf目录下新建application.properties文件\n在`/usr/local/docker/nacos/conf`目录下新建`application.properties`文件 server.servlet.contextPath=/nacos server.port=8848 spring.datasource.platform=mysql ### Count of DB: db.num=1 ### Connect URL of DB: db.url.0=jdbc:mysql://192.168.164.101:3306/nacos?characterEncoding=utf8\u0026connectTimeout=1000\u0026socketTimeout=3000\u0026autoReconnect=true\u0026useUnicode=true\u0026useSSL=false\u0026serverTimezone=UTC db.user.0=root db.password.0=root ### Connection pool configuration: hikariCP db.pool.config.connectionTimeout=30000 db.pool.config.validationTimeout=10000 db.pool.config.maximumPoolSize=20 db.pool.config.minimumIdle=2 nacos.naming.empty-service.auto-clean=true nacos.naming.empty-service.clean.initial-delay-ms=50000 nacos.naming.empty-service.clean.period-time-ms=30000 server.tomcat.accesslog.enabled=true ### The access log pattern: server.tomcat.accesslog.pattern=%h %l %u %t \"%r\" %s %b %D %{User-Agent}i %{Request-Source}i nacos.security.ignore.urls=/,/error,/**/*.css,/**/*.js,/**/*.html,/**/*.map,/**/*.svg,/**/*.png,/**/*.ico,/console-ui/public/**,/v1/auth/**,/v1/console/health/**,/actuator/**,/v1/console/server/** ### The auth system to use, currently only 'nacos' and 'ldap' is supported: nacos.core.auth.system.type=nacos ### If turn on auth system: nacos.core.auth.enabled=false ### The token expiration in seconds: nacos.core.auth.default.token.expire.seconds=18000 ### The default token: nacos.core.auth.default.token.secret.key=SecretKey012345678901234567890123456789012345678901234567890123456789 nacos.core.auth.caching.enabled=true nacos.core.auth.enable.userAgentAuthWhite=false nacos.core.auth.server.identity.key=serverIdentity nacos.core.auth.server.identity.value=security nacos.istio.mcp.server.enabled=false 初始化nacos数据库nacos.sql\n放到conf目录下\n/* * Copyright 1999-2018 Alibaba Group Holding Ltd. * * Licensed under the Apache License, Version 2.0 (the \"License\"); * you may not use this file except in compliance with the License. * You may obtain a copy of the License at * * http://www.apache.org/licenses/LICENSE-2.0 * * Unless required by applicable law or agreed to in writing, software * distributed under the License is distributed on an \"AS IS\" BASIS, * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. * See the License for the specific language governing permissions and * limitations under the License. */ /******************************************/ /* 数据库全名 = nacos_config */ /* 表名称 = config_info */ /******************************************/ CREATE TABLE `config_info` ( `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id', `data_id` varchar(255) NOT NULL COMMENT 'data_id', `group_id` varchar(255) DEFAULT NULL, `content` longtext NOT NULL COMMENT 'content', `md5` varchar(32) DEFAULT NULL COMMENT 'md5', `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间', `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间', `src_user` text COMMENT 'source user', `src_ip` varchar(50) DEFAULT NULL COMMENT 'source ip', `app_name` varchar(128) DEFAULT NULL, `tenant_id` varchar(128) DEFAULT '' COMMENT '租户字段', `c_desc` varchar(256) DEFAULT NULL, `c_use` varchar(64) DEFAULT NULL, `effect` varchar(64) DEFAULT NULL, `type` varchar(64) DEFAULT NULL, `c_schema` text, PRIMARY KEY (`id`), UNIQUE KEY `uk_configinfo_datagrouptenant` (`data_id`,`group_id`,`tenant_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='config_info'; /******************************************/ /* 数据库全名 = nacos_config */ /* 表名称 = config_info_aggr */ /******************************************/ CREATE TABLE `config_info_aggr` ( `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id', `data_id` varchar(255) NOT NULL COMMENT 'data_id', `group_id` varchar(255) NOT NULL COMMENT 'group_id', `datum_id` varchar(255) NOT NULL COMMENT 'datum_id', `content` longtext NOT NULL COMMENT '内容', `gmt_modified` datetime NOT NULL COMMENT '修改时间', `app_name` varchar(128) DEFAULT NULL, `tenant_id` varchar(128) DEFAULT '' COMMENT '租户字段', PRIMARY KEY (`id`), UNIQUE KEY `uk_configinfoaggr_datagrouptenantdatum` (`data_id`,`group_id`,`tenant_id`,`datum_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='增加租户字段'; /******************************************/ /* 数据库全名 = nacos_config */ /* 表名称 = config_info_beta */ /******************************************/ CREATE TABLE `config_info_beta` ( `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id', `data_id` varchar(255) NOT NULL COMMENT 'data_id', `group_id` varchar(128) NOT NULL COMMENT 'group_id', `app_name` varchar(128) DEFAULT NULL COMMENT 'app_name', `content` longtext NOT NULL COMMENT 'content', `beta_ips` varchar(1024) DEFAULT NULL COMMENT 'betaIps', `md5` varchar(32) DEFAULT NULL COMMENT 'md5', `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间', `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间', `src_user` text COMMENT 'source user', `src_ip` varchar(50) DEFAULT NULL COMMENT 'source ip', `tenant_id` varchar(128) DEFAULT '' COMMENT '租户字段', PRIMARY KEY (`id`), UNIQUE KEY `uk_configinfobeta_datagrouptenant` (`data_id`,`group_id`,`tenant_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='config_info_beta'; /******************************************/ /* 数据库全名 = nacos_config */ /* 表名称 = config_info_tag */ /******************************************/ CREATE TABLE `config_info_tag` ( `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id', `data_id` varchar(255) NOT NULL COMMENT 'data_id', `group_id` varchar(128) NOT NULL COMMENT 'group_id', `tenant_id` varchar(128) DEFAULT '' COMMENT 'tenant_id', `tag_id` varchar(128) NOT NULL COMMENT 'tag_id', `app_name` varchar(128) DEFAULT NULL COMMENT 'app_name', `content` longtext NOT NULL COMMENT 'content', `md5` varchar(32) DEFAULT NULL COMMENT 'md5', `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间', `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间', `src_user` text COMMENT 'source user', `src_ip` varchar(50) DEFAULT NULL COMMENT 'source ip', PRIMARY KEY (`id`), UNIQUE KEY `uk_configinfotag_datagrouptenanttag` (`data_id`,`group_id`,`tenant_id`,`tag_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='config_info_tag'; /******************************************/ /* 数据库全名 = nacos_config */ /* 表名称 = config_tags_relation */ /******************************************/ CREATE TABLE `config_tags_relation` ( `id` bigint(20) NOT NULL COMMENT 'id', `tag_name` varchar(128) NOT NULL COMMENT 'tag_name', `tag_type` varchar(64) DEFAULT NULL COMMENT 'tag_type', `data_id` varchar(255) NOT NULL COMMENT 'data_id', `group_id` varchar(128) NOT NULL COMMENT 'group_id', `tenant_id` varchar(128) DEFAULT '' COMMENT 'tenant_id', `nid` bigint(20) NOT NULL AUTO_INCREMENT, PRIMARY KEY (`nid`), UNIQUE KEY `uk_configtagrelation_configidtag` (`id`,`tag_name`,`tag_type`), KEY `idx_tenant_id` (`tenant_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='config_tag_relation'; /******************************************/ /* 数据库全名 = nacos_config */ /* 表名称 = group_capacity */ /******************************************/ CREATE TABLE `group_capacity` ( `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键ID', `group_id` varchar(128) NOT NULL DEFAULT '' COMMENT 'Group ID，空字符表示整个集群', `quota` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '配额，0表示使用默认值', `usage` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '使用量', `max_size` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '单个配置大小上限，单位为字节，0表示使用默认值', `max_aggr_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '聚合子配置最大个数，，0表示使用默认值', `max_aggr_size` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '单个聚合数据的子配置大小上限，单位为字节，0表示使用默认值', `max_history_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '最大变更历史数量', `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间', `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间', PRIMARY KEY (`id`), UNIQUE KEY `uk_group_id` (`group_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='集群、各Group容量信息表'; /******************************************/ /* 数据库全名 = nacos_config */ /* 表名称 = his_config_info */ /******************************************/ CREATE TABLE `his_config_info` ( `id` bigint(64) unsigned NOT NULL, `nid` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `data_id` varchar(255) NOT NULL, `group_id` varchar(128) NOT NULL, `app_name` varchar(128) DEFAULT NULL COMMENT 'app_name', `content` longtext NOT NULL, `md5` varchar(32) DEFAULT NULL, `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, `src_user` text, `src_ip` varchar(50) DEFAULT NULL, `op_type` char(10) DEFAULT NULL, `tenant_id` varchar(128) DEFAULT '' COMMENT '租户字段', PRIMARY KEY (`nid`), KEY `idx_gmt_create` (`gmt_create`), KEY `idx_gmt_modified` (`gmt_modified`), KEY `idx_did` (`data_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='多租户改造'; /******************************************/ /* 数据库全名 = nacos_config */ /* 表名称 = tenant_capacity */ /******************************************/ CREATE TABLE `tenant_capacity` ( `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键ID', `tenant_id` varchar(128) NOT NULL DEFAULT '' COMMENT 'Tenant ID', `quota` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '配额，0表示使用默认值', `usage` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '使用量', `max_size` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '单个配置大小上限，单位为字节，0表示使用默认值', `max_aggr_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '聚合子配置最大个数', `max_aggr_size` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '单个聚合数据的子配置大小上限，单位为字节，0表示使用默认值', `max_history_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '最大变更历史数量', `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间', `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间', PRIMARY KEY (`id`), UNIQUE KEY `uk_tenant_id` (`tenant_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='租户容量信息表'; CREATE TABLE `tenant_info` ( `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id', `kp` varchar(128) NOT NULL COMMENT 'kp', `tenant_id` varchar(128) default '' COMMENT 'tenant_id', `tenant_name` varchar(128) default '' COMMENT 'tenant_name', `tenant_desc` varchar(256) DEFAULT NULL COMMENT 'tenant_desc', `create_source` varchar(32) DEFAULT NULL COMMENT 'create_source', `gmt_create` bigint(20) NOT NULL COMMENT '创建时间', `gmt_modified` bigint(20) NOT NULL COMMENT '修改时间', PRIMARY KEY (`id`), UNIQUE KEY `uk_tenant_info_kptenantid` (`kp`,`tenant_id`), KEY `idx_tenant_id` (`tenant_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='tenant_info'; CREATE TABLE `users` ( `username` varchar(50) NOT NULL PRIMARY KEY, `password` varchar(500) NOT NULL, `enabled` boolean NOT NULL ); CREATE TABLE `roles` ( `username` varchar(50) NOT NULL, `role` varchar(50) NOT NULL, UNIQUE INDEX `idx_user_role` (`username` ASC, `role` ASC) USING BTREE ); CREATE TABLE `permissions` ( `role` varchar(50) NOT NULL, `resource` varchar(255) NOT NULL, `action` varchar(8) NOT NULL, UNIQUE INDEX `uk_role_permission` (`role`,`resource`,`action`) USING BTREE ); INSERT INTO users (username, password, enabled) VALUES ('nacos', '$2a$10$EuWPZHzz32dJN7jexM34MOeYirDdFAZm2kuWj7VEOJhhZkDrxfvUu', TRUE); INSERT INTO roles (username, role) VALUES ('nacos', 'ROLE_ADMIN'); 运行\ndocker run -it --name nacos \\ -p 8848:8848 \\ -e MODE=standalone \\ -v /usr/local/docker/nacos/conf/application.properties:/home/nacos/conf/application.properties \\ -v /usr/local/docker/nacos/conf/data:/home/nacos/conf/data \\ -v /usr/local/docker/nacos/conf/logs:/home/nacos/conf/logs \\ -d nacos/nacos-server:2.0.3 mysql docker run -d --name=mysql-server -p 3306:3306 -v mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=your_password mysql docker run -d --name=mysql-server -p 3306:3306 -e MYSQL_ROOT_PASSWORD=your_password mysql ",
+  "wordCount" : "2313",
+  "inLanguage": "zh",
+  "image":"https://XianCH.github.io/postsImg/docker.png","datePublished": "2023-09-26T18:52:17Z",
+  "dateModified": "2023-09-26T18:52:17Z",
+  "author":[{
+    "@type": "Person",
+    "name": "x14n"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://XianCH.github.io/posts/tech/tool/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "X14n's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://XianCH.github.io/img/favicon.icon"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://XianCH.github.io/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
+            <img src="https://XianCH.github.io/img/main.png" alt="logo" aria-label="logo"
+                 height="35">x14n&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <h1 class="post-title">
+                Docker备忘录
+            </h1>
+            <div class="post-description">
+                docker备忘录...
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-09-26
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>2313字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>5分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>x14n
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://XianCH.github.io/tags/tool/" style="color: var(--secondary)!important;">tool</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://XianCH.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId:  null , 
+                                region:  null , 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/docker.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#docker%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4" aria-label="docker常用命令">docker常用命令</a><ul>
+                        
+                <li>
+                    <a href="#%e5%ae%b9%e5%99%a8" aria-label="容器">容器</a><ul>
+                        
+                <li>
+                    <a href="#%e8%bf%9b%e5%85%a5%e5%ae%b9%e5%99%a8" aria-label="进入容器">进入容器</a></li>
+                <li>
+                    <a href="#%e6%9f%a5%e7%9c%8b%e5%ae%b9%e5%99%a8%e6%97%a5%e5%bf%97" aria-label="查看容器日志">查看容器日志</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%95%9c%e5%83%8f" aria-label="镜像">镜像</a></li></ul>
+                </li>
+                <li>
+                    <a href="#docker%e5%ae%89%e8%a3%85%e7%9b%b8%e5%85%b3%e8%bd%af%e4%bb%b6" aria-label="docker安装相关软件">docker安装相关软件</a><ul>
+                        
+                <li>
+                    <a href="#redis" aria-label="redis">redis</a></li>
+                <li>
+                    <a href="#nacos" aria-label="nacos">nacos</a></li>
+                <li>
+                    <a href="#mysql" aria-label="mysql">mysql</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="docker常用命令">docker常用命令<a hidden class="anchor" aria-hidden="true" href="#docker常用命令">#</a></h1>
+<p><img loading="lazy" src="https://ask.qcloudimg.com/http-save/yehe-7565276/6lldlbgfhn.png" alt="Docker"  />
+</p>
+<h2 id="容器">容器<a hidden class="anchor" aria-hidden="true" href="#容器">#</a></h2>
+<h3 id="进入容器">进入容器<a hidden class="anchor" aria-hidden="true" href="#进入容器">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker exec -it contaionName /bin/bash
+</span></span></code></pre></div><h3 id="查看容器日志">查看容器日志<a hidden class="anchor" aria-hidden="true" href="#查看容器日志">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker logs -f contaionName
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">停止运行的容器</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">docker</span> <span style="color:#a6e22e">stop</span> [<span style="color:#a6e22e">容器ID</span>]
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">杀死容器进程</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">docker</span>  <span style="color:#a6e22e">kill</span> [<span style="color:#a6e22e">容器ID</span>] 
+</span></span></code></pre></div><h2 id="镜像">镜像<a hidden class="anchor" aria-hidden="true" href="#镜像">#</a></h2>
+<p>导出镜像</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker save
+</span></span></code></pre></div><p>导入镜像</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker load
+</span></span></code></pre></div><h1 id="docker安装相关软件">docker安装相关软件<a hidden class="anchor" aria-hidden="true" href="#docker安装相关软件">#</a></h1>
+<h2 id="redis">redis<a hidden class="anchor" aria-hidden="true" href="#redis">#</a></h2>
+<p>运行容器</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker run -itd --name redis-test -p 6379:6379 redis
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker run --restart=always --log-opt max-size=100m --log-opt max-file=2 -p 6379:6379 --name myredis -v /home/redis/myredis/myredis.conf:/etc/redis/redis.conf -v /home/redis/myredis/data:/data -d redis redis-server /etc/redis/redis.conf  --appendonly yes  --requirepass 000415
+</span></span></code></pre></div><p>参数说明</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>--restart=always 总是开机启动
+</span></span><span style="display:flex;"><span>--log是日志方面的
+</span></span><span style="display:flex;"><span>-p 6379:6379 将6379端口挂载出去
+</span></span><span style="display:flex;"><span>--name 给这个容器取一个名字
+</span></span><span style="display:flex;"><span>-v 数据卷挂载
+</span></span><span style="display:flex;"><span>–appendonly yes 开启redis 持久化
+</span></span><span style="display:flex;"><span>–requirepass 000415 设置密码 （
+</span></span></code></pre></div><h2 id="nacos">nacos<a hidden class="anchor" aria-hidden="true" href="#nacos">#</a></h2>
+<ol>
+<li>
+<p>下载镜像</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker pull nacos/nacos-server:2.0.3
+</span></span></code></pre></div></li>
+<li>
+<p>挂载目录</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir -p /usr/local/docker/nacos/conf
+</span></span><span style="display:flex;"><span>mkdir -p /usr/local/docker/nacos/data
+</span></span><span style="display:flex;"><span>mkdir -p /usr/local/docker/nacos/logs
+</span></span><span style="display:flex;"><span>chmod a+w /usr/local/docker/nacos
+</span></span></code></pre></div></li>
+<li>
+<p>在<code>/usr/local/docker/nacos/conf</code>目录下新建<code>application.properties</code>文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>在<span style="color:#e6db74">`</span>/usr/local/docker/nacos/conf<span style="color:#e6db74">`</span>目录下新建<span style="color:#e6db74">`</span>application.properties<span style="color:#e6db74">`</span>文件
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>server.servlet.contextPath=/nacos
+</span></span><span style="display:flex;"><span>server.port=8848
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>spring.datasource.platform=mysql
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>### Count of DB:
+</span></span><span style="display:flex;"><span>db.num=1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>### Connect URL of DB:
+</span></span><span style="display:flex;"><span>db.url.0=jdbc:mysql://192.168.164.101:3306/nacos?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true&amp;useUnicode=true&amp;useSSL=false&amp;serverTimezone=UTC
+</span></span><span style="display:flex;"><span>db.user.0=root
+</span></span><span style="display:flex;"><span>db.password.0=root
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>### Connection pool configuration: hikariCP
+</span></span><span style="display:flex;"><span>db.pool.config.connectionTimeout=30000
+</span></span><span style="display:flex;"><span>db.pool.config.validationTimeout=10000
+</span></span><span style="display:flex;"><span>db.pool.config.maximumPoolSize=20
+</span></span><span style="display:flex;"><span>db.pool.config.minimumIdle=2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nacos.naming.empty-service.auto-clean=true
+</span></span><span style="display:flex;"><span>nacos.naming.empty-service.clean.initial-delay-ms=50000
+</span></span><span style="display:flex;"><span>nacos.naming.empty-service.clean.period-time-ms=30000
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>server.tomcat.accesslog.enabled=true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>### The access log pattern:
+</span></span><span style="display:flex;"><span>server.tomcat.accesslog.pattern=%h %l %u %t &#34;%r&#34; %s %b %D %{User-Agent}i %{Request-Source}i
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nacos.security.ignore.urls=/,/error,/**/*.css,/**/*.js,/**/*.html,/**/*.map,/**/*.svg,/**/*.png,/**/*.ico,/console-ui/public/**,/v1/auth/**,/v1/console/health/**,/actuator/**,/v1/console/server/**
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>### The auth system to use, currently only &#39;nacos&#39; and &#39;ldap&#39; is supported:
+</span></span><span style="display:flex;"><span>nacos.core.auth.system.type=nacos
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>### If turn on auth system:
+</span></span><span style="display:flex;"><span>nacos.core.auth.enabled=false
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>### The token expiration in seconds:
+</span></span><span style="display:flex;"><span>nacos.core.auth.default.token.expire.seconds=18000
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>### The default token:
+</span></span><span style="display:flex;"><span>nacos.core.auth.default.token.secret.key=SecretKey012345678901234567890123456789012345678901234567890123456789
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nacos.core.auth.caching.enabled=true
+</span></span><span style="display:flex;"><span>nacos.core.auth.enable.userAgentAuthWhite=false
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nacos.core.auth.server.identity.key=serverIdentity
+</span></span><span style="display:flex;"><span>nacos.core.auth.server.identity.value=security
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nacos.istio.mcp.server.enabled=false
+</span></span></code></pre></div></li>
+<li>
+<p>初始化nacos数据库nacos.sql</p>
+<p>放到conf目录下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Copyright 1999-2018 Alibaba Group Holding Ltd.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * you may not use this file except in compliance with the License.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * You may obtain a copy of the License at
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *      http://www.apache.org/licenses/LICENSE-2.0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Unless required by applicable law or agreed to in writing, software
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * See the License for the specific language governing permissions and
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * limitations under the License.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/******************************************/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*   数据库全名 = nacos_config   */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*   表名称 = config_info   */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/******************************************/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>config_info<span style="color:#f92672">`</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>id<span style="color:#f92672">`</span> bigint(<span style="color:#ae81ff">20</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>data_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">255</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;data_id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>group_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">255</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>content<span style="color:#f92672">`</span> longtext <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;content&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>md5<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">32</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;md5&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>gmt_create<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;创建时间&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>gmt_modified<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;修改时间&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>src_user<span style="color:#f92672">`</span> text <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;source user&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>src_ip<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;source ip&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>app_name<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>tenant_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;租户字段&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>c_desc<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">256</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>c_use<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">64</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>effect<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">64</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span><span style="color:#66d9ef">type</span><span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">64</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>c_schema<span style="color:#f92672">`</span> text,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>uk_configinfo_datagrouptenant<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>data_id<span style="color:#f92672">`</span>,<span style="color:#f92672">`</span>group_id<span style="color:#f92672">`</span>,<span style="color:#f92672">`</span>tenant_id<span style="color:#f92672">`</span>)
+</span></span><span style="display:flex;"><span>) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin <span style="color:#66d9ef">COMMENT</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;config_info&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/******************************************/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*   数据库全名 = nacos_config   */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*   表名称 = config_info_aggr   */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/******************************************/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>config_info_aggr<span style="color:#f92672">`</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>id<span style="color:#f92672">`</span> bigint(<span style="color:#ae81ff">20</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>data_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">255</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;data_id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>group_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">255</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;group_id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>datum_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">255</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;datum_id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>content<span style="color:#f92672">`</span> longtext <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;内容&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>gmt_modified<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;修改时间&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>app_name<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>tenant_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;租户字段&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>uk_configinfoaggr_datagrouptenantdatum<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>data_id<span style="color:#f92672">`</span>,<span style="color:#f92672">`</span>group_id<span style="color:#f92672">`</span>,<span style="color:#f92672">`</span>tenant_id<span style="color:#f92672">`</span>,<span style="color:#f92672">`</span>datum_id<span style="color:#f92672">`</span>)
+</span></span><span style="display:flex;"><span>) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin <span style="color:#66d9ef">COMMENT</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;增加租户字段&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/******************************************/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*   数据库全名 = nacos_config   */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*   表名称 = config_info_beta   */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/******************************************/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>config_info_beta<span style="color:#f92672">`</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>id<span style="color:#f92672">`</span> bigint(<span style="color:#ae81ff">20</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>data_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">255</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;data_id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>group_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;group_id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>app_name<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;app_name&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>content<span style="color:#f92672">`</span> longtext <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;content&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>beta_ips<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">1024</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;betaIps&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>md5<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">32</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;md5&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>gmt_create<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;创建时间&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>gmt_modified<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;修改时间&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>src_user<span style="color:#f92672">`</span> text <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;source user&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>src_ip<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;source ip&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>tenant_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;租户字段&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>uk_configinfobeta_datagrouptenant<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>data_id<span style="color:#f92672">`</span>,<span style="color:#f92672">`</span>group_id<span style="color:#f92672">`</span>,<span style="color:#f92672">`</span>tenant_id<span style="color:#f92672">`</span>)
+</span></span><span style="display:flex;"><span>) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin <span style="color:#66d9ef">COMMENT</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;config_info_beta&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/******************************************/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*   数据库全名 = nacos_config   */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*   表名称 = config_info_tag   */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/******************************************/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>config_info_tag<span style="color:#f92672">`</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>id<span style="color:#f92672">`</span> bigint(<span style="color:#ae81ff">20</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>data_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">255</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;data_id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>group_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;group_id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>tenant_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;tenant_id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>tag_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;tag_id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>app_name<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;app_name&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>content<span style="color:#f92672">`</span> longtext <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;content&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>md5<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">32</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;md5&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>gmt_create<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;创建时间&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>gmt_modified<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;修改时间&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>src_user<span style="color:#f92672">`</span> text <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;source user&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>src_ip<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;source ip&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>uk_configinfotag_datagrouptenanttag<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>data_id<span style="color:#f92672">`</span>,<span style="color:#f92672">`</span>group_id<span style="color:#f92672">`</span>,<span style="color:#f92672">`</span>tenant_id<span style="color:#f92672">`</span>,<span style="color:#f92672">`</span>tag_id<span style="color:#f92672">`</span>)
+</span></span><span style="display:flex;"><span>) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin <span style="color:#66d9ef">COMMENT</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;config_info_tag&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/******************************************/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*   数据库全名 = nacos_config   */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*   表名称 = config_tags_relation   */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/******************************************/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>config_tags_relation<span style="color:#f92672">`</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>id<span style="color:#f92672">`</span> bigint(<span style="color:#ae81ff">20</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>tag_name<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;tag_name&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>tag_type<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">64</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;tag_type&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>data_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">255</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;data_id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>group_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;group_id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>tenant_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;tenant_id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>nid<span style="color:#f92672">`</span> bigint(<span style="color:#ae81ff">20</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>nid<span style="color:#f92672">`</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>uk_configtagrelation_configidtag<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>,<span style="color:#f92672">`</span>tag_name<span style="color:#f92672">`</span>,<span style="color:#f92672">`</span>tag_type<span style="color:#f92672">`</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>idx_tenant_id<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>tenant_id<span style="color:#f92672">`</span>)
+</span></span><span style="display:flex;"><span>) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin <span style="color:#66d9ef">COMMENT</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;config_tag_relation&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/******************************************/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*   数据库全名 = nacos_config   */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*   表名称 = group_capacity   */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/******************************************/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>group_capacity<span style="color:#f92672">`</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>id<span style="color:#f92672">`</span> bigint(<span style="color:#ae81ff">20</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;主键ID&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>group_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;Group ID，空字符表示整个集群&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>quota<span style="color:#f92672">`</span> int(<span style="color:#ae81ff">10</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;配额，0表示使用默认值&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span><span style="color:#66d9ef">usage</span><span style="color:#f92672">`</span> int(<span style="color:#ae81ff">10</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;使用量&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>max_size<span style="color:#f92672">`</span> int(<span style="color:#ae81ff">10</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;单个配置大小上限，单位为字节，0表示使用默认值&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>max_aggr_count<span style="color:#f92672">`</span> int(<span style="color:#ae81ff">10</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;聚合子配置最大个数，，0表示使用默认值&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>max_aggr_size<span style="color:#f92672">`</span> int(<span style="color:#ae81ff">10</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;单个聚合数据的子配置大小上限，单位为字节，0表示使用默认值&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>max_history_count<span style="color:#f92672">`</span> int(<span style="color:#ae81ff">10</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;最大变更历史数量&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>gmt_create<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;创建时间&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>gmt_modified<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;修改时间&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>uk_group_id<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>group_id<span style="color:#f92672">`</span>)
+</span></span><span style="display:flex;"><span>) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin <span style="color:#66d9ef">COMMENT</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;集群、各Group容量信息表&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/******************************************/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*   数据库全名 = nacos_config   */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*   表名称 = his_config_info   */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/******************************************/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>his_config_info<span style="color:#f92672">`</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>id<span style="color:#f92672">`</span> bigint(<span style="color:#ae81ff">64</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>nid<span style="color:#f92672">`</span> bigint(<span style="color:#ae81ff">20</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>data_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">255</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>group_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>app_name<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;app_name&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>content<span style="color:#f92672">`</span> longtext <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>md5<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">32</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>gmt_create<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>gmt_modified<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>src_user<span style="color:#f92672">`</span> text,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>src_ip<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>op_type<span style="color:#f92672">`</span> char(<span style="color:#ae81ff">10</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>tenant_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;租户字段&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>nid<span style="color:#f92672">`</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>idx_gmt_create<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>gmt_create<span style="color:#f92672">`</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>idx_gmt_modified<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>gmt_modified<span style="color:#f92672">`</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>idx_did<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>data_id<span style="color:#f92672">`</span>)
+</span></span><span style="display:flex;"><span>) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin <span style="color:#66d9ef">COMMENT</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;多租户改造&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/******************************************/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*   数据库全名 = nacos_config   */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*   表名称 = tenant_capacity   */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/******************************************/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>tenant_capacity<span style="color:#f92672">`</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>id<span style="color:#f92672">`</span> bigint(<span style="color:#ae81ff">20</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;主键ID&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>tenant_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;Tenant ID&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>quota<span style="color:#f92672">`</span> int(<span style="color:#ae81ff">10</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;配额，0表示使用默认值&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span><span style="color:#66d9ef">usage</span><span style="color:#f92672">`</span> int(<span style="color:#ae81ff">10</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;使用量&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>max_size<span style="color:#f92672">`</span> int(<span style="color:#ae81ff">10</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;单个配置大小上限，单位为字节，0表示使用默认值&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>max_aggr_count<span style="color:#f92672">`</span> int(<span style="color:#ae81ff">10</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;聚合子配置最大个数&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>max_aggr_size<span style="color:#f92672">`</span> int(<span style="color:#ae81ff">10</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;单个聚合数据的子配置大小上限，单位为字节，0表示使用默认值&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>max_history_count<span style="color:#f92672">`</span> int(<span style="color:#ae81ff">10</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;最大变更历史数量&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>gmt_create<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;创建时间&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>gmt_modified<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;修改时间&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>uk_tenant_id<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>tenant_id<span style="color:#f92672">`</span>)
+</span></span><span style="display:flex;"><span>) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin <span style="color:#66d9ef">COMMENT</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;租户容量信息表&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>tenant_info<span style="color:#f92672">`</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>id<span style="color:#f92672">`</span> bigint(<span style="color:#ae81ff">20</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>kp<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;kp&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>tenant_id<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">default</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;tenant_id&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>tenant_name<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">default</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;tenant_name&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>tenant_desc<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">256</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;tenant_desc&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>create_source<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">32</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;create_source&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>gmt_create<span style="color:#f92672">`</span> bigint(<span style="color:#ae81ff">20</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;创建时间&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>gmt_modified<span style="color:#f92672">`</span> bigint(<span style="color:#ae81ff">20</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;修改时间&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>uk_tenant_info_kptenantid<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>kp<span style="color:#f92672">`</span>,<span style="color:#f92672">`</span>tenant_id<span style="color:#f92672">`</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>idx_tenant_id<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>tenant_id<span style="color:#f92672">`</span>)
+</span></span><span style="display:flex;"><span>) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8 <span style="color:#66d9ef">COLLATE</span><span style="color:#f92672">=</span>utf8_bin <span style="color:#66d9ef">COMMENT</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;tenant_info&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>users<span style="color:#f92672">`</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">`</span>username<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">`</span>password<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">500</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">`</span>enabled<span style="color:#f92672">`</span> boolean <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>roles<span style="color:#f92672">`</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">`</span>username<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">`</span><span style="color:#66d9ef">role</span><span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">INDEX</span> <span style="color:#f92672">`</span>idx_user_role<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>username<span style="color:#f92672">`</span> <span style="color:#66d9ef">ASC</span>, <span style="color:#f92672">`</span><span style="color:#66d9ef">role</span><span style="color:#f92672">`</span> <span style="color:#66d9ef">ASC</span>) <span style="color:#66d9ef">USING</span> BTREE
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>permissions<span style="color:#f92672">`</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">`</span><span style="color:#66d9ef">role</span><span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">`</span>resource<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">255</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">`</span>action<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">8</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">INDEX</span> <span style="color:#f92672">`</span>uk_role_permission<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span><span style="color:#66d9ef">role</span><span style="color:#f92672">`</span>,<span style="color:#f92672">`</span>resource<span style="color:#f92672">`</span>,<span style="color:#f92672">`</span>action<span style="color:#f92672">`</span>) <span style="color:#66d9ef">USING</span> BTREE
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> users (username, password, enabled) <span style="color:#66d9ef">VALUES</span> (<span style="color:#e6db74">&#39;nacos&#39;</span>, <span style="color:#e6db74">&#39;$2a$10$EuWPZHzz32dJN7jexM34MOeYirDdFAZm2kuWj7VEOJhhZkDrxfvUu&#39;</span>, <span style="color:#66d9ef">TRUE</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> roles (username, <span style="color:#66d9ef">role</span>) <span style="color:#66d9ef">VALUES</span> (<span style="color:#e6db74">&#39;nacos&#39;</span>, <span style="color:#e6db74">&#39;ROLE_ADMIN&#39;</span>);
+</span></span></code></pre></div></li>
+<li>
+<p>运行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run -it --name nacos <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>-p 8848:8848 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>-e MODE<span style="color:#f92672">=</span>standalone <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>-v /usr/local/docker/nacos/conf/application.properties:/home/nacos/conf/application.properties <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>-v /usr/local/docker/nacos/conf/data:/home/nacos/conf/data <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>-v /usr/local/docker/nacos/conf/logs:/home/nacos/conf/logs <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>-d nacos/nacos-server:2.0.3
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="mysql">mysql<a hidden class="anchor" aria-hidden="true" href="#mysql">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker run -d --name=mysql-server -p 3306:3306 -v mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=your_password mysql
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker run -d --name=mysql-server -p 3306:3306  -e MYSQL_ROOT_PASSWORD=your_password mysql
+</span></span></code></pre></div>
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="next" href="https://XianCH.github.io/posts/tech/go/golang%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Golang基础学习(更新中）</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+<div>
+    <details class="comments_details">
+        <summary style="cursor: pointer; margin: 50px 0 20px 0;width: 130px;">
+            <span style="font-size: 20px;color: var(--content);">...</span>
+        </summary>
+        <div id="tcomment"></div>
+    </details>
+    <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js">
+    </script>
+    <script>
+        twikoo.init({
+            envId:  null ,
+        el: "#tcomment",
+            lang: 'zh-CN',
+            region:  null ,
+        path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        })
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>
+        Copyright
+        &copy;
+        -2023
+        <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
+        All Rights Reserved
+    </span>
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;"></a>&nbsp;
+    <span>
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null"
+           style="display:inline-block;text-decoration:none;height:20px;color:#939393;">
+            <img src="" style="float:left;margin: 0px 5px 0px 0px;"/>
+            
+        </a>
+    </span>
+    <span id="busuanzi_container">
+        <span class="fa fa-user"></span> <span id="busuanzi_value_site_uv"></span>
+        <span class="fa fa-eye"></span> <span id="busuanzi_value_site_pv"></span>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+</body>
+
+</html>

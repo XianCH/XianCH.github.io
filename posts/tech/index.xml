@@ -6,7 +6,34 @@
     <description>Recent content in 👨🏻‍💻 技术 on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 26 Sep 2023 08:01:37 +0000</lastBuildDate><atom:link href="https://XianCH.github.io/posts/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Sep 2023 07:00:18 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/posts/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go操作redis</title>
+      <link>https://XianCH.github.io/posts/tech/go/go%E6%93%8D%E4%BD%9Credis/</link>
+      <pubDate>Wed, 27 Sep 2023 07:00:18 +0800</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/go/go%E6%93%8D%E4%BD%9Credis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Redis基础知识</title>
+      <link>https://XianCH.github.io/posts/tech/database/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Tue, 26 Sep 2023 21:47:03 +0000</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/database/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description>基础数据类型及运用场景 String 常用命令 普通字符串的基本操作： # 设置 key-value 类型的值 &amp;gt; SET name lin OK # 根据 key 获得对应的 value &amp;gt; GET name &amp;#34;lin&amp;#34; # 判断某个 key 是否存在 &amp;gt; EXISTS name (integer) 1 # 返回 key 所储存的字符串值的长度 &amp;gt; STRLEN name (integer) 3 # 删除某个 key 对应的值 &amp;gt; DEL name (integer) 1 批量设置 : # 批量设置 key-value 类型的值 &amp;gt; MSET key1 value1 key2 value2 OK # 批量获取多个 key 对应的 value &amp;gt; MGET</description>
+    </item>
+    
+    <item>
+      <title>Docker备忘录</title>
+      <link>https://XianCH.github.io/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/</link>
+      <pubDate>Tue, 26 Sep 2023 18:52:17 +0000</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/</guid>
+      <description>docker备忘录...</description>
+    </item>
+    
     <item>
       <title>Golang基础学习(更新中）</title>
       <link>https://XianCH.github.io/posts/tech/go/golang%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</link>

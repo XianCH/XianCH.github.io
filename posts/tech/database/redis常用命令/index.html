@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Redis基础知识 | X14n&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="基础数据类型及运用场景 String 常用命令 普通字符串的基本操作： # 设置 key-value 类型的值 &gt; SET name lin OK # 根据 key 获得对应的 value &gt; GET name &#34;lin&#34; # 判断某个 key 是否存在 &gt; EXISTS name (integer) 1 # 返回 key 所储存的字符串值的长度 &gt; STRLEN name (integer) 3 # 删除某个 key 对应的值 &gt; DEL name (integer) 1 批量设置 : # 批量设置 key-value 类型的值 &gt; MSET key1 value1 key2 value2 OK # 批量获取多个 key 对应的 value &gt; MGET">
+<meta name="author" content="x14n">
+<link rel="canonical" href="https://XianCH.github.io/posts/tech/database/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
+<link rel="icon" type="image/png" sizes="16x16" href="https://XianCH.github.io/img/main.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://XianCH.github.io/img/main.png">
+<link rel="apple-touch-icon" href="https://XianCH.github.io/img/main.png">
+<link rel="mask-icon" href="https://XianCH.github.io/img/main.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta property="og:title" content="Redis基础知识" />
+<meta property="og:description" content="基础数据类型及运用场景 String 常用命令 普通字符串的基本操作： # 设置 key-value 类型的值 &gt; SET name lin OK # 根据 key 获得对应的 value &gt; GET name &#34;lin&#34; # 判断某个 key 是否存在 &gt; EXISTS name (integer) 1 # 返回 key 所储存的字符串值的长度 &gt; STRLEN name (integer) 3 # 删除某个 key 对应的值 &gt; DEL name (integer) 1 批量设置 : # 批量设置 key-value 类型的值 &gt; MSET key1 value1 key2 value2 OK # 批量获取多个 key 对应的 value &gt; MGET" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://XianCH.github.io/posts/tech/database/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" />
+<meta property="og:image" content="https://XianCH.github.io/postsImg/redis.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-26T21:47:03+00:00" />
+<meta property="article:modified_time" content="2023-09-26T21:47:03+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://XianCH.github.io/postsImg/redis.png" />
+<meta name="twitter:title" content="Redis基础知识"/>
+<meta name="twitter:description" content="基础数据类型及运用场景 String 常用命令 普通字符串的基本操作： # 设置 key-value 类型的值 &gt; SET name lin OK # 根据 key 获得对应的 value &gt; GET name &#34;lin&#34; # 判断某个 key 是否存在 &gt; EXISTS name (integer) 1 # 返回 key 所储存的字符串值的长度 &gt; STRLEN name (integer) 3 # 删除某个 key 对应的值 &gt; DEL name (integer) 1 批量设置 : # 批量设置 key-value 类型的值 &gt; MSET key1 value1 key2 value2 OK # 批量获取多个 key 对应的 value &gt; MGET"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://XianCH.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "👨🏻‍💻 技术",
+          "item": "https://XianCH.github.io/posts/tech/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Redis基础知识",
+      "item": "https://XianCH.github.io/posts/tech/database/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Redis基础知识",
+  "name": "Redis基础知识",
+  "description": "基础数据类型及运用场景 String 常用命令 普通字符串的基本操作： # 设置 key-value 类型的值 \u0026gt; SET name lin OK # 根据 key 获得对应的 value \u0026gt; GET name \u0026#34;lin\u0026#34; # 判断某个 key 是否存在 \u0026gt; EXISTS name (integer) 1 # 返回 key 所储存的字符串值的长度 \u0026gt; STRLEN name (integer) 3 # 删除某个 key 对应的值 \u0026gt; DEL name (integer) 1 批量设置 : # 批量设置 key-value 类型的值 \u0026gt; MSET key1 value1 key2 value2 OK # 批量获取多个 key 对应的 value \u0026gt; MGET",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "基础数据类型及运用场景 String 常用命令 普通字符串的基本操作：\n# 设置 key-value 类型的值 \u003e SET name lin OK # 根据 key 获得对应的 value \u003e GET name \"lin\" # 判断某个 key 是否存在 \u003e EXISTS name (integer) 1 # 返回 key 所储存的字符串值的长度 \u003e STRLEN name (integer) 3 # 删除某个 key 对应的值 \u003e DEL name (integer) 1 批量设置 :\n# 批量设置 key-value 类型的值 \u003e MSET key1 value1 key2 value2 OK # 批量获取多个 key 对应的 value \u003e MGET key1 key2 1) \"value1\" 2) \"value2\" 计数器（字符串的内容为整数的时候可以使用）：\n# 设置 key-value 类型的值 \u003e SET number 0 OK # 将 key 中储存的数字值增一 \u003e INCR number (integer) 1 # 将key中存储的数字值加 10 \u003e INCRBY number 10 (integer) 11 # 将 key 中储存的数字值减一 \u003e DECR number (integer) 10 # 将key中存储的数字值键 10 \u003e DECRBY number 10 (integer) 0 过期（默认为永不过期）：\n# 设置 key 在 60 秒后过期（该方法是针对已经存在的key设置过期时间） \u003e EXPIRE name 60 (integer) 1 # 查看数据还有多久过期 \u003e TTL name (integer) 51 #设置 key-value 类型的值，并设置该key的过期时间为 60 秒 \u003e SET key value EX 60 OK \u003e SETEX key 60 value OK 不存在就插入：\n# 不存在就插入（not exists） \u003eSETNX key value (integer) 1 应用场景 缓存对象 使用 String 来缓存对象有两种方式：\n直接缓存整个对象的 JSON，命令例子： SET user:1 '{\"name\":\"xiaolin\", \"age\":18}'。 采用将 key 进行分离为 user:ID:属性，采用 MSET 存储，用 MGET 获取各属性值，命令例子： MSET user:1:name xiaolin user:1:age 18 user:2:name xiaomei user:2:age 20。 常规计数 阅读量计数：\n# 初始化文章的阅读量 \u003e SET aritcle:readcount:1001 0 OK #阅读量+1 \u003e INCR aritcle:readcount:1001 (integer) 1 #阅读量+1 \u003e INCR aritcle:readcount:1001 (integer) 2 #阅读量+1 \u003e INCR aritcle:readcount:1001 (integer) 3 # 获取对应文章的阅读量 \u003e GET aritcle:readcount:1001 \"3\" 分布式锁：\nSET 命令中有个NX参数 ，当key不存在的时候才插入根据这个功能\nnx 如key不存在的话，则插入，可以表示成加锁成功 nx如果key存在的话，则插入失败，可以表示加锁失败 SET lock_key unique_value NX PX 10000 #px 表示过期时间，为了防止死锁 存储用户登录信息：\n如果是单一系统，用户信息或者说session则key存储在服务器中，但是如果是分布式系统，用户的登录信息或者其他登录或者更新的其他用户信息，如果只存在A服务器中，B服务器没有共享这些信息，则会出现要求用户再次登录。这时候如何将这些相信息存储在redis中，服务器A 和服务器B 都到redis中获取信息就解决了相关问题。\nList 介绍 ​\tlist是简单的字符串列表，根据插入顺序排序，可以从头部和尾部插入数据，列表最大长度是2^32 - 1\n内部实现 在但是在 Redis 3.2 版本之后，List 数据类型底层数据结构就只由 quicklist 实现了，替代了双向链表和压缩列表\nquicklist(待补充….)\nquicklistNode\ntypedef struct quicklistNode { struct quicklistNode *prev; //前一个quicklistNode struct quicklistNode *next; //后一个quicklistNode unsigned char *zl; //quicklistNode指向的ziplist unsigned int sz; //ziplist的字节大小 unsigned int count : 16; //ziplist中的元素个数 unsigned int encoding : 2; //编码格式，原生字节数组或压缩存储 unsigned int container : 2; //存储方式 unsigned int recompress : 1; //数据是否被压缩 unsigned int attempted_compress : 1; //数据能否被压缩 unsigned int extra : 10; //预留的bit位 } quicklistNode; typedef struct quicklist { quicklistNode *head; // quicklist的链表头 quicklistNode *tail; // quicklist的链表尾 unsigned long count; // 所有ziplist中的总元素个数 unsigned long len; // quicklistNodes的个数 int fill : QL_FILL_BITS; // 单独解释 unsigned int compress : QL_COMP_BITS; // 具体含义是两端各有compress个节点不压缩 ... } quicklist; 常用命令 # 将一个或多个值value插入到key列表的表头(最左边)，最后的值在最前面 LPUSH key value [value ...] # 将一个或多个值value插入到key列表的表尾(最右边) RPUSH key value [value ...] # 移除并返回key列表的头元素 LPOP key # 移除并返回key列表的尾元素 RPOP key # 返回列表key中指定区间内的元素，区间以偏移量start和stop指定，从0开始 LRANGE key start stop # 从key列表表头弹出一个元素，没有就阻塞timeout秒，如果timeout=0则一直阻塞 BLPOP key [key ...] timeout # 从key列表表尾弹出一个元素，没有就阻塞timeout秒，如果timeout=0则一直阻塞 BRPOP key [key ...] timeout 应用场景 消息队列\nredis中的List是先进先出的，满足使用场景。\nproducer通过LPUSH key value [value…]向List集合中存放消息 consumer通过 RPOP key 从集合中获取消息 如何producer没有生成消息，消息集合中也没有数据，而consumer还是一直读取消息，会造成cpu不必要的cpu占用，这时候consumer可以用BRPOP(blocking right pop )，BRPOP命令也称为阻塞式读取，客户端在没有读到队列数据时，自动阻塞，直到有新的数据写入队列，再开始读取新数据\n如何处理重复的消息？\n消费者要实现重复消息的判断，需要 2 个方面的要求：\n每个消息都有一个全局的 ID。 消费者要记录已经处理过的消息的 ID 因为list不会生成id，所以我们要自行生成id\n我们执行以下命令，就把一条全局 ID 为 111000102、库存量为 99 的消息插入了消息队列：\n\u003e LPUSH mq \"111000102:stock:99\" (integer) 1 List 作为消息队列有什么缺陷？\nList 不支持多个消费者消费同一条消息，因为一旦消费者拉取一条消息后，这条消息就从 List 中删除了，无法被其它消费者再次消费。\n要实现一条消息可以被多个消费者消费，那么就要将多个消费者组成一个消费组，使得多个消费者可以消费同一条消息，但是 List 类型并不支持消费组的实现。\nhash 介绍 hash是键值对集合(key-value) eg: value[{fields:,value},….]\nstring和hash对比，hash更适合用来存储对象\n内部实现 Hash类型是通过压缩列表和哈希表实现的在 Redis 7.0 中，压缩列表数据结构已经废弃了，交由 listpack 数据结构来实现了。\n如果哈希类型元素个数小于 512 个（默认值，可由 hash-max-ziplist-entries 配置），所有值小于 64 字节（默认值，可由 hash-max-ziplist-value 配置）的话，Redis 会使用压缩列表作为 Hash 类型的底层数据结构； 如果哈希类型元素不满足上面条件，Redis 会使用哈希表作为 Hash 类型的 底层数据结构。 常用命令 # 存储一个哈希表key的键值 HSET key field value # 获取哈希表key对应的field键值 HGET key field # 在一个哈希表key中存储多个键值对 HMSET key field value [field value...] # 批量获取哈希表key中多个field键值 HMGET key field [field ...] # 删除哈希表key中的field键值 HDEL key field [field ...] # 返回哈希表key中field的数量 HLEN key # 返回哈希表key中所有的键值 HGETALL key # 为哈希表key中field键的值加上增量n HINCRBY key field n 应用场景 购物车\nfield(商品id) 数量(value) 增加数量（HINCRBY） key(用户id) 购物车数量(hlen) 全选(hgetall) 用户id [{商品id，数量}….,{商品id,数量} ]\nset zset ",
+  "wordCount" : "2574",
+  "inLanguage": "zh",
+  "image":"https://XianCH.github.io/postsImg/redis.png","datePublished": "2023-09-26T21:47:03Z",
+  "dateModified": "2023-09-26T21:47:03Z",
+  "author":[{
+    "@type": "Person",
+    "name": "x14n"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://XianCH.github.io/posts/tech/database/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "X14n's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://XianCH.github.io/img/favicon.icon"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://XianCH.github.io/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
+            <img src="https://XianCH.github.io/img/main.png" alt="logo" aria-label="logo"
+                 height="35">x14n&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <h1 class="post-title">
+                Redis基础知识
+            </h1>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-09-26
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>2574字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>6分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>x14n
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://XianCH.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId:  null , 
+                                region:  null , 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/redis.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%9f%ba%e7%a1%80%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b%e5%8f%8a%e8%bf%90%e7%94%a8%e5%9c%ba%e6%99%af" aria-label="基础数据类型及运用场景">基础数据类型及运用场景</a><ul>
+                        
+                <li>
+                    <a href="#string" aria-label="String">String</a><ul>
+                        
+                <li>
+                    <a href="#%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4" aria-label="常用命令">常用命令</a></li>
+                <li>
+                    <a href="#%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af" aria-label="应用场景">应用场景</a><ul>
+                        
+                <li>
+                    <a href="#%e7%bc%93%e5%ad%98%e5%af%b9%e8%b1%a1" aria-label="缓存对象">缓存对象</a></li>
+                <li>
+                    <a href="#%e5%b8%b8%e8%a7%84%e8%ae%a1%e6%95%b0" aria-label="常规计数">常规计数</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#list" aria-label="List">List</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bb%8b%e7%bb%8d" aria-label="介绍">介绍</a></li>
+                <li>
+                    <a href="#%e5%86%85%e9%83%a8%e5%ae%9e%e7%8e%b0" aria-label="内部实现">内部实现</a></li>
+                <li>
+                    <a href="#%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4-1" aria-label="常用命令">常用命令</a></li>
+                <li>
+                    <a href="#%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af-1" aria-label="应用场景">应用场景</a></li></ul>
+                </li>
+                <li>
+                    <a href="#hash" aria-label="hash">hash</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bb%8b%e7%bb%8d-1" aria-label="介绍">介绍</a></li>
+                <li>
+                    <a href="#%e5%86%85%e9%83%a8%e5%ae%9e%e7%8e%b0-1" aria-label="内部实现">内部实现</a></li>
+                <li>
+                    <a href="#%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4-2" aria-label="常用命令">常用命令</a></li>
+                <li>
+                    <a href="#%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af-2" aria-label="应用场景">应用场景</a></li></ul>
+                </li>
+                <li>
+                    <a href="#set" aria-label="set">set</a></li>
+                <li>
+                    <a href="#zset" aria-label="zset">zset</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="基础数据类型及运用场景">基础数据类型及运用场景<a hidden class="anchor" aria-hidden="true" href="#基础数据类型及运用场景">#</a></h1>
+<h2 id="string">String<a hidden class="anchor" aria-hidden="true" href="#string">#</a></h2>
+<h3 id="常用命令">常用命令<a hidden class="anchor" aria-hidden="true" href="#常用命令">#</a></h3>
+<p>普通字符串的基本操作：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 设置 key-value 类型的值</span>
+</span></span><span style="display:flex;"><span>&gt; SET name lin
+</span></span><span style="display:flex;"><span>OK
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 根据 key 获得对应的 value</span>
+</span></span><span style="display:flex;"><span>&gt; GET name
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;lin&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 判断某个 key 是否存在</span>
+</span></span><span style="display:flex;"><span>&gt; EXISTS name
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 返回 key 所储存的字符串值的长度</span>
+</span></span><span style="display:flex;"><span>&gt; STRLEN name
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 删除某个 key 对应的值</span>
+</span></span><span style="display:flex;"><span>&gt; DEL name
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>批量设置 :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 批量设置 key-value 类型的值</span>
+</span></span><span style="display:flex;"><span>&gt; MSET key1 value1 key2 value2 
+</span></span><span style="display:flex;"><span>OK
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 批量获取多个 key 对应的 value</span>
+</span></span><span style="display:flex;"><span>&gt; MGET key1 key2 
+</span></span><span style="display:flex;"><span>1<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;value1&#34;</span>
+</span></span><span style="display:flex;"><span>2<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;value2&#34;</span>
+</span></span></code></pre></div><p>计数器（字符串的内容为整数的时候可以使用）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 设置 key-value 类型的值</span>
+</span></span><span style="display:flex;"><span>&gt; SET number <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>OK
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将 key 中储存的数字值增一</span>
+</span></span><span style="display:flex;"><span>&gt; INCR number
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将key中存储的数字值加 10</span>
+</span></span><span style="display:flex;"><span>&gt; INCRBY number <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将 key 中储存的数字值减一</span>
+</span></span><span style="display:flex;"><span>&gt; DECR number
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将key中存储的数字值键 10</span>
+</span></span><span style="display:flex;"><span>&gt; DECRBY number <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>过期（默认为永不过期）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 设置 key 在 60 秒后过期（该方法是针对已经存在的key设置过期时间）</span>
+</span></span><span style="display:flex;"><span>&gt; EXPIRE name  <span style="color:#ae81ff">60</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看数据还有多久过期</span>
+</span></span><span style="display:flex;"><span>&gt; TTL name 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">51</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#设置 key-value 类型的值，并设置该key的过期时间为 60 秒</span>
+</span></span><span style="display:flex;"><span>&gt; SET key  value EX <span style="color:#ae81ff">60</span>
+</span></span><span style="display:flex;"><span>OK
+</span></span><span style="display:flex;"><span>&gt; SETEX key  <span style="color:#ae81ff">60</span> value
+</span></span><span style="display:flex;"><span>OK
+</span></span></code></pre></div><p>不存在就插入：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 不存在就插入（not exists）</span>
+</span></span><span style="display:flex;"><span>&gt;SETNX key value
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><h3 id="应用场景">应用场景<a hidden class="anchor" aria-hidden="true" href="#应用场景">#</a></h3>
+<h4 id="缓存对象">缓存对象<a hidden class="anchor" aria-hidden="true" href="#缓存对象">#</a></h4>
+<p>使用 String 来缓存对象有两种方式：</p>
+<ul>
+<li>直接缓存整个对象的 JSON，命令例子： <code>SET user:1 '{&quot;name&quot;:&quot;xiaolin&quot;, &quot;age&quot;:18}'</code>。</li>
+<li>采用将 key 进行分离为 user:ID:属性，采用 MSET 存储，用 MGET 获取各属性值，命令例子： <code>MSET user:1:name xiaolin user:1:age 18 user:2:name xiaomei user:2:age 20</code>。</li>
+</ul>
+<h4 id="常规计数">常规计数<a hidden class="anchor" aria-hidden="true" href="#常规计数">#</a></h4>
+<p>阅读量计数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 初始化文章的阅读量</span>
+</span></span><span style="display:flex;"><span>&gt; SET aritcle:readcount:1001 <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>OK
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#阅读量+1</span>
+</span></span><span style="display:flex;"><span>&gt; INCR aritcle:readcount:1001
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#阅读量+1</span>
+</span></span><span style="display:flex;"><span>&gt; INCR aritcle:readcount:1001
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#阅读量+1</span>
+</span></span><span style="display:flex;"><span>&gt; INCR aritcle:readcount:1001
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 获取对应文章的阅读量</span>
+</span></span><span style="display:flex;"><span>&gt; GET aritcle:readcount:1001
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;3&#34;</span>
+</span></span></code></pre></div><p>分布式锁：</p>
+<p>SET 命令中有个NX参数 ，当key不存在的时候才插入根据这个功能</p>
+<ol>
+<li>nx 如key不存在的话，则插入，可以表示成加锁成功</li>
+<li>nx如果key存在的话，则插入失败，可以表示加锁失败</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>SET lock_key unique_value NX PX <span style="color:#ae81ff">10000</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#px 表示过期时间，为了防止死锁</span>
+</span></span></code></pre></div><p>存储用户登录信息：</p>
+<p>如果是单一系统，用户信息或者说session则key存储在服务器中，但是如果是分布式系统，用户的登录信息或者其他登录或者更新的其他用户信息，如果只存在A服务器中，B服务器没有共享这些信息，则会出现要求用户再次登录。这时候如何将这些相信息存储在redis中，服务器A 和服务器B 都到redis中获取信息就解决了相关问题。</p>
+<h2 id="list">List<a hidden class="anchor" aria-hidden="true" href="#list">#</a></h2>
+<h3 id="介绍">介绍<a hidden class="anchor" aria-hidden="true" href="#介绍">#</a></h3>
+<p>​	list是简单的字符串列表，根据插入顺序排序，可以从头部和尾部插入数据，列表最大长度是2^32 - 1</p>
+<h3 id="内部实现">内部实现<a hidden class="anchor" aria-hidden="true" href="#内部实现">#</a></h3>
+<p>在但是<strong>在 Redis 3.2 版本之后，List 数据类型底层数据结构就只由 quicklist 实现了，替代了双向链表和压缩列表</strong></p>
+<p><img loading="lazy" src="./index.assets/image-20230927123342858.png" alt="image-20230927123342858"  />
+</p>
+<p><strong>quicklist</strong>(待补充&hellip;.)</p>
+<p><img loading="lazy" src="./index.assets/image-20230927123833998.png" alt="image-20230927123833998"  />
+</p>
+<ol>
+<li>
+<p>quicklistNode</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> quicklistNode {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> quicklistNode <span style="color:#f92672">*</span>prev;  <span style="color:#75715e">//前一个quicklistNode
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">struct</span> quicklistNode <span style="color:#f92672">*</span>next;  <span style="color:#75715e">//后一个quicklistNode
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>zl;           <span style="color:#75715e">//quicklistNode指向的ziplist
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> sz;             <span style="color:#75715e">//ziplist的字节大小
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> count : <span style="color:#ae81ff">16</span>;     <span style="color:#75715e">//ziplist中的元素个数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> encoding : <span style="color:#ae81ff">2</span>;   <span style="color:#75715e">//编码格式，原生字节数组或压缩存储
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> container : <span style="color:#ae81ff">2</span>;  <span style="color:#75715e">//存储方式
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> recompress : <span style="color:#ae81ff">1</span>; <span style="color:#75715e">//数据是否被压缩
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> attempted_compress : <span style="color:#ae81ff">1</span>; <span style="color:#75715e">//数据能否被压缩
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> extra : <span style="color:#ae81ff">10</span>;     <span style="color:#75715e">//预留的bit位
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>} quicklistNode;
+</span></span></code></pre></div></li>
+<li></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> quicklist {
+</span></span><span style="display:flex;"><span>    quicklistNode <span style="color:#f92672">*</span>head;   <span style="color:#75715e">// quicklist的链表头
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    quicklistNode <span style="color:#f92672">*</span>tail;   <span style="color:#75715e">// quicklist的链表尾
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> count;   <span style="color:#75715e">// 所有ziplist中的总元素个数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> len;     <span style="color:#75715e">// quicklistNodes的个数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> fill : QL_FILL_BITS;  <span style="color:#75715e">// 单独解释
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> compress : QL_COMP_BITS; <span style="color:#75715e">// 具体含义是两端各有compress个节点不压缩
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ...
+</span></span><span style="display:flex;"><span>} quicklist;
+</span></span></code></pre></div><h3 id="常用命令-1">常用命令<a hidden class="anchor" aria-hidden="true" href="#常用命令-1">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 将一个或多个值value插入到key列表的表头(最左边)，最后的值在最前面</span>
+</span></span><span style="display:flex;"><span>LPUSH key value <span style="color:#f92672">[</span>value ...<span style="color:#f92672">]</span> 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将一个或多个值value插入到key列表的表尾(最右边)</span>
+</span></span><span style="display:flex;"><span>RPUSH key value <span style="color:#f92672">[</span>value ...<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 移除并返回key列表的头元素</span>
+</span></span><span style="display:flex;"><span>LPOP key     
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 移除并返回key列表的尾元素</span>
+</span></span><span style="display:flex;"><span>RPOP key 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 返回列表key中指定区间内的元素，区间以偏移量start和stop指定，从0开始</span>
+</span></span><span style="display:flex;"><span>LRANGE key start stop
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 从key列表表头弹出一个元素，没有就阻塞timeout秒，如果timeout=0则一直阻塞</span>
+</span></span><span style="display:flex;"><span>BLPOP key <span style="color:#f92672">[</span>key ...<span style="color:#f92672">]</span> timeout
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 从key列表表尾弹出一个元素，没有就阻塞timeout秒，如果timeout=0则一直阻塞</span>
+</span></span><span style="display:flex;"><span>BRPOP key <span style="color:#f92672">[</span>key ...<span style="color:#f92672">]</span> timeout
+</span></span></code></pre></div><h3 id="应用场景-1">应用场景<a hidden class="anchor" aria-hidden="true" href="#应用场景-1">#</a></h3>
+<p><strong>消息队列</strong></p>
+<p>redis中的List是先进先出的，满足使用场景。</p>
+<p><img loading="lazy" src="./index.assets/image-20230927125319371.png" alt="image-20230927125319371"  />
+</p>
+<ul>
+<li>producer通过LPUSH key value [value&hellip;]向List集合中存放消息</li>
+<li>consumer通过 RPOP key 从集合中获取消息</li>
+</ul>
+<p>如何producer没有生成消息，消息集合中也没有数据，而consumer还是一直读取消息，会造成cpu不必要的cpu占用，这时候consumer可以用BRPOP(blocking right pop )，<strong>BRPOP命令也称为阻塞式读取，客户端在没有读到队列数据时，自动阻塞，直到有新的数据写入队列，再开始读取新数据</strong></p>
+<p><em>如何处理重复的消息？</em></p>
+<p>消费者要实现重复消息的判断，需要 2 个方面的要求：</p>
+<ul>
+<li>每个消息都有一个全局的 ID。</li>
+<li>消费者要记录已经处理过的消息的 ID</li>
+</ul>
+<p>因为list不会生成id，所以我们要自行生成id</p>
+<p>我们执行以下命令，就把一条全局 ID 为 111000102、库存量为 99 的消息插入了消息队列：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt; LPUSH mq &#34;111000102:stock:99&#34;
+</span></span><span style="display:flex;"><span>(integer) 1
+</span></span></code></pre></div><p>List 作为消息队列有什么缺陷？</p>
+<p><strong>List 不支持多个消费者消费同一条消息</strong>，因为一旦消费者拉取一条消息后，这条消息就从 List 中删除了，无法被其它消费者再次消费。</p>
+<p>要实现一条消息可以被多个消费者消费，那么就要将多个消费者组成一个消费组，使得多个消费者可以消费同一条消息，但是 <strong>List 类型并不支持消费组的实现</strong>。</p>
+<h2 id="hash">hash<a hidden class="anchor" aria-hidden="true" href="#hash">#</a></h2>
+<h3 id="介绍-1">介绍<a hidden class="anchor" aria-hidden="true" href="#介绍-1">#</a></h3>
+<p><strong>hash是键值对集合(key-value)</strong>  eg: value[{fields:,value},&hellip;.]</p>
+<p>string和hash对比，hash更适合用来存储对象</p>
+<p><img loading="lazy" src="./index.assets/image-20230927130848785.png" alt="image-20230927130848785"  />
+</p>
+<h3 id="内部实现-1">内部实现<a hidden class="anchor" aria-hidden="true" href="#内部实现-1">#</a></h3>
+<p>Hash类型是通过压缩列表和哈希表实现的<strong>在 Redis 7.0 中，压缩列表数据结构已经废弃了，交由 listpack 数据结构来实现了</strong>。</p>
+<ul>
+<li>如果哈希类型元素个数小于 <code>512</code> 个（默认值，可由 <code>hash-max-ziplist-entries</code> 配置），所有值小于 <code>64</code> 字节（默认值，可由 <code>hash-max-ziplist-value</code> 配置）的话，Redis 会使用<strong>压缩列表</strong>作为 Hash 类型的底层数据结构；</li>
+<li>如果哈希类型元素不满足上面条件，Redis 会使用<strong>哈希表</strong>作为 Hash 类型的 底层数据结构。</li>
+</ul>
+<h3 id="常用命令-2">常用命令<a hidden class="anchor" aria-hidden="true" href="#常用命令-2">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 存储一个哈希表key的键值</span>
+</span></span><span style="display:flex;"><span>HSET key field value   
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 获取哈希表key对应的field键值</span>
+</span></span><span style="display:flex;"><span>HGET key field
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 在一个哈希表key中存储多个键值对</span>
+</span></span><span style="display:flex;"><span>HMSET key field value <span style="color:#f92672">[</span>field value...<span style="color:#f92672">]</span> 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 批量获取哈希表key中多个field键值</span>
+</span></span><span style="display:flex;"><span>HMGET key field <span style="color:#f92672">[</span>field ...<span style="color:#f92672">]</span>       
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 删除哈希表key中的field键值</span>
+</span></span><span style="display:flex;"><span>HDEL key field <span style="color:#f92672">[</span>field ...<span style="color:#f92672">]</span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 返回哈希表key中field的数量</span>
+</span></span><span style="display:flex;"><span>HLEN key       
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 返回哈希表key中所有的键值</span>
+</span></span><span style="display:flex;"><span>HGETALL key 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 为哈希表key中field键的值加上增量n</span>
+</span></span><span style="display:flex;"><span>HINCRBY key field n                         
+</span></span></code></pre></div><p><img loading="lazy" src="./index.assets/image-20230927131825394.png" alt="image-20230927131825394"  />
+</p>
+<h3 id="应用场景-2">应用场景<a hidden class="anchor" aria-hidden="true" href="#应用场景-2">#</a></h3>
+<p><strong>购物车</strong></p>
+<p><img loading="lazy" src="./index.assets/image-20230927132504164.png" alt="image-20230927132504164"  />
+</p>
+<ul>
+<li>field(商品id)</li>
+<li>数量(value)</li>
+<li>增加数量（HINCRBY）</li>
+<li>key(用户id)</li>
+<li>购物车数量(hlen)</li>
+<li>全选(hgetall)</li>
+</ul>
+<p>用户id [{商品id，数量}&hellip;.,{商品id,数量} ]</p>
+<h2 id="set">set<a hidden class="anchor" aria-hidden="true" href="#set">#</a></h2>
+<h2 id="zset">zset<a hidden class="anchor" aria-hidden="true" href="#zset">#</a></h2>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://XianCH.github.io/posts/tech/go/go%E6%93%8D%E4%BD%9Credis/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Go操作redis</span>
+  </a>
+  <a class="next" href="https://XianCH.github.io/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Docker备忘录</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+<div>
+    <details class="comments_details">
+        <summary style="cursor: pointer; margin: 50px 0 20px 0;width: 130px;">
+            <span style="font-size: 20px;color: var(--content);">...</span>
+        </summary>
+        <div id="tcomment"></div>
+    </details>
+    <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js">
+    </script>
+    <script>
+        twikoo.init({
+            envId:  null ,
+        el: "#tcomment",
+            lang: 'zh-CN',
+            region:  null ,
+        path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        })
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>
+        Copyright
+        &copy;
+        -2023
+        <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
+        All Rights Reserved
+    </span>
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;"></a>&nbsp;
+    <span>
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null"
+           style="display:inline-block;text-decoration:none;height:20px;color:#939393;">
+            <img src="" style="float:left;margin: 0px 5px 0px 0px;"/>
+            
+        </a>
+    </span>
+    <span id="busuanzi_container">
+        <span class="fa fa-user"></span> <span id="busuanzi_value_site_uv"></span>
+        <span class="fa fa-eye"></span> <span id="busuanzi_value_site_pv"></span>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+</body>
+
+</html>
