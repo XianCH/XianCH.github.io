@@ -1400,8 +1400,8 @@ MySQL、Redis、JVM ，如下图所示：</p>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>n <span style="color:#f92672">==</span> anotherString<span style="color:#f92672">.</span><span style="color:#a6e22e">value</span><span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">char</span> v1<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> value<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">char</span> v2<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> anotherString<span style="color:#f92672">.</span><span style="color:#a6e22e">value</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0 <span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>n<span style="color:#f92672">--</span> <span style="color:#f92672">!=</span> 0 <span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>n<span style="color:#f92672">--</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>v1<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">!=</span> v2<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>i<span style="color:#f92672">++;</span>
@@ -2195,21 +2195,21 @@ ResultSetHandler）进行拦截：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ConnectionFactory（连接管理器）：应用程序与Rabbit之间建立连接的管理器，程序代码中使用。
 </span></span><span style="display:flex;"><span>Channel（信道）：消息推送使用的通道。
 </span></span><span style="display:flex;"><span>Exchange（交换器）：用于接受、分配消息。
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>@Intercepts({@Signature(type = Executor. class, method = &#34;query&#34;,
-</span></span><span style="display:flex;"><span>args = {MappedStatement. class, Object. class, RowBounds. class, ResultHandler.
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript" data-lang="gdscript"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">Intercepts</span>({<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">Signature</span>(type <span style="color:#f92672">=</span> Executor<span style="color:#f92672">.</span> class, method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;query&#34;</span>,
+</span></span><span style="display:flex;"><span>args <span style="color:#f92672">=</span> {MappedStatement<span style="color:#f92672">.</span> class, <span style="color:#a6e22e">Object</span><span style="color:#f92672">.</span> class, RowBounds<span style="color:#f92672">.</span> class, ResultHandler<span style="color:#f92672">.</span>
 </span></span><span style="display:flex;"><span>class})})
-</span></span><span style="display:flex;"><span>public class TestInterceptor implements Interceptor {
-</span></span><span style="display:flex;"><span>public Object intercept(Invocation invocation) throws Throwable {
-</span></span><span style="display:flex;"><span>Object target = invocation. getTarget(); //被代理对象
-</span></span><span style="display:flex;"><span>Method method = invocation. getMethod(); //代理方法
-</span></span><span style="display:flex;"><span>Object[] args = invocation. getArgs(); //方法参数
-</span></span><span style="display:flex;"><span>// do something...... 方法拦截前执行代码块
-</span></span><span style="display:flex;"><span>Object result = invocation. proceed();
-</span></span><span style="display:flex;"><span>// do something....... 方法拦截后执行代码块
-</span></span><span style="display:flex;"><span>return result;
+</span></span><span style="display:flex;"><span>public <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestInterceptor</span> implements Interceptor {
+</span></span><span style="display:flex;"><span>public <span style="color:#a6e22e">Object</span> <span style="color:#a6e22e">intercept</span>(Invocation invocation) throws Throwable {
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Object</span> target <span style="color:#f92672">=</span> invocation<span style="color:#f92672">.</span> <span style="color:#a6e22e">getTarget</span>(); <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">被代理对象</span>
+</span></span><span style="display:flex;"><span>Method method <span style="color:#f92672">=</span> invocation<span style="color:#f92672">.</span> <span style="color:#a6e22e">getMethod</span>(); <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">代理方法</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Object</span>[] args <span style="color:#f92672">=</span> invocation<span style="color:#f92672">.</span> <span style="color:#a6e22e">getArgs</span>(); <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">方法参数</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> do something<span style="color:#f92672">......</span> <span style="color:#960050;background-color:#1e0010">方法拦截前执行代码块</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Object</span> result <span style="color:#f92672">=</span> invocation<span style="color:#f92672">.</span> <span style="color:#a6e22e">proceed</span>();
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> do something<span style="color:#f92672">.......</span> <span style="color:#960050;background-color:#1e0010">方法拦截后执行代码块</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> result;
 </span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>public Object plugin(Object target) {
-</span></span><span style="display:flex;"><span>return Plugin. wrap(target, this);
+</span></span><span style="display:flex;"><span>public <span style="color:#a6e22e">Object</span> <span style="color:#a6e22e">plugin</span>(<span style="color:#a6e22e">Object</span> target) {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> Plugin<span style="color:#f92672">.</span> wrap(target, this);
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Queue（队列）：用于存储生产者的消息。
