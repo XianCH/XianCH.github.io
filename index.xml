@@ -6,7 +6,16 @@
     <description>Recent content on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 27 Sep 2023 07:00:18 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Oct 2023 15:37:25 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go基础标准库</title>
+      <link>https://XianCH.github.io/posts/tech/go/go%E5%9F%BA%E7%A1%80%E6%A0%87%E5%87%86%E5%BA%93/</link>
+      <pubDate>Thu, 05 Oct 2023 15:37:25 +0800</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/go/go%E5%9F%BA%E7%A1%80%E6%A0%87%E5%87%86%E5%BA%93/</guid>
+      <description>os os 包是 Go 语言标准库的一部分，主要用于与操作系统进行交互，提供了访问操作系统底层功能的功能。下面是关于 os 包的一些重要功能和用法： 文件和目录操作： os.Create：创建文件。 os.Open：打开文件。 os.OpenFile：以指定模式打开文件。 os.Remove：删除文件或目录。</description>
+    </item>
+    
     <item>
       <title>Go操作redis</title>
       <link>https://XianCH.github.io/posts/tech/go/go%E6%93%8D%E4%BD%9Credis/</link>
