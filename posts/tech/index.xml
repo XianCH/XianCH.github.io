@@ -6,7 +6,25 @@
     <description>Recent content in 👨🏻‍💻 技术 on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 05 Oct 2023 15:37:25 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/posts/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Oct 2023 17:30:30 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/posts/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gin框架学习</title>
+      <link>https://XianCH.github.io/posts/tech/go/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 11 Oct 2023 17:30:30 +0800</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/go/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Websocket学习</title>
+      <link>https://XianCH.github.io/posts/tech/go/websocket%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 11 Oct 2023 13:32:28 +0800</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/go/websocket%E5%AD%A6%E4%B9%A0/</guid>
+      <description>WebSocket简介 服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息，是真正的双向平等对话，属于服务器推送技术的一种。 （1）建立在 TCP 协议之上，服务器端的实现比较容易。 （2）与 HTTP 协议有着良好的兼容性。默认端口也是80和443，并且握手阶段采用 HTTP 协议，因此握手时不容</description>
+    </item>
+    
     <item>
       <title>Go基础标准库</title>
       <link>https://XianCH.github.io/posts/tech/go/go%E5%9F%BA%E7%A1%80%E6%A0%87%E5%87%86%E5%BA%93/</link>
