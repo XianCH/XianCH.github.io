@@ -6,7 +6,16 @@
     <description>Recent content in golang on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 26 Sep 2023 08:01:37 +0000</lastBuildDate><atom:link href="https://XianCH.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Oct 2023 13:32:28 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Websocket学习</title>
+      <link>https://XianCH.github.io/posts/tech/go/websocket%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 11 Oct 2023 13:32:28 +0800</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/go/websocket%E5%AD%A6%E4%B9%A0/</guid>
+      <description>websocket学习，在go语言运用websocket</description>
+    </item>
+    
     <item>
       <title>Golang基础学习(更新中）</title>
       <link>https://XianCH.github.io/posts/tech/go/golang%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</link>
