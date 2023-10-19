@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>Gin框架学习 | X14n&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="Gin框架学习 - X14n&#39;s Blog">
+<meta name="description" content="gin 介绍 gin架构 gin优势 gin使用">
 <meta name="author" content="x14n">
 <link rel="canonical" href="https://XianCH.github.io/posts/tech/go/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -46,7 +46,7 @@ var _hmt = _hmt || [];
 })();
 </script>
 <meta property="og:title" content="Gin框架学习" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="gin 介绍 gin架构 gin优势 gin使用" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://XianCH.github.io/posts/tech/go/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/" />
 <meta property="og:image" content="https://XianCH.github.io/postsImg/gin.png" /><meta property="article:section" content="posts" />
@@ -56,7 +56,7 @@ var _hmt = _hmt || [];
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://XianCH.github.io/postsImg/gin.png" />
 <meta name="twitter:title" content="Gin框架学习"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="gin 介绍 gin架构 gin优势 gin使用"/>
 
 
 <script type="application/ld+json">
@@ -93,12 +93,12 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "Gin框架学习",
   "name": "Gin框架学习",
-  "description": "",
+  "description": "gin 介绍 gin架构 gin优势 gin使用",
   "keywords": [
     ""
   ],
-  "articleBody": "",
-  "wordCount" : "0",
+  "articleBody": "gin 介绍 gin架构 gin优势 gin使用 ",
+  "wordCount" : "18",
   "inLanguage": "zh",
   "image":"https://XianCH.github.io/postsImg/gin.png","datePublished": "2023-10-11T17:30:30+08:00",
   "dateModified": "2023-10-11T17:30:30+08:00",
@@ -241,13 +241,13 @@ var _hmt = _hmt || [];
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>0字
+        <span>18字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>0分钟
+        <span>1分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -316,7 +316,99 @@ var _hmt = _hmt || [];
         </header> 
 <figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/gin.png" alt="">
     
-</figure>
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#gin-%e4%bb%8b%e7%bb%8d" aria-label="gin 介绍">gin 介绍</a><ul>
+                        
+                <li>
+                    <a href="#gin%e6%9e%b6%e6%9e%84" aria-label="gin架构">gin架构</a></li>
+                <li>
+                    <a href="#gin%e4%bc%98%e5%8a%bf" aria-label="gin优势">gin优势</a></li>
+                <li>
+                    <a href="#gin%e4%bd%bf%e7%94%a8" aria-label="gin使用">gin使用</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="gin-介绍">gin 介绍<a hidden class="anchor" aria-hidden="true" href="#gin-介绍">#</a></h1>
+<h2 id="gin架构">gin架构<a hidden class="anchor" aria-hidden="true" href="#gin架构">#</a></h2>
+<h2 id="gin优势">gin优势<a hidden class="anchor" aria-hidden="true" href="#gin优势">#</a></h2>
+<h2 id="gin使用">gin使用<a hidden class="anchor" aria-hidden="true" href="#gin使用">#</a></h2>
+<h2 id="heading"><a hidden class="anchor" aria-hidden="true" href="#heading">#</a></h2>
+
+
+        </div>
 
         <footer class="post-footer">
             

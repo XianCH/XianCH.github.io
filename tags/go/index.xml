@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>go on X14n&#39;s Blog</title>
+    <link>https://XianCH.github.io/tags/go/</link>
+    <description>Recent content in go on X14n&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 19 Oct 2023 18:19:51 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nginx</title>
+      <link>https://XianCH.github.io/posts/tech/distributed/nginx%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Thu, 19 Oct 2023 18:19:51 +0800</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/distributed/nginx%E5%85%A5%E9%97%A8/</guid>
+      <description>nginx入门与实战</description>
+    </item>
+    
+  </channel>
+</rss>

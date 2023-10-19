@@ -6,7 +6,16 @@
     <description>Recent content on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 14 Oct 2023 18:12:42 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Oct 2023 18:19:51 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nginx</title>
+      <link>https://XianCH.github.io/posts/tech/distributed/nginx%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Thu, 19 Oct 2023 18:19:51 +0800</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/distributed/nginx%E5%85%A5%E9%97%A8/</guid>
+      <description>nginx入门与实战</description>
+    </item>
+    
     <item>
       <title>一些想法</title>
       <link>https://XianCH.github.io/posts/life/%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</link>
@@ -31,7 +40,7 @@
       <pubDate>Wed, 11 Oct 2023 17:30:30 +0800</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/go/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/</guid>
-      <description></description>
+      <description>gin 介绍 gin架构 gin优势 gin使用</description>
     </item>
     
     <item>
