@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>Gin框架学习 | X14n&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="gin 介绍 gin架构 gin优势 gin使用">
+<meta name="description" content="gin 介绍 Gin is a web framework written in Go. It features a martini-like API with performance that is up to 40 times faster thanks to httprouter. If you need performance and good productivity, you will love Gin. The key features of Gin are: Zero allocation router Fast Middleware support Crash-free JSON validation Routes grouping Error management Rendering built-in Extendable Gin 与 net/http 的关系 gin是在 Golang HTTP 标准库 net/http 基础之上的再封装 Gin 框架使用示例 func main(){ mux := gin.Default() mux.Use(middleware) mux.Post(&#34;/ping&#34;,xxxhandler) if err :=mux.Run(&#34;:8000&#34;); err != nil { panic(err) } } func xxxhandler(c *gin.context){ c.Json(http.StatusOK,&#34;pong&#34;) } 简易解释（后面会详细解释）： gin.Default">
 <meta name="author" content="x14n">
 <link rel="canonical" href="https://XianCH.github.io/posts/tech/go/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -46,7 +46,7 @@ var _hmt = _hmt || [];
 })();
 </script>
 <meta property="og:title" content="Gin框架学习" />
-<meta property="og:description" content="gin 介绍 gin架构 gin优势 gin使用" />
+<meta property="og:description" content="gin 介绍 Gin is a web framework written in Go. It features a martini-like API with performance that is up to 40 times faster thanks to httprouter. If you need performance and good productivity, you will love Gin. The key features of Gin are: Zero allocation router Fast Middleware support Crash-free JSON validation Routes grouping Error management Rendering built-in Extendable Gin 与 net/http 的关系 gin是在 Golang HTTP 标准库 net/http 基础之上的再封装 Gin 框架使用示例 func main(){ mux := gin.Default() mux.Use(middleware) mux.Post(&#34;/ping&#34;,xxxhandler) if err :=mux.Run(&#34;:8000&#34;); err != nil { panic(err) } } func xxxhandler(c *gin.context){ c.Json(http.StatusOK,&#34;pong&#34;) } 简易解释（后面会详细解释）： gin.Default" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://XianCH.github.io/posts/tech/go/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/" />
 <meta property="og:image" content="https://XianCH.github.io/postsImg/gin.png" /><meta property="article:section" content="posts" />
@@ -56,7 +56,7 @@ var _hmt = _hmt || [];
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://XianCH.github.io/postsImg/gin.png" />
 <meta name="twitter:title" content="Gin框架学习"/>
-<meta name="twitter:description" content="gin 介绍 gin架构 gin优势 gin使用"/>
+<meta name="twitter:description" content="gin 介绍 Gin is a web framework written in Go. It features a martini-like API with performance that is up to 40 times faster thanks to httprouter. If you need performance and good productivity, you will love Gin. The key features of Gin are: Zero allocation router Fast Middleware support Crash-free JSON validation Routes grouping Error management Rendering built-in Extendable Gin 与 net/http 的关系 gin是在 Golang HTTP 标准库 net/http 基础之上的再封装 Gin 框架使用示例 func main(){ mux := gin.Default() mux.Use(middleware) mux.Post(&#34;/ping&#34;,xxxhandler) if err :=mux.Run(&#34;:8000&#34;); err != nil { panic(err) } } func xxxhandler(c *gin.context){ c.Json(http.StatusOK,&#34;pong&#34;) } 简易解释（后面会详细解释）： gin.Default"/>
 
 
 <script type="application/ld+json">
@@ -93,12 +93,12 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "Gin框架学习",
   "name": "Gin框架学习",
-  "description": "gin 介绍 gin架构 gin优势 gin使用",
+  "description": "gin 介绍 Gin is a web framework written in Go. It features a martini-like API with performance that is up to 40 times faster thanks to httprouter. If you need performance and good productivity, you will love Gin. The key features of Gin are: Zero allocation router Fast Middleware support Crash-free JSON validation Routes grouping Error management Rendering built-in Extendable Gin 与 net/http 的关系 gin是在 Golang HTTP 标准库 net/http 基础之上的再封装 Gin 框架使用示例 func main(){ mux := gin.Default() mux.Use(middleware) mux.Post(\u0026#34;/ping\u0026#34;,xxxhandler) if err :=mux.Run(\u0026#34;:8000\u0026#34;); err != nil { panic(err) } } func xxxhandler(c *gin.context){ c.Json(http.StatusOK,\u0026#34;pong\u0026#34;) } 简易解释（后面会详细解释）： gin.Default",
   "keywords": [
     ""
   ],
-  "articleBody": "gin 介绍 gin架构 gin优势 gin使用 ",
-  "wordCount" : "18",
+  "articleBody": "gin 介绍 Gin is a web framework written in Go. It features a martini-like API with performance that is up to 40 times faster thanks to httprouter. If you need performance and good productivity, you will love Gin.\nThe key features of Gin are:\nZero allocation router Fast Middleware support Crash-free JSON validation Routes grouping Error management Rendering built-in Extendable Gin 与 net/http 的关系 gin是在 Golang HTTP 标准库 net/http 基础之上的再封装\nGin 框架使用示例 func main(){ mux := gin.Default() mux.Use(middleware) mux.Post(\"/ping\",xxxhandler) if err :=mux.Run(\":8000\"); err != nil { panic(err) } } func xxxhandler(c *gin.context){ c.Json(http.StatusOK,\"pong\") } 简易解释（后面会详细解释）：\ngin.Default()返回默认的gin Engine\nUse()函数，添加中间件\nmux.Post()创建一个post\"/ping\"的路由，路由到xxxhandler方法\n.Run()运行http服务\n用net/http\nfunc main() { http.HandleFunc(\"/ping\", func(w http.ResponseWriter, r *http.Request) { if r.Method == http.MethodPost { w.Header().Set(\"Content-Type\", \"application/json\") w.WriteHeader(http.StatusOK) w.Write([]byte(`{\"message\": \"pong\"}`)) } else { http.Error(w, \"Method Not Allowed\", http.StatusMethodNotAllowed) } }) if err := http.ListenAndServe(\":8000\", nil); err != nil { panic(err) } } gin 基础概念 路由 中间件 请求和响应对象 参数解析 静态文件处理 创建第一个Gin应用 创建一个简单的Hello World应用 定义路由 处理HTTP请求 返回JSON响应 路由与控制器\n路由的定义与使用 参数传递和路由参数 控制器的创建与使用 中间件\n什么是中间件 内置中间件（Logger、Recovery） 自定义中间件 请求与响应处理\n获取请求数据（GET、POST、Query参数） 发送响应数据（JSON、HTML、文件） 错误处理与状态码 数据库集成\n连接数据库 ORM（如果使用） CRUD操作 身份验证与授权\n用户认证 基于角色的授权 JSON Web Tokens (JWT)的使用 性能优化\nGolang和Gin的性能特点 常见性能问题与优化策略 部署与维护\n部署Gin应用 日志管理 安全性考虑 最佳实践\n代码结构组织 测试方法 文档编写 进阶主题\nWebSocket支持 服务器推送（Server-Sent Events） 使用第三方库 ",
+  "wordCount" : "654",
   "inLanguage": "zh",
   "image":"https://XianCH.github.io/postsImg/gin.png","datePublished": "2023-10-11T17:30:30+08:00",
   "dateModified": "2023-10-11T17:30:30+08:00",
@@ -241,13 +241,13 @@ var _hmt = _hmt || [];
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>18字
+        <span>654字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>1分钟
+        <span>2分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -325,17 +325,18 @@ var _hmt = _hmt || [];
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#gin-%e4%bb%8b%e7%bb%8d" aria-label="gin 介绍">gin 介绍</a><ul>
-                        
+                    <a href="#gin-%e4%bb%8b%e7%bb%8d" aria-label="gin 介绍">gin 介绍</a></li>
                 <li>
-                    <a href="#gin%e6%9e%b6%e6%9e%84" aria-label="gin架构">gin架构</a></li>
+                    <a href="#gin-%e4%b8%8e-nethttp-%e7%9a%84%e5%85%b3%e7%b3%bb" aria-label="Gin 与 net/http 的关系">Gin 与 net/http 的关系</a></li>
                 <li>
-                    <a href="#gin%e4%bc%98%e5%8a%bf" aria-label="gin优势">gin优势</a></li>
+                    <a href="#gin-%e6%a1%86%e6%9e%b6%e4%bd%bf%e7%94%a8%e7%a4%ba%e4%be%8b" aria-label="Gin 框架使用示例">Gin 框架使用示例</a></li>
                 <li>
-                    <a href="#gin%e4%bd%bf%e7%94%a8" aria-label="gin使用">gin使用</a>
+                    <a href="#gin" aria-label="gin">gin</a></li>
+                <li>
+                    <a href="#%e5%9f%ba%e7%a1%80%e6%a6%82%e5%bf%b5" aria-label="基础概念">基础概念</a></li>
+                <li>
+                    <a href="#%e5%88%9b%e5%bb%ba%e7%ac%ac%e4%b8%80%e4%b8%aagin%e5%ba%94%e7%94%a8" aria-label="创建第一个Gin应用"><strong>创建第一个Gin应用</strong></a>
                 </li>
-            </ul>
-            </li>
             </ul>
         </div>
         </details>
@@ -401,11 +402,137 @@ var _hmt = _hmt || [];
         return rect.top + win.pageYOffset;
     }
 </script>
-        <div class="post-content"><h1 id="gin-介绍">gin 介绍<a hidden class="anchor" aria-hidden="true" href="#gin-介绍">#</a></h1>
-<h2 id="gin架构">gin架构<a hidden class="anchor" aria-hidden="true" href="#gin架构">#</a></h2>
-<h2 id="gin优势">gin优势<a hidden class="anchor" aria-hidden="true" href="#gin优势">#</a></h2>
-<h2 id="gin使用">gin使用<a hidden class="anchor" aria-hidden="true" href="#gin使用">#</a></h2>
-<h2 id="heading"><a hidden class="anchor" aria-hidden="true" href="#heading">#</a></h2>
+        <div class="post-content"><h2 id="gin-介绍">gin 介绍<a hidden class="anchor" aria-hidden="true" href="#gin-介绍">#</a></h2>
+<p>Gin is a web framework written in <a href="https://go.dev/">Go</a>. It features a martini-like API with performance that is up to 40 times faster thanks to <a href="https://github.com/julienschmidt/httprouter">httprouter</a>. If you need performance and good productivity, you will love Gin.</p>
+<p><strong>The key features of Gin are:</strong></p>
+<ul>
+<li>Zero allocation router</li>
+<li>Fast</li>
+<li>Middleware support</li>
+<li>Crash-free</li>
+<li>JSON validation</li>
+<li>Routes grouping</li>
+<li>Error management</li>
+<li>Rendering built-in</li>
+<li>Extendable</li>
+</ul>
+<h2 id="gin-与-nethttp-的关系">Gin 与 net/http 的关系<a hidden class="anchor" aria-hidden="true" href="#gin-与-nethttp-的关系">#</a></h2>
+<p>gin是在 Golang HTTP 标准库 net/http 基础之上的再封装</p>
+<img src="./index.assets/image-20231022202236741.png" alt="image-20231022202236741" style="zoom:50%;" />
+<h2 id="gin-框架使用示例">Gin 框架使用示例<a hidden class="anchor" aria-hidden="true" href="#gin-框架使用示例">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">mux</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Default</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">mux</span>.<span style="color:#a6e22e">Use</span>(<span style="color:#a6e22e">middleware</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">mux</span>.<span style="color:#a6e22e">Post</span>(<span style="color:#e6db74">&#34;/ping&#34;</span>,<span style="color:#a6e22e">xxxhandler</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span><span style="color:#a6e22e">mux</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#e6db74">&#34;:8000&#34;</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>        panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>    } 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">xxxhandler</span>(<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">context</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Json</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>,<span style="color:#e6db74">&#34;pong&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>简易解释（后面会详细解释）：</p>
+<ul>
+<li>
+<p>gin.Default()返回默认的gin Engine</p>
+</li>
+<li>
+<p>Use()函数，添加中间件</p>
+</li>
+<li>
+<p>mux.Post()创建一个post&quot;/ping&quot;的路由，路由到xxxhandler方法</p>
+</li>
+<li>
+<p>.Run()运行http服务</p>
+<p>用net/http</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/ping&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Method</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">MethodPost</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Header</span>().<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;application/json&#34;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">WriteHeader</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Write</span>([]byte(<span style="color:#e6db74">`{&#34;message&#34;: &#34;pong&#34;}`</span>))
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#a6e22e">w</span>, <span style="color:#e6db74">&#34;Method Not Allowed&#34;</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusMethodNotAllowed</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:8000&#34;</span>, <span style="color:#66d9ef">nil</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>        panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="gin">gin<a hidden class="anchor" aria-hidden="true" href="#gin">#</a></h2>
+<h2 id="基础概念">基础概念<a hidden class="anchor" aria-hidden="true" href="#基础概念">#</a></h2>
+<ul>
+<li>路由</li>
+<li>中间件</li>
+<li>请求和响应对象</li>
+<li>参数解析</li>
+<li>静态文件处理</li>
+</ul>
+<h2 id="创建第一个gin应用"><strong>创建第一个Gin应用</strong><a hidden class="anchor" aria-hidden="true" href="#创建第一个gin应用">#</a></h2>
+<ul>
+<li>创建一个简单的Hello World应用</li>
+<li>定义路由</li>
+<li>处理HTTP请求</li>
+<li>返回JSON响应</li>
+</ul>
+<p><strong>路由与控制器</strong></p>
+<ul>
+<li>路由的定义与使用</li>
+<li>参数传递和路由参数</li>
+<li>控制器的创建与使用</li>
+</ul>
+<p><strong>中间件</strong></p>
+<ul>
+<li>什么是中间件</li>
+<li>内置中间件（Logger、Recovery）</li>
+<li>自定义中间件</li>
+</ul>
+<p><strong>请求与响应处理</strong></p>
+<ul>
+<li>获取请求数据（GET、POST、Query参数）</li>
+<li>发送响应数据（JSON、HTML、文件）</li>
+<li>错误处理与状态码</li>
+</ul>
+<p><strong>数据库集成</strong></p>
+<ul>
+<li>连接数据库</li>
+<li>ORM（如果使用）</li>
+<li>CRUD操作</li>
+</ul>
+<p><strong>身份验证与授权</strong></p>
+<ul>
+<li>用户认证</li>
+<li>基于角色的授权</li>
+<li>JSON Web Tokens (JWT)的使用</li>
+</ul>
+<p><strong>性能优化</strong></p>
+<ul>
+<li>Golang和Gin的性能特点</li>
+<li>常见性能问题与优化策略</li>
+</ul>
+<p><strong>部署与维护</strong></p>
+<ul>
+<li>部署Gin应用</li>
+<li>日志管理</li>
+<li>安全性考虑</li>
+</ul>
+<p><strong>最佳实践</strong></p>
+<ul>
+<li>代码结构组织</li>
+<li>测试方法</li>
+<li>文档编写</li>
+</ul>
+<p><strong>进阶主题</strong></p>
+<ul>
+<li>WebSocket支持</li>
+<li>服务器推送（Server-Sent Events）</li>
+<li>使用第三方库</li>
+</ul>
 
 
         </div>
