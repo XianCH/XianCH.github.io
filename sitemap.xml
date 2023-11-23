@@ -3,15 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://XianCH.github.io/posts/tech/</loc>
-    <lastmod>2023-11-22T18:55:14+08:00</lastmod>
+    <lastmod>2023-11-23T16:29:09+08:00</lastmod>
   </url><url>
     <loc>https://XianCH.github.io/posts/</loc>
-    <lastmod>2023-11-22T18:55:14+08:00</lastmod>
+    <lastmod>2023-11-23T16:29:09+08:00</lastmod>
   </url><url>
-    <loc>https://XianCH.github.io/posts/tech/distributed/kafka/</loc>
-    <lastmod>2023-11-22T18:55:14+08:00</lastmod>
+    <loc>https://XianCH.github.io/posts/tech/basic/jwt/</loc>
+    <lastmod>2023-11-23T16:29:09+08:00</lastmod>
   </url><url>
     <loc>https://XianCH.github.io/</loc>
+    <lastmod>2023-11-23T16:29:09+08:00</lastmod>
+  </url><url>
+    <loc>https://XianCH.github.io/posts/tech/distributed/kafka/</loc>
     <lastmod>2023-11-22T18:55:14+08:00</lastmod>
   </url><url>
     <loc>https://XianCH.github.io/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/</loc>

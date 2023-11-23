@@ -6,7 +6,16 @@
     <description>Recent content on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 22 Nov 2023 18:55:14 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Nov 2023 16:29:09 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jwt</title>
+      <link>https://XianCH.github.io/posts/tech/basic/jwt/</link>
+      <pubDate>Thu, 23 Nov 2023 16:29:09 +0800</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/basic/jwt/</guid>
+      <description>简介 jwt(json web token)，主要用在跨域认证的问题 JWT原理 在https://jwt.io/ 这个网站可以进行jwt的encode 和decode，encode和decode分别如下 jwt组成 通过decode出来的数据，可以看到jwt由三部分组成 1.HEADER (ALGORITHM &amp;amp; TOKEN TYPE) 2.PAYLOAD (DATA) 3.SIGNATURE (SIGNATURE) Header Header 部分是一个 JSON 对象，描述</description>
+    </item>
+    
     <item>
       <title>Kafka</title>
       <link>https://XianCH.github.io/posts/tech/distributed/kafka/</link>
