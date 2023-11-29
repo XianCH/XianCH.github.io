@@ -31,7 +31,7 @@
       <pubDate>Wed, 22 Nov 2023 18:47:52 +0800</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/</guid>
-      <description>简述 以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点 连表 sql优化方案 mysql中用到的算法 mysql原理 database集群</description>
+      <description>简述 以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点 mysql相关命令 #查看数据库引擎 show engine; #查看表结构 DESC tablename; #查看创建表的sql语句 show CREATE TABLE TABLE_NAME; #创建表 Drop table if exists `school`; CREATE TABLE `school` default character set utf8; use school; #自增 auto_increment; #主键 primary key(`column`); #设置引擎和编码 engine = innoDB DEFAULT CHARSET= UT8; #设置外键将产品的cid绑定到category的主</description>
     </item>
     
     <item>
