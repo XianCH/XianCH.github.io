@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Golang实现通用线程池 | X14n&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="1.线程池介绍 线程池是一种并发编程的技术，它主要用于管理和复用线程，以提高程序的性能和效率。线程池维护了一组工作线程，它们在一个任务队列中获取任务并执行。当任务完成时，线程并不被销毁，而是返回线程池以供下一次使用。 优点： 资源管理：线程池能够有效管理系统资源，避免了频繁创建和销毁线">
+<meta name="author" content="x14n">
+<link rel="canonical" href="https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
+<link rel="icon" type="image/png" sizes="16x16" href="https://XianCH.github.io/img/main.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://XianCH.github.io/img/main.png">
+<link rel="apple-touch-icon" href="https://XianCH.github.io/img/main.png">
+<link rel="mask-icon" href="https://XianCH.github.io/img/main.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta property="og:title" content="Golang实现通用线程池" />
+<meta property="og:description" content="1.线程池介绍 线程池是一种并发编程的技术，它主要用于管理和复用线程，以提高程序的性能和效率。线程池维护了一组工作线程，它们在一个任务队列中获取任务并执行。当任务完成时，线程并不被销毁，而是返回线程池以供下一次使用。 优点： 资源管理：线程池能够有效管理系统资源，避免了频繁创建和销毁线" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-05T03:10:31+08:00" />
+<meta property="article:modified_time" content="2023-12-05T03:10:31+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Golang实现通用线程池"/>
+<meta name="twitter:description" content="1.线程池介绍 线程池是一种并发编程的技术，它主要用于管理和复用线程，以提高程序的性能和效率。线程池维护了一组工作线程，它们在一个任务队列中获取任务并执行。当任务完成时，线程并不被销毁，而是返回线程池以供下一次使用。 优点： 资源管理：线程池能够有效管理系统资源，避免了频繁创建和销毁线"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://XianCH.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "👨🏻‍💻 技术",
+          "item": "https://XianCH.github.io/posts/tech/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Golang实现通用线程池",
+      "item": "https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Golang实现通用线程池",
+  "name": "Golang实现通用线程池",
+  "description": "1.线程池介绍 线程池是一种并发编程的技术，它主要用于管理和复用线程，以提高程序的性能和效率。线程池维护了一组工作线程，它们在一个任务队列中获取任务并执行。当任务完成时，线程并不被销毁，而是返回线程池以供下一次使用。 优点： 资源管理：线程池能够有效管理系统资源，避免了频繁创建和销毁线",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "1.线程池介绍 线程池是一种并发编程的技术，它主要用于管理和复用线程，以提高程序的性能和效率。线程池维护了一组工作线程，它们在一个任务队列中获取任务并执行。当任务完成时，线程并不被销毁，而是返回线程池以供下一次使用。\n优点：\n资源管理：线程池能够有效管理系统资源，避免了频繁创建和销毁线程的开销，提高了资源的利用率。 性能提升： 通过复用线程，可以减少线程的创建和销毁开销，提高系统的性能。线程的创建和销毁是相对昂贵的操作，而线程池能够在一定程度上避免这些开销。 控制并发度： 线程池可以限制并发执行的线程数量，防止系统因过度并发而崩溃，提高系统的稳定性。 任务队列： 线程池通常使用任务队列来存储待执行的任务，这样可以实现任务的排队执行，提高系统的整体效率。 缺点：\n资源占用： 线程池在一些场景下可能会占用较多的系统资源，尤其是在任务队列中积累了大量的任务时，可能会导致内存占用过高。 2.Golang是否需要线程池 Golang中并发模型采用了轻量级的goroutine和通道（channel）机制，相较于传统的线程池模型，更直观、简单且高效。在Golang中，通常不直接使用线程池，而是利用goroutine和channel进行并发编程。本文将通过golang来简单的实现一个线程池.\n3.设计 本文代码\n这里使用任务队列加上线程池来完成，当有任务出现的时候，从任务队列中取出任务，然后从线程池中取出一个worker，将每个worker都是一个独立的goroutine，将任务传递给goroutine处理，当任务结束了，再将goroutine放回到线程池中\n3.1 job设计 job是要执行的任务，可以通过实现job接口来自定义任务\ntype Job interface { RunTask(request interface{}) } type JobChan chan Job 3.2 worker 设计 Worker就是高并发里面的一个线程，启动的时候是一个Goroutine。Worker结构一需要一个JobChan，用来接收从全局JobQueue里面获取的Job对象。需要一个Start函数，将自己注册到WorkerPool，然后监听Job，有Job传入时，处理Job的Run，处理完成之后，重新将自己添加回WorkerPool。\ntype Worker struct { ID int JobQueue JobChan WorkerPool chan *Worker } func NewWorker(id int, workerpool chan *Worker) *Worker { return \u0026Worker{ ID: id, JobQueue: make(JobChan), WorkerPool: workerpool, } } func (w *Worker) Start() { go func() { for { w.WorkerPool \u003c- w select { case job := \u003c-w.JobQueue: log.Printf(\"Worker %d processing job\\n\", w.ID) job.Run(nil) } } }() } 3.3 pool设计 workerpool 是一个线程池，用来存储空闲的goroutine(worker)，size也就是pool中goroutine的数量，JobQueue用来存储全局的 jobChan，当有任务到jobQueue时，从pool中取出一个worker，执行完成后将worker放回。waitGroup用于等待所有任务完成，Mutex是一个互斥锁，用于保护共享资源。\ntype WorkerPool struct { Size int JobQueue JobChan WorkerPool chan *Worker WaitGroup *sync.WaitGroup Mutex sync.Mutex } //NewWorkerPool 是创建 WorkerPool 实例的构造函数，初始化了上述属性，并返回一个指针。 func NewWorkerPool(size int) *WorkerPool { return \u0026WorkerPool{ Size: size, JobQueue: make(JobChan), WorkerPool: make(chan *Worker, size), WaitGroup: \u0026sync.WaitGroup{}, } } func (wp *WorkerPool) StartPool() { for i := 0; i \u003c wp.Size; i++ { worker := NewWorker(i, wp.WorkerPool) go worker.Start() wp.WaitGroup.Add(1) } go func() { for job := range wp.JobQueue { worker := \u003c-wp.WorkerPool go func(j Job, w *Worker) { defer func() { wp.WorkerPool \u003c- w }() w.JobQueue \u003c- j }(job, worker) } }() } StartPool 方法启动了线程池，创建了指定数量的 worker，并启动了一个 goroutine 来监听 JobQueue 中的任务。当有任务到达时，它会从 WorkerPool 中取出一个空闲的 worker，并将任务分配给该 worker 执行。执行完成后，worker 会被放回 WorkerPool。\n在 StartPool 方法中，使用了 sync.WaitGroup 来等待所有 worker 完成任务。每创建一个 worker，就对 WaitGroup 进行加一操作。在 worker 完成任务时，通过 defer 语句来确保在函数退出时减一。这样可以确保在所有 worker 完成任务后，主线程不会提前退出。\n3.4 调用 type TickerSys struct { tickerCount int Mutex *sync.Mutex } func NewTickerSys(initialCount int) *TickerSys { return \u0026TickerSys{ tickerCount: initialCount, Mutex: \u0026sync.Mutex{}, } } func (t *TickerSys) Run(request int) { t.Mutex.Lock() defer t.Mutex.Unlock() t.tickerCount -= request } type PurchaseJob struct { TickerSys *TickerSys TicketCount int } func (p *PurchaseJob) Run() { p.TickerSys.Run(p.TicketCount) } func main() { wp := NewWorkerPool(10) wp.StartPool() tickerSys := NewTickerSys(100) for i := 0; i \u003c 1000; i++ { job := \u0026PurchaseJob{ TickerSys: tickerSys, TicketCount: 1, } wp.SubmitJob(job) if tickerSys.tickerCount == 0 { fmt.Println(\"售票结束\") break } } wp.Close() } ",
+  "wordCount" : "1554",
+  "inLanguage": "zh",
+  "datePublished": "2023-12-05T03:10:31+08:00",
+  "dateModified": "2023-12-05T03:10:31+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "x14n"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "X14n's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://XianCH.github.io/img/favicon.icon"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://XianCH.github.io/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
+            <img src="https://XianCH.github.io/img/main.png" alt="logo" aria-label="logo"
+                 height="35">x14n&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <h1 class="post-title">
+                Golang实现通用线程池
+            </h1>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-12-05
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1554字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>4分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>x14n
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://XianCH.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId:  null , 
+                                region:  null , 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1%e7%ba%bf%e7%a8%8b%e6%b1%a0%e4%bb%8b%e7%bb%8d" aria-label="1.线程池介绍">1.线程池介绍</a></li>
+                <li>
+                    <a href="#2golang%e6%98%af%e5%90%a6%e9%9c%80%e8%a6%81%e7%ba%bf%e7%a8%8b%e6%b1%a0" aria-label="2.Golang是否需要线程池">2.<strong>Golang是否需要线程池</strong></a></li>
+                <li>
+                    <a href="#3%e8%ae%be%e8%ae%a1" aria-label="3.设计">3.设计</a><ul>
+                        
+                <li>
+                    <a href="#31-job%e8%ae%be%e8%ae%a1" aria-label="3.1 job设计">3.1 job设计</a></li>
+                <li>
+                    <a href="#32-worker-%e8%ae%be%e8%ae%a1" aria-label="3.2 worker 设计">3.2 worker 设计</a></li>
+                <li>
+                    <a href="#33-pool%e8%ae%be%e8%ae%a1" aria-label="3.3 pool设计">3.3 pool设计</a></li>
+                <li>
+                    <a href="#34-%e8%b0%83%e7%94%a8" aria-label="3.4 调用">3.4 调用</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h2 id="1线程池介绍">1.线程池介绍<a hidden class="anchor" aria-hidden="true" href="#1线程池介绍">#</a></h2>
+<p>线程池是一种并发编程的技术，它主要用于管理和复用线程，以提高程序的性能和效率。线程池维护了一组工作线程，它们在一个任务队列中获取任务并执行。当任务完成时，线程并不被销毁，而是返回线程池以供下一次使用。</p>
+<p>优点：</p>
+<ul>
+<li><strong>资源管理</strong>：线程池能够有效管理系统资源，避免了频繁创建和销毁线程的开销，提高了资源的利用率。</li>
+<li><strong>性能提升：</strong> 通过复用线程，可以减少线程的创建和销毁开销，提高系统的性能。线程的创建和销毁是相对昂贵的操作，而线程池能够在一定程度上避免这些开销。</li>
+<li><strong>控制并发度：</strong> 线程池可以限制并发执行的线程数量，防止系统因过度并发而崩溃，提高系统的稳定性。</li>
+<li><strong>任务队列：</strong> 线程池通常使用任务队列来存储待执行的任务，这样可以实现任务的排队执行，提高系统的整体效率。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li><strong>资源占用：</strong> 线程池在一些场景下可能会占用较多的系统资源，尤其是在任务队列中积累了大量的任务时，可能会导致内存占用过高。</li>
+</ul>
+<h2 id="2golang是否需要线程池">2.<strong>Golang是否需要线程池</strong><a hidden class="anchor" aria-hidden="true" href="#2golang是否需要线程池">#</a></h2>
+<p>Golang中并发模型采用了轻量级的goroutine和通道（channel）机制，相较于传统的线程池模型，更直观、简单且高效。在Golang中，通常不直接使用线程池，而是利用goroutine和channel进行并发编程。本文将通过golang来简单的实现一个线程池.</p>
+<h2 id="3设计">3.设计<a hidden class="anchor" aria-hidden="true" href="#3设计">#</a></h2>
+<p><a href="https://github.com/XianCH/goExperimental/tree/master/threadPool/v2">本文代码</a></p>
+<img src="./index.assets/image-20231205031854155.png" alt="image-20231205031854155" style="zoom:80%;" />
+<p>这里使用任务队列加上线程池来完成，当有任务出现的时候，从任务队列中取出任务，然后从线程池中取出一个worker，将每个worker都是一个独立的goroutine，将任务传递给goroutine处理，当任务结束了，再将goroutine放回到线程池中</p>
+<h3 id="31-job设计">3.1 job设计<a hidden class="anchor" aria-hidden="true" href="#31-job设计">#</a></h3>
+<p>job是要执行的任务，可以通过实现job接口来自定义任务</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Job</span> <span style="color:#66d9ef">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">RunTask</span>(<span style="color:#a6e22e">request</span> <span style="color:#66d9ef">interface</span>{})
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">JobChan</span> <span style="color:#66d9ef">chan</span> <span style="color:#a6e22e">Job</span>
+</span></span></code></pre></div><h3 id="32-worker-设计">3.2 worker 设计<a hidden class="anchor" aria-hidden="true" href="#32-worker-设计">#</a></h3>
+<p>Worker就是高并发里面的一个线程，启动的时候是一个Goroutine。Worker结构一需要一个JobChan，用来接收从全局JobQueue里面获取的Job对象。需要一个Start函数，将自己注册到WorkerPool，然后监听Job，有Job传入时，处理Job的Run，处理完成之后，重新将自己添加回WorkerPool。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Worker</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ID</span>         <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">JobQueue</span>   <span style="color:#a6e22e">JobChan</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">WorkerPool</span> <span style="color:#66d9ef">chan</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Worker</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewWorker</span>(<span style="color:#a6e22e">id</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">workerpool</span> <span style="color:#66d9ef">chan</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Worker</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">Worker</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Worker</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">ID</span>:         <span style="color:#a6e22e">id</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">JobQueue</span>:   make(<span style="color:#a6e22e">JobChan</span>),
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">WorkerPool</span>: <span style="color:#a6e22e">workerpool</span>,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">w</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Worker</span>) <span style="color:#a6e22e">Start</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">for</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">WorkerPool</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">w</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">select</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">job</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">JobQueue</span>:
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Worker %d processing job\n&#34;</span>, <span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">ID</span>)
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">job</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="33-pool设计">3.3 pool设计<a hidden class="anchor" aria-hidden="true" href="#33-pool设计">#</a></h3>
+<p><code>workerpool</code> 是一个线程池，用来存储空闲的<code>goroutine(worker)</code>，<code>size</code>也就是<code>pool</code>中<code>goroutine</code>的数量，<code>JobQueue</code>用来存储全局的<code> jobChan</code>，当有任务到<code>jobQueue</code>时，从<code>pool</code>中取出一个<code>worker</code>，执行完成后将<code>worker</code>放回。<code>waitGroup</code>用于等待所有任务完成，<code>Mutex</code>是一个互斥锁，用于保护共享资源。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">WorkerPool</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Size</span>       <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">JobQueue</span>   <span style="color:#a6e22e">JobChan</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">WorkerPool</span> <span style="color:#66d9ef">chan</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Worker</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">WaitGroup</span>  <span style="color:#f92672">*</span><span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">WaitGroup</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Mutex</span>      <span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">Mutex</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//NewWorkerPool 是创建 WorkerPool 实例的构造函数，初始化了上述属性，并返回一个指针。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewWorkerPool</span>(<span style="color:#a6e22e">size</span> <span style="color:#66d9ef">int</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">WorkerPool</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">WorkerPool</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Size</span>:       <span style="color:#a6e22e">size</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">JobQueue</span>:   make(<span style="color:#a6e22e">JobChan</span>),
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">WorkerPool</span>: make(<span style="color:#66d9ef">chan</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Worker</span>, <span style="color:#a6e22e">size</span>),
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">WaitGroup</span>:  <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">WaitGroup</span>{},
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">wp</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">WorkerPool</span>) <span style="color:#a6e22e">StartPool</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">wp</span>.<span style="color:#a6e22e">Size</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">worker</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewWorker</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">wp</span>.<span style="color:#a6e22e">WorkerPool</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">go</span> <span style="color:#a6e22e">worker</span>.<span style="color:#a6e22e">Start</span>()
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">wp</span>.<span style="color:#a6e22e">WaitGroup</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">job</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">wp</span>.<span style="color:#a6e22e">JobQueue</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">worker</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">wp</span>.<span style="color:#a6e22e">WorkerPool</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">j</span> <span style="color:#a6e22e">Job</span>, <span style="color:#a6e22e">w</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Worker</span>) {
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">defer</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>					<span style="color:#a6e22e">wp</span>.<span style="color:#a6e22e">WorkerPool</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">w</span>
+</span></span><span style="display:flex;"><span>				}()
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">JobQueue</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">j</span>
+</span></span><span style="display:flex;"><span>			}(<span style="color:#a6e22e">job</span>, <span style="color:#a6e22e">worker</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>StartPool</code> 方法启动了线程池，创建了指定数量的 worker，并启动了一个 goroutine 来监听 <code>JobQueue</code> 中的任务。当有任务到达时，它会从 <code>WorkerPool</code> 中取出一个空闲的 worker，并将任务分配给该 worker 执行。执行完成后，worker 会被放回 <code>WorkerPool</code>。</p>
+<p>在 <code>StartPool</code> 方法中，使用了 <code>sync.WaitGroup</code> 来等待所有 worker 完成任务。每创建一个 worker，就对 <code>WaitGroup</code> 进行加一操作。在 worker 完成任务时，通过 <code>defer</code> 语句来确保在函数退出时减一。这样可以确保在所有 worker 完成任务后，主线程不会提前退出。</p>
+<h3 id="34-调用">3.4 调用<a hidden class="anchor" aria-hidden="true" href="#34-调用">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">TickerSys</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">tickerCount</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Mutex</span>       <span style="color:#f92672">*</span><span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">Mutex</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewTickerSys</span>(<span style="color:#a6e22e">initialCount</span> <span style="color:#66d9ef">int</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">TickerSys</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">TickerSys</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">tickerCount</span>: <span style="color:#a6e22e">initialCount</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Mutex</span>:       <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">Mutex</span>{},
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">TickerSys</span>) <span style="color:#a6e22e">Run</span>(<span style="color:#a6e22e">request</span> <span style="color:#66d9ef">int</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Mutex</span>.<span style="color:#a6e22e">Lock</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Mutex</span>.<span style="color:#a6e22e">Unlock</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">tickerCount</span> <span style="color:#f92672">-=</span> <span style="color:#a6e22e">request</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PurchaseJob</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">TickerSys</span>   <span style="color:#f92672">*</span><span style="color:#a6e22e">TickerSys</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">TicketCount</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">p</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">PurchaseJob</span>) <span style="color:#a6e22e">Run</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">TickerSys</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">TicketCount</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">wp</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewWorkerPool</span>(<span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">wp</span>.<span style="color:#a6e22e">StartPool</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">tickerSys</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewTickerSys</span>(<span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">1000</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">job</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">PurchaseJob</span>{
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">TickerSys</span>:   <span style="color:#a6e22e">tickerSys</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">TicketCount</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">wp</span>.<span style="color:#a6e22e">SubmitJob</span>(<span style="color:#a6e22e">job</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">tickerSys</span>.<span style="color:#a6e22e">tickerCount</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;售票结束&#34;</span>)
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">wp</span>.<span style="color:#a6e22e">Close</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="next" href="https://XianCH.github.io/posts/tech/basic/jwt/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Jwt</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+<div>
+    <details class="comments_details">
+        <summary style="cursor: pointer; margin: 50px 0 20px 0;width: 130px;">
+            <span style="font-size: 20px;color: var(--content);">...</span>
+        </summary>
+        <div id="tcomment"></div>
+    </details>
+    <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js">
+    </script>
+    <script>
+        twikoo.init({
+            envId:  null ,
+        el: "#tcomment",
+            lang: 'zh-CN',
+            region:  null ,
+        path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        })
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>
+        Copyright
+        &copy;
+        -2023
+        <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
+        All Rights Reserved
+    </span>
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;"></a>&nbsp;
+    <span>
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null"
+           style="display:inline-block;text-decoration:none;height:20px;color:#939393;">
+            <img src="" style="float:left;margin: 0px 5px 0px 0px;"/>
+            
+        </a>
+    </span>
+    <span id="busuanzi_container">
+        <span class="fa fa-user"></span> <span id="busuanzi_value_site_uv"></span>
+        <span class="fa fa-eye"></span> <span id="busuanzi_value_site_pv"></span>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+</body>
+
+</html>
