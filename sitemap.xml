@@ -3,15 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://XianCH.github.io/posts/tech/</loc>
-    <lastmod>2023-12-05T03:10:31+08:00</lastmod>
+    <lastmod>2023-12-05T23:41:02+08:00</lastmod>
   </url><url>
     <loc>https://XianCH.github.io/posts/</loc>
-    <lastmod>2023-12-05T03:10:31+08:00</lastmod>
+    <lastmod>2023-12-05T23:41:02+08:00</lastmod>
   </url><url>
-    <loc>https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0/</loc>
-    <lastmod>2023-12-05T03:10:31+08:00</lastmod>
+    <loc>https://XianCH.github.io/tags/basic/</loc>
+    <lastmod>2023-12-05T23:41:02+08:00</lastmod>
   </url><url>
     <loc>https://XianCH.github.io/</loc>
+    <lastmod>2023-12-05T23:41:02+08:00</lastmod>
+  </url><url>
+    <loc>https://XianCH.github.io/tags/</loc>
+    <lastmod>2023-12-05T23:41:02+08:00</lastmod>
+  </url><url>
+    <loc>https://XianCH.github.io/posts/tech/basic/%E5%AD%97%E7%AC%A6%E9%9B%86%E7%BC%96%E7%A0%81/</loc>
+    <lastmod>2023-12-05T23:41:02+08:00</lastmod>
+  </url><url>
+    <loc>https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0/</loc>
     <lastmod>2023-12-05T03:10:31+08:00</lastmod>
   </url><url>
     <loc>https://XianCH.github.io/posts/tech/basic/jwt/</loc>
@@ -27,9 +36,6 @@
     <lastmod>2023-10-19T18:19:51+08:00</lastmod>
   </url><url>
     <loc>https://XianCH.github.io/posts/tech/distributed/nginx%E5%85%A5%E9%97%A8/</loc>
-    <lastmod>2023-10-19T18:19:51+08:00</lastmod>
-  </url><url>
-    <loc>https://XianCH.github.io/tags/</loc>
     <lastmod>2023-10-19T18:19:51+08:00</lastmod>
   </url><url>
     <loc>https://XianCH.github.io/posts/life/</loc>

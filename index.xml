@@ -6,14 +6,23 @@
     <description>Recent content on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 05 Dec 2023 03:10:31 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Dec 2023 23:41:02 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>字符集编码</title>
+      <link>https://XianCH.github.io/posts/tech/basic/%E5%AD%97%E7%AC%A6%E9%9B%86%E7%BC%96%E7%A0%81/</link>
+      <pubDate>Tue, 05 Dec 2023 23:41:02 +0800</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/basic/%E5%AD%97%E7%AC%A6%E9%9B%86%E7%BC%96%E7%A0%81/</guid>
+      <description>ascii unicode utf-8</description>
+    </item>
+    
     <item>
       <title>Golang实现通用线程池</title>
       <link>https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0/</link>
       <pubDate>Tue, 05 Dec 2023 03:10:31 +0800</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0/</guid>
-      <description>1.线程池介绍 线程池是一种并发编程的技术，它主要用于管理和复用线程，以提高程序的性能和效率。线程池维护了一组工作线程，它们在一个任务队列中获取任务并执行。当任务完成时，线程并不被销毁，而是返回线程池以供下一次使用。 优点： 资源管理：线程池能够有效管理系统资源，避免了频繁创建和销毁线</description>
+      <description>go线程池</description>
     </item>
     
     <item>
@@ -319,7 +328,7 @@
       <pubDate>Sat, 06 Nov 2021 14:57:28 +0800</pubDate>
       
       <guid>https://XianCH.github.io/about/</guid>
-      <description>关于我 英文名: xxxxxx 职业: xxxxxx 运动: 跑步、乒乓球、爬山</description>
+      <description>x14n 23 take it ez&amp;hellip;&amp;hellip;</description>
     </item>
     
     

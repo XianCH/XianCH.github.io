@@ -5,13 +5,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Kafka | X14n&#39;s Blog</title>
+<title>👨🏻‍💻 技术 | X14n&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="Kafka - X14n&#39;s Blog">
+<meta name="description" content="👨🏻‍💻 技术 - X14n&#39;s Blog">
 <meta name="author" content="x14n">
-<link rel="canonical" href="https://XianCH.github.io/posts/tech/distributed/kafka/">
+<link rel="canonical" href="https://XianCH.github.io/posts/tech/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
 <link rel="icon" type="image/png" sizes="16x16" href="https://XianCH.github.io/img/main.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://XianCH.github.io/img/main.png">
@@ -19,6 +18,7 @@
 <link rel="mask-icon" href="https://XianCH.github.io/img/main.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://XianCH.github.io/posts/tech/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -28,8 +28,6 @@
 
     </style>
 </noscript>
-<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
@@ -45,17 +43,13 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-<meta property="og:title" content="Kafka" />
+<meta property="og:title" content="👨🏻‍💻 技术" />
 <meta property="og:description" content="" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://XianCH.github.io/posts/tech/distributed/kafka/" />
-<meta property="og:image" content="https://XianCH.github.io/postsImg/kafka.png" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-11-22T18:55:14+08:00" />
-<meta property="article:modified_time" content="2023-11-22T18:55:14+08:00" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://XianCH.github.io/posts/tech/" />
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://XianCH.github.io/postsImg/kafka.png" />
-<meta name="twitter:title" content="Kafka"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="👨🏻‍💻 技术"/>
 <meta name="twitter:description" content=""/>
 
 
@@ -70,59 +64,19 @@ var _hmt = _hmt || [];
           "position":  1 ,
           "name": "📚文章",
           "item": "https://XianCH.github.io/posts/"
-        },
-
-        {
-          "@type": "ListItem",
-          "position":  2 ,
-          "name": "👨🏻‍💻 技术",
-          "item": "https://XianCH.github.io/posts/tech/"
         }, 
     {
       "@type": "ListItem",
-      "position":  3 ,
-      "name": "Kafka",
-      "item": "https://XianCH.github.io/posts/tech/distributed/kafka/"
+      "position":  2 ,
+      "name": "👨🏻‍💻 技术",
+      "item": "https://XianCH.github.io/posts/tech/"
     }
   ]
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Kafka",
-  "name": "Kafka",
-  "description": "",
-  "keywords": [
-    ""
-  ],
-  "articleBody": "",
-  "wordCount" : "0",
-  "inLanguage": "zh",
-  "image":"https://XianCH.github.io/postsImg/kafka.png","datePublished": "2023-11-22T18:55:14+08:00",
-  "dateModified": "2023-11-22T18:55:14+08:00",
-  "author":[{
-    "@type": "Person",
-    "name": "x14n"
-  }],
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://XianCH.github.io/posts/tech/distributed/kafka/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "X14n's Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://XianCH.github.io/img/favicon.icon"
-    }
-  }
-}
-</script>
 </head>
 
-<body class=" dark" id="top">
+<body class="list dark" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "light") {
         document.body.classList.remove('dark')
@@ -193,23 +147,25 @@ var _hmt = _hmt || [];
         </ul>
     </nav>
 </header>
-<main class="main page">
-<style>
-    i[id*="post_meta_style"] {
-        display: flex;
-        align-items: center;
-        margin: 0 0 10px 0;
-    }
-</style>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a></div>
+  <h1>👨🏻‍💻 技术</h1>
+</header>
 
-<article class="post-single">
-    <div id="single-content">
-        <header class="post-header">
-            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
-            <h1 class="post-title">
-                Kafka
-            </h1>
-            <div class="post-meta">
+<article class="post-entry">
+  <div class="post-info">
+    <header class="entry-header">
+      <h2>springmvc学习笔记笔记
+      </h2>
+    </header>
+    <section class="entry-content">
+      <p>
+        springmvc学习
+        
+        ...
+      </p>
+    </section>
+    <footer class="entry-footer">
 
 <style>
     i[id*="post_meta_style"] {
@@ -228,7 +184,7 @@ var _hmt = _hmt || [];
 <span class="parent-post-meta">
     <span id="post_meta_style_1">
         <span class="fa fa-calendar-check-o"></span>
-        <span>2023-11-22
+        <span>2022-02-03
             &nbsp;&nbsp;
         </span>
     </span>
@@ -241,13 +197,13 @@ var _hmt = _hmt || [];
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>0字
+        <span>19391字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>0分钟
+        <span>39分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -261,115 +217,42 @@ var _hmt = _hmt || [];
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
+                <a href="https://XianCH.github.io/tags/java/" style="color: var(--secondary)!important;">java</a>
             </span>
         </span>
     </span>
 </span>
-<span style="opacity: 0.8;">
-                    <span id="post_meta_style_7">
-                        &nbsp;&nbsp;
-                        <span class="fa fa-eye" ></span>
-                        <span>
-                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
-                            &nbsp;&nbsp;
-                        </span>
-                    </span>
-                    <span id="post_meta_style_8">
-                        <span class="fa fa-commenting-o"></span>
-                        <span>
-                            <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js"></script>
-                            <script>
-                                let url = document.documentURI
-                                
-                                let dnsUrl = "https://XianCH.github.io/"
-                                let urlSplit = url.split(dnsUrl)
-                                let finalUrl = urlSplit[1]
-                                if (finalUrl[0] !== '/') {
-                                    finalUrl = '/'+finalUrl
-                                }
-                                twikoo.getCommentsCount({
-                                    envId:  null , 
-                                region:  null , 
-                                urls: [ 
-                                    
-                                    finalUrl,
-                                ],
-                                    includeReply: false 
-                                }).then(function (res) {
-                                    let count = res[0].count
-                                    const obj = document.getElementById("comment_count");
-                                    obj.innerText = count
-                                    
-                                    
-                                    
-                                }).catch(function (err) {
-                                    
-                                    console.error(err);
-                                });
-                            </script>
-                            <span id="comment_count"></span>
-                        </span>
-                    </span>
-                </span>
-
-</div>
-        </header> 
-<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/kafka.png" alt="">
-    
+</footer>
+  </div> 
+<figure class="entry-cover"><img loading="lazy" src="https://XianCH.github.io/postsImg/springmvc.png" alt="">
 </figure>
-
-        <footer class="post-footer">
-            
-<nav class="paginav">
-  <a class="prev" href="https://XianCH.github.io/posts/tech/basic/jwt/">
-    <span class="title">« 上一页</span>
-    <br>
-    <span>Jwt</span>
-  </a>
-  <a class="next" href="https://XianCH.github.io/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/">
-    <span class="title">下一页 »</span>
-    <br>
-    <span>Mysql重审</span>
-  </a>
-</nav>
-
-        </footer>
-    </div>
-
-<style>
-    .comments_details summary::marker {
-        font-size: 20px;
-        content: '👉展开评论';
-        color: var(--content);
-    }
-    .comments_details[open] summary::marker{
-        font-size: 20px;
-        content: '👇关闭评论';
-        color: var(--content);
-    }
-</style>
-
-
-<div>
-    <details class="comments_details">
-        <summary style="cursor: pointer; margin: 50px 0 20px 0;width: 130px;">
-            <span style="font-size: 20px;color: var(--content);">...</span>
-        </summary>
-        <div id="tcomment"></div>
-    </details>
-    <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js">
-    </script>
-    <script>
-        twikoo.init({
-            envId:  null ,
-        el: "#tcomment",
-            lang: 'zh-CN',
-            region:  null ,
-        path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
-        })
-    </script>
-</div>
+  <a class="entry-link" aria-label="post link to springmvc学习笔记笔记" href="https://XianCH.github.io/posts/tech/java/springmvc/"></a>
 </article>
+
+<br />
+<br />
+<footer class="page-footer">
+  <nav class="pagination">
+    
+    
+    
+    <span class="numFirst">
+        <a class="pageFirst" href="https://XianCH.github.io/posts/tech/">1</a>
+      </span>
+    &nbsp;...&nbsp;
+    <span class="numPrev">
+            <a class="pagePrev" href="https://XianCH.github.io/posts/tech/page/2/">2</a>
+          </span>
+
+    <span class="pageNum">
+      <a class="pageNow" href="https://XianCH.github.io/posts/tech/page/3/">3</a>
+    </span>
+
+    
+  </nav>
+</footer>
+
+<br />
 </main>
 
 <footer class="footer">
@@ -485,76 +368,6 @@ var _hmt = _hmt || [];
                 clipboardData.setData('text/html', htmlData);
                 clipboardData.setData('text/plain', textData);
             }
-        }
-    });
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerText = '复制';
-
-        function copyingDone() {
-            copybutton.innerText = '已复制！';
-            setTimeout(() => {
-                copybutton.innerText = '复制';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                let text = codeblock.textContent +
-                    '\r\n————————————————\r\n' +
-                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
-                '\r\n原文链接：' + location.href;
-                navigator.clipboard.writeText(text);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) {}
-            selection.removeRange(range);
-        });
-
-        let language = codeblock.className.replaceAll("language-", "")
-        let macTool = document.createElement("div")
-        let macTool1 = document.createElement("div")
-        let macTool2 = document.createElement("div")
-        let macTool3 = document.createElement("div")
-        let languageType = document.createElement("div")
-        languageType.innerText = language
-        macTool.setAttribute('class', 'mac-tool')
-        macTool1.setAttribute('class', 'mac bb1')
-        macTool2.setAttribute('class', 'mac bb2')
-        macTool3.setAttribute('class', 'mac bb3')
-        languageType.setAttribute('class', 'language-type')
-        macTool.appendChild(macTool1)
-        macTool.appendChild(macTool2)
-        macTool.appendChild(macTool3)
-        macTool.appendChild(languageType)
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-            container.appendChild(macTool)
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-            container.appendChild(macTool)
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-            container.appendChild(macTool)
         }
     });
 </script>

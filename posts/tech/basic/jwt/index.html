@@ -48,11 +48,13 @@ var _hmt = _hmt || [];
 <meta property="og:title" content="Jwt" />
 <meta property="og:description" content="简介 jwt(json web token)，主要用在跨域认证的问题 JWT原理 在https://jwt.io/ 这个网站可以进行jwt的encode 和decode，encode和decode分别如下 jwt组成 通过decode出来的数据，可以看到jwt由三部分组成 1.HEADER (ALGORITHM &amp; TOKEN TYPE) 2.PAYLOAD (DATA) 3.SIGNATURE (SIGNATURE) Header Header 部分是一个 JSON 对象，描述" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://XianCH.github.io/posts/tech/basic/jwt/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://XianCH.github.io/posts/tech/basic/jwt/" />
+<meta property="og:image" content="https://XianCH.github.io/postsImg/jwt.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-11-23T16:29:09+08:00" />
 <meta property="article:modified_time" content="2023-11-23T16:29:09+08:00" />
 
-<meta name="twitter:card" content="summary"/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://XianCH.github.io/postsImg/jwt.png" />
 <meta name="twitter:title" content="Jwt"/>
 <meta name="twitter:description" content="简介 jwt(json web token)，主要用在跨域认证的问题 JWT原理 在https://jwt.io/ 这个网站可以进行jwt的encode 和decode，encode和decode分别如下 jwt组成 通过decode出来的数据，可以看到jwt由三部分组成 1.HEADER (ALGORITHM &amp; TOKEN TYPE) 2.PAYLOAD (DATA) 3.SIGNATURE (SIGNATURE) Header Header 部分是一个 JSON 对象，描述"/>
 
@@ -98,7 +100,7 @@ var _hmt = _hmt || [];
   "articleBody": "简介 jwt(json web token)，主要用在跨域认证的问题\nJWT原理 在https://jwt.io/ 这个网站可以进行jwt的encode 和decode，encode和decode分别如下\njwt组成 通过decode出来的数据，可以看到jwt由三部分组成\n1.HEADER\t(ALGORITHM \u0026 TOKEN TYPE) 2.PAYLOAD\t(DATA) 3.SIGNATURE\t(SIGNATURE) Header Header 部分是一个 JSON 对象，描述 JWT 的元数据，通常是下面的样子。\n{ \"alg\": \"HS256\", \"typ\": \"JWT\" } 上面代码中，alg属性表示签名的算法（algorithm），默认是 HMAC SHA256（写成 HS256）；typ属性表示这个令牌（token）的类型（type），JWT 令牌统一写为JWT。\n最后，将上面的 JSON 对象使用 Base64URL 算法（详见后文）转成字符串。\nPayload Payload 部分也是一个 JSON 对象，用来存放实际需要传递的数据。JWT 规定了7个官方字段，供选用。\niss (issuer)：签发人 exp (expiration time)：过期时间 sub (subject)：主题 aud (audience)：受众 nbf (Not Before)：生效时间 iat (Issued At)：签发时间 jti (JWT ID)：编号 Signature Signature 部分是对前两部分的签名，防止数据篡改。\n首先，需要指定一个密钥（secret）。这个密钥只有服务器才知道，不能泄露给用户。然后，使用 Header 里面指定的签名算法（默认是 HMAC SHA256），按照下面的公式产生签名。\nHMACSHA256( base64UrlEncode(header) + \".\" + base64UrlEncode(payload), secret) 算出签名以后，把 Header、Payload、Signature 三个部分拼成一个字符串，每个部分之间用\"点\"（.）分隔，就可以返回给用户。\n生成流程 将header和payload两个格式的json 分别进行base64URL编码\n生成的字符串用.分割，生成了前两部分\n最后一部分通过是通过：前两段生成的字符串+header里面的加密算法+ 秘钥。\n校验流程 通过前面两段base64生成的字符串 ，还有header里面的加密算法，加上密钥，最后生成的字符串 和 原来的的字符串是否相等，来检查jwt是否被篡改。\ngolang-jwt type MyCliams struct { Username string `json:\"username\"` jwt.StandardClaims } const TokenExpireDuration = time.Hour * 2 var MySecurt = []byte(\"x14nch911\") //生成token func GenToken(username string) (string, error) { c := MyCliams{ username, jwt.StandardClaims{ ExpiresAt: time.Now().Add(TokenExpireDuration).Unix(), Issuer: \"my-project\", }, } token := jwt.NewWithClaims(jwt.SigningMethodHS256, c) return token.SignedString(MySecurt) } // 校验token func ParseToken(tokenString string) (*MyCliams, error) { //解析token token, err := jwt.ParseWithClaims(tokenString, \u0026MyCliams{}, func(token *jwt.Token) (i interface{}, err error) { return MySecurt, nil }) if err != nil { fmt.Println(err) return nil, err } if claims, ok := token.Claims.(*MyCliams); ok \u0026\u0026 token.Valid { return claims, nil } return nil, errors.New(\"invalid token\") } ",
   "wordCount" : "890",
   "inLanguage": "zh",
-  "datePublished": "2023-11-23T16:29:09+08:00",
+  "image":"https://XianCH.github.io/postsImg/jwt.png","datePublished": "2023-11-23T16:29:09+08:00",
   "dateModified": "2023-11-23T16:29:09+08:00",
   "author":[{
     "@type": "Person",
@@ -311,7 +313,10 @@ var _hmt = _hmt || [];
                 </span>
 
 </div>
-        </header> <aside id="toc-container" class="toc-container wide">
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/jwt.png" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
         <summary accesskey="c" title="(Alt + C)">

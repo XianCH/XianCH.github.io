@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>字符集编码 | X14n&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="ascii unicode utf-8">
+<meta name="author" content="x14n">
+<link rel="canonical" href="https://XianCH.github.io/posts/tech/basic/%E5%AD%97%E7%AC%A6%E9%9B%86%E7%BC%96%E7%A0%81/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
+<link rel="icon" type="image/png" sizes="16x16" href="https://XianCH.github.io/img/main.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://XianCH.github.io/img/main.png">
+<link rel="apple-touch-icon" href="https://XianCH.github.io/img/main.png">
+<link rel="mask-icon" href="https://XianCH.github.io/img/main.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta property="og:title" content="字符集编码" />
+<meta property="og:description" content="ascii unicode utf-8" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://XianCH.github.io/posts/tech/basic/%E5%AD%97%E7%AC%A6%E9%9B%86%E7%BC%96%E7%A0%81/" />
+<meta property="og:image" content="https://XianCH.github.io/postsImg/unicode.jpg" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-05T23:41:02+08:00" />
+<meta property="article:modified_time" content="2023-12-05T23:41:02+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://XianCH.github.io/postsImg/unicode.jpg" />
+<meta name="twitter:title" content="字符集编码"/>
+<meta name="twitter:description" content="ascii unicode utf-8"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://XianCH.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "👨🏻‍💻 技术",
+          "item": "https://XianCH.github.io/posts/tech/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "字符集编码",
+      "item": "https://XianCH.github.io/posts/tech/basic/%E5%AD%97%E7%AC%A6%E9%9B%86%E7%BC%96%E7%A0%81/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "字符集编码",
+  "name": "字符集编码",
+  "description": "ascii unicode utf-8",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "字符编码笔记：ASCII，Unicode 和 UTF-8 一、ASCII 码 我们知道，计算机内部，所有信息最终都是一个二进制值。每一个二进制位（bit）有0和1两种状态，因此八个二进制位就可以组合出256种状态，这被称为一个字节（byte）。也就是说，一个字节一共可以用来表示256种不同的状态，每一个状态对应一个符号，就是256个符号，从00000000到11111111。\n上个世纪60年代，美国制定了一套字符编码，对英语字符与二进制位之间的关系，做了统一规定。这被称为 ASCII 码，一直沿用至今。\nASCII 码一共规定了128个字符的编码，比如空格SPACE是32（二进制00100000），大写的字母A是65（二进制01000001）。这128个符号（包括32个不能打印出来的控制符号），只占用了一个字节的后面7位，最前面的一位统一规定为0。\n二、非 ASCII 编码 英语用128个符号编码就够了，但是用来表示其他语言，128个符号是不够的。比如，在法语中，字母上方有注音符号，它就无法用 ASCII 码表示。于是，一些欧洲国家就决定，利用字节中闲置的最高位编入新的符号。比如，法语中的é的编码为130（二进制10000010）。这样一来，这些欧洲国家使用的编码体系，可以表示最多256个符号。\n但是，这里又出现了新的问题。不同的国家有不同的字母，因此，哪怕它们都使用256个符号的编码方式，代表的字母却不一样。比如，130在法语编码中代表了é，在希伯来语编码中却代表了字母Gimel (ג)，在俄语编码中又会代表另一个符号。但是不管怎样，所有这些编码方式中，0–127表示的符号是一样的，不一样的只是128–255的这一段。\n至于亚洲国家的文字，使用的符号就更多了，汉字就多达10万左右。一个字节只能表示256种符号，肯定是不够的，就必须使用多个字节表达一个符号。比如，简体中文常见的编码方式是 GB2312，使用两个字节表示一个汉字，所以理论上最多可以表示 256 x 256 = 65536 个符号。\n中文编码的问题需要专文讨论，这篇笔记不涉及。这里只指出，虽然都是用多个字节表示一个符号，但是GB类的汉字编码与后文的 Unicode 和 UTF-8 是毫无关系的。\n三. Unicode 正如上一节所说，世界上存在着多种编码方式，同一个二进制数字可以被解释成不同的符号。因此，要想打开一个文本文件，就必须知道它的编码方式，否则用错误的编码方式解读，就会出现乱码。为什么电子邮件常常出现乱码？就是因为发信人和收信人使用的编码方式不一样。\n可以想象，如果有一种编码，将世界上所有的符号都纳入其中。每一个符号都给予一个独一无二的编码，那么乱码问题就会消失。这就是 Unicode，就像它的名字都表示的，这是一种所有符号的编码。\nUnicode 当然是一个很大的集合，现在的规模可以容纳100多万个符号。每个符号的编码都不一样，比如，U+0639表示阿拉伯字母Ain，U+0041表示英语的大写字母A，U+4E25表示汉字严。具体的符号对应表，可以查询unicode.org，或者专门的汉字对应表。\n四、Unicode 的问题 需要注意的是，Unicode 只是一个符号集，它只规定了符号的二进制代码，却没有规定这个二进制代码应该如何存储。\n比如，汉字严的 Unicode 是十六进制数4E25，转换成二进制数足足有15位（100111000100101），也就是说，这个符号的表示至少需要2个字节。表示其他更大的符号，可能需要3个字节或者4个字节，甚至更多。\n这里就有两个严重的问题，第一个问题是，如何才能区别 Unicode 和 ASCII ？计算机怎么知道三个字节表示一个符号，而不是分别表示三个符号呢？第二个问题是，我们已经知道，英文字母只用一个字节表示就够了，如果 Unicode 统一规定，每个符号用三个或四个字节表示，那么每个英文字母前都必然有二到三个字节是0，这对于存储来说是极大的浪费，文本文件的大小会因此大出二三倍，这是无法接受的。\n它们造成的结果是：1）出现了 Unicode 的多种存储方式，也就是说有许多种不同的二进制格式，可以用来表示 Unicode。2）Unicode 在很长一段时间内无法推广，直到互联网的出现。\n五、UTF-8 互联网的普及，强烈要求出现一种统一的编码方式。UTF-8 就是在互联网上使用最广的一种 Unicode 的实现方式。其他实现方式还包括 UTF-16（字符用两个字节或四个字节表示）和 UTF-32（字符用四个字节表示），不过在互联网上基本不用。重复一遍，这里的关系是，UTF-8 是 Unicode 的实现方式之一。\nUTF-8 最大的一个特点，就是它是一种变长的编码方式。它可以使用1~4个字节表示一个符号，根据不同的符号而变化字节长度。\nUTF-8 的编码规则很简单，只有二条：\n1）对于单字节的符号，字节的第一位设为0，后面7位为这个符号的 Unicode 码。因此对于英语字母，UTF-8 编码和 ASCII 码是相同的。\n2）对于n字节的符号（n \u003e 1），第一个字节的前n位都设为1，第n + 1位设为0，后面字节的前两位一律设为10。剩下的没有提及的二进制位，全部为这个符号的 Unicode 码。\n下表总结了编码规则，字母x表示可用编码的位。\nUnicode符号范围 | UTF-8编码方式 (十六进制) | （二进制） ----------------------+--------------------------------------------- 0000 0000-0000 007F | 0xxxxxxx 0000 0080-0000 07FF | 110xxxxx 10xxxxxx 0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx 0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx 跟据上表，解读 UTF-8 编码非常简单。如果一个字节的第一位是0，则这个字节单独就是一个字符；如果第一位是1，则连续有多少个1，就表示当前字符占用多少个字节。\n下面，还是以汉字严为例，演示如何实现 UTF-8 编码。\n严的 Unicode 是4E25（100111000100101），根据上表，可以发现4E25处在第三行的范围内（0000 0800 - 0000 FFFF），因此严的 UTF-8 编码需要三个字节，即格式是1110xxxx 10xxxxxx 10xxxxxx。然后，从严的最后一个二进制位开始，依次从后向前填入格式中的x，多出的位补0。这样就得到了，严的 UTF-8 编码是11100100 10111000 10100101，转换成十六进制就是E4B8A5。\n六、Unicode 与 UTF-8 之间的转换 通过上一节的例子，可以看到严的 Unicode码 是4E25，UTF-8 编码是E4B8A5，两者是不一样的。它们之间的转换可以通过程序实现。\nWindows平台，有一个最简单的转化方法，就是使用内置的记事本小程序notepad.exe。打开文件后，点击文件菜单中的另存为命令，会跳出一个对话框，在最底部有一个编码的下拉条。\n里面有四个选项：ANSI，Unicode，Unicode big endian和UTF-8。\n1）ANSI是默认的编码方式。对于英文文件是ASCII编码，对于简体中文文件是GB2312编码（只针对 Windows 简体中文版，如果是繁体中文版会采用 Big5 码）。\n2）Unicode编码这里指的是notepad.exe使用的 UCS-2 编码方式，即直接用两个字节存入字符的 Unicode 码，这个选项用的 little endian 格式。\n3）Unicode big endian编码与上一个选项相对应。我在下一节会解释 little endian 和 big endian 的涵义。\n4）UTF-8编码，也就是上一节谈到的编码方法。\n选择完\"编码方式\"后，点击\"保存\"按钮，文件的编码方式就立刻转换好了。\n七、Little endian 和 Big endian 上一节已经提到，UCS-2 格式可以存储 Unicode 码（码点不超过0xFFFF）。以汉字严为例，Unicode 码是4E25，需要用两个字节存储，一个字节是4E，另一个字节是25。存储的时候，4E在前，25在后，这就是 Big endian 方式；25在前，4E在后，这是 Little endian 方式。\n这两个古怪的名称来自英国作家斯威夫特的《格列佛游记》。在该书中，小人国里爆发了内战，战争起因是人们争论，吃鸡蛋时究竟是从大头(Big-endian)敲开还是从小头(Little-endian)敲开。为了这件事情，前后爆发了六次战争，一个皇帝送了命，另一个皇帝丢了王位。\n第一个字节在前，就是\"大头方式\"（Big endian），第二个字节在前就是\"小头方式\"（Little endian）。\n那么很自然的，就会出现一个问题：计算机怎么知道某一个文件到底采用哪一种方式编码？\nUnicode 规范定义，每一个文件的最前面分别加入一个表示编码顺序的字符，这个字符的名字叫做\"零宽度非换行空格\"（zero width no-break space），用FEFF表示。这正好是两个字节，而且FF比FE大1。\n如果一个文本文件的头两个字节是FE FF，就表示该文件采用大头方式；如果头两个字节是FF FE，就表示该文件采用小头方式。\n八、实例 下面，举一个实例。\n打开\"记事本\"程序notepad.exe，新建一个文本文件，内容就是一个严字，依次采用ANSI，Unicode，Unicode big endian和UTF-8编码方式保存。\n然后，用文本编辑软件UltraEdit 中的\"十六进制功能\"，观察该文件的内部编码方式。\n1）ANSI：文件的编码就是两个字节D1 CF，这正是严的 GB2312 编码，这也暗示 GB2312 是采用大头方式存储的。\n2）Unicode：编码是四个字节FF FE 25 4E，其中FF FE表明是小头方式存储，真正的编码是4E25。\n3）Unicode big endian：编码是四个字节FE FF 4E 25，其中FE FF表明是大头方式存储。\n4）UTF-8：编码是六个字节EF BB BF E4 B8 A5，前三个字节EF BB BF表示这是UTF-8编码，后三个E4B8A5就是严的具体编码，它的存储顺序与编码顺序是一致的。\n转载文章地址：https://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html\n",
+  "wordCount" : "3855",
+  "inLanguage": "zh",
+  "image":"https://XianCH.github.io/postsImg/unicode.jpg","datePublished": "2023-12-05T23:41:02+08:00",
+  "dateModified": "2023-12-05T23:41:02+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "x14n"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://XianCH.github.io/posts/tech/basic/%E5%AD%97%E7%AC%A6%E9%9B%86%E7%BC%96%E7%A0%81/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "X14n's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://XianCH.github.io/img/favicon.icon"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://XianCH.github.io/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
+            <img src="https://XianCH.github.io/img/main.png" alt="logo" aria-label="logo"
+                 height="35">x14n&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <h1 class="post-title">
+                字符集编码
+            </h1>
+            <div class="post-description">
+                ascii unicode utf-8
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-12-05
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>3855字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>8分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>x14n
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://XianCH.github.io/tags/basic/" style="color: var(--secondary)!important;">basic</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://XianCH.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId:  null , 
+                                region:  null , 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> 
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/unicode.jpg" alt="">
+    
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%ad%97%e7%ac%a6%e7%bc%96%e7%a0%81%e7%ac%94%e8%ae%b0asciiunicode-%e5%92%8c-utf-8" aria-label="字符编码笔记：ASCII，Unicode 和 UTF-8">字符编码笔记：ASCII，Unicode 和 UTF-8</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%80ascii-%e7%a0%81" aria-label="一、ASCII 码"><strong>一、ASCII 码</strong></a></li>
+                <li>
+                    <a href="#%e4%ba%8c%e9%9d%9e-ascii-%e7%bc%96%e7%a0%81" aria-label="二、非 ASCII 编码"><strong>二、非 ASCII 编码</strong></a></li>
+                <li>
+                    <a href="#%e4%b8%89-unicode" aria-label="三. Unicode"><strong>三. Unicode</strong></a></li>
+                <li>
+                    <a href="#%e5%9b%9bunicode-%e7%9a%84%e9%97%ae%e9%a2%98" aria-label="四、Unicode 的问题"><strong>四、Unicode 的问题</strong></a></li>
+                <li>
+                    <a href="#%e4%ba%94utf-8" aria-label="五、UTF-8"><strong>五、UTF-8</strong></a></li>
+                <li>
+                    <a href="#%e5%85%adunicode-%e4%b8%8e-utf-8-%e4%b9%8b%e9%97%b4%e7%9a%84%e8%bd%ac%e6%8d%a2" aria-label="六、Unicode 与 UTF-8 之间的转换"><strong>六、Unicode 与 UTF-8 之间的转换</strong></a></li>
+                <li>
+                    <a href="#%e4%b8%83little-endian-%e5%92%8c-big-endian" aria-label="七、Little endian 和 Big endian"><strong>七、Little endian 和 Big endian</strong></a></li>
+                <li>
+                    <a href="#%e5%85%ab%e5%ae%9e%e4%be%8b" aria-label="八、实例"><strong>八、实例</strong></a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="字符编码笔记asciiunicode-和-utf-8">字符编码笔记：ASCII，Unicode 和 UTF-8<a hidden class="anchor" aria-hidden="true" href="#字符编码笔记asciiunicode-和-utf-8">#</a></h1>
+<h2 id="一ascii-码"><strong>一、ASCII 码</strong><a hidden class="anchor" aria-hidden="true" href="#一ascii-码">#</a></h2>
+<p>我们知道，计算机内部，所有信息最终都是一个二进制值。每一个二进制位（bit）有<code>0</code>和<code>1</code>两种状态，因此八个二进制位就可以组合出256种状态，这被称为一个字节（byte）。也就是说，一个字节一共可以用来表示256种不同的状态，每一个状态对应一个符号，就是256个符号，从<code>00000000</code>到<code>11111111</code>。</p>
+<p>上个世纪60年代，美国制定了一套字符编码，对英语字符与二进制位之间的关系，做了统一规定。这被称为 ASCII 码，一直沿用至今。</p>
+<p>ASCII 码一共规定了128个字符的编码，比如空格<code>SPACE</code>是32（二进制<code>00100000</code>），大写的字母<code>A</code>是65（二进制<code>01000001</code>）。这128个符号（包括32个不能打印出来的控制符号），只占用了一个字节的后面7位，最前面的一位统一规定为<code>0</code>。</p>
+<h2 id="二非-ascii-编码"><strong>二、非 ASCII 编码</strong><a hidden class="anchor" aria-hidden="true" href="#二非-ascii-编码">#</a></h2>
+<p>英语用128个符号编码就够了，但是用来表示其他语言，128个符号是不够的。比如，在法语中，字母上方有注音符号，它就无法用 ASCII 码表示。于是，一些欧洲国家就决定，利用字节中闲置的最高位编入新的符号。比如，法语中的<code>é</code>的编码为130（二进制<code>10000010</code>）。这样一来，这些欧洲国家使用的编码体系，可以表示最多256个符号。</p>
+<p>但是，这里又出现了新的问题。不同的国家有不同的字母，因此，哪怕它们都使用256个符号的编码方式，代表的字母却不一样。比如，130在法语编码中代表了<code>é</code>，在希伯来语编码中却代表了字母<code>Gimel</code> (<code>ג</code>)，在俄语编码中又会代表另一个符号。但是不管怎样，所有这些编码方式中，0&ndash;127表示的符号是一样的，不一样的只是128&ndash;255的这一段。</p>
+<p>至于亚洲国家的文字，使用的符号就更多了，汉字就多达10万左右。一个字节只能表示256种符号，肯定是不够的，就必须使用多个字节表达一个符号。比如，简体中文常见的编码方式是 GB2312，使用两个字节表示一个汉字，所以理论上最多可以表示 256 x 256 = 65536 个符号。</p>
+<p>中文编码的问题需要专文讨论，这篇笔记不涉及。这里只指出，虽然都是用多个字节表示一个符号，但是GB类的汉字编码与后文的 Unicode 和 UTF-8 是毫无关系的。</p>
+<h2 id="三-unicode"><strong>三. Unicode</strong><a hidden class="anchor" aria-hidden="true" href="#三-unicode">#</a></h2>
+<p>正如上一节所说，世界上存在着多种编码方式，同一个二进制数字可以被解释成不同的符号。因此，要想打开一个文本文件，就必须知道它的编码方式，否则用错误的编码方式解读，就会出现乱码。为什么电子邮件常常出现乱码？就是因为发信人和收信人使用的编码方式不一样。</p>
+<p>可以想象，如果有一种编码，将世界上所有的符号都纳入其中。每一个符号都给予一个独一无二的编码，那么乱码问题就会消失。这就是 Unicode，就像它的名字都表示的，这是一种所有符号的编码。</p>
+<p>Unicode 当然是一个很大的集合，现在的规模可以容纳100多万个符号。每个符号的编码都不一样，比如，<code>U+0639</code>表示阿拉伯字母<code>Ain</code>，<code>U+0041</code>表示英语的大写字母<code>A</code>，<code>U+4E25</code>表示汉字<code>严</code>。具体的符号对应表，可以查询<a href="http://www.unicode.org">unicode.org</a>，或者专门的<a href="http://www.chi2ko.com/tool/CJK.htm">汉字对应表</a>。</p>
+<h2 id="四unicode-的问题"><strong>四、Unicode 的问题</strong><a hidden class="anchor" aria-hidden="true" href="#四unicode-的问题">#</a></h2>
+<p>需要注意的是，Unicode 只是一个符号集，它只规定了符号的二进制代码，却没有规定这个二进制代码应该如何存储。</p>
+<p>比如，汉字<code>严</code>的 Unicode 是十六进制数<code>4E25</code>，转换成二进制数足足有15位（<code>100111000100101</code>），也就是说，这个符号的表示至少需要2个字节。表示其他更大的符号，可能需要3个字节或者4个字节，甚至更多。</p>
+<p>这里就有两个严重的问题，第一个问题是，如何才能区别 Unicode 和 ASCII  ？计算机怎么知道三个字节表示一个符号，而不是分别表示三个符号呢？第二个问题是，我们已经知道，英文字母只用一个字节表示就够了，如果 Unicode 统一规定，每个符号用三个或四个字节表示，那么每个英文字母前都必然有二到三个字节是<code>0</code>，这对于存储来说是极大的浪费，文本文件的大小会因此大出二三倍，这是无法接受的。</p>
+<p>它们造成的结果是：1）出现了 Unicode 的多种存储方式，也就是说有许多种不同的二进制格式，可以用来表示 Unicode。2）Unicode 在很长一段时间内无法推广，直到互联网的出现。</p>
+<h2 id="五utf-8"><strong>五、UTF-8</strong><a hidden class="anchor" aria-hidden="true" href="#五utf-8">#</a></h2>
+<p>互联网的普及，强烈要求出现一种统一的编码方式。UTF-8 就是在互联网上使用最广的一种 Unicode 的实现方式。其他实现方式还包括 UTF-16（字符用两个字节或四个字节表示）和 UTF-32（字符用四个字节表示），不过在互联网上基本不用。<strong>重复一遍，这里的关系是，UTF-8 是 Unicode 的实现方式之一。</strong></p>
+<p>UTF-8 最大的一个特点，就是它是一种变长的编码方式。它可以使用1~4个字节表示一个符号，根据不同的符号而变化字节长度。</p>
+<p>UTF-8 的编码规则很简单，只有二条：</p>
+<p>1）对于单字节的符号，字节的第一位设为<code>0</code>，后面7位为这个符号的 Unicode 码。因此对于英语字母，UTF-8 编码和 ASCII 码是相同的。</p>
+<p>2）对于<code>n</code>字节的符号（<code>n &gt; 1</code>），第一个字节的前<code>n</code>位都设为<code>1</code>，第<code>n + 1</code>位设为<code>0</code>，后面字节的前两位一律设为<code>10</code>。剩下的没有提及的二进制位，全部为这个符号的 Unicode 码。</p>
+<p>下表总结了编码规则，字母<code>x</code>表示可用编码的位。</p>
+<blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Unicode符号范围     |        UTF-8编码方式
+</span></span><span style="display:flex;"><span>(十六进制)        |              （二进制）
+</span></span><span style="display:flex;"><span>----------------------+---------------------------------------------
+</span></span><span style="display:flex;"><span>0000 0000-0000 007F | 0xxxxxxx
+</span></span><span style="display:flex;"><span>0000 0080-0000 07FF | 110xxxxx 10xxxxxx
+</span></span><span style="display:flex;"><span>0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
+</span></span><span style="display:flex;"><span>0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+</span></span></code></pre></div></blockquote>
+<p>跟据上表，解读 UTF-8 编码非常简单。如果一个字节的第一位是<code>0</code>，则这个字节单独就是一个字符；如果第一位是<code>1</code>，则连续有多少个<code>1</code>，就表示当前字符占用多少个字节。</p>
+<p>下面，还是以汉字<code>严</code>为例，演示如何实现 UTF-8 编码。</p>
+<p><code>严</code>的 Unicode 是<code>4E25</code>（<code>100111000100101</code>），根据上表，可以发现<code>4E25</code>处在第三行的范围内（<code>0000 0800 - 0000 FFFF</code>），因此<code>严</code>的 UTF-8 编码需要三个字节，即格式是<code>1110xxxx 10xxxxxx 10xxxxxx</code>。然后，从<code>严</code>的最后一个二进制位开始，依次从后向前填入格式中的<code>x</code>，多出的位补<code>0</code>。这样就得到了，<code>严</code>的 UTF-8 编码是<code>11100100 10111000 10100101</code>，转换成十六进制就是<code>E4B8A5</code>。</p>
+<h2 id="六unicode-与-utf-8-之间的转换"><strong>六、Unicode 与 UTF-8 之间的转换</strong><a hidden class="anchor" aria-hidden="true" href="#六unicode-与-utf-8-之间的转换">#</a></h2>
+<p>通过上一节的例子，可以看到<code>严</code>的 Unicode码 是<code>4E25</code>，UTF-8 编码是<code>E4B8A5</code>，两者是不一样的。它们之间的转换可以通过程序实现。</p>
+<p>Windows平台，有一个最简单的转化方法，就是使用内置的记事本小程序<code>notepad.exe</code>。打开文件后，点击<code>文件</code>菜单中的<code>另存为</code>命令，会跳出一个对话框，在最底部有一个<code>编码</code>的下拉条。</p>
+<p><a href="https://www.ruanyifeng.com/blog/2007/10/bg2007102801.jpg"><img loading="lazy" src="https://www.ruanyifeng.com/blog/2007/10/bg2007102801-thumb.jpg" alt="bg2007102801.jpg"  />
+</a></p>
+<p>里面有四个选项：<code>ANSI</code>，<code>Unicode</code>，<code>Unicode big endian</code>和<code>UTF-8</code>。</p>
+<p>1）<code>ANSI</code>是默认的编码方式。对于英文文件是<code>ASCII</code>编码，对于简体中文文件是<code>GB2312</code>编码（只针对 Windows 简体中文版，如果是繁体中文版会采用 Big5 码）。</p>
+<p>2）<code>Unicode</code>编码这里指的是<code>notepad.exe</code>使用的 UCS-2 编码方式，即直接用两个字节存入字符的 Unicode 码，这个选项用的 little endian 格式。</p>
+<p>3）<code>Unicode big endian</code>编码与上一个选项相对应。我在下一节会解释 little endian 和 big endian 的涵义。</p>
+<p>4）<code>UTF-8</code>编码，也就是上一节谈到的编码方法。</p>
+<p>选择完&quot;编码方式&quot;后，点击&quot;保存&quot;按钮，文件的编码方式就立刻转换好了。</p>
+<h2 id="七little-endian-和-big-endian"><strong>七、Little endian 和 Big endian</strong><a hidden class="anchor" aria-hidden="true" href="#七little-endian-和-big-endian">#</a></h2>
+<p>上一节已经提到，UCS-2 格式可以存储 Unicode 码（码点不超过<code>0xFFFF</code>）。以汉字<code>严</code>为例，Unicode 码是<code>4E25</code>，需要用两个字节存储，一个字节是<code>4E</code>，另一个字节是<code>25</code>。存储的时候，<code>4E</code>在前，<code>25</code>在后，这就是 Big endian 方式；<code>25</code>在前，<code>4E</code>在后，这是 Little endian 方式。</p>
+<p>这两个古怪的名称来自英国作家斯威夫特的《格列佛游记》。在该书中，小人国里爆发了内战，战争起因是人们争论，吃鸡蛋时究竟是从大头(Big-endian)敲开还是从小头(Little-endian)敲开。为了这件事情，前后爆发了六次战争，一个皇帝送了命，另一个皇帝丢了王位。</p>
+<p>第一个字节在前，就是&quot;大头方式&quot;（Big endian），第二个字节在前就是&quot;小头方式&quot;（Little endian）。</p>
+<p>那么很自然的，就会出现一个问题：计算机怎么知道某一个文件到底采用哪一种方式编码？</p>
+<p>Unicode 规范定义，每一个文件的最前面分别加入一个表示编码顺序的字符，这个字符的名字叫做&quot;零宽度非换行空格&quot;（zero width no-break space），用<code>FEFF</code>表示。这正好是两个字节，而且<code>FF</code>比<code>FE</code>大<code>1</code>。</p>
+<p>如果一个文本文件的头两个字节是<code>FE FF</code>，就表示该文件采用大头方式；如果头两个字节是<code>FF FE</code>，就表示该文件采用小头方式。</p>
+<h2 id="八实例"><strong>八、实例</strong><a hidden class="anchor" aria-hidden="true" href="#八实例">#</a></h2>
+<p>下面，举一个实例。</p>
+<p>打开&quot;记事本&quot;程序<code>notepad.exe</code>，新建一个文本文件，内容就是一个<code>严</code>字，依次采用<code>ANSI</code>，<code>Unicode</code>，<code>Unicode big endian</code>和<code>UTF-8</code>编码方式保存。</p>
+<p>然后，用文本编辑软件<a href="https://www.google.cn/search?aq=t&amp;oq=UltraEdit&amp;complete=1&amp;hl=zh-CN&amp;newwindow=1&amp;rlz=1B3GGGL_zh-CNCN216CN216&amp;q=ultraedit+%E4%B8%8B%E8%BD%BD&amp;btnG=Google+%E6%90%9C%E7%B4%A2&amp;meta=">UltraEdit 中</a>的&quot;十六进制功能&quot;，观察该文件的内部编码方式。</p>
+<p>1）ANSI：文件的编码就是两个字节<code>D1 CF</code>，这正是<code>严</code>的 GB2312 编码，这也暗示 GB2312 是采用大头方式存储的。</p>
+<p>2）Unicode：编码是四个字节<code>FF FE 25 4E</code>，其中<code>FF FE</code>表明是小头方式存储，真正的编码是<code>4E25</code>。</p>
+<p>3）Unicode big endian：编码是四个字节<code>FE FF 4E 25</code>，其中<code>FE FF</code>表明是大头方式存储。</p>
+<p>4）UTF-8：编码是六个字节<code>EF BB BF E4 B8 A5</code>，前三个字节<code>EF BB BF</code>表示这是UTF-8编码，后三个<code>E4B8A5</code>就是<code>严</code>的具体编码，它的存储顺序与编码顺序是一致的。</p>
+<p>转载文章地址：https://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html</p>
+
+
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="next" href="https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Golang实现通用线程池</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+<div>
+    <details class="comments_details">
+        <summary style="cursor: pointer; margin: 50px 0 20px 0;width: 130px;">
+            <span style="font-size: 20px;color: var(--content);">...</span>
+        </summary>
+        <div id="tcomment"></div>
+    </details>
+    <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js">
+    </script>
+    <script>
+        twikoo.init({
+            envId:  null ,
+        el: "#tcomment",
+            lang: 'zh-CN',
+            region:  null ,
+        path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        })
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>
+        Copyright
+        &copy;
+        -2023
+        <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
+        All Rights Reserved
+    </span>
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;"></a>&nbsp;
+    <span>
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null"
+           style="display:inline-block;text-decoration:none;height:20px;color:#939393;">
+            <img src="" style="float:left;margin: 0px 5px 0px 0px;"/>
+            
+        </a>
+    </span>
+    <span id="busuanzi_container">
+        <span class="fa fa-user"></span> <span id="busuanzi_value_site_uv"></span>
+        <span class="fa fa-eye"></span> <span id="busuanzi_value_site_pv"></span>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"X14n's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+</body>
+
+</html>
