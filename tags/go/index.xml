@@ -6,7 +6,25 @@
     <description>Recent content in go on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 19 Oct 2023 18:19:51 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Dec 2023 04:52:00 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GolangIO</title>
+      <link>https://XianCH.github.io/posts/tech/go/golangio/</link>
+      <pubDate>Thu, 07 Dec 2023 04:52:00 +0800</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/go/golangio/</guid>
+      <description>解决自己在go io操作的疑惑</description>
+    </item>
+    
+    <item>
+      <title>Golang实现消息队列</title>
+      <link>https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</link>
+      <pubDate>Wed, 06 Dec 2023 21:02:13 +0800</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Nginx</title>
       <link>https://XianCH.github.io/posts/tech/distributed/nginx%E5%85%A5%E9%97%A8/</link>

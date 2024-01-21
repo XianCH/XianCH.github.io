@@ -6,7 +6,34 @@
     <description>Recent content on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 05 Dec 2023 23:41:02 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Dec 2023 06:16:05 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>本机archlinux调整</title>
+      <link>https://XianCH.github.io/posts/tech/arch/%E6%9C%AC%E6%9C%BAarchlinux%E8%B0%83%E6%95%B4/</link>
+      <pubDate>Fri, 08 Dec 2023 06:16:05 +0800</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/arch/%E6%9C%AC%E6%9C%BAarchlinux%E8%B0%83%E6%95%B4/</guid>
+      <description>arch linux 完善</description>
+    </item>
+    
+    <item>
+      <title>GolangIO</title>
+      <link>https://XianCH.github.io/posts/tech/go/golangio/</link>
+      <pubDate>Thu, 07 Dec 2023 04:52:00 +0800</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/go/golangio/</guid>
+      <description>解决自己在go io操作的疑惑</description>
+    </item>
+    
+    <item>
+      <title>Golang实现消息队列</title>
+      <link>https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</link>
+      <pubDate>Wed, 06 Dec 2023 21:02:13 +0800</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>字符集编码</title>
       <link>https://XianCH.github.io/posts/tech/basic/%E5%AD%97%E7%AC%A6%E9%9B%86%E7%BC%96%E7%A0%81/</link>
@@ -68,15 +95,6 @@
       
       <guid>https://XianCH.github.io/posts/life/%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</guid>
       <description>杂谈 ​ 最近这段时间，总有一种奇怪的想法，感觉自己做了很多事情，但其实又什么都没做，就像我github上面的活动一样，感觉自己好像写了很多东西，相比过去那个写了就不管了得我来说，这不是挺好的的吗，又仔细看看，自己每天push的东西，真的是一坨屎，看看别人写的东西吧，又好多看不懂，看</description>
-    </item>
-    
-    <item>
-      <title>Golang实现消息队列</title>
-      <link>https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</link>
-      <pubDate>Wed, 11 Oct 2023 17:41:30 +0800</pubDate>
-      
-      <guid>https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</guid>
-      <description></description>
     </item>
     
     <item>

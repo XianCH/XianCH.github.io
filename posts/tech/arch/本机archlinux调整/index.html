@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>关于twitter架构图的思考 | X14n&#39;s Blog</title>
+<title>本机archlinux调整 | X14n&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="这个是elon发布的架构图 因为很多字看不清我在twitter上找了位架构师alex xu整理的图 https://twitter.com/alexxubyte/status/1594008281340530688 1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，">
+<meta name="description" content="arch linux 完善">
 <meta name="author" content="x14n">
-<link rel="canonical" href="https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/">
+<link rel="canonical" href="https://XianCH.github.io/posts/tech/arch/%E6%9C%AC%E6%9C%BAarchlinux%E8%B0%83%E6%95%B4/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
@@ -45,18 +45,18 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-<meta property="og:title" content="关于twitter架构图的思考" />
-<meta property="og:description" content="这个是elon发布的架构图 因为很多字看不清我在twitter上找了位架构师alex xu整理的图 https://twitter.com/alexxubyte/status/1594008281340530688 1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，" />
+<meta property="og:title" content="本机archlinux调整" />
+<meta property="og:description" content="arch linux 完善" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/" />
-<meta property="og:image" content="https://XianCH.github.io/postsImg/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/twitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83.assets/main.jpg" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-05-01T10:16:51+00:00" />
-<meta property="article:modified_time" content="2023-09-22T10:16:51+00:00" />
+<meta property="og:url" content="https://XianCH.github.io/posts/tech/arch/%E6%9C%AC%E6%9C%BAarchlinux%E8%B0%83%E6%95%B4/" />
+<meta property="og:image" content="https://XianCH.github.io/postsImg/arch_problem.jpg" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-08T06:16:05+08:00" />
+<meta property="article:modified_time" content="2023-12-08T06:16:05+08:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://XianCH.github.io/postsImg/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/twitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83.assets/main.jpg" />
-<meta name="twitter:title" content="关于twitter架构图的思考"/>
-<meta name="twitter:description" content="这个是elon发布的架构图 因为很多字看不清我在twitter上找了位架构师alex xu整理的图 https://twitter.com/alexxubyte/status/1594008281340530688 1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，"/>
+<meta name="twitter:image" content="https://XianCH.github.io/postsImg/arch_problem.jpg" />
+<meta name="twitter:title" content="本机archlinux调整"/>
+<meta name="twitter:description" content="arch linux 完善"/>
 
 
 <script type="application/ld+json">
@@ -81,8 +81,8 @@ var _hmt = _hmt || [];
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "关于twitter架构图的思考",
-      "item": "https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/"
+      "name": "本机archlinux调整",
+      "item": "https://XianCH.github.io/posts/tech/arch/%E6%9C%AC%E6%9C%BAarchlinux%E8%B0%83%E6%95%B4/"
     }
   ]
 }
@@ -91,24 +91,24 @@ var _hmt = _hmt || [];
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "关于twitter架构图的思考",
-  "name": "关于twitter架构图的思考",
-  "description": "这个是elon发布的架构图 因为很多字看不清我在twitter上找了位架构师alex xu整理的图 https://twitter.com/alexxubyte/status/1594008281340530688 1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，",
+  "headline": "本机archlinux调整",
+  "name": "本机archlinux调整",
+  "description": "arch linux 完善",
   "keywords": [
     ""
   ],
-  "articleBody": "这个是elon发布的架构图\n因为很多字看不清我在twitter上找了位架构师alex xu整理的图 https://twitter.com/alexxubyte/status/1594008281340530688\n1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，安卓用户拥有更高的性能和体验。而 iphone版 twitter感觉就是像是网站web端吧，，它需要依赖浏览器来加载和渲染内容，相对于原生应用程序，它可能会具有一些限制和性能上的劣势。如果twitter的ui代码出问题了，安卓用户应该会直接收到报错吧，这里都针对不同系统的用户有不同的拦截器吧。\n他们两个用到访问数据的方式不一样安卓用TLS API，TLS 是一种安全协议，可以很好的保护互联网中的安全信息，安全性相对高，缺点应该就是性能开销大吧，iphone用户用的是GraphQL是一种数据查询语言，可以精确的获取指定的资源，减少服务端响应的数量，提高性能和数量。\n2，Timeline Mixer这个模块根据用户向外输出的数据做获取，处理用户的时间线数据，用户时间线数据应该是指用户在Twitter上发布的推文(Tweet转发回复等内容组成的时间序列。在twitter中，每个用户都有自己的时间线，根据用户关注了谁，点进了什么广告，评论过的推文，发布过的推文做分析。这里的onboarding我不是很清楚什么意思。cursoring | pagination 通过cusoring 分页技术提高查询用户的时间线数据。tweet deduplication处理时间线数据的去重，避免同一条推文在用户时间线中出现多次。served data logging记录数据查询和处理的日志信息，以便后续的数据分析和性能优化。最后在把收集的信息提供给”用户发现用户“，”广告推送“，”用户引导“等服务\n3，Home Mixer主要负责为用户推荐相关的内容，包括主页上显示的推文、热门话题、推荐用户等。通过分析用户的社交关系、兴趣爱好、历史行为等信息，为用户推荐适合的内容。混合在一起，生成用户的个性化主页\n4,timeline mixer和home mixer的数据传到homeranker中，然后它为用户个性化地排序和推荐主页上显示的内容，包括推文、热门话题、推荐用户等。感觉homeranker是个很复杂的算法模型\n5,感觉这是机械学系的领域了，homeranker通过某种算法得到homescorer ，而 feature hydration 则是指将这些提取出来的特征与相应的推文信息进行关联，数据会从存储在 memcache 中的缓存中，后期计算的时可以使用？。Home Scorer 会将计算得分后的数据发送到 Manhattan ….\n",
-  "wordCount" : "1074",
+  "articleBody": "问题汇总 后台进程管理 文件传输问题 nvim 配置 vps配置 无法使用Chrome usb 无法接入（u盘问题） 开关机问题 锁屏界面问题 音乐播放器问题（不使用网易云） 屏幕分辨率问题 文件管理工具问题 视屏播放问题 视屏录制问题 底部状态栏问题 ",
+  "wordCount" : "105",
   "inLanguage": "zh",
-  "image":"https://XianCH.github.io/postsImg/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/twitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83.assets/main.jpg","datePublished": "2023-05-01T10:16:51Z",
-  "dateModified": "2023-09-22T10:16:51Z",
+  "image":"https://XianCH.github.io/postsImg/arch_problem.jpg","datePublished": "2023-12-08T06:16:05+08:00",
+  "dateModified": "2023-12-08T06:16:05+08:00",
   "author":[{
     "@type": "Person",
     "name": "x14n"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/"
+    "@id": "https://XianCH.github.io/posts/tech/arch/%E6%9C%AC%E6%9C%BAarchlinux%E8%B0%83%E6%95%B4/"
   },
   "publisher": {
     "@type": "Organization",
@@ -207,8 +207,11 @@ var _hmt = _hmt || [];
         <header class="post-header">
             <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
             <h1 class="post-title">
-                关于twitter架构图的思考
+                本机archlinux调整
             </h1>
+            <div class="post-description">
+                arch linux 完善
+            </div>
             <div class="post-meta">
 
 <style>
@@ -228,7 +231,7 @@ var _hmt = _hmt || [];
 <span class="parent-post-meta">
     <span id="post_meta_style_1">
         <span class="fa fa-calendar-check-o"></span>
-        <span>2023-05-01
+        <span>2023-12-08
             &nbsp;&nbsp;
         </span>
     </span>
@@ -241,13 +244,13 @@ var _hmt = _hmt || [];
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1074字
+        <span>105字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>3分钟
+        <span>1分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -315,20 +318,101 @@ var _hmt = _hmt || [];
 
 </div>
         </header> 
-<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/twitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83.assets/main.jpg" alt="">
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/arch_problem.jpg" alt="">
     
-</figure>
-        <div class="post-content"><p>这个是elon发布的架构图</p>
-<p><img loading="lazy" src="twitter%e6%9e%b6%e6%9e%84%e5%9b%be%e7%9a%84%e6%80%9d%e8%80%83.assets/Fh6qtzdUAAARaTI.jpg" alt=""  />
-因为很多字看不清我在twitter上找了位架构师alex xu整理的图 <a href="https://twitter.com/alexxubyte/status/1594008281340530688">https://twitter.com/alexxubyte/status/1594008281340530688</a><img src="twitter架构图的思考.assets/Fh8OE2jUAAEIVRR.jpg" style="zoom:20%;" /><img src="twitter架构图的思考.assets/image-20230328044142610.png" alt="image-20230328044142610" style="zoom:50%;" /></p>
-<p>1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，安卓用户拥有更高的性能和体验。而 iphone版 twitter感觉就是像是网站web端吧，，它需要依赖浏览器来加载和渲染内容，相对于原生应用程序，它可能会具有一些限制和性能上的劣势。如果twitter的ui代码出问题了，安卓用户应该会直接收到报错吧，这里都针对不同系统的用户有不同的拦截器吧。</p>
-<p>他们两个用到访问数据的方式不一样安卓用TLS API，TLS 是一种安全协议，可以很好的保护互联网中的安全信息，安全性相对高，缺点应该就是性能开销大吧，iphone用户用的是GraphQL是一种数据查询语言，可以精确的获取指定的资源，减少服务端响应的数量，提高性能和数量。</p>
-<img src="twitter架构图的思考.assets/image-20230328044319436.png" alt="image-20230328044319436" style="zoom:50%;" />
-<p>2，Timeline Mixer这个模块根据用户向外输出的数据做获取，处理用户的时间线数据，用户时间线数据应该是指用户在Twitter上发布的推文(Tweet转发回复等内容组成的时间序列。在twitter中，每个用户都有自己的时间线，根据用户关注了谁，点进了什么广告，评论过的推文，发布过的推文做分析。这里的onboarding我不是很清楚什么意思。cursoring | pagination 通过cusoring 分页技术提高查询用户的时间线数据。tweet deduplication处理时间线数据的去重，避免同一条推文在用户时间线中出现多次。served data logging记录数据查询和处理的日志信息，以便后续的数据分析和性能优化。最后在把收集的信息提供给”用户发现用户“，”广告推送“，”用户引导“等服务</p>
-<p>3，Home Mixer主要负责为用户推荐相关的内容，包括主页上显示的推文、热门话题、推荐用户等。通过分析用户的社交关系、兴趣爱好、历史行为等信息，为用户推荐适合的内容。混合在一起，生成用户的个性化主页</p>
-<p>4,timeline mixer和home mixer的数据传到homeranker中，然后它为用户个性化地排序和推荐主页上显示的内容，包括推文、热门话题、推荐用户等。感觉homeranker是个很复杂的算法模型</p>
-<img src="twitter架构图的思考.assets/image-20230328055939667.png" alt="image-20230328055939667" style="zoom:60%;" />
-<p>5,感觉这是机械学系的领域了，homeranker通过某种算法得到homescorer ，而 feature hydration 则是指将这些提取出来的特征与相应的推文信息进行关联，数据会从存储在 memcache 中的缓存中，后期计算的时可以使用？。Home Scorer 会将计算得分后的数据发送到 Manhattan &hellip;.</p>
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e9%97%ae%e9%a2%98%e6%b1%87%e6%80%bb" aria-label="问题汇总">问题汇总</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h2 id="问题汇总">问题汇总<a hidden class="anchor" aria-hidden="true" href="#问题汇总">#</a></h2>
+<ul>
+<li>后台进程管理</li>
+<li>文件传输问题</li>
+<li>nvim 配置</li>
+<li>vps配置</li>
+<li>无法使用Chrome</li>
+<li>usb 无法接入（u盘问题）</li>
+<li>开关机问题</li>
+<li>锁屏界面问题</li>
+<li>音乐播放器问题（不使用网易云）</li>
+<li>屏幕分辨率问题</li>
+<li>文件管理工具问题</li>
+<li>视屏播放问题</li>
+<li>视屏录制问题</li>
+<li>底部状态栏问题</li>
+</ul>
 
 
         </div>
@@ -336,15 +420,10 @@ var _hmt = _hmt || [];
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
-    <span class="title">« 上一页</span>
-    <br>
-    <span>常用快捷键</span>
-  </a>
-  <a class="next" href="https://XianCH.github.io/posts/tech/java/java%E5%A4%8D%E4%B9%A0/">
+  <a class="next" href="https://XianCH.github.io/posts/tech/go/golangio/">
     <span class="title">下一页 »</span>
     <br>
-    <span>java基础复习</span>
+    <span>GolangIO</span>
   </a>
 </nav>
 

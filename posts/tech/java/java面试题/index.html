@@ -1338,31 +1338,31 @@ MySQL、Redis、JVM ，如下图所示：</p>
 </li>
 </ul>
 <h3 id="代码示例">代码示例：<a hidden class="anchor" aria-hidden="true" href="#代码示例">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>String x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;string&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>String y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;string&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>String z <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;string&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>x<span style="color:#f92672">==</span>y<span style="color:#f92672">);</span> <span style="color:#75715e">// true
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>x<span style="color:#f92672">==</span>z<span style="color:#f92672">);</span> <span style="color:#75715e">// false
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>x<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>y<span style="color:#f92672">));</span> <span style="color:#75715e">// true
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>x<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>z<span style="color:#f92672">));</span> <span style="color:#75715e">// true
-</span></span></span></code></pre></div><p>代码解读：因为 x 和 y 指向的是同一个引用，所以 == 也是 true，而 new String()方法则重写开辟了内存空间，所以
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>String x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;string&#34;</span>;
+</span></span><span style="display:flex;"><span>String y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;string&#34;</span>;
+</span></span><span style="display:flex;"><span>String z <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String(<span style="color:#e6db74">&#34;string&#34;</span>);
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(x<span style="color:#f92672">==</span>y); <span style="color:#75715e">// true</span>
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(x<span style="color:#f92672">==</span>z); <span style="color:#75715e">// false</span>
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(x.<span style="color:#a6e22e">equals</span>(y)); <span style="color:#75715e">// true</span>
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(x.<span style="color:#a6e22e">equals</span>(z)); <span style="color:#75715e">// true</span>
+</span></span></code></pre></div><p>代码解读：因为 x 和 y 指向的是同一个引用，所以 == 也是 true，而 new String()方法则重写开辟了内存空间，所以
 == 结果为 false，而 equals 比较的一直是值，所以结果都为 true。</p>
 <p>equals 解读</p>
 <p>equals 本质上就是 ==，只不过 String 和 Integer 等重写了 equals 方法，把它变成了值比较。看下面的代码就明白
 了。</p>
 <p>首先来看默认情况下 equals 比较一个有相同值的对象，代码如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>String x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;string&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>String y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;string&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>String z <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;string&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>x<span style="color:#f92672">==</span>y<span style="color:#f92672">);</span> <span style="color:#75715e">// true
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>x<span style="color:#f92672">==</span>z<span style="color:#f92672">);</span> <span style="color:#75715e">// false
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>x<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>y<span style="color:#f92672">));</span> <span style="color:#75715e">// true
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>x<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>z<span style="color:#f92672">));</span> <span style="color:#75715e">// true
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class Cat {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>String x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;string&#34;</span>;
+</span></span><span style="display:flex;"><span>String y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;string&#34;</span>;
+</span></span><span style="display:flex;"><span>String z <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String(<span style="color:#e6db74">&#34;string&#34;</span>);
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(x<span style="color:#f92672">==</span>y); <span style="color:#75715e">// true</span>
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(x<span style="color:#f92672">==</span>z); <span style="color:#75715e">// false</span>
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(x.<span style="color:#a6e22e">equals</span>(y)); <span style="color:#75715e">// true</span>
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(x.<span style="color:#a6e22e">equals</span>(z)); <span style="color:#75715e">// true</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>class Cat {
 </span></span><span style="display:flex;"><span>public Cat(String name) {
 </span></span><span style="display:flex;"><span>this.name = name;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> String name;
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public String getName() {
 </span></span><span style="display:flex;"><span>return name;
 </span></span><span style="display:flex;"><span>}
@@ -1370,10 +1370,10 @@ MySQL、Redis、JVM ，如下图所示：</p>
 </span></span><span style="display:flex;"><span>this.name = name;
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Cat c1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;王磊&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>Cat c2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;王磊&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>c1<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>c2<span style="color:#f92672">));</span> <span style="color:#75715e">// false
-</span></span></span></code></pre></div><p>输出结果出乎我们的意料，竟然是 false？这是怎么回事，看了 equals 源码就知道了，源码如下：</p>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Cat c1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat(<span style="color:#e6db74">&#34;王磊&#34;</span>);
+</span></span><span style="display:flex;"><span>Cat c2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat(<span style="color:#e6db74">&#34;王磊&#34;</span>);
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(c1.<span style="color:#a6e22e">equals</span>(c2)); <span style="color:#75715e">// false</span>
+</span></span></code></pre></div><p>输出结果出乎我们的意料，竟然是 false？这是怎么回事，看了 equals 源码就知道了，源码如下：</p>
 <p>原来 equals 本质上就是 ==。</p>
 <p>那问题来了，两个相同值的 String 对象，为什么返回的是 true？代码如下：</p>
 <p>同样的，当我们进入 String 的 equals 方法，找到了答案，代码如下：</p>
@@ -1390,27 +1390,27 @@ MySQL、Redis、JVM ，如下图所示：</p>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>String s1 = new String(&#34;老王&#34;);
 </span></span><span style="display:flex;"><span>String s2 = new String(&#34;老王&#34;);
 </span></span><span style="display:flex;"><span>System.out.println(s1.equals(s2)); // true
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>Object anObject<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span> <span style="color:#f92672">==</span> anObject<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>anObject <span style="color:#66d9ef">instanceof</span> String<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>String anotherString <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>String<span style="color:#f92672">)</span>anObject<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> value<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>n <span style="color:#f92672">==</span> anotherString<span style="color:#f92672">.</span><span style="color:#a6e22e">value</span><span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">char</span> v1<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> value<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">char</span> v2<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> anotherString<span style="color:#f92672">.</span><span style="color:#a6e22e">value</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>n<span style="color:#f92672">--</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>v1<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">!=</span> v2<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>i<span style="color:#f92672">++;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span>(Object anObject) {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span> <span style="color:#f92672">==</span> anObject) {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (anObject <span style="color:#66d9ef">instanceof</span> String) {
+</span></span><span style="display:flex;"><span>String anotherString <span style="color:#f92672">=</span> (String)anObject;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> value.<span style="color:#a6e22e">length</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (n <span style="color:#f92672">==</span> anotherString.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">length</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">char</span> v1<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> value;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">char</span> v2<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> anotherString.<span style="color:#a6e22e">value</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0 ;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (n<span style="color:#f92672">--</span> <span style="color:#f92672">!=</span> 0 ) {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (v1<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">!=</span> v2<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>i<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="执行的结果">执行的结果：<a hidden class="anchor" aria-hidden="true" href="#执行的结果">#</a></h3>
 <p>代码解读：很显然“通话”和“重地”的 hashCode() 相同，然而 equals() 则为 false，因为在散列表中，hashCode() 相
 等即两个键值对的哈希值相等，然而哈希值相等，并不一定能得出键值对相等。</p>
@@ -1466,25 +1466,25 @@ String(&ldquo;i&rdquo;) 则会被分到堆内存中。</p>
 <h2 id="13-抽象类能使用-final-修饰吗">13. 抽象类能使用 final 修饰吗？<a hidden class="anchor" aria-hidden="true" href="#13-抽象类能使用-final-修饰吗">#</a></h2>
 <p>不能，定义抽象类就是让其他类继承的，如果定义为 final 该类就不能被继承，这样彼此就会产生矛盾，所以 final 不
 能修饰抽象类，如下图所示，编辑器也会提示错误信息：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// StringBuffer reverse
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>StringBuffer stringBuffer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuffer<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>stringBuffer<span style="color:#f92672">.</span> <span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;abcdefg&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span> out<span style="color:#f92672">.</span> <span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>stringBuffer<span style="color:#f92672">.</span> <span style="color:#a6e22e">reverse</span><span style="color:#f92672">());</span> <span style="color:#75715e">// gfedcba
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// StringBuilder reverse
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>StringBuilder stringBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>stringBuilder<span style="color:#f92672">.</span> <span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;abcdefg&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span> out<span style="color:#f92672">.</span> <span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>stringBuilder<span style="color:#f92672">.</span> <span style="color:#a6e22e">reverse</span><span style="color:#f92672">());</span> <span style="color:#75715e">// gfedcba
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sayHi</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span> out<span style="color:#f92672">.</span> <span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;hi~&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// StringBuffer reverse</span>
+</span></span><span style="display:flex;"><span>StringBuffer stringBuffer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuffer();
+</span></span><span style="display:flex;"><span>stringBuffer. <span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#34;abcdefg&#34;</span>);
+</span></span><span style="display:flex;"><span>System. out. <span style="color:#a6e22e">println</span>(stringBuffer. <span style="color:#a6e22e">reverse</span>()); <span style="color:#75715e">// gfedcba</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// StringBuilder reverse</span>
+</span></span><span style="display:flex;"><span>StringBuilder stringBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder();
+</span></span><span style="display:flex;"><span>stringBuilder. <span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#34;abcdefg&#34;</span>);
+</span></span><span style="display:flex;"><span>System. out. <span style="color:#a6e22e">println</span>(stringBuilder. <span style="color:#a6e22e">reverse</span>()); <span style="color:#75715e">// gfedcba</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sayHi</span>() {
+</span></span><span style="display:flex;"><span>System. out. <span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;hi~&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="14-接口和抽象类有什么区别">14. 接口和抽象类有什么区别？<a hidden class="anchor" aria-hidden="true" href="#14-接口和抽象类有什么区别">#</a></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>实现：抽象类的子类使用 extends 来继承；接口必须使用 implements 来实现接口。
-</span></span><span style="display:flex;"><span>构造函数：抽象类可以有构造函数；接口不能有。
-</span></span><span style="display:flex;"><span>main 方法：抽象类可以有 main 方法，并且我们能运行它；接口不能有 main 方法。
-</span></span><span style="display:flex;"><span>实现数量：类可以实现很多个接口；但是只能继承一个抽象类。
-</span></span><span style="display:flex;"><span>访问修饰符：接口中的方法默认使用 public 修饰；抽象类中的方法可以是任意访问修饰符。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">实现：抽象类的子类使用</span> <span style="color:#66d9ef">extends</span> <span style="color:#960050;background-color:#1e0010">来继承；接口必须使用</span> implements <span style="color:#960050;background-color:#1e0010">来实现接口。</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">构造函数：抽象类可以有构造函数；接口不能有。</span>
+</span></span><span style="display:flex;"><span>main <span style="color:#960050;background-color:#1e0010">方法：抽象类可以有</span> main <span style="color:#960050;background-color:#1e0010">方法，并且我们能运行它；接口不能有</span> main <span style="color:#960050;background-color:#1e0010">方法。</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">实现数量：类可以实现很多个接口；但是只能继承一个抽象类。</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">访问修饰符：接口中的方法默认使用</span> public <span style="color:#960050;background-color:#1e0010">修饰；抽象类中的方法可以是任意访问修饰符。</span>
 </span></span></code></pre></div><h2 id="15-java-中-io-流分为几种">15. Java 中 IO 流分为几种？<a hidden class="anchor" aria-hidden="true" href="#15-java-中-io-流分为几种">#</a></h2>
 <p>按功能来分：输入流（input）、输出流（output）。</p>
 <p>按类型来分：字节流和字符流。</p>
@@ -2032,9 +2032,9 @@ server 的默认级别；</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>spring. RabbitMQ. port=5672
 </span></span></code></pre></div><p>. yml 格式不支持 @PropertySource 注解导入。</p>
 <h2 id="108-spring-boot-有哪些方式可以实现热部署">108. spring boot 有哪些方式可以实现热部署？<a hidden class="anchor" aria-hidden="true" href="#108-spring-boot-有哪些方式可以实现热部署">#</a></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>使用 devtools 启动热部署，添加 devtools 库，在配置文件中把 spring. devtools. restart. enabled 设置为
-</span></span><span style="display:flex;"><span>true；
-</span></span><span style="display:flex;"><span>使用 Intellij Idea 编辑器，沟上自动编译或手动重新编译。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">使用</span> devtools <span style="color:#960050;background-color:#1e0010">启动热部署，添加</span> devtools <span style="color:#960050;background-color:#1e0010">库，在配置文件中把</span> spring<span style="color:#f92672">.</span> devtools<span style="color:#f92672">.</span> restart<span style="color:#f92672">.</span> enabled <span style="color:#960050;background-color:#1e0010">设置为</span>
+</span></span><span style="display:flex;"><span>true<span style="color:#960050;background-color:#1e0010">；</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">使用</span> Intellij Idea <span style="color:#960050;background-color:#1e0010">编辑器，沟上自动编译或手动重新编译。</span>
 </span></span></code></pre></div><h2 id="109-jpa-和-hibernate-有什么区别">109. jpa 和 hibernate 有什么区别？<a hidden class="anchor" aria-hidden="true" href="#109-jpa-和-hibernate-有什么区别">#</a></h2>
 <p>jpa 全称 Java Persistence API，是 Java 持久化接口规范，hibernate 属于 jpa 的具体实现。</p>
 <h2 id="110-什么是-spring-cloud">110. 什么是 spring cloud？<a hidden class="anchor" aria-hidden="true" href="#110-什么是-spring-cloud">#</a></h2>
@@ -2082,17 +2082,17 @@ server 的默认级别；</p>
 </span></span><span style="display:flex;"><span>关闭 Session。
 </span></span><span style="display:flex;"><span>关闭 SessionFactory。
 </span></span></code></pre></div><h2 id="120-get和-load的区别">120. get()和 load()的区别？<a hidden class="anchor" aria-hidden="true" href="#120-get和-load的区别">#</a></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>数据查询时，没有 OID 指定的对象，get() 返回 null；load() 返回一个代理对象。
-</span></span><span style="display:flex;"><span>load()支持延迟加载；get() 不支持延迟加载。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">数据查询时，没有</span> OID <span style="color:#960050;background-color:#1e0010">指定的对象，</span>get() <span style="color:#960050;background-color:#1e0010">返回</span> null<span style="color:#960050;background-color:#1e0010">；</span>load() <span style="color:#960050;background-color:#1e0010">返回一个代理对象。</span>
+</span></span><span style="display:flex;"><span>load()<span style="color:#960050;background-color:#1e0010">支持延迟加载；</span>get() <span style="color:#960050;background-color:#1e0010">不支持延迟加载。</span>
 </span></span></code></pre></div><h2 id="121-说一下-hibernate-的缓存机制">121. 说一下 hibernate 的缓存机制？<a hidden class="anchor" aria-hidden="true" href="#121-说一下-hibernate-的缓存机制">#</a></h2>
 <p>hibernate 常用的缓存有一级缓存和二级缓存：</p>
 <p>一级缓存：也叫 Session 缓存，只在 Session 作用范围内有效，不需要用户干涉，由 hibernate 自身维护，可以通
 过：evict(object)清除 object 的缓存；clear()清除一级缓存中的所有缓存；flush()刷出缓存；</p>
 <p>二级缓存：应用级别的缓存，在所有 Session 中都有效，支持配置第三方的缓存，如：EhCache。</p>
 <h2 id="122-hibernate-对象有哪些状态">122. hibernate 对象有哪些状态？<a hidden class="anchor" aria-hidden="true" href="#122-hibernate-对象有哪些状态">#</a></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>临时/瞬时状态：直接 new 出来的对象，该对象还没被持久化（没保存在数据库中），不受 Session 管理。
-</span></span><span style="display:flex;"><span>持久化状态：当调用 Session 的 save/saveOrupdate/get/load/list 等方法的时候，对象就是持久化状态。
-</span></span><span style="display:flex;"><span>游离状态：Session 关闭之后对象就是游离状态。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">临时</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">瞬时状态：直接</span> new <span style="color:#960050;background-color:#1e0010">出来的对象，该对象还没被持久化（没保存在数据库中），不受</span> Session <span style="color:#960050;background-color:#1e0010">管理。</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">持久化状态：当调用</span> Session <span style="color:#960050;background-color:#1e0010">的</span> save<span style="color:#f92672">/</span>saveOrupdate<span style="color:#f92672">/</span>get<span style="color:#f92672">/</span>load<span style="color:#f92672">/</span>list <span style="color:#960050;background-color:#1e0010">等方法的时候，对象就是持久化状态。</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">游离状态：</span>Session <span style="color:#960050;background-color:#1e0010">关闭之后对象就是游离状态。</span>
 </span></span></code></pre></div><h2 id="123-在-hibernate-中-getcurrentsession-和-opensession-的区别是什么">123. 在 hibernate 中 getCurrentSession 和 openSession 的区别是什么？<a hidden class="anchor" aria-hidden="true" href="#123-在-hibernate-中-getcurrentsession-和-opensession-的区别是什么">#</a></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>getCurrentSession 会绑定当前线程，而 openSession 则不会。
 </span></span><span style="display:flex;"><span>getCurrentSession 事务是 Spring 控制的，并且不需要手动关闭，而 openSession 需要我们自己手动开启和提
@@ -2195,21 +2195,21 @@ ResultSetHandler）进行拦截：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ConnectionFactory（连接管理器）：应用程序与Rabbit之间建立连接的管理器，程序代码中使用。
 </span></span><span style="display:flex;"><span>Channel（信道）：消息推送使用的通道。
 </span></span><span style="display:flex;"><span>Exchange（交换器）：用于接受、分配消息。
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript" data-lang="gdscript"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">Intercepts</span>({<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">Signature</span>(type <span style="color:#f92672">=</span> Executor<span style="color:#f92672">.</span> class, method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;query&#34;</span>,
-</span></span><span style="display:flex;"><span>args <span style="color:#f92672">=</span> {MappedStatement<span style="color:#f92672">.</span> class, <span style="color:#a6e22e">Object</span><span style="color:#f92672">.</span> class, RowBounds<span style="color:#f92672">.</span> class, ResultHandler<span style="color:#f92672">.</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>@Intercepts({@Signature(type = Executor. class, method = &#34;query&#34;,
+</span></span><span style="display:flex;"><span>args = {MappedStatement. class, Object. class, RowBounds. class, ResultHandler.
 </span></span><span style="display:flex;"><span>class})})
-</span></span><span style="display:flex;"><span>public <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestInterceptor</span> implements Interceptor {
-</span></span><span style="display:flex;"><span>public <span style="color:#a6e22e">Object</span> <span style="color:#a6e22e">intercept</span>(Invocation invocation) throws Throwable {
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Object</span> target <span style="color:#f92672">=</span> invocation<span style="color:#f92672">.</span> <span style="color:#a6e22e">getTarget</span>(); <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">被代理对象</span>
-</span></span><span style="display:flex;"><span>Method method <span style="color:#f92672">=</span> invocation<span style="color:#f92672">.</span> <span style="color:#a6e22e">getMethod</span>(); <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">代理方法</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Object</span>[] args <span style="color:#f92672">=</span> invocation<span style="color:#f92672">.</span> <span style="color:#a6e22e">getArgs</span>(); <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">方法参数</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> do something<span style="color:#f92672">......</span> <span style="color:#960050;background-color:#1e0010">方法拦截前执行代码块</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Object</span> result <span style="color:#f92672">=</span> invocation<span style="color:#f92672">.</span> <span style="color:#a6e22e">proceed</span>();
-</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> do something<span style="color:#f92672">.......</span> <span style="color:#960050;background-color:#1e0010">方法拦截后执行代码块</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> result;
+</span></span><span style="display:flex;"><span>public class TestInterceptor implements Interceptor {
+</span></span><span style="display:flex;"><span>public Object intercept(Invocation invocation) throws Throwable {
+</span></span><span style="display:flex;"><span>Object target = invocation. getTarget(); //被代理对象
+</span></span><span style="display:flex;"><span>Method method = invocation. getMethod(); //代理方法
+</span></span><span style="display:flex;"><span>Object[] args = invocation. getArgs(); //方法参数
+</span></span><span style="display:flex;"><span>// do something...... 方法拦截前执行代码块
+</span></span><span style="display:flex;"><span>Object result = invocation. proceed();
+</span></span><span style="display:flex;"><span>// do something....... 方法拦截后执行代码块
+</span></span><span style="display:flex;"><span>return result;
 </span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>public <span style="color:#a6e22e">Object</span> <span style="color:#a6e22e">plugin</span>(<span style="color:#a6e22e">Object</span> target) {
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> Plugin<span style="color:#f92672">.</span> wrap(target, this);
+</span></span><span style="display:flex;"><span>public Object plugin(Object target) {
+</span></span><span style="display:flex;"><span>return Plugin. wrap(target, this);
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Queue（队列）：用于存储生产者的消息。
@@ -2351,7 +2351,7 @@ hbase 的重要组件。它是一个为分布式应用提供一致性服务的�
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>char(n) ：固定长度类型，比如订阅 char(10)，当你输入&#34;abc&#34;三个字符的时候，它们占的空间还是 10 个字
 </span></span><span style="display:flex;"><span>节，其他 7 个是空字节。
 </span></span></code></pre></div><p>chat 优点：效率高；缺点：占用空间；适用场景：存储密码的 md5 值，固定长度的，使用 char 非常合适。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>varchar(n) ：可变长度，存储的值是每个值占用的字节再加上一个用来记录其长度的字节的长度。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>varchar(n) <span style="color:#960050;background-color:#1e0010">：可变长度，存储的值是每个值占用的字节再加上一个用来记录其长度的字节的长度。</span>
 </span></span></code></pre></div><p>所以，从空间上考虑 varcahr 比较合适；从效率上考虑 char 比较合适，二者使用需要权衡。</p>
 <h2 id="169-float-和-double-的区别是什么">169. float 和 double 的区别是什么？<a hidden class="anchor" aria-hidden="true" href="#169-float-和-double-的区别是什么">#</a></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>float 最多可以存储 8 位的十进制数，并在内存中占 4 字节。
@@ -2667,7 +2667,7 @@ XX:+UseConcMarkSweepGC”来指定使用 CMS 垃圾回收器。</p>
     <span>
         Copyright
         &copy;
-        -2023
+        -2024
         <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>

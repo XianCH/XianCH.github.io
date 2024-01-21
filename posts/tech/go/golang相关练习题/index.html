@@ -416,15 +416,15 @@ var _hmt = _hmt || [];
 <ol>
 <li>
 <p>var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值
-</span></span><span style="display:flex;"><span>var a int
-</span></span><span style="display:flex;"><span>a =5
-</span></span><span style="display:flex;"><span>a :=5
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#75715e">#var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> a <span style="color:#a6e22e">int</span>
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>a :<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>#new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象
-</span></span><span style="display:flex;"><span>#make 用来创建切片，通道和映射等内置数据结构，并初始化
-</span></span><span style="display:flex;"><span>p := new(int)
-</span></span><span style="display:flex;"><span>slience := make([]int,0,10)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#make 用来创建切片，通道和映射等内置数据结构，并初始化</span>
+</span></span><span style="display:flex;"><span>p :<span style="color:#f92672">=</span> new(<span style="color:#a6e22e">int</span>)
+</span></span><span style="display:flex;"><span>slience :<span style="color:#f92672">=</span> make([]<span style="color:#a6e22e">int</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">10</span>)
 </span></span></code></pre></div></li>
 <li>
 <p>defer是做什么用的，如果一个程序里面有多个defer会怎么样？</p>
@@ -451,35 +451,35 @@ var _hmt = _hmt || [];
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//make示例
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">myMap</span> = make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">int</span>)
 </span></span><span style="display:flex;"><span>len(<span style="color:#66d9ef">map</span>)
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">关于并发问题</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">标准的</span> <span style="color:#a6e22e">Go</span> <span style="color:#66d9ef">map</span> <span style="color:#a6e22e">不是并发安全的</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">也就是说</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">如果多个</span> <span style="color:#a6e22e">goroutine</span> <span style="color:#a6e22e">同时读写一个</span> <span style="color:#66d9ef">map</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">可能会导致数据竞争和不确定的结果</span><span style="color:#960050;background-color:#1e0010">。</span><span style="color:#a6e22e">为了在并发环境下安全使用</span> <span style="color:#66d9ef">map</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">你可以使用互斥锁</span><span style="color:#960050;background-color:#1e0010">（</span><span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">Mutex</span><span style="color:#960050;background-color:#1e0010">）</span><span style="color:#a6e22e">来保护</span> <span style="color:#66d9ef">map</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">或者使用</span> <span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">Map</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">后者是</span> <span style="color:#a6e22e">Go</span> <span style="color:#ae81ff">1.9</span> <span style="color:#a6e22e">引入的并发安全的映射类型</span><span style="color:#960050;background-color:#1e0010">。</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//用互斥锁来保护标准的&#39;map&#39;：
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">关于并发问题，标准的</span> Go map <span style="color:#960050;background-color:#1e0010">不是并发安全的，也就是说，如果多个</span> goroutine <span style="color:#960050;background-color:#1e0010">同时读写一个</span> map<span style="color:#960050;background-color:#1e0010">，可能会导致数据竞争和不确定的结果。为了在并发环境下安全使用</span> map<span style="color:#960050;background-color:#1e0010">，你可以使用互斥锁（</span>sync<span style="color:#f92672">.</span>Mutex<span style="color:#960050;background-color:#1e0010">）来保护</span> map<span style="color:#960050;background-color:#1e0010">，或者使用</span> sync<span style="color:#f92672">.</span>Map<span style="color:#960050;background-color:#1e0010">，后者是</span> Go <span style="color:#ae81ff">1.9</span> <span style="color:#960050;background-color:#1e0010">引入的并发安全的映射类型。</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">用互斥锁来保护标准的</span><span style="color:#e6db74">&#39;map&#39;</span><span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span>package main
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>import (
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;sync&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">myMap</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">int</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mu</span> <span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">Mutex</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">wg</span> <span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">WaitGroup</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">100</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">wg</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) {
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">wg</span>.<span style="color:#a6e22e">Done</span>()
-</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">mu</span>.<span style="color:#a6e22e">Lock</span>()
-</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">myMap</span>[<span style="color:#e6db74">&#34;key&#34;</span>] = <span style="color:#a6e22e">n</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">mu</span>.<span style="color:#a6e22e">Unlock</span>()
-</span></span><span style="display:flex;"><span>		}(<span style="color:#a6e22e">i</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> main() {
+</span></span><span style="display:flex;"><span>	myMap :<span style="color:#f92672">=</span> make(map[string]<span style="color:#a6e22e">int</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> mu sync<span style="color:#f92672">.</span>Mutex
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> wg sync<span style="color:#f92672">.</span>WaitGroup
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> i :<span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>; i<span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>		wg<span style="color:#f92672">.</span>Add(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>		go <span style="color:#66d9ef">func</span>(n <span style="color:#a6e22e">int</span>) {
+</span></span><span style="display:flex;"><span>			defer wg<span style="color:#f92672">.</span>Done()
+</span></span><span style="display:flex;"><span>			mu<span style="color:#f92672">.</span>Lock()
+</span></span><span style="display:flex;"><span>			myMap[<span style="color:#e6db74">&#34;key&#34;</span>] <span style="color:#f92672">=</span> n
+</span></span><span style="display:flex;"><span>			mu<span style="color:#f92672">.</span>Unlock()
+</span></span><span style="display:flex;"><span>		}(i)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Waiting for goroutines to finish...&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">wg</span>.<span style="color:#a6e22e">Wait</span>()
+</span></span><span style="display:flex;"><span>	fmt<span style="color:#f92672">.</span>Println(<span style="color:#e6db74">&#34;Waiting for goroutines to finish...&#34;</span>)
+</span></span><span style="display:flex;"><span>	wg<span style="color:#f92672">.</span>Wait()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">mu</span>.<span style="color:#a6e22e">Lock</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Map:&#34;</span>, <span style="color:#a6e22e">myMap</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">mu</span>.<span style="color:#a6e22e">Unlock</span>()
+</span></span><span style="display:flex;"><span>	mu<span style="color:#f92672">.</span>Lock()
+</span></span><span style="display:flex;"><span>	fmt<span style="color:#f92672">.</span>Println(<span style="color:#e6db74">&#34;Map:&#34;</span>, myMap)
+</span></span><span style="display:flex;"><span>	mu<span style="color:#f92672">.</span>Unlock()
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">然而</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">在</span> <span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">Map</span> <span style="color:#a6e22e">中</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">你不能直接使用</span> len() <span style="color:#a6e22e">函数来获取长度</span><span style="color:#960050;background-color:#1e0010">。</span><span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">Map</span> <span style="color:#a6e22e">不提供获取长度的方法</span><span style="color:#960050;background-color:#1e0010">。</span><span style="color:#a6e22e">这是因为</span> <span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">Map</span> <span style="color:#a6e22e">的设计目标是在并发环境下进行读写操作</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">而不是频繁获取长度等操作</span><span style="color:#960050;background-color:#1e0010">。</span><span style="color:#a6e22e">如果你需要跟踪</span> <span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">Map</span> <span style="color:#a6e22e">的长度</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">可以自己实现一个计数器</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">在每次插入或删除键值对时进行递增或递减操作来维护长度信息</span><span style="color:#960050;background-color:#1e0010">。</span><span style="color:#a6e22e">但要注意</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">在多个并发操作中</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">你需要正确地处理计数器的增减</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">以避免竞态条件</span><span style="color:#960050;background-color:#1e0010">。</span>
@@ -635,7 +635,7 @@ var _hmt = _hmt || [];
     <span>
         Copyright
         &copy;
-        -2023
+        -2024
         <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>
