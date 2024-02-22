@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>go on X14n&#39;s Blog</title>
+    <title>Go on X14n&#39;s Blog</title>
     <link>https://XianCH.github.io/tags/go/</link>
-    <description>Recent content in go on X14n&#39;s Blog</description>
+    <description>Recent content in Go on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Thu, 07 Dec 2023 04:52:00 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
