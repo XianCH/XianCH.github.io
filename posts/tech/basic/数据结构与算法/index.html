@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,17 +9,17 @@
 <meta name="keywords" content="">
 <meta name="description" content="golang数据结构基础复习">
 <meta name="author" content="x14n">
-<link rel="canonical" href="https://XianCH.github.io/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+<link rel="canonical" href="http://localhost:1313/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
-<link rel="icon" type="image/png" sizes="16x16" href="https://XianCH.github.io/img/main.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://XianCH.github.io/img/main.png">
-<link rel="apple-touch-icon" href="https://XianCH.github.io/img/main.png">
-<link rel="mask-icon" href="https://XianCH.github.io/img/main.png">
+<link rel="icon" href="http://localhost:1313/img/favicon.icon">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/img/main.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/img/main.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/img/main.png">
+<link rel="mask-icon" href="http://localhost:1313/img/main.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="https://XianCH.github.io/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+<link rel="alternate" hreflang="zh" href="http://localhost:1313/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
 <noscript>
     <style>
         #theme-toggle,
@@ -49,13 +49,13 @@ var _hmt = _hmt || [];
 <meta property="og:title" content="go数据结构与算法（更新中）" />
 <meta property="og:description" content="golang数据结构基础复习" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://XianCH.github.io/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" />
-<meta property="og:image" content="https://XianCH.github.io/postsImg/datastr.png" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://localhost:1313/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" />
+<meta property="og:image" content="http://localhost:1313/postsImg/datastr.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-09-22T10:16:51+00:00" />
 <meta property="article:modified_time" content="2023-09-22T10:16:51+00:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://XianCH.github.io/postsImg/datastr.png" />
+<meta name="twitter:image" content="http://localhost:1313/postsImg/datastr.png" />
 <meta name="twitter:title" content="go数据结构与算法（更新中）"/>
 <meta name="twitter:description" content="golang数据结构基础复习"/>
 
@@ -70,20 +70,20 @@ var _hmt = _hmt || [];
           "@type": "ListItem",
           "position":  1 ,
           "name": "📚文章",
-          "item": "https://XianCH.github.io/posts/"
+          "item": "http://localhost:1313/posts/"
         },
 
         {
           "@type": "ListItem",
           "position":  2 ,
           "name": "👨🏻‍💻 技术",
-          "item": "https://XianCH.github.io/posts/tech/"
+          "item": "http://localhost:1313/posts/tech/"
         }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "go数据结构与算法（更新中）",
-      "item": "https://XianCH.github.io/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"
+      "item": "http://localhost:1313/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"
     }
   ]
 }
@@ -101,7 +101,7 @@ var _hmt = _hmt || [];
   "articleBody": "(F)数据结构 1,数组和队列 稀疏数组 介绍\n当一个素组中大部分为0或者都是同一个数时，可以使用稀疏数组来保存该数组，就像是五子棋游戏一样，把整个五子棋棋盘定义成一个二位数组，大部分为0.\n处理方式\n1.记录一个数组一共有几行几列，有多少个不同的值\n2.把具有 不同值的元素 的 行列及值 记录在一个 小规模的数组 中，从而缩小程序的规模\n实际应用\n以围棋为例，假设一个10x10的棋盘可以用个二维数组表示int[10] [10],数组全是零，红方和黑方分别用1和2表示，如下图：\n代码实现\npackage main import \"fmt\" type SparseElement struct { row, col, value int } type SparseArray struct { row, col int data []SparseElement } func NewSparseArray(row, col int) *SparseArray { return \u0026SparseArray{ row: row, col: col, data: []SparseElement{}, } } func (sa *SparseArray) Set(row, col, value int) { element := \u0026SparseElement{ row: row, col: col, value: value, } sa.data = append(sa.data, *element) } func (sa *SparseArray) Get(row, col int) int { for _, data := range sa.data { if row == data.row \u0026\u0026 col == data.col { return data.value } } return 0 } func main() { sparseArray := NewSparseArray(10, 10) sparseArray.Set(1, 3, 1) sparseArray.Set(4, 2, 2) for i := 0; i \u003c 10; i++ { for j := 0; j \u003c 10; j++ { fmt.Printf(\"%d \", sparseArray.Get(i, j)) } fmt.Println() } } 队列 队列暂时没有什么想法，先进先出？下面是自己写的代码\npackage main import ( \"sync\" ) type Queen struct { Size int items []interface{} mutex sync.Mutex } func (queen *Queen) SetMaxSize(size int) { queen.Size = size } func (queen *Queen) IsFull() bool { return len(queen.items) == queen.Size } func (queen *Queen) EnQueen(item interface{}) { queen.mutex.Lock() defer queen.mutex.Unlock() if !queen.IsFull() { queen.items = append(queen.items, item) } } func (queen *Queen) Fornt() interface{} { return queen.items[0] } func (queen *Queen) IsEmpty() bool { return len(queen.items) == 0 } func main() { queen := \u0026Queen{ Size: 20, } go func() { for i := 0; i \u003c 20; i++ { } }() } 2,链表 介绍 链表是以 节点 的方式来存储，是 链式存储 每个节点包含 data 域、next 域，指向下一个节点 链表的各个节点 不一定是连续存储，如上图所示 链表还分：带头节点、不带头节点，根据实际需求来确定 链表的优势\n删除和插入数据比较方便，时间复杂度为O1,但是查找不方便，都是要从第一个节点一直找next指针，直到找到为止，如果数字的话，直接找到数组的index就可以了\n单链表 下图是单链表的逻辑结构，每个节点都包含下一个节点的指针，当某个节点的next为nil的时候，就到了尾节点\n单链表应用实战 用单链表实现对足球明星排名的存储（个人喜好，不供参考）\n完成对球星人物的 增删改查 操作 根据排名对球星排名进行排序 双向链表 单链表的缺陷：\n查找方向只能是单向的 不能自我删除，需要依靠辅助节点 双向连表简图：\n插入：\ntmp.next.pre = newNode tmp.next = newNode newNode.pre = tmp newNode.next = tmp.next 删除：\ntmp.next.pre = tmp.pre tmp.pre.next = tmp. Josephu 问题 k 表示环形链表中的节点数 m 表示 喊号的次数 3,栈 栈的应用场景 子程序的调用\n在跳往子程序前，会先将 下个指令的地址 存到堆栈中，直到子程序执行完后再 将地址取出，以 回到原来的程序中。\n如方法中调用方法。\n处理递归调用\n和子程序调用类似，只是除了存储下一个指令的地址外，也将参数、区域变量等数据存入堆栈中。\n表达式的转换（中缀表达式转后缀表达式）与求值（实际解决）\n二叉树的遍历\n图形的深度优先（depth-first）搜索法\n4,哈希表 介绍 散列表（Hash table），也叫哈希表。是根据 关键码值（key value） 而直接进行访问的数据结构。\n哈希表在内存中的结构就如下图所示：\n如上所述：\n左侧有 15 个元素的数组（可以用数组实现），就是一个表\n该表中存放的是一个链表\n通过 散列函数，计算出一个位置，然后在把数据存储到这个链表上\n比如上面有 15 个，可以计算出散列值后，再取模。 111 % 15 ，就定位在了某一个元素位置上。\n代码实现 package main import \"fmt\" type Employee struct { ID int Name string Sal int Next *Employee } type EmpHashTable struct { Table []*Employee Size int } func NewTable(size int) *EmpHashTable { return \u0026EmpHashTable{ Table: make([]*Employee, size), Size: size, } } // 插入 func (ht *EmpHashTable) Insert(emp *Employee) { Index := int(emp.ID) % ht.Size if ht.Table[Index] == nil { ht.Table[Index] = emp } else { current := ht.Table[Index] for current.Next != nil { current = current.Next } current.Next = emp } } // 查找 func (ht *EmpHashTable) search(id int) (emp *Employee) { Index := id % ht.Size if ht.Table[Index].ID == id { return ht.Table[Index] } else { current := ht.Table[Index] for current != nil { if current.ID == id { return current } current = current.Next } } return nil } // 删除 func (ht *EmpHashTable) del(id int) bool { Index := id % ht.Size current := ht.Table[Index] var prev *Employee for current != nil { if current.ID == id { if prev == nil { //删除的是第一个元素 ht.Table[Index] = current.Next } else { //中间或者末尾 prev.Next = current.Next } return true } prev = current current = current.Next } return false } // 修改 func (ht *EmpHashTable) change(id int, newEmp *Employee) bool { Index := id % ht.Size current := ht.Table[Index] for current != nil { if current.ID == id { current.Name = newEmp.Name current.Sal = newEmp.Sal return true } current = current.Next } return false } // 遍历 func (ht *EmpHashTable) DisPlayAll() { for _, emp := range ht.Table { current := emp for current != nil { fmt.Printf(\"ID:%d,Name:%s,sal:%d\\n\", current.ID, current.Name, current.Sal) current = current.Next } } } func main() { empTable := NewTable(5) empTable.Insert(\u0026Employee{ID: 101, Name: \"x14n\", Sal: 3000}) empTable.Insert(\u0026Employee{ID: 102, Name: \"x14n\", Sal: 3000}) empTable.Insert(\u0026Employee{ID: 103, Name: \"x14n\", Sal: 3000}) empTable.Insert(\u0026Employee{ID: 104, Name: \"x14n\", Sal: 3000}) empTable.Insert(\u0026Employee{ID: 105, Name: \"x14n\", Sal: 3000}) empTable.Insert(\u0026Employee{ID: 106, Name: \"x14n\", Sal: 3000}) empTable.Insert(\u0026Employee{ID: 107, Name: \"x14n\", Sal: 3000}) empTable.Insert(\u0026Employee{ID: 108, Name: \"x14n\", Sal: 3000}) empTable.Insert(\u0026Employee{ID: 109, Name: \"x14n\", Sal: 3000}) emp := empTable.search(101) if emp == nil { fmt.Println(\"no found\") } else { fmt.Println(\"find\") fmt.Printf(\"ID:%d,Name:%s,sal:%d\\n\", emp.ID, emp.Name, emp.Sal) } empTable.DisPlayAll() fmt.Println(\"//删除\") empTable.del(102) fmt.Println(\"//修改\") empTable.change(101, \u0026Employee{Name: \"ahahah\", Sal: 10000000}) fmt.Println(\"////////\") empTable.search(101) fmt.Println(\"////////\") empTable.DisPlayAll() } 5,树基础 二叉树 介绍 简单来说就是左子节点小于root，右节点大于root\n遍历 前序遍历：先输出父节点，在遍历左节点（递归），再遍历右节点（递归）\n中序遍历：先遍历左子树（递归），再输出父节点，再遍历右子树（递归）\n后序遍历：先遍历左子树（递归），再右子树（递归），再父节点\n前： a -\u003e b -\u003e d -\u003ee -\u003ec\n中: d -\u003e b -\u003e e -\u003e a -\u003ec\n后： d-\u003ee -\u003e b-\u003e c -\u003ea\n删除 // 插入原始 func (bt *binaryTree) insert(key int) { if bt.root == nil { bt.root = \u0026node{key: key} } bt.insertRecursively(bt.root, key) } func (bt *binaryTree) insertRecursively(root *node, key int) { if key \u003c root.key { if root.LeftChild == nil { root.LeftChild = \u0026node{key: key} } else { bt.insertRecursively(root.LeftChild, key) } } else { if root.RightChild == nil { root.RightChild = \u0026node{key: key} } else { bt.insertRecursively(root.RightChild, key) } } } // 搜索元素 func (bt *binaryTree) search(key int) bool { return bt.searchRecurisively(bt.root, key) } func (bt *binaryTree) searchRecurisively(root *node, key int) bool { if root == nil { fmt.Println(\"root is nil\") return false } if root.key == key { return true } if root.key \u003e key { return bt.searchRecurisively(root.LeftChild, key) } else { return bt.searchRecurisively(root.RightChild, key) } } // 前序遍历 func (bt *binaryTree) PerOrderTraversal(node *node) { if node != nil { fmt.Printf(\"%d\", node.key) bt.PerOrderTraversal(node.LeftChild) bt.PerOrderTraversal(node.RightChild) } } // 中序遍历 func (bt *binaryTree) InOrderTraversal(root *node) { if root != nil { bt.InOrderTraversal(root.LeftChild) fmt.Printf(\"%d\", root.key) bt.InOrderTraversal(root.RightChild) } } // 后序遍历 func (bt *binaryTree) PostOrderTraversal(root *node) { if root != nil { bt.PostOrderTraversal(root.RightChild) bt.PostOrderTraversal(root.LeftChild) fmt.Printf(\"%d\", root.key) } } 顺序查找二叉树 顺序二叉树 通常只考虑 完全二叉树 第 n 个元素的 左子节点 为 2*n+1 第 n 个元素的 右子节点 为 2*n+2 第 n 个元素的 父节点 为 (n-1)/2 线索化二叉树 6,树实际 堆排序 介绍 堆是具有以下性质的完全二叉树：\n大顶堆：每个节点的值都 大于或等于 其左右孩子节点的值\n注：没有要求左右值的大小关系\n小顶堆：每个节点的值都 小于或等于 其左右孩子节点的值\n大顶堆\n对堆中的节点按层进行编号，映射到数组中如下图\n小顶堆（反之）\n堆排序思路—- package main import ( \"fmt\" ) func heapSort(arr []int) { n := len(arr) // 构建最大堆 for i := n/2 - 1; i \u003e= 0; i-- { heapify(arr, n, i) } // 依次取出堆顶元素，交换位置，重新堆化 for i := n - 1; i \u003e 0; i-- { // 交换堆顶和当前堆的最后一个元素 arr[i], arr[0] = arr[0], arr[i] // 对交换后的堆顶执行堆化 heapify(arr, i, 0) } } func heapify(arr []int, n, i int) { largest := i left := 2*i + 1 right := 2*i + 2 // 找出左子节点和右子节点中的最大值 if left \u003c n \u0026\u0026 arr[left] \u003e arr[largest] { largest = left } if right \u003c n \u0026\u0026 arr[right] \u003e arr[largest] { largest = right } // 如果最大值不是父节点，交换父节点和最大值，然后递归堆化 if largest != i { arr[i], arr[largest] = arr[largest], arr[i] heapify(arr, n, largest) } } func main() { arr := []int{4, 10, 3, 5, 1} fmt.Println(\"Unsorted array:\", arr) heapSort(arr) fmt.Println(\"Sorted array:\", arr) } 关于堆排序的思考 最开始我认为堆排序为什么不直接 将二叉树中的叶子节点的值存到一个数组中，然后对数组的值进行从小到大进行\t排序，然后根据数组的索引和索引的值创建一个新的二叉树，这样不是更简单吗，仔细想想这不是更简单吗。\n堆排序之所以高效的原因：\n不需要额外的数据结构： 堆排序直接在原始数组上进行操作，不需要额外的数据结构来存储节点的值。这节省了空间，并减少了复杂性。 原地排序： 堆排序是一种原地排序算法，它不需要额外的内存来存储中间结果，因此空间复杂度为 O(1)。 时间复杂度： 堆排序的时间复杂度是 O(n log n)，其中 n 是要排序的元素数量。这是一种非常高效的排序算法，特别适用于大型数据集。 如果按照原来的思路会带来的问题：\n创建了额外的数据结构，增加了空间复杂度 增加了时间复杂度 ​\n赫夫曼树 介绍 权路径长度最小（wpl）的二叉树称为最优二叉树也被成为赫夫曼树。\n赫夫曼树是带全路径长度最短的树，权值较大的节点离根节点较近\n相关概念 路径 和 路径长度：\n在一颗树中，从一个节点往下可以到达的孩子或孙子节点之间的通路，称为 路径。\n通路中分支的数目称为路径长度。若规定根节点的层数为 1，则从根节点到第 L 层节点的路径长度为 L-1\n节点的权 及 带权路径长度\n若将树中节点赋给一个有着某种函数的数值，则这个数值称为该节点的 权。\n节点的带权路径长度为：从根节点到该节点之间的路径长度与该节点的权的乘积。\n树的带权路径长度\n所有叶子节点的带权路径长度之和，记为 WPL（weighted path length），权值越大的节点离根节点越近的二叉树才是最优二叉树\n赫夫曼树实现—— 二叉排序树 介绍 对于二叉排序树的任何一个 非叶子节点，要求如下：\n左节点，比父节点小 右节点，比父节点大 完整平衡二叉树（AVL树） 介绍 平衡二叉树也叫 平衡二叉搜索树（Self-balancing binary search tree），又被称为 AVL 树，可以保证 查询效率较高。它是解决 二叉排序 可能出现的查询问题。\n它的特点：是一颗空树或它的 左右两个子树的高度差的绝对值不超过 1，并且左右两个子树都是一颗平衡二叉树。\n如下所述，哪些是平衡二叉树？\n是平衡二叉树：\n左子树高度为 2 右子树高度为 1 他们差值为 1\n也是平衡二叉树\n不是平衡二叉树\n左子树高度为 3 右子树高度为 1 他们差值为 2，所以不是\n平衡二叉树的常用实现方法有： 红黑树\nAVL（算法）\n替罪羊树\nTreap\n伸展树\n7,多路查找树 二叉树与B树 B树,B+树,B*树 8,图 (S)算法 1,递归 2,排序算法 冒泡排序 func bubbleSort(arrs []int) { len := len(arrs) for i := 0; i \u003c len-1; i++ { for j := 0; j \u003c len-i-1; j++ { if arrs[j] \u003e arrs[j+1] { arrs[j], arrs[j+1] = arrs[j+1], arrs[j] } } } } 选择排序 func selectSort(arr []int) { n := len(arr) for i := 0; i \u003c n-1; i++ { minIndex := i for j := i + 1; j \u003c n; j++ { if arr[j] \u003c arr[minIndex] { minIndex = j } } if minIndex != i { arr[i], arr[minIndex] = arr[minIndex], arr[i] // 交换元素 } } } 插入排序 package main import \"fmt\" func InsertSort(array []int) { n := len(array) for i := 1; i \u003c n; i++ { for js := i; js \u003e 0; js-- { if array[js] \u003c array[js-1] { array[js], array[js-1] = array[js-1], array[js] } } } } func main() { array := []int{7, 6, 4, 5, 3, 2} InsertSort(array) fmt.Println(array) } 希尔排序 快速排序 归并排序 基数排序 常用排序算法总结对比 3,查找算法 4,十种常用算法 二分查找(非递归) 分治算法 动态规划算法 KMP算法 贪心算法 普利姆算法 迪杰斯特拉算法 马踏棋算法 普洛伊德算法 ",
   "wordCount" : "3710",
   "inLanguage": "zh",
-  "image":"https://XianCH.github.io/postsImg/datastr.png","datePublished": "2023-09-22T10:16:51Z",
+  "image":"http://localhost:1313/postsImg/datastr.png","datePublished": "2023-09-22T10:16:51Z",
   "dateModified": "2023-09-22T10:16:51Z",
   "author":[{
     "@type": "Person",
@@ -109,14 +109,14 @@ var _hmt = _hmt || [];
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://XianCH.github.io/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"
+    "@id": "http://localhost:1313/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "X14n's Blog",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://XianCH.github.io/img/favicon.icon"
+      "url": "http://localhost:1313/img/favicon.icon"
     }
   }
 }
@@ -134,8 +134,8 @@ var _hmt = _hmt || [];
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://XianCH.github.io/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
-            <img src="https://XianCH.github.io/img/main.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
+            <img src="http://localhost:1313/img/main.png" alt="logo" aria-label="logo"
                  height="35">x14n&#39;s Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
@@ -164,32 +164,32 @@ var _hmt = _hmt || [];
         </div>
         <ul id="menu">
             <li>
-                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
                 <span>🔍 搜索</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/" title="🏠 主页">
+                <a href="http://localhost:1313/" title="🏠 主页">
                 <span>🏠 主页</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/posts" title="📚 文章">
+                <a href="http://localhost:1313/posts" title="📚 文章">
                 <span>📚 文章</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/tags" title="🧩 标签">
+                <a href="http://localhost:1313/tags" title="🧩 标签">
                 <span>🧩 标签</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
+                <a href="http://localhost:1313/archives/" title="⏱️ 时间轴">
                 <span>⏱️ 时间轴</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
+                <a href="http://localhost:1313/about" title="🙋🏻‍♂️ 关于">
                 <span>🙋🏻‍♂️ 关于</span>
                 </a>
             </li>
@@ -208,7 +208,7 @@ var _hmt = _hmt || [];
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <div class="breadcrumbs"><a href="http://localhost:1313/">🏠 主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">📚文章</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/tech/">👨🏻‍💻 技术</a></div>
             <h1 class="post-title">
                 go数据结构与算法（更新中）
             </h1>
@@ -267,7 +267,7 @@ var _hmt = _hmt || [];
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="https://XianCH.github.io/tags/golang/" style="color: var(--secondary)!important;">Golang</a>
+                <a href="http://localhost:1313/tags/golang/" style="color: var(--secondary)!important;">Golang</a>
             </span>
         </span>
     </span>
@@ -284,11 +284,11 @@ var _hmt = _hmt || [];
                     <span id="post_meta_style_8">
                         <span class="fa fa-commenting-o"></span>
                         <span>
-                            <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js"></script>
+                            <script src="https://cdn.staticfile.org/twikoo//twikoo.all.min.js"></script>
                             <script>
                                 let url = document.documentURI
                                 
-                                let dnsUrl = "https://XianCH.github.io/"
+                                let dnsUrl = "http://localhost:1313/"
                                 let urlSplit = url.split(dnsUrl)
                                 let finalUrl = urlSplit[1]
                                 if (finalUrl[0] !== '/') {
@@ -321,7 +321,7 @@ var _hmt = _hmt || [];
 
 </div>
         </header> 
-<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/datastr.png" alt="">
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="http://localhost:1313/postsImg/datastr.png" alt="">
     
 </figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
@@ -1248,12 +1248,12 @@ var _hmt = _hmt || [];
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="https://XianCH.github.io/posts/tech/go/golang%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">
+  <a class="prev" href="http://localhost:1313/posts/tech/go/golang%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">
     <span class="title">« 上一页</span>
     <br>
     <span>Golang基础学习(更新中）</span>
   </a>
-  <a class="next" href="https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/">
+  <a class="next" href="http://localhost:1313/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/">
     <span class="title">下一页 »</span>
     <br>
     <span>Golang相关练习题</span>
@@ -1263,39 +1263,11 @@ var _hmt = _hmt || [];
         </footer>
     </div>
 
-<style>
-    .comments_details summary::marker {
-        font-size: 20px;
-        content: '👉展开评论';
-        color: var(--content);
-    }
-    .comments_details[open] summary::marker{
-        font-size: 20px;
-        content: '👇关闭评论';
-        color: var(--content);
-    }
-</style>
 
 
-<div>
-    <details class="comments_details">
-        <summary style="cursor: pointer; margin: 50px 0 20px 0;width: 130px;">
-            <span style="font-size: 20px;color: var(--content);">...</span>
-        </summary>
-        <div id="tcomment"></div>
-    </details>
-    <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js">
-    </script>
-    <script>
-        twikoo.init({
-            envId:  null ,
-        el: "#tcomment",
-            lang: 'zh-CN',
-            region:  null ,
-        path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
-        })
-    </script>
-</div>
+
+
+
 </article>
 </main>
 
@@ -1304,7 +1276,7 @@ var _hmt = _hmt || [];
         Copyright
         &copy;
         -2024
-        <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
+        <a href="http://localhost:1313/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>
     <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;"></a>&nbsp;

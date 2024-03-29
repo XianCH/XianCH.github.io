@@ -2,53 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Golang on X14n&#39;s Blog</title>
-    <link>https://XianCH.github.io/tags/golang/</link>
+    <link>http://localhost:1313/tags/golang/</link>
     <description>Recent content in Golang on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 11 Oct 2023 13:32:28 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Oct 2023 13:32:28 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Websocket学习</title>
-      <link>https://XianCH.github.io/posts/tech/go/websocket%E5%AD%A6%E4%B9%A0/</link>
+      <link>http://localhost:1313/posts/tech/go/websocket%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Wed, 11 Oct 2023 13:32:28 +0800</pubDate>
       
-      <guid>https://XianCH.github.io/posts/tech/go/websocket%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>http://localhost:1313/posts/tech/go/websocket%E5%AD%A6%E4%B9%A0/</guid>
       <description>websocket学习，在go语言运用websocket</description>
     </item>
     
     <item>
       <title>Golang基础学习(更新中）</title>
-      <link>https://XianCH.github.io/posts/tech/go/golang%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</link>
+      <link>http://localhost:1313/posts/tech/go/golang%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Tue, 26 Sep 2023 08:01:37 +0000</pubDate>
       
-      <guid>https://XianCH.github.io/posts/tech/go/golang%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>http://localhost:1313/posts/tech/go/golang%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</guid>
       <description>golang学习笔记</description>
     </item>
     
     <item>
       <title>go数据结构与算法（更新中）</title>
-      <link>https://XianCH.github.io/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</link>
+      <link>http://localhost:1313/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</link>
       <pubDate>Fri, 22 Sep 2023 10:16:51 +0000</pubDate>
       
-      <guid>https://XianCH.github.io/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</guid>
+      <guid>http://localhost:1313/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</guid>
       <description>golang数据结构基础复习</description>
     </item>
     
     <item>
       <title>Golang相关练习题</title>
-      <link>https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/</link>
+      <link>http://localhost:1313/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/</link>
       <pubDate>Fri, 22 Sep 2023 09:54:06 +0000</pubDate>
       
-      <guid>https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/</guid>
+      <guid>http://localhost:1313/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/</guid>
       <description>基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？ #var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值 var a int a =5 a :=5 #new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象 #make 用来创建切片，通道和映射</description>
     </item>
     
     <item>
       <title>java面试题</title>
-      <link>https://XianCH.github.io/posts/tech/java/java%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+      <link>http://localhost:1313/posts/tech/java/java%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
       <pubDate>Tue, 11 Apr 2023 10:16:51 +0000</pubDate>
       
-      <guid>https://XianCH.github.io/posts/tech/java/java%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+      <guid>http://localhost:1313/posts/tech/java/java%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
       <description>golang数据结构基础复习</description>
     </item>
     

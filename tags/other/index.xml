@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Other on X14n&#39;s Blog</title>
-    <link>https://XianCH.github.io/tags/other/</link>
+    <link>http://localhost:1313/tags/other/</link>
     <description>Recent content in Other on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 08 Dec 2023 06:16:05 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/tags/other/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Dec 2023 06:16:05 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/other/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>本机archlinux调整</title>
-      <link>https://XianCH.github.io/posts/tech/arch/%E6%9C%AC%E6%9C%BAarchlinux%E8%B0%83%E6%95%B4/</link>
+      <link>http://localhost:1313/posts/tech/arch/%E6%9C%AC%E6%9C%BAarchlinux%E8%B0%83%E6%95%B4/</link>
       <pubDate>Fri, 08 Dec 2023 06:16:05 +0800</pubDate>
       
-      <guid>https://XianCH.github.io/posts/tech/arch/%E6%9C%AC%E6%9C%BAarchlinux%E8%B0%83%E6%95%B4/</guid>
+      <guid>http://localhost:1313/posts/tech/arch/%E6%9C%AC%E6%9C%BAarchlinux%E8%B0%83%E6%95%B4/</guid>
       <description>arch linux 完善</description>
     </item>
     
     <item>
       <title>关于twitter架构图的思考</title>
-      <link>https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/</link>
+      <link>http://localhost:1313/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/</link>
       <pubDate>Mon, 01 May 2023 10:16:51 +0000</pubDate>
       
-      <guid>https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/</guid>
+      <guid>http://localhost:1313/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/</guid>
       <description>这个是elon发布的架构图 因为很多字看不清我在twitter上找了位架构师alex xu整理的图 https://twitter.com/alexxubyte/status/1594008281340530688 1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，</description>
     </item>
     

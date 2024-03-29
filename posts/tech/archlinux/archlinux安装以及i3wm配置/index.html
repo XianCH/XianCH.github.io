@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,17 +9,17 @@
 <meta name="keywords" content="">
 <meta name="description" content="这里大概记录自己archlinux的安装过程，还有i3wm的配置">
 <meta name="author" content="x14n">
-<link rel="canonical" href="https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/">
+<link rel="canonical" href="http://localhost:1313/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
-<link rel="icon" type="image/png" sizes="16x16" href="https://XianCH.github.io/img/main.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://XianCH.github.io/img/main.png">
-<link rel="apple-touch-icon" href="https://XianCH.github.io/img/main.png">
-<link rel="mask-icon" href="https://XianCH.github.io/img/main.png">
+<link rel="icon" href="http://localhost:1313/img/favicon.icon">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/img/main.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/img/main.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/img/main.png">
+<link rel="mask-icon" href="http://localhost:1313/img/main.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/">
+<link rel="alternate" hreflang="zh" href="http://localhost:1313/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/">
 <noscript>
     <style>
         #theme-toggle,
@@ -49,13 +49,13 @@ var _hmt = _hmt || [];
 <meta property="og:title" content="arch安装以及i3wm配置" />
 <meta property="og:description" content="这里大概记录自己archlinux的安装过程，还有i3wm的配置" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/" />
-<meta property="og:image" content="https://XianCH.github.io/postsImg/arch.jpg" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://localhost:1313/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/" />
+<meta property="og:image" content="http://localhost:1313/postsImg/arch.jpg" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-08-30T10:16:51+00:00" />
 <meta property="article:modified_time" content="2023-09-22T10:16:51+00:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://XianCH.github.io/postsImg/arch.jpg" />
+<meta name="twitter:image" content="http://localhost:1313/postsImg/arch.jpg" />
 <meta name="twitter:title" content="arch安装以及i3wm配置"/>
 <meta name="twitter:description" content="这里大概记录自己archlinux的安装过程，还有i3wm的配置"/>
 
@@ -70,20 +70,20 @@ var _hmt = _hmt || [];
           "@type": "ListItem",
           "position":  1 ,
           "name": "📚文章",
-          "item": "https://XianCH.github.io/posts/"
+          "item": "http://localhost:1313/posts/"
         },
 
         {
           "@type": "ListItem",
           "position":  2 ,
           "name": "👨🏻‍💻 技术",
-          "item": "https://XianCH.github.io/posts/tech/"
+          "item": "http://localhost:1313/posts/tech/"
         }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "arch安装以及i3wm配置",
-      "item": "https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/"
+      "item": "http://localhost:1313/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/"
     }
   ]
 }
@@ -101,7 +101,7 @@ var _hmt = _hmt || [];
   "articleBody": "arch安装以及i3wm配置 配置：\nintel\n硬盘处理 lsblk 查看硬盘情况（sda 为机械硬盘，nvme0n1是固态，这里的sda 是u盘)\ncgdisk /dev/nvme0n1\n用于分区表编辑和管理的命令行工具，主要用于处理磁盘的分区表，可以使用cgdisk来创建新的GPT分区表，这将抹去旧的分区表和数据，所以务必谨慎操作\nef00 boot\n8200 swap\n格式化硬盘\n启动分区：\nmkfs.fat -F32 /dev/nvme0n1p1 交换分区：\nmkswap /dev/nvme0n1p2 启动交换分区\nswapon /dev/nvme0n1p2 系统分区：\nmkfs.ext4 /dev/nvme0n1p3 mkfs.ext4 /dev/nvme0n1p4 挂载分区\nmount /dev/nvme0n1p3 /mnt mkdir /mnt/boot mount /dev/nvme0n1p1 /mnt/boot mkdir /mnt/home mount /dev/nvme0n1p4 /mnt/home 然后运行lsblk查看分区情况\n设置pacman服务 通过https://archlinux.org/mirrorlist/ 查看镜像源\n修改镜像源\nvim /etc/pacman.d/mirrorlist 备份镜像源\ncp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup 更新镜像源\nreflector --verbose --latest 15 --sort rate --save /etc/pacman.d/mirrorlist pacman -Sy 安装基本系统以及固件 pacstrap -i /mnt linux-headers linux-firmware base base-devel vim intel-ucode pacstrap /mnt base base-devel linux linux-firmware dhcpcd vim reflector 进入新系统\ngenfstab -U -p /mnt \u003e\u003e /mnt/etc/fstab cat /mnt/etc/fstab arch-chroot /mnt pacman -Syy 设置时区 语言 时区\nls -s /usr/share/zoneinfo/ #点tab ls -s /usr/share/zoneinfo/Asia/ #以此类推 ln -s /usr/share/zoneinfo/Asia/Shanghai \u003e /etc/localtime hwclock --systohc 语言设置\nvim /etc/locale.gen zh_CN.UTF-8 UTF-8 en_US.UTF-8 UTF-8 #选这两个 locale-gen 设置默认语言并更新\n[root@archiso /]# echo LANG=en_US.UTF-8 \u003e /etc/locale.conf [root@archiso /]# vim /etc/locale.conf [root@archiso /]# export LANG=en_US.UTF-8 网络设置 [root@archiso /]# vim /etc/hostname [root@archiso /]# vim /etc/hosts 添加用户 useradd -m -g users -G wheel,storage,power -s /bin/bash x14n EDITOR=vim visudo 在文件中取消%wheel ALL=(ALL:ALL) 的 #\n添加Defaults rootpw\n安装系统引导工具grub, 并生成引导文件 pacman -S os-prober ntfs-3g grub efibootmgr # 这里的/dev/sda1是前面boot所在的分区 #grub-install --efi-directory=/mnt/boot/efi --bootloader-id=Arch --recheck grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub # 生成默认配置文件 grub-mkconfig -o /boot/grub/grub.cfg 安装基础包 pacman -S networkManager systemctl disable netctl systemctl enable NetworkManager pacman -S mtools dosfstools bluez bluez-utils cups xdg-utils xdg-user-dirs alsa-utils pulseaudio pulseaudio-bluetooth reflector openssh pacman -S xf86-video-intel mesa lib32-mesa 基础配置 修改**/etc/pacman.conf**，在文件最后添加如下内容：\n[archlinuxcn] Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch 然后是更新源及安装yay：\npacman -Syyu //更新源，期间会自动下载archlinuxcn的源数据库 pacman -S yay //安装yay pacman -S archlinuxcn-keyring //archlinuxcn相关GPG key，如果不安装这个包会导致后续部分包无法成功安装 i配置 pacman -S xorg-server //sddm安装，如果通过startx命令登录i3wm也可不安装此项 pacman -S sddm //i3wm安装 pacman -S i3wm //或者安装i3gaps，二选一 yay -S i3-gaps //picom、rofi及feh pacman -S rofi picom feh 终端应用\npacman -S alacritty 安装字体文件\npacman -S noto-fonts-cjk powerline-fonts wqy-microhei adobe-source-code-pro-fonts yay -S ttf-apple-emoji 安装字体之后，可以通过如下命令查看系统中安装的字体信息：\nfc-cat | less 安装完成之后启动SDDM，应该就能通过图形化界面进行登录了：\nsystemctl enable sddm systemctl start sddm i3wm配置 i3wm默认的快捷键我不打算一一列出了，查看i3wm的默认配置文件就能看到，i3wm默认配置文件地址：\n~/.config/i3/config 如果此配置文件不存在，或者被修改出错，可以通过如下命令复制一份新的：\nmkdir ~/.config/i3 cp /etc/i3/config ~/.config/i3/config i3wm的配置文件分为两步，分别是修改原有配置及新增配置。\n先是修改原有配置，下列部分是删除或者注释：\n#font pango:monospace 8 #bindsym $mod+d exec --no-startup-id dmenu #bar { # status_command i3status #} 然后是新增部分配置：\n//设置字体及字体大小 font pango:Source Code Pro 12,DejaVu Sans Mono 12 //设置$MOD+d为启动rofi bindsym $mod+d exec --no-startup-id \"rofi -modi drun,run -show drun\" //启动picom exec --no-startup-id picom -b //使用feh设置壁纸，注意壁纸文件必须存在且路径正确 exec --no-startup-id feh --bg-scale ~/zocoxx/wallpaper.jpeg //锁屏，因Win+L快捷键在i3wm默认被占用，我设置的是$MOD+Ctrl+l为锁屏快捷键 bindsym $mod+Ctrl+l exec --no-startup-id i3lock //去除窗口的标题栏，有利有弊，好处是窗口少了额头，坏处是去除标题栏之后部分窗口无法进行鼠标拖动 for_window [class=\"^.*\"] border pixel 0 //设置边框为1像素 new_window pixel 1 //如果安装了输入法，可以使用此命令进行启动输入法 exec --no-startup-id fcitx \u0026 配置完成之后，按$MOD+Shift+r可以快速重启i3wm，如果配置没问题的话，可以看到新的效果了。\nalacritty配置 选择alacritty就是看重其可定制，自然不会选择默认配置了。\nalacritty可选配置文件路径有很多，为了方便，我选择将配置文件放到~/.config目录里面。完整配置文件内容如下：\n# ~/.config/alacritty.yml font: normal: family: Source Code Pro bold: family: Source Code Pro italic: family: Source Code Pro size: 12 window: opacity: 0.7 env: TERM: xterm-256color 我选择配置alacritty使用Source Code Pro字体，且字号大小为12。\n特别提醒一下，alacritty背景透明度设置不是网络流传的window.opacity或者background_opacity，要设置透明度的话建议参考我上述的格式。\n保存即可看到效果。\npolybar设置及启动 polybar需要有默认的配置文件才能启动，所以，创建目录并设置配置文件：\nmkdir ~/.config/polybar cp /etc/polybar/config.ini ~/.config/polybar 不知道是polybar更新版本之后配置文件名称改变还是网上的教程以讹传讹，很多都不带**.ini**后缀，这里建议带上。\n上述config.ini默认包含了一个example的配置，命令行执行如下命令即可看到效果：\npolybar example 要在启动i3wm之后默认启动polybar，需要有个启动脚本，文件名称、路径及内容如下：\n# ~/.config/polybar/launch.sh #!/bin/bash # 终端可能已经有在运行的实例 killall -q polybar # 等待进程被终止 while pgrep -u $UID -x polybar \u003e/dev/null; do sleep 1; done # 运行Polybar，使用默认的配置文件路径 ~/.config/polybar/config.ini polybar example \u0026 echo \"Polybar launched...\" 然后给与启动脚本可执行权限：\nchmod +x ~/.config/polybar/launch.sh 然后i3wm配置文件新加一行：\n# ~/.config/i3/config exec --no-startup-id ~/.config/polybar/launch.sh sudo systemctl restart display-manager\ni3-msg restart\n安装完成后配置 xorg-xrandr 分辨率调整\nxrandr --output your_display_name --mode 1600x900 xrandr --output eDP1 --scale 1.25x1.25 安装中文输入法 配置中文输入法首先需要安装 fcitx 包与 fcitx-im 集合包，还有配置工具 fcitx-configtool：\n1 $ sudo pacman -S fcitx fcitx-im fcitx-configtool 然后编辑 /etc/profile 文件，末尾加入：\n1234 # Fcitxexport GTK_IM_MODULE=fcitxexport QT_IM_MODULE=fcitxexport XMODIFIERS=\"@im=fcitx\" 再到Fcitx#中文选择一个中文输入法包安装：\n1 $ sudo pacman -S fcitx-googlepinyin zsh 1、安装zsh\nsudo pacman -S zsh 2、更改默认终端\nchsh -s /bin/zsh 3、安装oh-my-zsh-git\nsudo pacman -S oh-my-zsh-git 4、默认配置\ncp /usr/share/oh-my-zsh/zshrc ~/.zshrc 5、安装插件 跳转目录、命令高亮、自动建议补全\nsudo pacman -S autojump zsh-syntax-highlighting zsh-autosuggestions oh-my-zsh 找不到插件路径，做下链接 没有目录自己建 mkdir -p /usr/share/oh-my-zsh/custom/plugins/\nsudo ln -s /usr/share/zsh/plugins/zsh-syntax-highlighting /usr/share/oh-my-zsh/custom/plugins/ sudo ln -s /usr/share/zsh/plugins/zsh-autosuggestions /usr/share/oh-my-zsh/custom/plugins/ 6、配置 ~/.zshrc\nplugins=( git autojump zsh-syntax-highlighting zsh-autosuggestions ) Xresources sddm https://github.com/MarianArlt/sddm-chili\nneovim https://taoshu.in/vim/go-vim.html\nHIDPI屏幕 polybar 使用github主题hack\nmpd brightness volume speed battery temperature\nhtop资源监控 管理配置\nrander 文件窗口 https://wiki.archlinux.org/title/ranger\n生成配置文件\nranger --copy-config=all 了解一些基本的 python 知识可能对定制 ranger 会有帮助。\nrc.conf - 选项设置和快捷键 commands.py - 能通过 : 执行的命令 rifle.conf - 指定不同类型的文件的默认打开程序。 scope.sh - 文件预览相关配置 图片预览功能\npacman -S w3m #图片预览工具 移动到回收站 如果想添加一个把文件移动到目录 ~/.local/share/Trash/files/ 的快捷键 DD，把以下这一行添加到 ~/.config/ranger/rc.conf：\nmap DD shell mv %s /home/${USER}/.local/share/Trash/files/ 关联文件打开应用\n文件解压\n锁屏电源 rofi 设置默认应用 粘贴板copyq 音量调节ALSA sudo pacman -S alsa-utils\nsudo pacman -S alsa-plug\nsudo pacman -S pulseaudio-alsa\nsudo pacman -S pavucontrol-qt\nsudo pacman -S pavucontrol\n启用：amixer sset Master unmute\nsudo lspci -v\nlspci | grep Audio\nmpd音乐播放器 常用快捷键\nq ： 退出 ranger\rR : 重新刷新目录\rS : 执行 shell 命令\r: 或者 ; : 控制台\rW : 显示日志\rk : 向上\rj : 向下\rh : 向左\rl : 向右\rg : 到顶部\rG : 到底部\rJ : 半页向下\rK : 半页向上\rgh : 相当于 cd ~\rge : 相当于 cd /etc\rgu : cd /usr\rdd : 剪切\ryy : 复制\rpp : 粘贴\r截图工具 多屏幕显示 xrandr --output HDMI-1 --auto --left-of DP-1 在 i3wm 中配置多屏显示通常需要一些特定的设置。以下是在 Arch Linux 上配置 i3wm 的多屏显示的一般步骤：\n检测和识别显示器： 打开终端并运行以下命令，以检测和识别连接的显示器：\nxrandr 这将列出所有已连接的显示器以及它们的名称（例如：HDMI-1、DP-1 等）。\n配置显示器布局： 使用 xrandr 命令来配置显示器布局。例如，如果你想将两个显示器设置为左右扩展模式，可以运行：\nxrandr --output HDMI-1 --auto --left-of DP-1 打开 `~/.config/i3/config` 文件，添加以下行来配置多屏显示： exec --no-startup-id xrandr --output HDMI-1 --auto --left-of DP-1 exec --no-startup-id xrandr --output HDMI-1 --auto --right-of DP-1 设置屏幕\nxrandr --output HDMI-1 --mode 1920x1080 --scale 0.95x0.95 ",
   "wordCount" : "2819",
   "inLanguage": "zh",
-  "image":"https://XianCH.github.io/postsImg/arch.jpg","datePublished": "2023-08-30T10:16:51Z",
+  "image":"http://localhost:1313/postsImg/arch.jpg","datePublished": "2023-08-30T10:16:51Z",
   "dateModified": "2023-09-22T10:16:51Z",
   "author":[{
     "@type": "Person",
@@ -109,14 +109,14 @@ var _hmt = _hmt || [];
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/"
+    "@id": "http://localhost:1313/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "X14n's Blog",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://XianCH.github.io/img/favicon.icon"
+      "url": "http://localhost:1313/img/favicon.icon"
     }
   }
 }
@@ -134,8 +134,8 @@ var _hmt = _hmt || [];
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://XianCH.github.io/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
-            <img src="https://XianCH.github.io/img/main.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
+            <img src="http://localhost:1313/img/main.png" alt="logo" aria-label="logo"
                  height="35">x14n&#39;s Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
@@ -164,32 +164,32 @@ var _hmt = _hmt || [];
         </div>
         <ul id="menu">
             <li>
-                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
                 <span>🔍 搜索</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/" title="🏠 主页">
+                <a href="http://localhost:1313/" title="🏠 主页">
                 <span>🏠 主页</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/posts" title="📚 文章">
+                <a href="http://localhost:1313/posts" title="📚 文章">
                 <span>📚 文章</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/tags" title="🧩 标签">
+                <a href="http://localhost:1313/tags" title="🧩 标签">
                 <span>🧩 标签</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
+                <a href="http://localhost:1313/archives/" title="⏱️ 时间轴">
                 <span>⏱️ 时间轴</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
+                <a href="http://localhost:1313/about" title="🙋🏻‍♂️ 关于">
                 <span>🙋🏻‍♂️ 关于</span>
                 </a>
             </li>
@@ -208,7 +208,7 @@ var _hmt = _hmt || [];
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <div class="breadcrumbs"><a href="http://localhost:1313/">🏠 主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">📚文章</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/tech/">👨🏻‍💻 技术</a></div>
             <h1 class="post-title">
                 arch安装以及i3wm配置
             </h1>
@@ -267,7 +267,7 @@ var _hmt = _hmt || [];
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="https://XianCH.github.io/tags/archlinux/" style="color: var(--secondary)!important;">ArchLinux</a>
+                <a href="http://localhost:1313/tags/archlinux/" style="color: var(--secondary)!important;">ArchLinux</a>
             </span>
         </span>
     </span>
@@ -284,11 +284,11 @@ var _hmt = _hmt || [];
                     <span id="post_meta_style_8">
                         <span class="fa fa-commenting-o"></span>
                         <span>
-                            <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js"></script>
+                            <script src="https://cdn.staticfile.org/twikoo//twikoo.all.min.js"></script>
                             <script>
                                 let url = document.documentURI
                                 
-                                let dnsUrl = "https://XianCH.github.io/"
+                                let dnsUrl = "http://localhost:1313/"
                                 let urlSplit = url.split(dnsUrl)
                                 let finalUrl = urlSplit[1]
                                 if (finalUrl[0] !== '/') {
@@ -321,7 +321,7 @@ var _hmt = _hmt || [];
 
 </div>
         </header> 
-<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/arch.jpg" alt="">
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="http://localhost:1313/postsImg/arch.jpg" alt="">
     
 </figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
@@ -866,12 +866,12 @@ pp : 粘贴
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/">
+  <a class="prev" href="http://localhost:1313/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/">
     <span class="title">« 上一页</span>
     <br>
     <span>Golang相关练习题</span>
   </a>
-  <a class="next" href="https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+  <a class="next" href="http://localhost:1313/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
     <span class="title">下一页 »</span>
     <br>
     <span>常用快捷键</span>
@@ -881,39 +881,11 @@ pp : 粘贴
         </footer>
     </div>
 
-<style>
-    .comments_details summary::marker {
-        font-size: 20px;
-        content: '👉展开评论';
-        color: var(--content);
-    }
-    .comments_details[open] summary::marker{
-        font-size: 20px;
-        content: '👇关闭评论';
-        color: var(--content);
-    }
-</style>
 
 
-<div>
-    <details class="comments_details">
-        <summary style="cursor: pointer; margin: 50px 0 20px 0;width: 130px;">
-            <span style="font-size: 20px;color: var(--content);">...</span>
-        </summary>
-        <div id="tcomment"></div>
-    </details>
-    <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js">
-    </script>
-    <script>
-        twikoo.init({
-            envId:  null ,
-        el: "#tcomment",
-            lang: 'zh-CN',
-            region:  null ,
-        path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
-        })
-    </script>
-</div>
+
+
+
 </article>
 </main>
 
@@ -922,7 +894,7 @@ pp : 粘贴
         Copyright
         &copy;
         -2024
-        <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
+        <a href="http://localhost:1313/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>
     <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;"></a>&nbsp;

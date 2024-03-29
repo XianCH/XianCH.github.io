@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>一些想法 | X14n&#39;s Blog</title>
+<title>Nvim_config(挖坑) | X14n&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="杂谈 ​ 最近这段时间，总有一种奇怪的想法，感觉自己做了很多事情，但其实又什么都没做，就像我github上面的活动一样，感觉自己好像写了很多东西，相比过去那个写了就不管了得我来说，这不是挺好的的吗，又仔细看看，自己每天push的东西，真的是一坨屎，看看别人写的东西吧，又好多看不懂，看">
+<meta name="description" content="前言 最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题 一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以 自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为 一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么">
 <meta name="author" content="x14n">
-<link rel="canonical" href="http://localhost:1313/posts/life/%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/">
+<link rel="canonical" href="http://localhost:1313/posts/tech/linux/nvim_config/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="http://localhost:1313/img/favicon.icon">
@@ -19,7 +19,7 @@
 <link rel="mask-icon" href="http://localhost:1313/img/main.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="http://localhost:1313/posts/life/%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/">
+<link rel="alternate" hreflang="zh" href="http://localhost:1313/posts/tech/linux/nvim_config/">
 <noscript>
     <style>
         #theme-toggle,
@@ -46,16 +46,16 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-<meta property="og:title" content="一些想法" />
-<meta property="og:description" content="杂谈 ​ 最近这段时间，总有一种奇怪的想法，感觉自己做了很多事情，但其实又什么都没做，就像我github上面的活动一样，感觉自己好像写了很多东西，相比过去那个写了就不管了得我来说，这不是挺好的的吗，又仔细看看，自己每天push的东西，真的是一坨屎，看看别人写的东西吧，又好多看不懂，看" />
+<meta property="og:title" content="Nvim_config(挖坑)" />
+<meta property="og:description" content="前言 最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题 一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以 自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为 一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/posts/life/%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-10-14T18:12:42+08:00" />
-<meta property="article:modified_time" content="2023-10-14T18:12:42+08:00" />
+<meta property="og:url" content="http://localhost:1313/posts/tech/linux/nvim_config/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-25T10:33:55+08:00" />
+<meta property="article:modified_time" content="2024-02-25T10:33:55+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="一些想法"/>
-<meta name="twitter:description" content="杂谈 ​ 最近这段时间，总有一种奇怪的想法，感觉自己做了很多事情，但其实又什么都没做，就像我github上面的活动一样，感觉自己好像写了很多东西，相比过去那个写了就不管了得我来说，这不是挺好的的吗，又仔细看看，自己每天push的东西，真的是一坨屎，看看别人写的东西吧，又好多看不懂，看"/>
+<meta name="twitter:title" content="Nvim_config(挖坑)"/>
+<meta name="twitter:description" content="前言 最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题 一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以 自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为 一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么"/>
 
 
 <script type="application/ld+json">
@@ -74,14 +74,14 @@ var _hmt = _hmt || [];
         {
           "@type": "ListItem",
           "position":  2 ,
-          "name": "🏖 生活",
-          "item": "http://localhost:1313/posts/life/"
+          "name": "👨🏻‍💻 技术",
+          "item": "http://localhost:1313/posts/tech/"
         }, 
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "一些想法",
-      "item": "http://localhost:1313/posts/life/%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/"
+      "name": "Nvim_config(挖坑)",
+      "item": "http://localhost:1313/posts/tech/linux/nvim_config/"
     }
   ]
 }
@@ -90,24 +90,24 @@ var _hmt = _hmt || [];
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "一些想法",
-  "name": "一些想法",
-  "description": "杂谈 ​ 最近这段时间，总有一种奇怪的想法，感觉自己做了很多事情，但其实又什么都没做，就像我github上面的活动一样，感觉自己好像写了很多东西，相比过去那个写了就不管了得我来说，这不是挺好的的吗，又仔细看看，自己每天push的东西，真的是一坨屎，看看别人写的东西吧，又好多看不懂，看",
+  "headline": "Nvim_config(挖坑)",
+  "name": "Nvim_config(挖坑)",
+  "description": "前言 最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题 一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以 自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为 一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么",
   "keywords": [
     ""
   ],
-  "articleBody": " 杂谈 ​\t最近这段时间，总有一种奇怪的想法，感觉自己做了很多事情，但其实又什么都没做，就像我github上面的活动一样，感觉自己好像写了很多东西，相比过去那个写了就不管了得我来说，这不是挺好的的吗，又仔细看看，自己每天push的东西，真的是一坨屎，看看别人写的东西吧，又好多看不懂，看看自己的写的什么垃圾博客吧，真的不知道写的是什么。但是我又很需要这种感觉自己很忙的感觉，这是为什么呢，可能是因为我现在还没有工作（其实是找不到工作），又不想每天无所事事，毕竟我就是很喜欢带着耳机，对着电脑，在自己世界里的感觉，也可以说我4月份找工作的经历，让我真的害怕找工作了，现在想跨出哪一步真的受不了，外面那些很早就出去工作的同龄人，工作经验和能力不比我丰富吗？还没毕业在校的，不必我更有激情吗？在外面工作了很多年的程序员，就更不用说了吗？还有github上面的一众大神……..\n​\t真的进了死循环吗，看着招聘上面的信息，上面需要掌握的技能，我就去学习，又在想，我不是什么聪明人，很多时候我真的不能完全掌握这知识。但是我又不想直接去面试，不想面试的时候感觉自己似懂非懂还要硬着头皮说自己了解，怎么说呢 , 想到这方面的，我又tm的焦虑了，真的受不了。\n还是要改变点什么:\n少抽烟，只是不能把他当成依赖吧 再专注一点 少点在网络上看那些没营养的了（至少不是在我学习的时候），在想不出写什么代码的时候，拿手机出来，看看无聊文章，看看没有营养的视屏，确实让我感觉有无意义的快乐，有一种逃避的快乐，手机点一下就能获得最直接的多巴胺。但是这根只没有思考能力的小白鼠又有何区别呢。我不想这样……. ",
-  "wordCount" : "704",
+  "articleBody": "前言 最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题 一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以 自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为 一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么。\n需求列表 文件管理 文件搜索 文件查找 文字查找 插件管理 快捷键绑定 内嵌终端 debug 语言服务 语言格式化 输入提示 插件管理 主题样式 init.lua touch init.lua \u0026\u0026 mkdir lua local option = vim.opt local buffer = vim.b local global = vim.g -- Globol Settings -- option.showmode = false option.backspace = { \"indent\", \"eol\", \"start\" } option.tabstop = 4 option.shiftwidth = 4 option.expandtab = true option.shiftround = true option.autoindent = true option.smartindent = true option.number = true option.relativenumber = true option.wildmenu = true option.hlsearch = false option.ignorecase = true option.smartcase = true option.completeopt = { \"menu\", \"menuone\" } option.cursorline = true option.termguicolors = true option.signcolumn = \"yes\" option.autoread = true option.title = true option.swapfile = false option.backup = false option.updatetime = 50 option.mouse = \"a\" option.undofile = true option.undodir = vim.fn.expand('$HOME/.local/share/nvim/undo') option.exrc = true option.wrap = false option.splitright = true -- Buffer Settings -- buffer.fileenconding = \"utf-8\" -- Global Settings -- global.mapleader = \" \" -- Key mappings -- vim.keymap.set({ \"n\", \"i\", \"v\" }, \"\", \"\") vim.keymap.set({ \"n\", \"i\", \"v\" }, \"\", \"\") vim.keymap.set({ \"n\", \"i\", \"v\" }, \"\", \"\") vim.keymap.set({ \"n\", \"i\", \"v\" }, \"\", \"\") vim.keymap.set(\"n\", \"\", \"bNext\") vim.keymap.set(\"n\", \"bc\", \"bd\") vim.keymap.set(\"v\", \"J\", \":m '\u003e+1gv=gv\") vim.keymap.set(\"v\", \"K\", \":m '\u003c-2gv=gv\") vim.keymap.set({ \"v\", \"n\" }, \"y\", \"\\\"+y\") 插件管理（lazy.nvim） github地址：https://github.com/folke/lazy.nvim\n",
+  "wordCount" : "437",
   "inLanguage": "zh",
-  "datePublished": "2023-10-14T18:12:42+08:00",
-  "dateModified": "2023-10-14T18:12:42+08:00",
+  "datePublished": "2024-02-25T10:33:55+08:00",
+  "dateModified": "2024-02-25T10:33:55+08:00",
   "author":[{
     "@type": "Person",
     "name": "x14n"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/posts/life/%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/"
+    "@id": "http://localhost:1313/posts/tech/linux/nvim_config/"
   },
   "publisher": {
     "@type": "Organization",
@@ -206,9 +206,9 @@ var _hmt = _hmt || [];
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="http://localhost:1313/">🏠 主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">📚文章</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/life/">🏖 生活</a></div>
+            <div class="breadcrumbs"><a href="http://localhost:1313/">🏠 主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">📚文章</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/tech/">👨🏻‍💻 技术</a></div>
             <h1 class="post-title">
-                一些想法
+                Nvim_config(挖坑)
             </h1>
             <div class="post-meta">
 
@@ -229,7 +229,7 @@ var _hmt = _hmt || [];
 <span class="parent-post-meta">
     <span id="post_meta_style_1">
         <span class="fa fa-calendar-check-o"></span>
-        <span>2023-10-14
+        <span>2024-02-25
             &nbsp;&nbsp;
         </span>
     </span>
@@ -242,13 +242,13 @@ var _hmt = _hmt || [];
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>704字
+        <span>437字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>2分钟
+        <span>1分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -323,7 +323,13 @@ var _hmt = _hmt || [];
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e6%9d%82%e8%b0%88" aria-label="杂谈">杂谈</a>
+                    <a href="#%e5%89%8d%e8%a8%80" aria-label="前言">前言</a></li>
+                <li>
+                    <a href="#%e9%9c%80%e6%b1%82%e5%88%97%e8%a1%a8" aria-label="需求列表">需求列表</a></li>
+                <li>
+                    <a href="#initlua" aria-label="init.lua">init.lua</a></li>
+                <li>
+                    <a href="#%e6%8f%92%e4%bb%b6%e7%ae%a1%e7%90%86lazynvim" aria-label="插件管理（lazy.nvim）">插件管理（lazy.nvim）</a>
                 </li>
             </ul>
         </div>
@@ -390,16 +396,85 @@ var _hmt = _hmt || [];
         return rect.top + win.pageYOffset;
     }
 </script>
-        <div class="post-content"><img src="./index.assets/image-20231014184130058.png" alt="image-20231014184130058" style="zoom:60%;" />
-<h2 id="杂谈">杂谈<a hidden class="anchor" aria-hidden="true" href="#杂谈">#</a></h2>
-<p>​		最近这段时间，总有一种奇怪的想法，感觉自己做了很多事情，但其实又什么都没做，就像我github上面的活动一样，<img src="./index.assets/image-20231014181817119.png" alt="image-20231014181817119" style="zoom:25%;" />感觉自己好像写了很多东西，相比过去那个写了就不管了得我来说，这不是挺好的的吗，又仔细看看，自己每天push的东西，真的是一坨屎，看看别人写的东西吧，又好多看不懂，看看自己的写的什么垃圾博客吧，真的不知道写的是什么。但是我又很需要这种感觉自己很忙的感觉，这是为什么呢，可能是因为我现在还没有工作（其实是找不到工作），又不想每天无所事事，毕竟我就是很喜欢带着耳机，对着电脑，在自己世界里的感觉，也可以说我4月份找工作的经历，让我真的害怕找工作了，现在想跨出哪一步真的受不了，外面那些很早就出去工作的同龄人，工作经验和能力不比我丰富吗？还没毕业在校的，不必我更有激情吗？在外面工作了很多年的程序员，就更不用说了吗？还有github上面的一众大神&hellip;&hellip;..</p>
-<p>​		真的进了死循环吗，看着招聘上面的信息，上面需要掌握的技能，我就去学习，又在想，我不是什么聪明人，很多时候我真的不能完全掌握这知识。但是我又不想直接去面试，不想面试的时候感觉自己似懂非懂还要硬着头皮说自己了解，怎么说呢 , 想到这方面的，我又tm的焦虑了，真的受不了。</p>
-<p>还是要改变点什么:</p>
-<ol>
-<li>少抽烟，只是不能把他当成依赖吧</li>
-<li>再专注一点</li>
-<li>少点在网络上看那些没营养的了（至少不是在我学习的时候），在想不出写什么代码的时候，拿手机出来，看看无聊文章，看看没有营养的视屏，确实让我感觉有无意义的快乐，有一种逃避的快乐，手机点一下就能获得最直接的多巴胺。但是这根只没有思考能力的小白鼠又有何区别呢。我不想这样&hellip;&hellip;.</li>
-</ol>
+        <div class="post-content"><h2 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h2>
+<p>最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题
+一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以
+自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为
+一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么。</p>
+<h2 id="需求列表">需求列表<a hidden class="anchor" aria-hidden="true" href="#需求列表">#</a></h2>
+<ul>
+<li>文件管理</li>
+<li>文件搜索</li>
+<li>文件查找</li>
+<li>文字查找</li>
+<li>插件管理</li>
+<li>快捷键绑定</li>
+<li>内嵌终端</li>
+<li>debug</li>
+<li>语言服务</li>
+<li>语言格式化</li>
+<li>输入提示</li>
+<li>插件管理</li>
+<li>主题样式</li>
+</ul>
+<h2 id="initlua">init.lua<a hidden class="anchor" aria-hidden="true" href="#initlua">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>touch init.lua &amp;&amp; mkdir lua
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">local</span> option <span style="color:#f92672">=</span> vim.opt
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> buffer <span style="color:#f92672">=</span> vim.b
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> global <span style="color:#f92672">=</span> vim.g
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Globol Settings --</span>
+</span></span><span style="display:flex;"><span>option.showmode <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>option.backspace <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#34;indent&#34;</span>, <span style="color:#e6db74">&#34;eol&#34;</span>, <span style="color:#e6db74">&#34;start&#34;</span> }
+</span></span><span style="display:flex;"><span>option.tabstop <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>option.shiftwidth <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>option.expandtab <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>option.shiftround <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>option.autoindent <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>option.smartindent <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>option.number <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>option.relativenumber <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>option.wildmenu <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>option.hlsearch <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>option.ignorecase <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>option.smartcase <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>option.completeopt <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#34;menu&#34;</span>, <span style="color:#e6db74">&#34;menuone&#34;</span> }
+</span></span><span style="display:flex;"><span>option.cursorline <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>option.termguicolors <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>option.signcolumn <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;yes&#34;</span>
+</span></span><span style="display:flex;"><span>option.autoread <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>option.title <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>option.swapfile <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>option.backup <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>option.updatetime <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>option.mouse <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;a&#34;</span>
+</span></span><span style="display:flex;"><span>option.undofile <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>option.undodir <span style="color:#f92672">=</span> vim.fn.expand(<span style="color:#e6db74">&#39;$HOME/.local/share/nvim/undo&#39;</span>)
+</span></span><span style="display:flex;"><span>option.exrc <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>option.wrap <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>option.splitright <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Buffer Settings --</span>
+</span></span><span style="display:flex;"><span>buffer.fileenconding <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;utf-8&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Global Settings --</span>
+</span></span><span style="display:flex;"><span>global.mapleader <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34; &#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Key mappings --</span>
+</span></span><span style="display:flex;"><span>vim.keymap.set({ <span style="color:#e6db74">&#34;n&#34;</span>, <span style="color:#e6db74">&#34;i&#34;</span>, <span style="color:#e6db74">&#34;v&#34;</span> }, <span style="color:#e6db74">&#34;&lt;Left&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;Nop&gt;&#34;</span>)
+</span></span><span style="display:flex;"><span>vim.keymap.set({ <span style="color:#e6db74">&#34;n&#34;</span>, <span style="color:#e6db74">&#34;i&#34;</span>, <span style="color:#e6db74">&#34;v&#34;</span> }, <span style="color:#e6db74">&#34;&lt;Right&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;Nop&gt;&#34;</span>)
+</span></span><span style="display:flex;"><span>vim.keymap.set({ <span style="color:#e6db74">&#34;n&#34;</span>, <span style="color:#e6db74">&#34;i&#34;</span>, <span style="color:#e6db74">&#34;v&#34;</span> }, <span style="color:#e6db74">&#34;&lt;Up&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;Nop&gt;&#34;</span>)
+</span></span><span style="display:flex;"><span>vim.keymap.set({ <span style="color:#e6db74">&#34;n&#34;</span>, <span style="color:#e6db74">&#34;i&#34;</span>, <span style="color:#e6db74">&#34;v&#34;</span> }, <span style="color:#e6db74">&#34;&lt;Down&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;Nop&gt;&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>vim.keymap.set(<span style="color:#e6db74">&#34;n&#34;</span>, <span style="color:#e6db74">&#34;&lt;A-Tab&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;cmd&gt;bNext&lt;CR&gt;&#34;</span>) 
+</span></span><span style="display:flex;"><span>vim.keymap.set(<span style="color:#e6db74">&#34;n&#34;</span>, <span style="color:#e6db74">&#34;&lt;leader&gt;bc&#34;</span>, <span style="color:#e6db74">&#34;&lt;cmd&gt;bd&lt;CR&gt;&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>vim.keymap.set(<span style="color:#e6db74">&#34;v&#34;</span>, <span style="color:#e6db74">&#34;J&#34;</span>, <span style="color:#e6db74">&#34;:m &#39;&gt;+1&lt;CR&gt;gv=gv&#34;</span>)
+</span></span><span style="display:flex;"><span>vim.keymap.set(<span style="color:#e6db74">&#34;v&#34;</span>, <span style="color:#e6db74">&#34;K&#34;</span>, <span style="color:#e6db74">&#34;:m &#39;&lt;-2&lt;CR&gt;gv=gv&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>vim.keymap.set({ <span style="color:#e6db74">&#34;v&#34;</span>, <span style="color:#e6db74">&#34;n&#34;</span> }, <span style="color:#e6db74">&#34;&lt;leader&gt;y&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">+y&#34;</span>)
+</span></span></code></pre></div><h2 id="插件管理lazynvim">插件管理（lazy.nvim）<a hidden class="anchor" aria-hidden="true" href="#插件管理lazynvim">#</a></h2>
+<p>github地址：https://github.com/folke/lazy.nvim</p>
 
 
         </div>
@@ -407,15 +482,15 @@ var _hmt = _hmt || [];
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/tech/distributed/nginx%E5%85%A5%E9%97%A8/">
+  <a class="prev" href="http://localhost:1313/posts/tech/front/javascript%E5%A4%8D%E4%B9%A0/">
     <span class="title">« 上一页</span>
     <br>
-    <span>Nginx</span>
+    <span>Javascript复习</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/tech/go/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/">
+  <a class="next" href="http://localhost:1313/posts/life/2024%E8%AE%A1%E5%88%92%E5%92%8C%E6%83%B3%E6%B3%95/">
     <span class="title">下一页 »</span>
     <br>
-    <span>Gin框架学习</span>
+    <span>2024计划和想法</span>
   </a>
 </nav>
 

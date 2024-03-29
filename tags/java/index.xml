@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Java on X14n&#39;s Blog</title>
-    <link>https://XianCH.github.io/tags/java/</link>
+    <link>http://localhost:1313/tags/java/</link>
     <description>Recent content in Java on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 11 Apr 2023 10:16:51 +0000</lastBuildDate><atom:link href="https://XianCH.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Apr 2023 10:16:51 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>java基础复习</title>
-      <link>https://XianCH.github.io/posts/tech/java/java%E5%A4%8D%E4%B9%A0/</link>
+      <link>http://localhost:1313/posts/tech/java/java%E5%A4%8D%E4%B9%A0/</link>
       <pubDate>Tue, 11 Apr 2023 10:16:51 +0000</pubDate>
       
-      <guid>https://XianCH.github.io/posts/tech/java/java%E5%A4%8D%E4%B9%A0/</guid>
+      <guid>http://localhost:1313/posts/tech/java/java%E5%A4%8D%E4%B9%A0/</guid>
       <description>java基础复习</description>
     </item>
     
     <item>
       <title>java函数式编程思想</title>
-      <link>https://XianCH.github.io/posts/tech/java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</link>
+      <link>http://localhost:1313/posts/tech/java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Sat, 25 Mar 2023 10:16:51 +0000</pubDate>
       
-      <guid>https://XianCH.github.io/posts/tech/java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</guid>
+      <guid>http://localhost:1313/posts/tech/java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</guid>
       <description>//查询未成年作家的评分在70以上的书籍 由于洋流影响所以作家和书籍可能出现重复，需要进行去重 List&amp;lt;Book&amp;gt; bookList = new ArrayList&amp;lt;&amp;gt;(); Set&amp;lt;Book&amp;gt; uniqueBookValues = new HashSet&amp;lt;&amp;gt;(); Set&amp;lt;Author&amp;gt; uniqueAuthorValues = new HashSet&amp;lt;&amp;gt;(); for (Author author : authors) { if (uniqueAuthorValues.add(author)) { if (author.getAge() &amp;lt; 18) { List&amp;lt;Book&amp;gt; books = author.getBooks(); for (Book book : books) { if (book.getScore() &amp;gt; 70) { if (uniqueBookValues.add(book)) { bookList.add(book); } } } } } } System.out.println(bookList); List&amp;lt;Book&amp;gt; collect = authors.stream() .distinct() .filter(author -&amp;gt; author.getAge() &amp;lt; 18) .map(author -&amp;gt; author.getBooks()) .flatMap(Collection::stream) .filter(book -&amp;gt; book.getScore() &amp;gt; 70) .distinct() .collect(Collectors.toList()); System.out.println(collect); 1.2 函数式编程思想 1.2.1 概念 ​ 面向对象思</description>
     </item>
     
     <item>
       <title>springboot学习笔记</title>
-      <link>https://XianCH.github.io/posts/tech/java/springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <link>http://localhost:1313/posts/tech/java/springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Wed, 27 Jul 2022 10:16:51 +0000</pubDate>
       
-      <guid>https://XianCH.github.io/posts/tech/java/springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <guid>http://localhost:1313/posts/tech/java/springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>spring boot2学习笔记 一， spring boot2核心技术基础入门 1.spring能做什么 1.1 spring的能力 ![image-20220321190444355](spring boot2学习笔记.assets\image-20220321190444355.png) 二 、为什么用SpringBoot Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can &amp;ldquo;just run&amp;rdquo;. 能快速创建出生产级别的Sp</description>
     </item>
     
     <item>
       <title>springmvc学习笔记笔记</title>
-      <link>https://XianCH.github.io/posts/tech/java/springmvc/</link>
+      <link>http://localhost:1313/posts/tech/java/springmvc/</link>
       <pubDate>Thu, 03 Feb 2022 10:16:51 +0000</pubDate>
       
-      <guid>https://XianCH.github.io/posts/tech/java/springmvc/</guid>
+      <guid>http://localhost:1313/posts/tech/java/springmvc/</guid>
       <description>springmvc学习</description>
     </item>
     

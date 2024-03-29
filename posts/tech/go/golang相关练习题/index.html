@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,17 +9,17 @@
 <meta name="keywords" content="">
 <meta name="description" content="基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？ #var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值 var a int a =5 a :=5 #new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象 #make 用来创建切片，通道和映射">
 <meta name="author" content="x14n">
-<link rel="canonical" href="https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/">
+<link rel="canonical" href="http://localhost:1313/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
-<link rel="icon" type="image/png" sizes="16x16" href="https://XianCH.github.io/img/main.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://XianCH.github.io/img/main.png">
-<link rel="apple-touch-icon" href="https://XianCH.github.io/img/main.png">
-<link rel="mask-icon" href="https://XianCH.github.io/img/main.png">
+<link rel="icon" href="http://localhost:1313/img/favicon.icon">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/img/main.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/img/main.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/img/main.png">
+<link rel="mask-icon" href="http://localhost:1313/img/main.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/">
+<link rel="alternate" hreflang="zh" href="http://localhost:1313/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/">
 <noscript>
     <style>
         #theme-toggle,
@@ -49,13 +49,13 @@ var _hmt = _hmt || [];
 <meta property="og:title" content="Golang相关练习题" />
 <meta property="og:description" content="基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？ #var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值 var a int a =5 a :=5 #new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象 #make 用来创建切片，通道和映射" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/" />
-<meta property="og:image" content="https://XianCH.github.io/postsImg/golangtest.png" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://localhost:1313/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/" />
+<meta property="og:image" content="http://localhost:1313/postsImg/golangtest.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-09-22T09:54:06+00:00" />
 <meta property="article:modified_time" content="2023-09-22T09:54:06+00:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://XianCH.github.io/postsImg/golangtest.png" />
+<meta name="twitter:image" content="http://localhost:1313/postsImg/golangtest.png" />
 <meta name="twitter:title" content="Golang相关练习题"/>
 <meta name="twitter:description" content="基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？ #var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值 var a int a =5 a :=5 #new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象 #make 用来创建切片，通道和映射"/>
 
@@ -70,20 +70,20 @@ var _hmt = _hmt || [];
           "@type": "ListItem",
           "position":  1 ,
           "name": "📚文章",
-          "item": "https://XianCH.github.io/posts/"
+          "item": "http://localhost:1313/posts/"
         },
 
         {
           "@type": "ListItem",
           "position":  2 ,
           "name": "👨🏻‍💻 技术",
-          "item": "https://XianCH.github.io/posts/tech/"
+          "item": "http://localhost:1313/posts/tech/"
         }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "Golang相关练习题",
-      "item": "https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/"
+      "item": "http://localhost:1313/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/"
     }
   ]
 }
@@ -101,7 +101,7 @@ var _hmt = _hmt || [];
   "articleBody": " 基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？\n#var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值 var a int a =5 a :=5 #new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象 #make 用来创建切片，通道和映射等内置数据结构，并初始化 p := new(int) slience := make([]int,0,10) defer是做什么用的，如果一个程序里面有多个defer会怎么样？\n延迟的函数推送执行，先进先出，一般用来关闭文件资源。第一个defer一般是在整个程序运行结束后第一个执行，然后才到执行下一个 切片的底层是怎么实现的？interface的两种用法了解吗？了解interface的底层实现吗？\n如上图切片其实是应用类型，有三个字段：1.指向应用数组的指针，长度，和容量。当对某个切片进行slien[1:3]其实是创建了新的切片。 1.类型断言\tvalue, ok := someInterface.(SomeType) 2.类型查询\tswitch v := someInterface.(type) { case SomeType1: // 处理 SomeType1 类型 case SomeType2: // 处理 SomeType2 类型 default: // 默认处理 } 怎么用的map，会有并发问题吗？怎么求一个map的长度（len就可以，害）。sync.Map可以用len来求长度吗？（应该是想要问sync.Map的底层吧）\n//make示例 myMap = make(map[string]int) len(map) 关于并发问题，标准的 Go map 不是并发安全的，也就是说，如果多个 goroutine 同时读写一个 map，可能会导致数据竞争和不确定的结果。为了在并发环境下安全使用 map，你可以使用互斥锁（sync.Mutex）来保护 map，或者使用 sync.Map，后者是 Go 1.9 引入的并发安全的映射类型。 //用互斥锁来保护标准的'map'： package main import ( \"fmt\" \"sync\" ) func main() { myMap := make(map[string]int) var mu sync.Mutex var wg sync.WaitGroup for i := 0; i \u003c 100; i++ { wg.Add(1) go func(n int) { defer wg.Done() mu.Lock() myMap[\"key\"] = n mu.Unlock() }(i) } fmt.Println(\"Waiting for goroutines to finish...\") wg.Wait() mu.Lock() fmt.Println(\"Map:\", myMap) mu.Unlock() } 然而，在 sync.Map 中，你不能直接使用 len() 函数来获取长度。sync.Map 不提供获取长度的方法。这是因为 sync.Map 的设计目标是在并发环境下进行读写操作，而不是频繁获取长度等操作。如果你需要跟踪 sync.Map 的长度，可以自己实现一个计数器，在每次插入或删除键值对时进行递增或递减操作来维护长度信息。但要注意，在多个并发操作中，你需要正确地处理计数器的增减，以避免竞态条件。 package main import ( \"fmt\" \"sync\" ) func main() { var myMap sync.Map for i := 0; i \u003c 100; i++ { key := fmt.Sprintf(\"key%d\", i) myMap.Store(key, i) } fmt.Println(\"wating all gonrint down....\") myMap.Range(func(key, value interface{}) bool { fmt.Printf(\"Key: %v, Value: %v\\n\", key, value) return true }) } 有缓冲和无缓冲channel的区别\n无缓冲(\u003c-)：表示如果向通道中输入数据，但是该通道没有输出方，则会堵塞,直到双方都准备好 有缓冲：在缓冲值没有满之前可以一直向通道输入数据 select中如果没有default会出现什么情况？（select会阻塞，直到有case可以执行）case中的通道被关闭了会出现什么情况？（只有这一个的话会死循环，可以用,ok判断一下）\nmap是有序的吗？map底层实现怎么处理hash碰撞的问题？\nrecover和panic的实现原理\n是否了解反射\n普通的map加锁使用与直接用sync.map有什么区别？（分别说了使用上和性能上）\n并发相关 golang协程的调度，聊聊对GMP模型的理解 怎么实现并发？ 怎么让协程等待？ 聊聊goroutine泄漏？怎么避免和排查goroutine泄漏的问题？ goroutine的状态机 聊聊channel的特性，从nil的channel中取数据会发生什么？ 其他 哪些情况下会panic？所有的panic都可以recover吗？recover函数的使用过程，是怎么捕获的？ context是做什么用的？ 有什么办法可以获得函数调用的链路？ 怎么处理协程运行的超时问题？ 怎么优雅地关闭通道？ 从面向对象的角度聊聊java和golang的区别 golang的GC golang的http路由实现懂吗，可以描述一下吗？ golang程序hang住了可能是什么原因（说了可能死循环导致无法GC，golang1.13），怎么排查（可以用pprof） 数据结构 数组查找的时间复杂度是多少，为什么？ 了解跳表吗？ 你知道哪些树结构，各自的优缺点分别是什么？（回答的时候再回答一下应用场景就更好了） 操作系统 用过锁吗？读写锁加读锁的时候会阻塞写操作吗？会阻塞读操作吗？（用过，会，不会） Linux 用过ps命令解决过什么问题吗？查询出来的结果各个字段有什么含义？ 了解僵尸进程吗？怎么避免？ 怎么根据pid获取父进程的pid（回答说去/proc下面），怎么根据pid找执行路径呢？怎么根据端口号找pid（回答说lsof -i，用netstat也可以但是我不知道，面试官补充的） 数据库 Redis和MySQL的区别，什么时候用Redis，什么时候用MySQL（这里我说了下我们服务用到的场景）？如果让你设计一个秒杀系统，要怎么设计？（面试官后来提示了一下说redis又一个自增key） MySQL 有几种隔离级别？默认级别是什么？可重复读是怎么解决幻读的？了解mvcc嘛？下面几种mysql哪个会用到联合索引 linked：https://juejin.cn/post/6967618371844046856\n",
   "wordCount" : "2020",
   "inLanguage": "zh",
-  "image":"https://XianCH.github.io/postsImg/golangtest.png","datePublished": "2023-09-22T09:54:06Z",
+  "image":"http://localhost:1313/postsImg/golangtest.png","datePublished": "2023-09-22T09:54:06Z",
   "dateModified": "2023-09-22T09:54:06Z",
   "author":[{
     "@type": "Person",
@@ -109,14 +109,14 @@ var _hmt = _hmt || [];
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/"
+    "@id": "http://localhost:1313/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "X14n's Blog",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://XianCH.github.io/img/favicon.icon"
+      "url": "http://localhost:1313/img/favicon.icon"
     }
   }
 }
@@ -134,8 +134,8 @@ var _hmt = _hmt || [];
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://XianCH.github.io/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
-            <img src="https://XianCH.github.io/img/main.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
+            <img src="http://localhost:1313/img/main.png" alt="logo" aria-label="logo"
                  height="35">x14n&#39;s Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
@@ -164,32 +164,32 @@ var _hmt = _hmt || [];
         </div>
         <ul id="menu">
             <li>
-                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
                 <span>🔍 搜索</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/" title="🏠 主页">
+                <a href="http://localhost:1313/" title="🏠 主页">
                 <span>🏠 主页</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/posts" title="📚 文章">
+                <a href="http://localhost:1313/posts" title="📚 文章">
                 <span>📚 文章</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/tags" title="🧩 标签">
+                <a href="http://localhost:1313/tags" title="🧩 标签">
                 <span>🧩 标签</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
+                <a href="http://localhost:1313/archives/" title="⏱️ 时间轴">
                 <span>⏱️ 时间轴</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
+                <a href="http://localhost:1313/about" title="🙋🏻‍♂️ 关于">
                 <span>🙋🏻‍♂️ 关于</span>
                 </a>
             </li>
@@ -208,7 +208,7 @@ var _hmt = _hmt || [];
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <div class="breadcrumbs"><a href="http://localhost:1313/">🏠 主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">📚文章</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/tech/">👨🏻‍💻 技术</a></div>
             <h1 class="post-title">
                 Golang相关练习题
             </h1>
@@ -264,7 +264,7 @@ var _hmt = _hmt || [];
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="https://XianCH.github.io/tags/golang/" style="color: var(--secondary)!important;">Golang</a>
+                <a href="http://localhost:1313/tags/golang/" style="color: var(--secondary)!important;">Golang</a>
             </span>
         </span>
     </span>
@@ -281,11 +281,11 @@ var _hmt = _hmt || [];
                     <span id="post_meta_style_8">
                         <span class="fa fa-commenting-o"></span>
                         <span>
-                            <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js"></script>
+                            <script src="https://cdn.staticfile.org/twikoo//twikoo.all.min.js"></script>
                             <script>
                                 let url = document.documentURI
                                 
-                                let dnsUrl = "https://XianCH.github.io/"
+                                let dnsUrl = "http://localhost:1313/"
                                 let urlSplit = url.split(dnsUrl)
                                 let finalUrl = urlSplit[1]
                                 if (finalUrl[0] !== '/') {
@@ -318,7 +318,7 @@ var _hmt = _hmt || [];
 
 </div>
         </header> 
-<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/golangtest.png" alt="">
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="http://localhost:1313/postsImg/golangtest.png" alt="">
     
 </figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
@@ -583,12 +583,12 @@ var _hmt = _hmt || [];
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="https://XianCH.github.io/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+  <a class="prev" href="http://localhost:1313/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
     <span class="title">« 上一页</span>
     <br>
     <span>go数据结构与算法（更新中）</span>
   </a>
-  <a class="next" href="https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/">
+  <a class="next" href="http://localhost:1313/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/">
     <span class="title">下一页 »</span>
     <br>
     <span>arch安装以及i3wm配置</span>
@@ -598,39 +598,11 @@ var _hmt = _hmt || [];
         </footer>
     </div>
 
-<style>
-    .comments_details summary::marker {
-        font-size: 20px;
-        content: '👉展开评论';
-        color: var(--content);
-    }
-    .comments_details[open] summary::marker{
-        font-size: 20px;
-        content: '👇关闭评论';
-        color: var(--content);
-    }
-</style>
 
 
-<div>
-    <details class="comments_details">
-        <summary style="cursor: pointer; margin: 50px 0 20px 0;width: 130px;">
-            <span style="font-size: 20px;color: var(--content);">...</span>
-        </summary>
-        <div id="tcomment"></div>
-    </details>
-    <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js">
-    </script>
-    <script>
-        twikoo.init({
-            envId:  null ,
-        el: "#tcomment",
-            lang: 'zh-CN',
-            region:  null ,
-        path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
-        })
-    </script>
-</div>
+
+
+
 </article>
 </main>
 
@@ -639,7 +611,7 @@ var _hmt = _hmt || [];
         Copyright
         &copy;
         -2024
-        <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
+        <a href="http://localhost:1313/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>
     <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;"></a>&nbsp;

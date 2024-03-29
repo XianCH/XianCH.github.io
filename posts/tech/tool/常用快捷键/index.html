@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,17 +9,17 @@
 <meta name="keywords" content="">
 <meta name="description" content="tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl&#43;b 然">
 <meta name="author" content="x14n">
-<link rel="canonical" href="https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+<link rel="canonical" href="http://localhost:1313/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
-<link rel="icon" type="image/png" sizes="16x16" href="https://XianCH.github.io/img/main.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://XianCH.github.io/img/main.png">
-<link rel="apple-touch-icon" href="https://XianCH.github.io/img/main.png">
-<link rel="mask-icon" href="https://XianCH.github.io/img/main.png">
+<link rel="icon" href="http://localhost:1313/img/favicon.icon">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/img/main.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/img/main.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/img/main.png">
+<link rel="mask-icon" href="http://localhost:1313/img/main.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+<link rel="alternate" hreflang="zh" href="http://localhost:1313/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
 <noscript>
     <style>
         #theme-toggle,
@@ -49,13 +49,13 @@ var _hmt = _hmt || [];
 <meta property="og:title" content="常用快捷键" />
 <meta property="og:description" content="tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl&#43;b 然" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" />
-<meta property="og:image" content="https://XianCH.github.io/postsImg/hotkey.jpg" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://localhost:1313/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" />
+<meta property="og:image" content="http://localhost:1313/postsImg/hotkey.jpg" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-07-23T07:20:24+00:00" />
 <meta property="article:modified_time" content="2023-09-22T07:20:24+00:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://XianCH.github.io/postsImg/hotkey.jpg" />
+<meta name="twitter:image" content="http://localhost:1313/postsImg/hotkey.jpg" />
 <meta name="twitter:title" content="常用快捷键"/>
 <meta name="twitter:description" content="tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl&#43;b 然"/>
 
@@ -70,20 +70,20 @@ var _hmt = _hmt || [];
           "@type": "ListItem",
           "position":  1 ,
           "name": "📚文章",
-          "item": "https://XianCH.github.io/posts/"
+          "item": "http://localhost:1313/posts/"
         },
 
         {
           "@type": "ListItem",
           "position":  2 ,
           "name": "👨🏻‍💻 技术",
-          "item": "https://XianCH.github.io/posts/tech/"
+          "item": "http://localhost:1313/posts/tech/"
         }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "常用快捷键",
-      "item": "https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"
+      "item": "http://localhost:1313/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"
     }
   ]
 }
@@ -101,7 +101,7 @@ var _hmt = _hmt || [];
   "articleBody": "tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl+b 然后对应快捷键执行命令 会话常用快捷操作 快捷键 说明 ? 所有快捷键，q退出 :new sessionName 创建新会话 s 切换会话 $ 重命名当前会话 d 离开会话返回shell（与tmux detach功能相同） Ctrl+z 挂起会话，返回shell 窗口常用快捷操作 快捷键 说明 c 创建新窗口 w 显示窗口 数字键 选择对应窗口 p 前一个窗口 n 后一个窗口 f 查找窗口 , 重命名窗口 \u0026 关闭窗口（带提示） 窗格常用快捷键 快捷键 说明 % 垂直分割 ” 水平分割 o 切换窗格 x 关闭窗格 space 切换窗格布局 q 显示窗格编号，按对应数字选择窗格 { 与上一个窗格调换位置 } 与下一个窗格调换位置 z 当前窗格最大化 ! 取消所有窗口保留当前窗口 Ctrl+方向键 以1个单元格为单位移动边缘以调整当前窗格大小 Alt+方向键 以5个单元格为单位移动边缘以调整当前窗格大小 vim 使用技巧 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim 使用技巧) 下面的命令是我常用的一些快捷键操作，我使用的编辑器是 vscode，安装了 vim 插件。\n如何在 vscode 中使用 vim？可以看看我的 vscode 配置\n光标移动 # hjkl：左下上右 gj 和 gk：移动至下一个或者上一个物理行，当一行出现 linewrap 时，使用 j 和 k 并不能按照视觉看到的一行进行移动 {：跳转至向上寻找的第一个段落首部的前一行 }：跳转至向下寻找的第一个段落尾部的后一行 (：跳转至向上寻找的第一个段落首部的所在行 )：跳转至向下寻找的第一个段落尾部的所在行 w：下一个单词开头 b：上一个单词开头 e：下一个单词结尾 ge：上一个单词结尾 gg：跳转到第一行 G：跳转到最后一行 + gg：跳转到第 number 行 :：跳转到第 number 行 %：匹配对应括号，并进行跳转 * 和 #：匹配当前光标所在的单词，移动光标到下一个或上一个 f、F、 t 和 T，行内光标跳转 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f、F、 t 和 T，行内光标跳转) f：当前行跳转到光标后的指定字符，按 ; 跳转到下一个指定字符 F：当前行跳转到光标前的指定字符，按 ; 跳转到下一个指定字符 t：当前行跳转到光标后的指定字符前的一个字符，按 ; 跳转到下一个指定字符前一个字符 T：当前行跳转到光标前的指定字符后的一个字符，按 ; 跳转到下一个指定字符后一个字符 一般，我只用 f 和 F。\n模式切换 # v：normal 模式进入 visual 模式 V: normal 模式进入 visual 模式，并选中当前行 i: normal 模式进入 insert 模式，光标出现在当前选中字符前 I: normal 模式进入 insert 模式，光标出现在行首 a: normal 模式进入 insert 模式，光标出现在当前选中字符后 A: normal 模式进入 insert 模式，光标出现在行尾 esc: 从 visual 和 insert 模式退回到 normal 模式 o：在当前行下方插入一行，并进入 insert 模式 O：在当前行上方插入一行，并进入 insert 模式\n插入、删除、复制、粘贴 # 在模式切换中已经包含了插入的相关快捷键。\ngi：在上一个做出变化的地方进入插入模式 x：删除当前光标所在的字符 dd：删除当前行 cc：删除当前行，并进入 insert 模式 D：删除从当前光标至行尾的内容 C：删除从当前贯标至行尾的内容，并进入 insert 模式 yy：复制当前行 Y：与 yy 相同 yl：复制当前光标下的字符 yas：复制一个句子 yap：复制一个段落 p: 粘贴剪切板至光标后 P：粘贴剪切板至光标前 gP: 与 P 相同，只不过将光标置于粘贴内容的后面 gp: 与 p 相同，只不过将光标置于粘贴内容的后面 cw：删除从光标所在位置后到一个单词的结尾，并进入 insert 模式（同理可以用 dw 删除，但是不进入 insert 模式） c$：删除从光标所在位置后到本行结尾，并进入 insert 模式（同理可以用 d$ 删除，但是不进入 insert 模式） r：替换当前光标下的字符，按下 r，然后输入一个字符，用来替换当前字符 v + + ：可以使用 v 进入 visual 模式，然后选中区域，最后使用 y、c、d 和 r 对选中区域进行操作。 模式： 可以是 y、d、c等，（可以用于光标跳转的一系列字符） 可以是 w（一个单词的结尾）、$（行尾）、^（行首第一个非空字符）、b（单词的开头）、0(行首) 等等。\n模式：你可以将 operator（y，d，c）作为 verbs，count、a 和 i 作为 adjectives，移动（hjkl、w、$、^、b、0等）作为 objects，例如:\nd3l: 删除光标右侧三个字符 dl：adjectives 可以省略，所以 dl 等价于 d1l diw：删除光标下的单词不包括周围的空格 代码折叠 # zc：折叠代码 zo: 展开代码 zM: 全部折叠 zR: 全部展开 窗口移动 # （1）移动当前所在行的位置\nzz：将当前光标所在行移动到窗口中间 zt: 将当前光标所在行移动到窗口顶部 zb: 将当前光标所在行移动到窗口底部 （2）行移动\nctrl + e：一行一行向下移动 ctrl + d：向下移动窗口显示行数的一半 ctrl + y: 一行一行向上移动 ctrl + u: 向上移动窗口显示行数的一半 分屏操作 # （1）创建分屏\n使用命令：\n:split [file] 或者 :sp [file]：添加一个横屏 :vsplit [file] 或者 :vsp [file]：添加一个竖屏\n使用快捷键：\nctrl + w s：以当前文件添加一个横屏 ctrl + w v：以当前文件添加一个竖屏\n（2）分屏切换\nctrl + w 或者 ctrl + w ：将光标移动到指定方向的分屏\n（3）关闭屏幕和分屏\n:only：只保留当前分屏，关闭其他分屏 ctrl + w c：关闭当前窗口 ctrl + w q: 关闭当前窗口，若只有一个分屏，则退出 vim ctrl + w o: 关闭其他窗口\n（4）增加屏幕高度\ncrtrl + w +：增加高度 ctrl + w -：减小高度\n多光标操作（块操作） # 使用 ctrl + v 进入块操作 可以使用 hkjl、$ 等来插入多光标和移动光标 使用 I 和 A 进入编辑 同样可以使用 v 进入 visual 模式，选中一些行，然后按 A 在每行结尾插入光标进行编辑。\nvisual 模式下的格式化操作 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual 模式下的格式化操作) v 进入 visual 模式，进入 visual 模式后，可以通过 hjkl 选中一些行。可以对选中的行做如下操作。\nJ：把所有行连接起来变成一行 \u003c 或 \u003e：左右缩进 =：自动缩进，格式化代码（非常 nice） 查找和替换 # 替换格式如下，支持正则表达式。\n:[range]s//[string]/[flags] [count] 该命令表示在 range 的每一行中搜索pattern，并将其替换为 string。 count是一个乘以命令的正整数。\n（1）查找\n/：高亮查找到的内容 /\\C：大小写敏感 /\\c: 忽略大小写 /\\\u003c\\\u003e: 整词匹配，注意这里前面是修饰符 \\\u003c，后面是修饰符 \\\u003e，两个组合表示整词匹配（whole word match） *：向下查找当前光标下的 word #：向上查找当前光标下的 word n：跳转到下一个查找到的内容 :nohl：取消高亮 （2）当前行替换\n:s/foo/bar/`：替换当前行查到的**第一个** `foo`，并将其替换为 `bar` `:s/foo/bar/g`：替换当前行查到的所有 `foo`，并将其替换为 `bar （3）全文件替换\n:%s/foo/bar/`：替换当前文件中所有行的**第一个** `foo`，将它们替换为 `bar` `:%s/foo/bar/g`：替换当前文件中所有行的 `foo`，将它们替换为 `bar （4）c flag\n:%s/foo/bar/gc使用 c 标记可以依次确认每个替换。会弹出 replace with foo(y/n/a/q/l)? 确认对话框，按 y 替换匹配项，或按 l 替换匹配项并退出。 按 n 跳过当前匹配，按 q 或 Esc 退出替换。 a 选项替换匹配项和所有剩余匹配项。\n（5）i flag 开启大小写敏感\n:s/foo/bar/gc`: `foo` 不会匹配 `Foo （6）指定查询范围\n:3,10s/foo/bar/g：查询范围为第三行到第十行，将该范围内的 foo 替换为 bar :.,$s/foo/bar/：查询范围为当前行到最后一行，将该范围内的 foo 替换为 bar，. 表示当前行，$ 表示最后一行 :.,+4s/foo/bar/g：查询范围为从当前行开始往下数四行（总共四行），将该范围内的 foo 替换为 bar，. 表示当前行，+4 表示接下来的四行\n# 例如 0y$，表示拷贝当前行。\n0：先到行首 y: 从 开始拷贝，这里是行首 $：表示一直拷贝到行尾 \" hello \"\n# s 需要插件支持，vscode-vim 自带这个功能\na 表示 around，i 表示 inner，s 表示 surround，command 可以是 d c y，obj 可以是引号、双引号、w 和 t，t 表示 tag，对 html 这种标记语言比较有用\ndiw：删除单词，不包括单词周围的符号，例如 \" word \"，光标在 w,删除后变成了 \" \" daw：删除当前单词，包括周围的空白字符，例如 \" word \"，光标在 w,删除后变成了 \"\" da\": 删除双引号中间的内容，包括双引号本身，例如 \" word \"，光标在 w,删除后变成了 `` di\": 删除双引号中间的内容，不包括双引号本身，例如 \" word \"，光标在 w,删除后变成了 \"\" ds\"：删除当前单词周围的双引号，例如 \" word \"，光标在 w,删除后变成了 w 如果把上面的 command d 换成 c，那么删除后会进入到插入模式。\ns` 对写 html 这种标记语言非常有用，例如将下面的 `div` 改成 `p`，可以使用 `cstt`，然后输入 `p`，`c` 表示 `change \u003cdiv\u003e 这是一个段落 \u003c/div\u003e i3 wm ",
   "wordCount" : "3635",
   "inLanguage": "zh",
-  "image":"https://XianCH.github.io/postsImg/hotkey.jpg","datePublished": "2023-07-23T07:20:24Z",
+  "image":"http://localhost:1313/postsImg/hotkey.jpg","datePublished": "2023-07-23T07:20:24Z",
   "dateModified": "2023-09-22T07:20:24Z",
   "author":[{
     "@type": "Person",
@@ -109,14 +109,14 @@ var _hmt = _hmt || [];
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"
+    "@id": "http://localhost:1313/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "X14n's Blog",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://XianCH.github.io/img/favicon.icon"
+      "url": "http://localhost:1313/img/favicon.icon"
     }
   }
 }
@@ -134,8 +134,8 @@ var _hmt = _hmt || [];
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://XianCH.github.io/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
-            <img src="https://XianCH.github.io/img/main.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
+            <img src="http://localhost:1313/img/main.png" alt="logo" aria-label="logo"
                  height="35">x14n&#39;s Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
@@ -164,32 +164,32 @@ var _hmt = _hmt || [];
         </div>
         <ul id="menu">
             <li>
-                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
                 <span>🔍 搜索</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/" title="🏠 主页">
+                <a href="http://localhost:1313/" title="🏠 主页">
                 <span>🏠 主页</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/posts" title="📚 文章">
+                <a href="http://localhost:1313/posts" title="📚 文章">
                 <span>📚 文章</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/tags" title="🧩 标签">
+                <a href="http://localhost:1313/tags" title="🧩 标签">
                 <span>🧩 标签</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
+                <a href="http://localhost:1313/archives/" title="⏱️ 时间轴">
                 <span>⏱️ 时间轴</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
+                <a href="http://localhost:1313/about" title="🙋🏻‍♂️ 关于">
                 <span>🙋🏻‍♂️ 关于</span>
                 </a>
             </li>
@@ -208,7 +208,7 @@ var _hmt = _hmt || [];
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <div class="breadcrumbs"><a href="http://localhost:1313/">🏠 主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">📚文章</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/tech/">👨🏻‍💻 技术</a></div>
             <h1 class="post-title">
                 常用快捷键
             </h1>
@@ -264,7 +264,7 @@ var _hmt = _hmt || [];
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="https://XianCH.github.io/tags/tool/" style="color: var(--secondary)!important;">Tool</a>
+                <a href="http://localhost:1313/tags/tool/" style="color: var(--secondary)!important;">Tool</a>
             </span>
         </span>
     </span>
@@ -281,11 +281,11 @@ var _hmt = _hmt || [];
                     <span id="post_meta_style_8">
                         <span class="fa fa-commenting-o"></span>
                         <span>
-                            <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js"></script>
+                            <script src="https://cdn.staticfile.org/twikoo//twikoo.all.min.js"></script>
                             <script>
                                 let url = document.documentURI
                                 
-                                let dnsUrl = "https://XianCH.github.io/"
+                                let dnsUrl = "http://localhost:1313/"
                                 let urlSplit = url.split(dnsUrl)
                                 let finalUrl = urlSplit[1]
                                 if (finalUrl[0] !== '/') {
@@ -318,7 +318,7 @@ var _hmt = _hmt || [];
 
 </div>
         </header> 
-<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/hotkey.jpg" alt="">
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="http://localhost:1313/postsImg/hotkey.jpg" alt="">
     
 </figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
@@ -783,12 +783,12 @@ var _hmt = _hmt || [];
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/">
+  <a class="prev" href="http://localhost:1313/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/">
     <span class="title">« 上一页</span>
     <br>
     <span>arch安装以及i3wm配置</span>
   </a>
-  <a class="next" href="https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/">
+  <a class="next" href="http://localhost:1313/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/">
     <span class="title">下一页 »</span>
     <br>
     <span>关于twitter架构图的思考</span>
@@ -798,39 +798,11 @@ var _hmt = _hmt || [];
         </footer>
     </div>
 
-<style>
-    .comments_details summary::marker {
-        font-size: 20px;
-        content: '👉展开评论';
-        color: var(--content);
-    }
-    .comments_details[open] summary::marker{
-        font-size: 20px;
-        content: '👇关闭评论';
-        color: var(--content);
-    }
-</style>
 
 
-<div>
-    <details class="comments_details">
-        <summary style="cursor: pointer; margin: 50px 0 20px 0;width: 130px;">
-            <span style="font-size: 20px;color: var(--content);">...</span>
-        </summary>
-        <div id="tcomment"></div>
-    </details>
-    <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js">
-    </script>
-    <script>
-        twikoo.init({
-            envId:  null ,
-        el: "#tcomment",
-            lang: 'zh-CN',
-            region:  null ,
-        path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
-        })
-    </script>
-</div>
+
+
+
 </article>
 </main>
 
@@ -839,7 +811,7 @@ var _hmt = _hmt || [];
         Copyright
         &copy;
         -2024
-        <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
+        <a href="http://localhost:1313/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>
     <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;"></a>&nbsp;
