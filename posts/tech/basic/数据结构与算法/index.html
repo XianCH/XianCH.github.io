@@ -72,14 +72,14 @@ var _hmt = _hmt || [];
         {
           "@type": "ListItem",
           "position":  1 ,
-          "name": "📚文章",
+          "name": "Post",
           "item": "https://XianCH.github.io/posts/"
         },
 
         {
           "@type": "ListItem",
           "position":  2 ,
-          "name": "👨🏻‍💻 技术",
+          "name": "Tech",
           "item": "https://XianCH.github.io/posts/tech/"
         }, 
     {
@@ -167,33 +167,33 @@ var _hmt = _hmt || [];
         </div>
         <ul id="menu">
             <li>
-                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
-                <span>🔍 搜索</span>
+                <a href="https://XianCH.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/" title="🏠 主页">
-                <span>🏠 主页</span>
+                <a href="https://XianCH.github.io/" title="Home">
+                <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/posts" title="📚 文章">
-                <span>📚 文章</span>
+                <a href="https://XianCH.github.io/posts" title="posts">
+                <span>posts</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/tags" title="🧩 标签">
-                <span>🧩 标签</span>
+                <a href="https://XianCH.github.io/tags" title="Tags">
+                <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
-                <span>⏱️ 时间轴</span>
+                <a href="https://XianCH.github.io/archives/" title="⏱️Archives">
+                <span>⏱️Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
-                <span>🙋🏻‍♂️ 关于</span>
+                <a href="https://XianCH.github.io/about" title="♂️About">
+                <span>♂️About</span>
                 </a>
             </li>
         </ul>
@@ -211,7 +211,7 @@ var _hmt = _hmt || [];
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">Post</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">Tech</a></div>
             <h1 class="post-title">
                 go数据结构与算法（更新中）
             </h1>
@@ -710,14 +710,14 @@ var _hmt = _hmt || [];
 <p><img loading="lazy" src="./index.assets/image-20231122223448857.png" alt="image-20231122223448857"  />
 </p>
 <p>插入：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>tmp.next.pre = newNode
-</span></span><span style="display:flex;"><span>tmp.next = newNode
-</span></span><span style="display:flex;"><span>newNode.pre = tmp
-</span></span><span style="display:flex;"><span>newNode.next = tmp.next
-</span></span></code></pre></div><p>删除：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>tmp.next.pre = tmp.pre
-</span></span><span style="display:flex;"><span>tmp.pre.next = tmp.
-</span></span></code></pre></div><h3 id="josephu-问题">Josephu 问题<a hidden class="anchor" aria-hidden="true" href="#josephu-问题">#</a></h3>
+<pre tabindex="0"><code>tmp.next.pre = newNode
+tmp.next = newNode
+newNode.pre = tmp
+newNode.next = tmp.next
+</code></pre><p>删除：</p>
+<pre tabindex="0"><code>tmp.next.pre = tmp.pre
+tmp.pre.next = tmp.
+</code></pre><h3 id="josephu-问题">Josephu 问题<a hidden class="anchor" aria-hidden="true" href="#josephu-问题">#</a></h3>
 <p><img loading="lazy" src="./index.assets/image-20231123144046111.png" alt="image-20231123144046111"  />
 </p>
 <ul>
@@ -1459,6 +1459,17 @@ var _hmt = _hmt || [];
             container.appendChild(macTool)
         }
     });
+</script>
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
 </script>
 </body>
 

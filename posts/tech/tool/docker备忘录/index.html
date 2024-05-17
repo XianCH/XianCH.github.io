@@ -72,14 +72,14 @@ var _hmt = _hmt || [];
         {
           "@type": "ListItem",
           "position":  1 ,
-          "name": "📚文章",
+          "name": "Post",
           "item": "https://XianCH.github.io/posts/"
         },
 
         {
           "@type": "ListItem",
           "position":  2 ,
-          "name": "👨🏻‍💻 技术",
+          "name": "Tech",
           "item": "https://XianCH.github.io/posts/tech/"
         }, 
     {
@@ -167,33 +167,33 @@ var _hmt = _hmt || [];
         </div>
         <ul id="menu">
             <li>
-                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
-                <span>🔍 搜索</span>
+                <a href="https://XianCH.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/" title="🏠 主页">
-                <span>🏠 主页</span>
+                <a href="https://XianCH.github.io/" title="Home">
+                <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/posts" title="📚 文章">
-                <span>📚 文章</span>
+                <a href="https://XianCH.github.io/posts" title="posts">
+                <span>posts</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/tags" title="🧩 标签">
-                <span>🧩 标签</span>
+                <a href="https://XianCH.github.io/tags" title="Tags">
+                <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
-                <span>⏱️ 时间轴</span>
+                <a href="https://XianCH.github.io/archives/" title="⏱️Archives">
+                <span>⏱️Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
-                <span>🙋🏻‍♂️ 关于</span>
+                <a href="https://XianCH.github.io/about" title="♂️About">
+                <span>♂️About</span>
                 </a>
             </li>
         </ul>
@@ -211,7 +211,7 @@ var _hmt = _hmt || [];
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">Post</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">Tech</a></div>
             <h1 class="post-title">
                 Docker备忘录
             </h1>
@@ -434,37 +434,37 @@ var _hmt = _hmt || [];
 </p>
 <h2 id="容器">容器<a hidden class="anchor" aria-hidden="true" href="#容器">#</a></h2>
 <h3 id="进入容器">进入容器<a hidden class="anchor" aria-hidden="true" href="#进入容器">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker exec -it contaionName /bin/bash
-</span></span></code></pre></div><h3 id="查看容器日志">查看容器日志<a hidden class="anchor" aria-hidden="true" href="#查看容器日志">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker logs -f contaionName
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">停止运行的容器</span>
+<pre tabindex="0"><code>docker exec -it contaionName /bin/bash
+</code></pre><h3 id="查看容器日志">查看容器日志<a hidden class="anchor" aria-hidden="true" href="#查看容器日志">#</a></h3>
+<pre tabindex="0"><code>docker logs -f contaionName
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">停止运行的容器</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">docker</span> <span style="color:#a6e22e">stop</span> [<span style="color:#a6e22e">容器ID</span>]
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">杀死容器进程</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">docker</span>  <span style="color:#a6e22e">kill</span> [<span style="color:#a6e22e">容器ID</span>] 
 </span></span></code></pre></div><h2 id="镜像">镜像<a hidden class="anchor" aria-hidden="true" href="#镜像">#</a></h2>
 <p>导出镜像</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker save
-</span></span></code></pre></div><p>导入镜像</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>docker load
-</span></span></code></pre></div><h1 id="docker安装相关软件">docker安装相关软件<a hidden class="anchor" aria-hidden="true" href="#docker安装相关软件">#</a></h1>
+<pre tabindex="0"><code>docker save
+</code></pre><p>导入镜像</p>
+<pre tabindex="0"><code>docker load
+</code></pre><h1 id="docker安装相关软件">docker安装相关软件<a hidden class="anchor" aria-hidden="true" href="#docker安装相关软件">#</a></h1>
 <h2 id="redis">redis<a hidden class="anchor" aria-hidden="true" href="#redis">#</a></h2>
 <p>运行容器</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker run -itd --name redis-test -p 6379:6379 redis
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker run --restart=always --log-opt max-size=100m --log-opt max-file=2 -p 6379:6379 --name myredis -v /home/redis/myredis/myredis.conf:/etc/redis/redis.conf -v /home/redis/myredis/data:/data -d redis redis-server /etc/redis/redis.conf  --appendonly yes  --requirepass 000415
-</span></span></code></pre></div><p>参数说明</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>--restart=always 总是开机启动
-</span></span><span style="display:flex;"><span>--log是日志方面的
-</span></span><span style="display:flex;"><span>-p 6379:6379 将6379端口挂载出去
-</span></span><span style="display:flex;"><span>--name 给这个容器取一个名字
-</span></span><span style="display:flex;"><span>-v 数据卷挂载
-</span></span><span style="display:flex;"><span>–appendonly yes 开启redis 持久化
-</span></span><span style="display:flex;"><span>–requirepass 000415 设置密码 （
-</span></span></code></pre></div><h2 id="nacos">nacos<a hidden class="anchor" aria-hidden="true" href="#nacos">#</a></h2>
+<pre tabindex="0"><code>docker run -itd --name redis-test -p 6379:6379 redis
+</code></pre><pre tabindex="0"><code>docker run --restart=always --log-opt max-size=100m --log-opt max-file=2 -p 6379:6379 --name myredis -v /home/redis/myredis/myredis.conf:/etc/redis/redis.conf -v /home/redis/myredis/data:/data -d redis redis-server /etc/redis/redis.conf  --appendonly yes  --requirepass 000415
+</code></pre><p>参数说明</p>
+<pre tabindex="0"><code>--restart=always 总是开机启动
+--log是日志方面的
+-p 6379:6379 将6379端口挂载出去
+--name 给这个容器取一个名字
+-v 数据卷挂载
+–appendonly yes 开启redis 持久化
+–requirepass 000415 设置密码 （
+</code></pre><h2 id="nacos">nacos<a hidden class="anchor" aria-hidden="true" href="#nacos">#</a></h2>
 <ol>
 <li>
 <p>下载镜像</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker pull nacos/nacos-server:2.0.3
-</span></span></code></pre></div></li>
+<pre tabindex="0"><code>docker pull nacos/nacos-server:2.0.3
+</code></pre></li>
 <li>
 <p>挂载目录</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir -p /usr/local/docker/nacos/conf
@@ -475,58 +475,58 @@ var _hmt = _hmt || [];
 <li>
 <p>在<code>/usr/local/docker/nacos/conf</code>目录下新建<code>application.properties</code>文件</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>在<span style="color:#e6db74">`</span>/usr/local/docker/nacos/conf<span style="color:#e6db74">`</span>目录下新建<span style="color:#e6db74">`</span>application.properties<span style="color:#e6db74">`</span>文件
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>server.servlet.contextPath=/nacos
-</span></span><span style="display:flex;"><span>server.port=8848
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>spring.datasource.platform=mysql
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>### Count of DB:
-</span></span><span style="display:flex;"><span>db.num=1
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>### Connect URL of DB:
-</span></span><span style="display:flex;"><span>db.url.0=jdbc:mysql://192.168.164.101:3306/nacos?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true&amp;useUnicode=true&amp;useSSL=false&amp;serverTimezone=UTC
-</span></span><span style="display:flex;"><span>db.user.0=root
-</span></span><span style="display:flex;"><span>db.password.0=root
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>### Connection pool configuration: hikariCP
-</span></span><span style="display:flex;"><span>db.pool.config.connectionTimeout=30000
-</span></span><span style="display:flex;"><span>db.pool.config.validationTimeout=10000
-</span></span><span style="display:flex;"><span>db.pool.config.maximumPoolSize=20
-</span></span><span style="display:flex;"><span>db.pool.config.minimumIdle=2
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>nacos.naming.empty-service.auto-clean=true
-</span></span><span style="display:flex;"><span>nacos.naming.empty-service.clean.initial-delay-ms=50000
-</span></span><span style="display:flex;"><span>nacos.naming.empty-service.clean.period-time-ms=30000
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>server.tomcat.accesslog.enabled=true
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>### The access log pattern:
-</span></span><span style="display:flex;"><span>server.tomcat.accesslog.pattern=%h %l %u %t &#34;%r&#34; %s %b %D %{User-Agent}i %{Request-Source}i
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>nacos.security.ignore.urls=/,/error,/**/*.css,/**/*.js,/**/*.html,/**/*.map,/**/*.svg,/**/*.png,/**/*.ico,/console-ui/public/**,/v1/auth/**,/v1/console/health/**,/actuator/**,/v1/console/server/**
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>### The auth system to use, currently only &#39;nacos&#39; and &#39;ldap&#39; is supported:
-</span></span><span style="display:flex;"><span>nacos.core.auth.system.type=nacos
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>### If turn on auth system:
-</span></span><span style="display:flex;"><span>nacos.core.auth.enabled=false
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>### The token expiration in seconds:
-</span></span><span style="display:flex;"><span>nacos.core.auth.default.token.expire.seconds=18000
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>### The default token:
-</span></span><span style="display:flex;"><span>nacos.core.auth.default.token.secret.key=SecretKey012345678901234567890123456789012345678901234567890123456789
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>nacos.core.auth.caching.enabled=true
-</span></span><span style="display:flex;"><span>nacos.core.auth.enable.userAgentAuthWhite=false
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>nacos.core.auth.server.identity.key=serverIdentity
-</span></span><span style="display:flex;"><span>nacos.core.auth.server.identity.value=security
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>nacos.istio.mcp.server.enabled=false
-</span></span></code></pre></div></li>
+</span></span></code></pre></div><pre tabindex="0"><code>server.servlet.contextPath=/nacos
+server.port=8848
+
+spring.datasource.platform=mysql
+
+### Count of DB:
+db.num=1
+
+### Connect URL of DB:
+db.url.0=jdbc:mysql://192.168.164.101:3306/nacos?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true&amp;useUnicode=true&amp;useSSL=false&amp;serverTimezone=UTC
+db.user.0=root
+db.password.0=root
+
+### Connection pool configuration: hikariCP
+db.pool.config.connectionTimeout=30000
+db.pool.config.validationTimeout=10000
+db.pool.config.maximumPoolSize=20
+db.pool.config.minimumIdle=2
+
+nacos.naming.empty-service.auto-clean=true
+nacos.naming.empty-service.clean.initial-delay-ms=50000
+nacos.naming.empty-service.clean.period-time-ms=30000
+
+server.tomcat.accesslog.enabled=true
+
+### The access log pattern:
+server.tomcat.accesslog.pattern=%h %l %u %t &#34;%r&#34; %s %b %D %{User-Agent}i %{Request-Source}i
+
+nacos.security.ignore.urls=/,/error,/**/*.css,/**/*.js,/**/*.html,/**/*.map,/**/*.svg,/**/*.png,/**/*.ico,/console-ui/public/**,/v1/auth/**,/v1/console/health/**,/actuator/**,/v1/console/server/**
+
+### The auth system to use, currently only &#39;nacos&#39; and &#39;ldap&#39; is supported:
+nacos.core.auth.system.type=nacos
+
+### If turn on auth system:
+nacos.core.auth.enabled=false
+
+
+### The token expiration in seconds:
+nacos.core.auth.default.token.expire.seconds=18000
+
+### The default token:
+nacos.core.auth.default.token.secret.key=SecretKey012345678901234567890123456789012345678901234567890123456789
+
+
+nacos.core.auth.caching.enabled=true
+nacos.core.auth.enable.userAgentAuthWhite=false
+
+nacos.core.auth.server.identity.key=serverIdentity
+nacos.core.auth.server.identity.value=security
+
+nacos.istio.mcp.server.enabled=false
+</code></pre></li>
 <li>
 <p>初始化nacos数据库nacos.sql</p>
 <p>放到conf目录下</p>
@@ -761,9 +761,9 @@ var _hmt = _hmt || [];
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="mysql">mysql<a hidden class="anchor" aria-hidden="true" href="#mysql">#</a></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>docker run <span style="color:#f92672">-</span>d <span style="color:#f92672">--</span>name<span style="color:#f92672">=</span>mysql<span style="color:#f92672">-</span>server <span style="color:#f92672">-</span>p <span style="color:#ae81ff">3306</span>:<span style="color:#ae81ff">3306</span> <span style="color:#f92672">-</span>v mysql<span style="color:#f92672">-</span>data:<span style="color:#f92672">/</span><span style="color:#66d9ef">var</span><span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>mysql <span style="color:#f92672">-</span>e MYSQL_ROOT_PASSWORD<span style="color:#f92672">=</span>your_password mysql
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker run -d --name=mysql-server -p 3306:3306  -e MYSQL_ROOT_PASSWORD=your_password mysql
-</span></span></code></pre></div><h2 id="nginx">nginx<a hidden class="anchor" aria-hidden="true" href="#nginx">#</a></h2>
+<pre tabindex="0"><code>docker run -d --name=mysql-server -p 3306:3306 -v mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=your_password mysql
+</code></pre><pre tabindex="0"><code>docker run -d --name=mysql-server -p 3306:3306  -e MYSQL_ROOT_PASSWORD=your_password mysql
+</code></pre><h2 id="nginx">nginx<a hidden class="anchor" aria-hidden="true" href="#nginx">#</a></h2>
 <p><strong>Nginx 配置文件</strong>：你通常会想要自定义 Nginx 的配置。你可以将自定义的 Nginx 配置文件挂载到容器内，以覆盖默认配置。你可以使用 <code>-v</code> 标志来挂载主机上的配置文件到容器内，就像上面的示例所示。这样，你可以在主机上编辑配置文件，然后容器将使用你的自定义配置。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -d -p 80:80 -v /host/path/nginx.conf:/etc/nginx/nginx.conf:ro nginx
 </span></span></code></pre></div><p><strong>网站内容</strong>：如果你要提供静态网页或其他文件，你可以将这些文件挂载到容器内的 Nginx 根目录中。这通常发生在挂载一个目录，其中包含你的网站文件。</p>
@@ -786,15 +786,15 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span>docker cp nginx:/etc/nginx/conf.d ~/Documents/dockerdata/nginx /
 </span></span><span style="display:flex;"><span>docker cp nginx:/usr/share/nginx/html ~/Documents/dockerdata/nginx /
 </span></span></code></pre></div><p>停止并关闭容器</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker rm -f nginx
-</span></span></code></pre></div><p>重新启动容器</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>docker run <span style="color:#f92672">--</span>name nginx <span style="color:#f92672">-</span>p <span style="color:#ae81ff">80</span>:<span style="color:#ae81ff">80</span> <span style="color:#f92672">--</span>privileged <span style="color:#f92672">--</span>restart<span style="color:#f92672">=</span>always \
-</span></span><span style="display:flex;"><span><span style="color:#f92672">-</span>v <span style="color:#f92672">~/</span>Documents<span style="color:#f92672">/</span>dockerdata<span style="color:#f92672">/</span>nginx<span style="color:#f92672">/</span>conf<span style="color:#f92672">/</span>nginx<span style="color:#f92672">.</span>conf:<span style="color:#f92672">/</span>etc<span style="color:#f92672">/</span>nginx<span style="color:#f92672">/</span>nginx<span style="color:#f92672">.</span>conf:rw \
-</span></span><span style="display:flex;"><span><span style="color:#f92672">-</span>v <span style="color:#f92672">~/</span>Documents<span style="color:#f92672">/</span>dockerdata<span style="color:#f92672">/</span>nginx<span style="color:#f92672">/</span>conf<span style="color:#f92672">.</span>d:<span style="color:#f92672">/</span>etc<span style="color:#f92672">/</span>nginx<span style="color:#f92672">/</span>conf<span style="color:#f92672">.</span>d:rw \
-</span></span><span style="display:flex;"><span><span style="color:#f92672">-</span>v <span style="color:#f92672">~/</span>Documents<span style="color:#f92672">/</span>dockerdata<span style="color:#f92672">/</span>nginx<span style="color:#f92672">/</span>html:<span style="color:#f92672">/</span>usr<span style="color:#f92672">/</span>share<span style="color:#f92672">/</span>nginx<span style="color:#f92672">/</span>html:rw \
-</span></span><span style="display:flex;"><span><span style="color:#f92672">-</span>v <span style="color:#f92672">~/</span>Documents<span style="color:#f92672">/</span>dockerdata<span style="color:#f92672">/</span>nginx<span style="color:#f92672">/</span>log:<span style="color:#f92672">/</span><span style="color:#66d9ef">var</span><span style="color:#f92672">/</span>log<span style="color:#f92672">/</span>nginx \
-</span></span><span style="display:flex;"><span><span style="color:#f92672">-</span>d nginx
-</span></span></code></pre></div><h2 id="portainer">portainer<a hidden class="anchor" aria-hidden="true" href="#portainer">#</a></h2>
+<pre tabindex="0"><code>docker rm -f nginx
+</code></pre><p>重新启动容器</p>
+<pre tabindex="0"><code>docker run --name nginx -p 80:80 --privileged --restart=always \
+-v ~/Documents/dockerdata/nginx/conf/nginx.conf:/etc/nginx/nginx.conf:rw \
+-v ~/Documents/dockerdata/nginx/conf.d:/etc/nginx/conf.d:rw \
+-v ~/Documents/dockerdata/nginx/html:/usr/share/nginx/html:rw \
+-v ~/Documents/dockerdata/nginx/log:/var/log/nginx \
+-d nginx
+</code></pre><h2 id="portainer">portainer<a hidden class="anchor" aria-hidden="true" href="#portainer">#</a></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker network disconnect bridge mysql-server
 </span></span><span style="display:flex;"><span>docker network connect portainer-net mysql-server
 </span></span><span style="display:flex;"><span>docker network inspect bridge
@@ -1019,6 +1019,17 @@ var _hmt = _hmt || [];
             container.appendChild(macTool)
         }
     });
+</script>
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
 </script>
 </body>
 

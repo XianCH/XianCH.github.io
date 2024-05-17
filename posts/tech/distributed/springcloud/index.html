@@ -72,14 +72,14 @@ var _hmt = _hmt || [];
         {
           "@type": "ListItem",
           "position":  1 ,
-          "name": "📚文章",
+          "name": "Post",
           "item": "https://XianCH.github.io/posts/"
         },
 
         {
           "@type": "ListItem",
           "position":  2 ,
-          "name": "👨🏻‍💻 技术",
+          "name": "Tech",
           "item": "https://XianCH.github.io/posts/tech/"
         }, 
     {
@@ -167,33 +167,33 @@ var _hmt = _hmt || [];
         </div>
         <ul id="menu">
             <li>
-                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
-                <span>🔍 搜索</span>
+                <a href="https://XianCH.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/" title="🏠 主页">
-                <span>🏠 主页</span>
+                <a href="https://XianCH.github.io/" title="Home">
+                <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/posts" title="📚 文章">
-                <span>📚 文章</span>
+                <a href="https://XianCH.github.io/posts" title="posts">
+                <span>posts</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/tags" title="🧩 标签">
-                <span>🧩 标签</span>
+                <a href="https://XianCH.github.io/tags" title="Tags">
+                <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
-                <span>⏱️ 时间轴</span>
+                <a href="https://XianCH.github.io/archives/" title="⏱️Archives">
+                <span>⏱️Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
-                <span>🙋🏻‍♂️ 关于</span>
+                <a href="https://XianCH.github.io/about" title="♂️About">
+                <span>♂️About</span>
                 </a>
             </li>
         </ul>
@@ -211,7 +211,7 @@ var _hmt = _hmt || [];
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">Post</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">Tech</a></div>
             <h1 class="post-title">
                 springcloud
             </h1>
@@ -1557,6 +1557,17 @@ var _hmt = _hmt || [];
             container.appendChild(macTool)
         }
     });
+</script>
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
 </script>
 </body>
 

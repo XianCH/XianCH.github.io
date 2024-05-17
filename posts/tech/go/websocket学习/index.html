@@ -72,14 +72,14 @@ var _hmt = _hmt || [];
         {
           "@type": "ListItem",
           "position":  1 ,
-          "name": "📚文章",
+          "name": "Post",
           "item": "https://XianCH.github.io/posts/"
         },
 
         {
           "@type": "ListItem",
           "position":  2 ,
-          "name": "👨🏻‍💻 技术",
+          "name": "Tech",
           "item": "https://XianCH.github.io/posts/tech/"
         }, 
     {
@@ -167,33 +167,33 @@ var _hmt = _hmt || [];
         </div>
         <ul id="menu">
             <li>
-                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
-                <span>🔍 搜索</span>
+                <a href="https://XianCH.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/" title="🏠 主页">
-                <span>🏠 主页</span>
+                <a href="https://XianCH.github.io/" title="Home">
+                <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/posts" title="📚 文章">
-                <span>📚 文章</span>
+                <a href="https://XianCH.github.io/posts" title="posts">
+                <span>posts</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/tags" title="🧩 标签">
-                <span>🧩 标签</span>
+                <a href="https://XianCH.github.io/tags" title="Tags">
+                <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
-                <span>⏱️ 时间轴</span>
+                <a href="https://XianCH.github.io/archives/" title="⏱️Archives">
+                <span>⏱️Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
-                <span>🙋🏻‍♂️ 关于</span>
+                <a href="https://XianCH.github.io/about" title="♂️About">
+                <span>♂️About</span>
                 </a>
             </li>
         </ul>
@@ -211,7 +211,7 @@ var _hmt = _hmt || [];
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">Post</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">Tech</a></div>
             <h1 class="post-title">
                 Websocket学习
             </h1>
@@ -431,23 +431,23 @@ var _hmt = _hmt || [];
 <ol>
 <li>
 <p>客户端:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>GET /chat HTTP/1.1
-</span></span><span style="display:flex;"><span>    Host: server.example.com
-</span></span><span style="display:flex;"><span>    Upgrade: websocket
-</span></span><span style="display:flex;"><span>    Connection: Upgrade
-</span></span><span style="display:flex;"><span>    Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==
-</span></span><span style="display:flex;"><span>    Sec-WebSocket-Protocol: chat, superchat
-</span></span><span style="display:flex;"><span>    Sec-WebSocket-Version: 13
-</span></span><span style="display:flex;"><span>    Origin: http://example.com
-</span></span></code></pre></div></li>
+<pre tabindex="0"><code>GET /chat HTTP/1.1
+    Host: server.example.com
+    Upgrade: websocket
+    Connection: Upgrade
+    Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==
+    Sec-WebSocket-Protocol: chat, superchat
+    Sec-WebSocket-Version: 13
+    Origin: http://example.com
+</code></pre></li>
 <li>
 <p>服务端：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>HTTP/1.1 101 Switching Protocols
-</span></span><span style="display:flex;"><span>    Upgrade: websocket
-</span></span><span style="display:flex;"><span>    Connection: Upgrade
-</span></span><span style="display:flex;"><span>    Sec-WebSocket-Accept: HSmrc0sMlYUkAGmm5OPpG2HaGWk=
-</span></span><span style="display:flex;"><span>    Sec-WebSocket-Protocol: chat
-</span></span></code></pre></div></li>
+<pre tabindex="0"><code>HTTP/1.1 101 Switching Protocols
+    Upgrade: websocket
+    Connection: Upgrade
+    Sec-WebSocket-Accept: HSmrc0sMlYUkAGmm5OPpG2HaGWk=
+    Sec-WebSocket-Protocol: chat
+</code></pre></li>
 </ol>
 <p>观察报文中的参数websocket像是http的升级，但是准确来说他不是建立在http之上的，只是通过http握手之后进行服务的升级</p>
 <p><strong>建立连接的步骤建立</strong></p>
@@ -742,6 +742,17 @@ var _hmt = _hmt || [];
             container.appendChild(macTool)
         }
     });
+</script>
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
 </script>
 </body>
 

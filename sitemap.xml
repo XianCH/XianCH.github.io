@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://XianCH.github.io/posts/tech/</loc>
+    <loc>https://XianCH.github.io/posts/tech/front/javascript%E5%A4%8D%E4%B9%A0/</loc>
     <lastmod>2024-03-29T12:48:24+08:00</lastmod>
   </url><url>
     <loc>https://XianCH.github.io/posts/</loc>
     <lastmod>2024-03-29T12:48:24+08:00</lastmod>
   </url><url>
-    <loc>https://XianCH.github.io/posts/tech/front/javascript%E5%A4%8D%E4%B9%A0/</loc>
+    <loc>https://XianCH.github.io/posts/tech/</loc>
     <lastmod>2024-03-29T12:48:24+08:00</lastmod>
   </url><url>
     <loc>https://XianCH.github.io/</loc>
@@ -178,9 +178,9 @@
   </url><url>
     <loc>https://XianCH.github.io/archives/</loc>
   </url><url>
-    <loc>https://XianCH.github.io/search/</loc>
-  </url><url>
     <loc>https://XianCH.github.io/categories/</loc>
+  </url><url>
+    <loc>https://XianCH.github.io/search/</loc>
   </url><url>
     <loc>https://XianCH.github.io/series/</loc>
   </url>

@@ -70,14 +70,14 @@ var _hmt = _hmt || [];
         {
           "@type": "ListItem",
           "position":  1 ,
-          "name": "📚文章",
+          "name": "Post",
           "item": "https://XianCH.github.io/posts/"
         },
 
         {
           "@type": "ListItem",
           "position":  2 ,
-          "name": "👨🏻‍💻 技术",
+          "name": "Tech",
           "item": "https://XianCH.github.io/posts/tech/"
         }, 
     {
@@ -99,8 +99,8 @@ var _hmt = _hmt || [];
   "keywords": [
     ""
   ],
-  "articleBody": "JavaScript 01_基本语法和数据类型 变量、数据类型、运算符、条件语句、循环语句等基本语法和数据类型。\n// 变量声明和赋值 let name = \"John\"; const age = 30; var isAdmin = true; // 数据类型 let num = 10; // Number let str = \"Hello\"; // String let bool = true; // Boolean let arr = [1, 2, 3]; // Array let obj = { name: \"John\", age: 30 }; // Object let n = null; // Null let u = undefined; // Undefined // 运算符 let sum = 10 + 5; // 加法 let difference = 10 - 5; // 减法 let product = 10 * 5; // 乘法 let quotient = 10 / 5; // 除法 let remainder = 10 % 3; // 取余 let increment = 10++; // 自增 let decrement = 10--; // 自减 // 条件语句 if (isAdmin) { console.log(\"User is an admin\"); } else if (age \u003e= 18) { console.log(\"User is an adult\"); } else { console.log(\"User is a minor\"); } // 循环语句 for (let i = 0; i \u003c arr.length; i++) { console.log(arr[i]); } let i = 0; while (i \u003c arr.length) { console.log(arr[i]); i++; } // 函数声明 function greet(name) { console.log(\"Hello, \" + name + \"!\"); } // 调用函数 greet(\"John\"); 02_函数和作用域 函数的定义、调用、参数传递、作用域链、闭包等相关概念和用法。\n// 函数的定义和调用 function greet(name) { console.log(\"Hello, \" + name + \"!\"); } // 调用函数 greet(\"John\"); // 函数参数传递 function add(a, b) { return a + b; } let result = add(5, 3); console.log(\"Sum:\", result); // 函数作用域 let x = 10; function printX() { let y = 20; console.log(\"x inside function:\", x); // x 是全局变量，在函数内部可以访问 console.log(\"y inside function:\", y); // y 是函数内部定义的局部变量 } printX(); console.log(\"x outside function:\", x); // x 是全局变量，在函数外部可以访问 // console.log(\"y outside function:\", y); // y 是函数内部的局部变量，在函数外部无法访问，会报错 // 闭包 function outerFunction() { let outerVar = \"I'm outer!\"; function innerFunction() { console.log(outerVar); // 内部函数可以访问外部函数的变量 } return innerFunction; } let innerFunc = outerFunction(); innerFunc(); // 调用内部函数，打印 \"I'm outer!\" 03_对象和原型链 对象的创建、属性和方法的添加、访问、原型和原型链的概念，以及构造函数和原型继承等。\n// 对象的创建和属性访问 let person = { name: \"John\", age: 30, greet: function() { console.log(\"Hello, my name is \" + this.name + \" and I'm \" + this.age + \" years old.\"); } }; console.log(\"Name:\", person.name); // 访问对象属性 console.log(\"Age:\", person[\"age\"]); // 使用方括号访问对象属性 person.greet(); // 调用对象方法 // 构造函数和原型 function Person(name, age) { this.name = name; this.age = age; } Person.prototype.greet = function() { console.log(\"Hello, my name is \" + this.name + \" and I'm \" + this.age + \" years old.\"); }; let john = new Person(\"John\", 30); console.log(\"Name:\", john.name); console.log(\"Age:\", john.age); john.greet(); // 原型链继承 function Student(name, age, grade) { Person.call(this, name, age); // 调用父类构造函数 this.grade = grade; } Student.prototype = Object.create(Person.prototype); // 设置原型链 Student.prototype.constructor = Student; // 修复构造函数指向 let jane = new Student(\"Jane\", 25, \"A\"); console.log(\"Name:\", jane.name); console.log(\"Age:\", jane.age); console.log(\"Grade:\", jane.grade); jane.greet(); // 子类继承父类方法 04_异步编程 事件循环、回调函数、Promise、async/await等用于处理异步操作的方式。\n// 回调函数示例 function fetchData(callback) { setTimeout(() =\u003e { callback(\"Data fetched successfully\"); }, 1000); } fetchData((data) =\u003e { console.log(data); }); // Promise 示例 function fetchDataPromise() { return new Promise((resolve, reject) =\u003e { setTimeout(() =\u003e { resolve(\"Data fetched successfully\"); }, 1000); }); } fetchDataPromise() .then((data) =\u003e { console.log(data); }) .catch((error) =\u003e { console.error(\"Error:\", error); }); // async/await 示例 async function fetchDataAsync() { return new Promise((resolve, reject) =\u003e { setTimeout(() =\u003e { resolve(\"Data fetched successfully\"); }, 1000); }); } async function fetchDataWrapper() { try { const data = await fetchDataAsync(); console.log(data); } catch (error) { console.error(\"Error:\", error); } } fetchDataWrapper(); 05_DOM操作 通过JavaScript操作文档对象模型（DOM）实现页面交互、动态内容更新等。\n获取元素： getElementById(id)：根据 id 获取元素。 getElementsByClassName(className)：根据类名获取元素集合。 getElementsByTagName(tagName)：根据标签名获取元素集合。 querySelector(selector)：根据 CSS 选择器获取第一个匹配的元素。 querySelectorAll(selector)：根据 CSS 选择器获取所有匹配的元素。 添加、移除和替换元素： appendChild(node)：在指定节点的子节点列表末尾添加新的子节点。 removeChild(node)：从父节点中移除子节点。 replaceChild(newNode, oldNode)：用新节点替换旧节点。 样式操作： element.style.property = value：直接修改元素的内联样式。 classList.add(className)：向元素添加类。 classList.remove(className)：从元素中移除类。 classList.toggle(className)：如果存在（不存在）就删除（添加）一个类。 内容操作： innerHTML：获取或设置元素的 HTML 内容。 textContent：获取或设置元素的文本内容。 属性操作： getAttribute(name)：获取元素的指定属性值。 setAttribute(name, value)：设置元素的指定属性值。 遍历节点： parentNode：获取父节点。 childNodes：获取所有子节点。 nextSibling 和 previousSibling：获取下一个和上一个兄弟节点。 事件监听： element.addEventListener(event, function)：向指定元素添加事件监听器。 element.removeEventListener(event, function)：从指定元素移除事件监听器。 06_浏览器事件 处理用户交互事件，例如点击、输入、鼠标移动等。\nclick:鼠标点击的时候出发 mouseover：鼠标移动到元素上方时触发。 mouseout：鼠标移出元素时触发。 mousedown：鼠标按下时触发。 mouseup：鼠标松开时触发。 mousemove：鼠标移动时触发。 keydown：键盘按下时触发。 keyup：键盘松开时触发。 focus：元素获得焦点时触发。 blur：元素失去焦点时触发。 input：输入框的内容发生变化时触发。 change：表单元素的值发生改变时触发。 tip：\n\u003c!DOCTYPE html\u003e \u003chtml lang=\"en\"\u003e \u003chead\u003e \u003cmeta charset=\"UTF-8\"\u003e \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"\u003e \u003ctitle\u003eDOM 事件示例\u003c/title\u003e \u003c/head\u003e \u003cbody\u003e \u003cbutton id=\"myButton\"\u003e点击我\u003c/button\u003e \u003cinput type=\"text\" id=\"myInput\" placeholder=\"输入框\"\u003e \u003cscript src=\"script.js\"\u003e\u003c/script\u003e \u003c/body\u003e \u003c/html\u003e // 获取按钮元素 const button = document.getElementById('myButton'); // 添加 click 事件监听器 button.addEventListener('click', function(event) { alert('按钮被点击了！'); }); // 获取输入框元素 const input = document.getElementById('myInput'); // 添加 input 事件监听器 input.addEventListener('input', function(event) { console.log('输入框的内容发生变化：', input.value); }); // 添加 focus 和 blur 事件监听器 input.addEventListener('focus', function(event) { console.log('输入框获得焦点'); }); input.addEventListener('blur', function(event) { console.log('输入框失去焦点'); }); 07_AJAX和HTTP请求 通过XMLHttpRequest或Fetch API进行网络请求，获取数据并更新页面。\nAJAX（Asynchronous JavaScript and XML）：\n是一种使用 JavaScript 进行异步通信的技术，可以在不重新加载整个页面的情况下，通过在后台与服务器进行数据交换来更新部分网页内容。 AJAX 技术通常使用 XMLHttpRequest 对象来实现。 tip:\n\u003c!DOCTYPE html\u003e \u003chtml lang=\"en\"\u003e \u003chead\u003e \u003cmeta charset=\"UTF-8\"\u003e \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"\u003e \u003ctitle\u003eAJAX Example\u003c/title\u003e \u003c/head\u003e \u003cbody\u003e \u003cdiv id=\"result\"\u003e\u003c/div\u003e \u003cscript src=\"ajax.js\"\u003e\u003c/script\u003e \u003c/body\u003e \u003c/html\u003e // 创建 XMLHttpRequest 对象 var xhr = new XMLHttpRequest(); // 配置请求 xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts/1', true); // 监听请求状态变化 xhr.onreadystatechange = function() { if (xhr.readyState === XMLHttpRequest.DONE) { if (xhr.status === 200) { // 处理成功响应 var responseData = JSON.parse(xhr.responseText); document.getElementById('result').innerText = responseData.title; } else { // 处理错误响应 console.error('Request failed:', xhr.status); } } }; // 发送请求 xhr.send(); Fetch API：\n是一种新的 Web API，提供了一种更简洁、更强大的方式来进行网络请求。 使用 Promise 对象处理异步操作，提供了更好的语法和功能。 Fetch API 不限于 XML 数据，可以与 JSON、HTML、Text 等各种格式的数据一起使用。 tip:\n\u003c!DOCTYPE html\u003e \u003chtml lang=\"en\"\u003e \u003chead\u003e \u003cmeta charset=\"UTF-8\"\u003e \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"\u003e \u003ctitle\u003eFetch API 示例\u003c/title\u003e \u003c/head\u003e \u003cbody\u003e \u003ch1\u003eFetch API 示例\u003c/h1\u003e \u003cbutton id=\"fetchButton\"\u003e发起请求\u003c/button\u003e \u003cdiv id=\"result\"\u003e\u003c/div\u003e \u003cscript src=\"script.js\"\u003e\u003c/script\u003e \u003c/body\u003e \u003c/html\u003e document.getElementById('fetchButton').addEventListener('click', function() { const url = 'https://jsonplaceholder.typicode.com/posts/1'; fetch(url) .then(response =\u003e { if (!response.ok) { throw new Error('Network response was not ok'); } return response.json(); }) .then(data =\u003e { document.getElementById('result').innerText = JSON.stringify(data, null, 2); }) .catch(error =\u003e { console.error('There was a problem with the fetch operation:', error); }); }); 08_ES6及以上新特性 箭头函数、模板字符串、解构赋值、类、模块化等新的JavaScript语言特性。\n// 模块化 // user.js export class User { constructor(name, age) { this.name = name; this.age = age; } greet() { return `Hello, my name is ${this.name} and I am ${this.age} years old.`; } } // index.js import { User } from './user.js'; // 箭头函数 const printUserInfo = (user) =\u003e { console.log(user.greet()); }; // 解构赋值 const userData = { name: 'Alice', age: 30 }; const { name, age } = userData; // 创建用户实例 const user = new User(name, age); // 打印用户信息 printUserInfo(user); 0_9闭包和高阶函数(todo ) 利用闭包实现函数封装和信息隐藏，以及高阶函数的概念和应用。\n// 闭包示例 function outerFunction() { let outerVariable = 'I am from outer function'; function innerFunction() { console.log(outerVariable); } return innerFunction; } const innerFunc = outerFunction(); // 内部函数 innerFunction 成为闭包 innerFunc(); // 打印 \"I am from outer function\" // 高阶函数示例 function add(a, b) { return a + b; } function subtract(a, b) { return a - b; } function calculate(operation, a, b) { return operation(a, b); } console.log(calculate(add, 5, 3)); // 调用 add 函数，打印 8 console.log(calculate(subtract, 5, 3)); // 调用 subtract 函数，打印 2 错误处理和调试：处理异常、调试技巧、错误日志记录等与错误处理相关的知识。\n异常处理（Error Handling）： javascript try { // 可能会抛出异常的代码块 const result = someFunction(); console.log(result); } catch (error) { // 捕获异常并进行处理 console.error('An error occurred:', error.message); } finally { // 可选的 finally 块，无论是否发生异常都会执行 console.log('Finally block executed'); } 在上面的代码中，try 块包含了可能会抛出异常的代码，catch 块用于捕获异常并进行处理，finally 块是可选的，无论是否发生异常都会执行。\n调试技巧： javascript // 在代码中插入断点 debugger; // 使用 console.log() 输出调试信息 console.log('Debug message:', variable); // 使用 console.error() 输出错误信息 console.error('Error occurred:', error); // 使用 console.trace() 输出函数调用堆栈 console.trace(); 上面展示了一些常用的调试技巧，包括插入断点、使用 console.log() 输出调试信息、使用 console.error() 输出错误信息以及使用 console.trace() 输出函数调用堆栈。\n错误日志记录（Error Logging）： javascript // 使用 try-catch 捕获异常，并将异常信息记录到日志中 try { // 可能会抛出异常的代码块 const result = someFunction(); console.log(result); } catch (error) { // 记录异常信息到日志中 logError(error); } // 日志记录函数 function logError(error) { // 将错误信息发送到服务器或者保存到本地文件中 console.error('Error logged:', error); } 在实际项目中，我们通常会将错误信息记录到日志中，以便后续分析和排查问题。可以将错误信息发送到服务器或者保存到本地文件中。\nJavaScript框架和库：学习常用的JavaScript框架和库，例如React、Vue、Angular等，以及相关的概念和用法。 测试和优化：编写JavaScript单元测试、性能优化、代码规范等与代码质量相关的知识。 ",
-  "wordCount" : "3580",
+  "articleBody": "JavaScript 01_基本语法和数据类型 变量、数据类型、运算符、条件语句、循环语句等基本语法和数据类型。\n// 变量声明和赋值 let name = \"John\"; const age = 30; var isAdmin = true; // 数据类型 let num = 10; // Number let str = \"Hello\"; // String let bool = true; // Boolean let arr = [1, 2, 3]; // Array let obj = { name: \"John\", age: 30 }; // Object let n = null; // Null let u = undefined; // Undefined // 运算符 let sum = 10 + 5; // 加法 let difference = 10 - 5; // 减法 let product = 10 * 5; // 乘法 let quotient = 10 / 5; // 除法 let remainder = 10 % 3; // 取余 let increment = 10++; // 自增 let decrement = 10--; // 自减 // 条件语句 if (isAdmin) { console.log(\"User is an admin\"); } else if (age \u003e= 18) { console.log(\"User is an adult\"); } else { console.log(\"User is a minor\"); } // 循环语句 for (let i = 0; i \u003c arr.length; i++) { console.log(arr[i]); } let i = 0; while (i \u003c arr.length) { console.log(arr[i]); i++; } // 函数声明 function greet(name) { console.log(\"Hello, \" + name + \"!\"); } // 调用函数 greet(\"John\"); 02_函数和作用域 函数的定义、调用、参数传递、作用域链、闭包等相关概念和用法。\n// 函数的定义和调用 function greet(name) { console.log(\"Hello, \" + name + \"!\"); } // 调用函数 greet(\"John\"); // 函数参数传递 function add(a, b) { return a + b; } let result = add(5, 3); console.log(\"Sum:\", result); // 函数作用域 let x = 10; function printX() { let y = 20; console.log(\"x inside function:\", x); // x 是全局变量，在函数内部可以访问 console.log(\"y inside function:\", y); // y 是函数内部定义的局部变量 } printX(); console.log(\"x outside function:\", x); // x 是全局变量，在函数外部可以访问 // console.log(\"y outside function:\", y); // y 是函数内部的局部变量，在函数外部无法访问，会报错 // 闭包 function outerFunction() { let outerVar = \"I'm outer!\"; function innerFunction() { console.log(outerVar); // 内部函数可以访问外部函数的变量 } return innerFunction; } let innerFunc = outerFunction(); innerFunc(); // 调用内部函数，打印 \"I'm outer!\" 03_对象和原型链 对象的创建、属性和方法的添加、访问、原型和原型链的概念，以及构造函数和原型继承等。\n// 对象的创建和属性访问 let person = { name: \"John\", age: 30, greet: function () { console.log( \"Hello, my name is \" + this.name + \" and I'm \" + this.age + \" years old.\", ); }, }; console.log(\"Name:\", person.name); // 访问对象属性 console.log(\"Age:\", person[\"age\"]); // 使用方括号访问对象属性 person.greet(); // 调用对象方法 // 构造函数和原型 function Person(name, age) { this.name = name; this.age = age; } Person.prototype.greet = function () { console.log( \"Hello, my name is \" + this.name + \" and I'm \" + this.age + \" years old.\", ); }; let john = new Person(\"John\", 30); console.log(\"Name:\", john.name); console.log(\"Age:\", john.age); john.greet(); // 原型链继承 function Student(name, age, grade) { Person.call(this, name, age); // 调用父类构造函数 this.grade = grade; } Student.prototype = Object.create(Person.prototype); // 设置原型链 Student.prototype.constructor = Student; // 修复构造函数指向 let jane = new Student(\"Jane\", 25, \"A\"); console.log(\"Name:\", jane.name); console.log(\"Age:\", jane.age); console.log(\"Grade:\", jane.grade); jane.greet(); // 子类继承父类方法 04_异步编程 事件循环、回调函数、Promise、async/await等用于处理异步操作的方式。\n// 回调函数示例 function fetchData(callback) { setTimeout(() =\u003e { callback(\"Data fetched successfully\"); }, 1000); } fetchData((data) =\u003e { console.log(data); }); // Promise 示例 function fetchDataPromise() { return new Promise((resolve, reject) =\u003e { setTimeout(() =\u003e { resolve(\"Data fetched successfully\"); }, 1000); }); } fetchDataPromise() .then((data) =\u003e { console.log(data); }) .catch((error) =\u003e { console.error(\"Error:\", error); }); // async/await 示例 async function fetchDataAsync() { return new Promise((resolve, reject) =\u003e { setTimeout(() =\u003e { resolve(\"Data fetched successfully\"); }, 1000); }); } async function fetchDataWrapper() { try { const data = await fetchDataAsync(); console.log(data); } catch (error) { console.error(\"Error:\", error); } } fetchDataWrapper(); 05_DOM操作 通过JavaScript操作文档对象模型（DOM）实现页面交互、动态内容更新等。\n获取元素： getElementById(id)：根据 id 获取元素。 getElementsByClassName(className)：根据类名获取元素集合。 getElementsByTagName(tagName)：根据标签名获取元素集合。 querySelector(selector)：根据 CSS 选择器获取第一个匹配的元素。 querySelectorAll(selector)：根据 CSS 选择器获取所有匹配的元素。 添加、移除和替换元素： appendChild(node)：在指定节点的子节点列表末尾添加新的子节点。 removeChild(node)：从父节点中移除子节点。 replaceChild(newNode, oldNode)：用新节点替换旧节点。 样式操作： element.style.property = value：直接修改元素的内联样式。 classList.add(className)：向元素添加类。 classList.remove(className)：从元素中移除类。 classList.toggle(className)：如果存在（不存在）就删除（添加）一个类。 内容操作： innerHTML：获取或设置元素的 HTML 内容。 textContent：获取或设置元素的文本内容。 属性操作： getAttribute(name)：获取元素的指定属性值。 setAttribute(name, value)：设置元素的指定属性值。 遍历节点： parentNode：获取父节点。 childNodes：获取所有子节点。 nextSibling 和 previousSibling：获取下一个和上一个兄弟节点。 事件监听： element.addEventListener(event, function)：向指定元素添加事件监听器。 element.removeEventListener(event, function)：从指定元素移除事件监听器。 06_浏览器事件 处理用户交互事件，例如点击、输入、鼠标移动等。\nclick:鼠标点击的时候出发 mouseover：鼠标移动到元素上方时触发。 mouseout：鼠标移出元素时触发。 mousedown：鼠标按下时触发。 mouseup：鼠标松开时触发。 mousemove：鼠标移动时触发。 keydown：键盘按下时触发。 keyup：键盘松开时触发。 focus：元素获得焦点时触发。 blur：元素失去焦点时触发。 input：输入框的内容发生变化时触发。 change：表单元素的值发生改变时触发。 tip：\n\u003c!doctype html\u003e \u003chtml lang=\"en\"\u003e \u003chead\u003e \u003cmeta charset=\"UTF-8\" /\u003e \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /\u003e \u003ctitle\u003eDOM 事件示例\u003c/title\u003e \u003c/head\u003e \u003cbody\u003e \u003cbutton id=\"myButton\"\u003e点击我\u003c/button\u003e \u003cinput type=\"text\" id=\"myInput\" placeholder=\"输入框\" /\u003e \u003cscript src=\"script.js\"\u003e\u003c/script\u003e \u003c/body\u003e \u003c/html\u003e // 获取按钮元素 const button = document.getElementById(\"myButton\"); // 添加 click 事件监听器 button.addEventListener(\"click\", function (event) { alert(\"按钮被点击了！\"); }); // 获取输入框元素 const input = document.getElementById(\"myInput\"); // 添加 input 事件监听器 input.addEventListener(\"input\", function (event) { console.log(\"输入框的内容发生变化：\", input.value); }); // 添加 focus 和 blur 事件监听器 input.addEventListener(\"focus\", function (event) { console.log(\"输入框获得焦点\"); }); input.addEventListener(\"blur\", function (event) { console.log(\"输入框失去焦点\"); }); 07_AJAX和HTTP请求 通过XMLHttpRequest或Fetch API进行网络请求，获取数据并更新页面。\nAJAX（Asynchronous JavaScript and XML）：\n是一种使用 JavaScript 进行异步通信的技术，可以在不重新加载整个页面的情况下，通过在后台与服务器进行数据交换来更新部分网页内容。 AJAX 技术通常使用 XMLHttpRequest 对象来实现。 tip:\n\u003c!doctype html\u003e \u003chtml lang=\"en\"\u003e \u003chead\u003e \u003cmeta charset=\"UTF-8\" /\u003e \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /\u003e \u003ctitle\u003eAJAX Example\u003c/title\u003e \u003c/head\u003e \u003cbody\u003e \u003cdiv id=\"result\"\u003e\u003c/div\u003e \u003cscript src=\"ajax.js\"\u003e\u003c/script\u003e \u003c/body\u003e \u003c/html\u003e // 创建 XMLHttpRequest 对象 var xhr = new XMLHttpRequest(); // 配置请求 xhr.open(\"GET\", \"https://jsonplaceholder.typicode.com/posts/1\", true); // 监听请求状态变化 xhr.onreadystatechange = function () { if (xhr.readyState === XMLHttpRequest.DONE) { if (xhr.status === 200) { // 处理成功响应 var responseData = JSON.parse(xhr.responseText); document.getElementById(\"result\").innerText = responseData.title; } else { // 处理错误响应 console.error(\"Request failed:\", xhr.status); } } }; // 发送请求 xhr.send(); Fetch API：\n是一种新的 Web API，提供了一种更简洁、更强大的方式来进行网络请求。 使用 Promise 对象处理异步操作，提供了更好的语法和功能。 Fetch API 不限于 XML 数据，可以与 JSON、HTML、Text 等各种格式的数据一起使用。 tip:\n\u003c!doctype html\u003e \u003chtml lang=\"en\"\u003e \u003chead\u003e \u003cmeta charset=\"UTF-8\" /\u003e \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /\u003e \u003ctitle\u003eFetch API 示例\u003c/title\u003e \u003c/head\u003e \u003cbody\u003e \u003ch1\u003eFetch API 示例\u003c/h1\u003e \u003cbutton id=\"fetchButton\"\u003e发起请求\u003c/button\u003e \u003cdiv id=\"result\"\u003e\u003c/div\u003e \u003cscript src=\"script.js\"\u003e\u003c/script\u003e \u003c/body\u003e \u003c/html\u003e document.getElementById(\"fetchButton\").addEventListener(\"click\", function () { const url = \"https://jsonplaceholder.typicode.com/posts/1\"; fetch(url) .then((response) =\u003e { if (!response.ok) { throw new Error(\"Network response was not ok\"); } return response.json(); }) .then((data) =\u003e { document.getElementById(\"result\").innerText = JSON.stringify( data, null, 2, ); }) .catch((error) =\u003e { console.error(\"There was a problem with the fetch operation:\", error); }); }); 08_ES6及以上新特性 箭头函数、模板字符串、解构赋值、类、模块化等新的JavaScript语言特性。\n// 模块化 // user.js export class User { constructor(name, age) { this.name = name; this.age = age; } greet() { return `Hello, my name is ${this.name} and I am ${this.age} years old.`; } } // index.js import { User } from \"./user.js\"; // 箭头函数 const printUserInfo = (user) =\u003e { console.log(user.greet()); }; // 解构赋值 const userData = { name: \"Alice\", age: 30, }; const { name, age } = userData; // 创建用户实例 const user = new User(name, age); // 打印用户信息 printUserInfo(user); 0_9闭包和高阶函数(todo ) 利用闭包实现函数封装和信息隐藏，以及高阶函数的概念和应用。\n// 闭包示例 function outerFunction() { let outerVariable = \"I am from outer function\"; function innerFunction() { console.log(outerVariable); } return innerFunction; } const innerFunc = outerFunction(); // 内部函数 innerFunction 成为闭包 innerFunc(); // 打印 \"I am from outer function\" // 高阶函数示例 function add(a, b) { return a + b; } function subtract(a, b) { return a - b; } function calculate(operation, a, b) { return operation(a, b); } console.log(calculate(add, 5, 3)); // 调用 add 函数，打印 8 console.log(calculate(subtract, 5, 3)); // 调用 subtract 函数，打印 2 错误处理和调试：处理异常、调试技巧、错误日志记录等与错误处理相关的知识。\n异常处理（Error Handling）： try { // 可能会抛出异常的代码块 const result = someFunction(); console.log(result); } catch (error) { // 捕获异常并进行处理 console.error(\"An error occurred:\", error.message); } finally { // 可选的 finally 块，无论是否发生异常都会执行 console.log(\"Finally block executed\"); } 在上面的代码中，try 块包含了可能会抛出异常的代码，catch 块用于捕获异常并进行处理，finally 块是可选的，无论是否发生异常都会执行。\n调试技巧： // 在代码中插入断点 debugger; // 使用 console.log() 输出调试信息 console.log(\"Debug message:\", variable); // 使用 console.error() 输出错误信息 console.error(\"Error occurred:\", error); // 使用 console.trace() 输出函数调用堆栈 console.trace(); 上面展示了一些常用的调试技巧，包括插入断点、使用 console.log() 输出调试信息、使用 console.error() 输出错误信息以及使用 console.trace() 输出函数调用堆栈。\n错误日志记录（Error Logging）： // 使用 try-catch 捕获异常，并将异常信息记录到日志中 try { // 可能会抛出异常的代码块 const result = someFunction(); console.log(result); } catch (error) { // 记录异常信息到日志中 logError(error); } // 日志记录函数 function logError(error) { // 将错误信息发送到服务器或者保存到本地文件中 console.error(\"Error logged:\", error); } 在实际项目中，我们通常会将错误信息记录到日志中，以便后续分析和排查问题。可以将错误信息发送到服务器或者保存到本地文件中。\nJavaScript框架和库：学习常用的JavaScript框架和库，例如React、Vue、Angular等，以及相关的概念和用法。 测试和优化：编写JavaScript单元测试、性能优化、代码规范等与代码质量相关的知识。 ",
+  "wordCount" : "3594",
   "inLanguage": "zh",
   "datePublished": "2024-03-29T12:48:24+08:00",
   "dateModified": "2024-03-29T12:48:24+08:00",
@@ -165,33 +165,33 @@ var _hmt = _hmt || [];
         </div>
         <ul id="menu">
             <li>
-                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
-                <span>🔍 搜索</span>
+                <a href="https://XianCH.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/" title="🏠 主页">
-                <span>🏠 主页</span>
+                <a href="https://XianCH.github.io/" title="Home">
+                <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/posts" title="📚 文章">
-                <span>📚 文章</span>
+                <a href="https://XianCH.github.io/posts" title="posts">
+                <span>posts</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/tags" title="🧩 标签">
-                <span>🧩 标签</span>
+                <a href="https://XianCH.github.io/tags" title="Tags">
+                <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
-                <span>⏱️ 时间轴</span>
+                <a href="https://XianCH.github.io/archives/" title="⏱️Archives">
+                <span>⏱️Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
-                <span>🙋🏻‍♂️ 关于</span>
+                <a href="https://XianCH.github.io/about" title="♂️About">
+                <span>♂️About</span>
                 </a>
             </li>
         </ul>
@@ -209,7 +209,7 @@ var _hmt = _hmt || [];
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
+            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">Post</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">Tech</a></div>
             <h1 class="post-title">
                 Javascript复习
             </h1>
@@ -245,7 +245,7 @@ var _hmt = _hmt || [];
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>3580字
+        <span>3594字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -471,7 +471,7 @@ var _hmt = _hmt || [];
 <p>函数的定义、调用、参数传递、作用域链、闭包等相关概念和用法。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 函数的定义和调用
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">greet</span>(<span style="color:#a6e22e">name</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello, &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;!&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello, &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;!&#34;</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 调用函数
@@ -479,7 +479,7 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 函数参数传递
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">add</span>(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">3</span>);
@@ -489,9 +489,9 @@ var _hmt = _hmt || [];
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">printX</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;x inside function:&#34;</span>, <span style="color:#a6e22e">x</span>); <span style="color:#75715e">// x 是全局变量，在函数内部可以访问
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;y inside function:&#34;</span>, <span style="color:#a6e22e">y</span>); <span style="color:#75715e">// y 是函数内部定义的局部变量
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;x inside function:&#34;</span>, <span style="color:#a6e22e">x</span>); <span style="color:#75715e">// x 是全局变量，在函数内部可以访问
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;y inside function:&#34;</span>, <span style="color:#a6e22e">y</span>); <span style="color:#75715e">// y 是函数内部定义的局部变量
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">printX</span>();
@@ -500,13 +500,13 @@ var _hmt = _hmt || [];
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 闭包
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">outerFunction</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">outerVar</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;I&#39;m outer!&#34;</span>;
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">innerFunction</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">outerVar</span>); <span style="color:#75715e">// 内部函数可以访问外部函数的变量
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">outerVar</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;I&#39;m outer!&#34;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">innerFunction</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">innerFunction</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">outerVar</span>); <span style="color:#75715e">// 内部函数可以访问外部函数的变量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">innerFunction</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">innerFunc</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">outerFunction</span>();
@@ -515,11 +515,13 @@ var _hmt = _hmt || [];
 <p>对象的创建、属性和方法的添加、访问、原型和原型链的概念，以及构造函数和原型继承等。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 对象的创建和属性访问
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">person</span> <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;John&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">greet</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello, my name is &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; and I&#39;m &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; years old.&#34;</span>);
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;John&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">greet</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;Hello, my name is &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; and I&#39;m &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; years old.&#34;</span>,
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  },
 </span></span><span style="display:flex;"><span>};
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Name:&#34;</span>, <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">name</span>); <span style="color:#75715e">// 访问对象属性
@@ -528,12 +530,14 @@ var _hmt = _hmt || [];
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 构造函数和原型
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Person</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">age</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">age</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">age</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Person</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">greet</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello, my name is &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; and I&#39;m &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; years old.&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Person</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">greet</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Hello, my name is &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; and I&#39;m &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; years old.&#34;</span>,
+</span></span><span style="display:flex;"><span>  );
 </span></span><span style="display:flex;"><span>};
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">john</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Person</span>(<span style="color:#e6db74">&#34;John&#34;</span>, <span style="color:#ae81ff">30</span>);
@@ -543,8 +547,8 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 原型链继承
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Student</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">age</span>, <span style="color:#a6e22e">grade</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Person</span>.<span style="color:#a6e22e">call</span>(<span style="color:#66d9ef">this</span>, <span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">age</span>); <span style="color:#75715e">// 调用父类构造函数
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">grade</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">grade</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Person</span>.<span style="color:#a6e22e">call</span>(<span style="color:#66d9ef">this</span>, <span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">age</span>); <span style="color:#75715e">// 调用父类构造函数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">grade</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">grade</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">Student</span>.<span style="color:#a6e22e">prototype</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">create</span>(<span style="color:#a6e22e">Person</span>.<span style="color:#a6e22e">prototype</span>); <span style="color:#75715e">// 设置原型链
@@ -559,48 +563,48 @@ var _hmt = _hmt || [];
 <p>事件循环、回调函数、Promise、async/await等用于处理异步操作的方式。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 回调函数示例
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchData</span>(<span style="color:#a6e22e">callback</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">callback</span>(<span style="color:#e6db74">&#34;Data fetched successfully&#34;</span>);
-</span></span><span style="display:flex;"><span>    }, <span style="color:#ae81ff">1000</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">callback</span>(<span style="color:#e6db74">&#34;Data fetched successfully&#34;</span>);
+</span></span><span style="display:flex;"><span>  }, <span style="color:#ae81ff">1000</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">fetchData</span>((<span style="color:#a6e22e">data</span>) =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>);
 </span></span><span style="display:flex;"><span>});
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// Promise 示例
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchDataPromise</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Promise((<span style="color:#a6e22e">resolve</span>, <span style="color:#a6e22e">reject</span>) =&gt; {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#34;Data fetched successfully&#34;</span>);
-</span></span><span style="display:flex;"><span>        }, <span style="color:#ae81ff">1000</span>);
-</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Promise((<span style="color:#a6e22e">resolve</span>, <span style="color:#a6e22e">reject</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#34;Data fetched successfully&#34;</span>);
+</span></span><span style="display:flex;"><span>    }, <span style="color:#ae81ff">1000</span>);
+</span></span><span style="display:flex;"><span>  });
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">fetchDataPromise</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">data</span>) =&gt; {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>);
-</span></span><span style="display:flex;"><span>    })
-</span></span><span style="display:flex;"><span>    .<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">error</span>) =&gt; {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Error:&#34;</span>, <span style="color:#a6e22e">error</span>);
-</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">data</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>);
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>  .<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">error</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Error:&#34;</span>, <span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>  });
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// async/await 示例
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchDataAsync</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Promise((<span style="color:#a6e22e">resolve</span>, <span style="color:#a6e22e">reject</span>) =&gt; {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#34;Data fetched successfully&#34;</span>);
-</span></span><span style="display:flex;"><span>        }, <span style="color:#ae81ff">1000</span>);
-</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Promise((<span style="color:#a6e22e">resolve</span>, <span style="color:#a6e22e">reject</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#34;Data fetched successfully&#34;</span>);
+</span></span><span style="display:flex;"><span>    }, <span style="color:#ae81ff">1000</span>);
+</span></span><span style="display:flex;"><span>  });
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchDataWrapper</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetchDataAsync</span>();
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>);
-</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Error:&#34;</span>, <span style="color:#a6e22e">error</span>);
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetchDataAsync</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Error:&#34;</span>, <span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">fetchDataWrapper</span>();
@@ -674,44 +678,44 @@ var _hmt = _hmt || [];
 <li><code>change</code>：表单元素的值发生改变时触发。</li>
 </ol>
 <p>tip：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!doctype html&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span> /&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;DOM 事件示例&lt;/<span style="color:#f92672">title</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myButton&#34;</span>&gt;点击我&lt;/<span style="color:#f92672">button</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myInput&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;输入框&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myInput&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;输入框&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- 引入 JavaScript 文件 --&gt;</span>
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;script.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 获取按钮元素
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">button</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;myButton&#39;</span>);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">button</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;myButton&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 添加 click 事件监听器
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">button</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;按钮被点击了！&#39;</span>);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">button</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;click&#34;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;按钮被点击了！&#34;</span>);
 </span></span><span style="display:flex;"><span>});
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 获取输入框元素
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">input</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;myInput&#39;</span>);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">input</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;myInput&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 添加 input 事件监听器
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;input&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;输入框的内容发生变化：&#39;</span>, <span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">value</span>);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;input&#34;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;输入框的内容发生变化：&#34;</span>, <span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">value</span>);
 </span></span><span style="display:flex;"><span>});
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 添加 focus 和 blur 事件监听器
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;focus&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;输入框获得焦点&#39;</span>);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;focus&#34;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;输入框获得焦点&#34;</span>);
 </span></span><span style="display:flex;"><span>});
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;blur&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;输入框失去焦点&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;blur&#34;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;输入框失去焦点&#34;</span>);
 </span></span><span style="display:flex;"><span>});
 </span></span></code></pre></div><h2 id="07_ajax和http请求">07_AJAX和HTTP请求<a hidden class="anchor" aria-hidden="true" href="#07_ajax和http请求">#</a></h2>
 <p>通过XMLHttpRequest或Fetch API进行网络请求，获取数据并更新页面。</p>
@@ -721,37 +725,35 @@ var _hmt = _hmt || [];
 <li>AJAX 技术通常使用 XMLHttpRequest 对象来实现。</li>
 </ul>
 <p>tip:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!doctype html&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">title</span>&gt;AJAX Example&lt;/<span style="color:#f92672">title</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;AJAX Example&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;result&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;result&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ajax.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ajax.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 创建 XMLHttpRequest 对象
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">xhr</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 配置请求
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#39;GET&#39;</span>, <span style="color:#e6db74">&#39;https://jsonplaceholder.typicode.com/posts/1&#39;</span>, <span style="color:#66d9ef">true</span>);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#34;GET&#34;</span>, <span style="color:#e6db74">&#34;https://jsonplaceholder.typicode.com/posts/1&#34;</span>, <span style="color:#66d9ef">true</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 监听请求状态变化
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">onreadystatechange</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">onreadystatechange</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">readyState</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">XMLHttpRequest</span>.<span style="color:#a6e22e">DONE</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">200</span>) {
 </span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 处理成功响应
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">responseData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">responseText</span>);
-</span></span><span style="display:flex;"><span>      document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;result&#39;</span>).<span style="color:#a6e22e">innerText</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">responseData</span>.<span style="color:#a6e22e">title</span>;
+</span></span><span style="display:flex;"><span>      document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;result&#34;</span>).<span style="color:#a6e22e">innerText</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">responseData</span>.<span style="color:#a6e22e">title</span>;
 </span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
 </span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 处理错误响应
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;Request failed:&#39;</span>, <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">status</span>);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Request failed:&#34;</span>, <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">status</span>);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>};
@@ -765,35 +767,39 @@ var _hmt = _hmt || [];
 <li>Fetch API 不限于 XML 数据，可以与 JSON、HTML、Text 等各种格式的数据一起使用。</li>
 </ul>
 <p>tip:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!doctype html&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">title</span>&gt;Fetch API 示例&lt;/<span style="color:#f92672">title</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">h1</span>&gt;Fetch API 示例&lt;/<span style="color:#f92672">h1</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fetchButton&#34;</span>&gt;发起请求&lt;/<span style="color:#f92672">button</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;result&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;Fetch API 示例&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h1</span>&gt;Fetch API 示例&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fetchButton&#34;</span>&gt;发起请求&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;result&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;script.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;script.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;fetchButton&#39;</span>).<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#66d9ef">function</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://jsonplaceholder.typicode.com/posts/1&#39;</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;fetchButton&#34;</span>).<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;click&#34;</span>, <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://jsonplaceholder.typicode.com/posts/1&#34;</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fetch</span>(<span style="color:#a6e22e">url</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; {
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">response</span>) =&gt; {
 </span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">ok</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;Network response was not ok&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;Network response was not ok&#34;</span>);
 </span></span><span style="display:flex;"><span>      }
 </span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>();
 </span></span><span style="display:flex;"><span>    })
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">data</span> =&gt; {
-</span></span><span style="display:flex;"><span>      document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;result&#39;</span>).<span style="color:#a6e22e">innerText</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">data</span>, <span style="color:#66d9ef">null</span>, <span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">data</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;result&#34;</span>).<span style="color:#a6e22e">innerText</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>      );
 </span></span><span style="display:flex;"><span>    })
-</span></span><span style="display:flex;"><span>    .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span> =&gt; {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;There was a problem with the fetch operation:&#39;</span>, <span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>    .<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">error</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;There was a problem with the fetch operation:&#34;</span>, <span style="color:#a6e22e">error</span>);
 </span></span><span style="display:flex;"><span>    });
 </span></span><span style="display:flex;"><span>});
 </span></span></code></pre></div><h2 id="08_es6及以上新特性">08_ES6及以上新特性<a hidden class="anchor" aria-hidden="true" href="#08_es6及以上新特性">#</a></h2>
@@ -812,7 +818,7 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// index.js
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">User</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./user.js&#39;</span>;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">User</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./user.js&#34;</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 箭头函数
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">printUserInfo</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">user</span>) =&gt; {
@@ -821,8 +827,8 @@ var _hmt = _hmt || [];
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 解构赋值
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userData</span> <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Alice&#39;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Alice&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span>,
 </span></span><span style="display:flex;"><span>};
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">age</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">userData</span>;
@@ -836,7 +842,7 @@ var _hmt = _hmt || [];
 <p>利用闭包实现函数封装和信息隐藏，以及高阶函数的概念和应用。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 闭包示例
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">outerFunction</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">outerVariable</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I am from outer function&#39;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">outerVariable</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;I am from outer function&#34;</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">innerFunction</span>() {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">outerVariable</span>);
@@ -867,53 +873,50 @@ var _hmt = _hmt || [];
 <ol>
 <li>异常处理（Error Handling）：</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>javascript
-</span></span><span style="display:flex;"><span>try {
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">//</span> <span style="color:#960050;background-color:#1e0010">可能会抛出异常的代码块</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> result <span style="color:#f92672">=</span> someFunction();
-</span></span><span style="display:flex;"><span>  console<span style="color:#f92672">.</span>log(result);
-</span></span><span style="display:flex;"><span>} catch (error) {
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">//</span> <span style="color:#960050;background-color:#1e0010">捕获异常并进行处理</span>
-</span></span><span style="display:flex;"><span>  console<span style="color:#f92672">.</span>error(<span style="color:#e6db74">&#39;An error occurred:&#39;</span>, error<span style="color:#f92672">.</span>message);
-</span></span><span style="display:flex;"><span>} finally {
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">//</span> <span style="color:#960050;background-color:#1e0010">可选的</span> finally <span style="color:#960050;background-color:#1e0010">块，无论是否发生异常都会执行</span>
-</span></span><span style="display:flex;"><span>  console<span style="color:#f92672">.</span>log(<span style="color:#e6db74">&#39;Finally block executed&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 可能会抛出异常的代码块
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">someFunction</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>);
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 捕获异常并进行处理
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;An error occurred:&#34;</span>, <span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>);
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">finally</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 可选的 finally 块，无论是否发生异常都会执行
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Finally block executed&#34;</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>在上面的代码中，<code>try</code> 块包含了可能会抛出异常的代码，<code>catch</code> 块用于捕获异常并进行处理，<code>finally</code> 块是可选的，无论是否发生异常都会执行。</p>
 <ol>
 <li>调试技巧：</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>javascript
-</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#960050;background-color:#1e0010">在代码中插入断点</span>
-</span></span><span style="display:flex;"><span>debugger;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 在代码中插入断点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">debugger</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#960050;background-color:#1e0010">使用</span> console<span style="color:#f92672">.</span>log() <span style="color:#960050;background-color:#1e0010">输出调试信息</span>
-</span></span><span style="display:flex;"><span>console<span style="color:#f92672">.</span>log(<span style="color:#e6db74">&#39;Debug message:&#39;</span>, variable);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 使用 console.log() 输出调试信息
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Debug message:&#34;</span>, <span style="color:#a6e22e">variable</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#960050;background-color:#1e0010">使用</span> console<span style="color:#f92672">.</span>error() <span style="color:#960050;background-color:#1e0010">输出错误信息</span>
-</span></span><span style="display:flex;"><span>console<span style="color:#f92672">.</span>error(<span style="color:#e6db74">&#39;Error occurred:&#39;</span>, error);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 使用 console.error() 输出错误信息
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Error occurred:&#34;</span>, <span style="color:#a6e22e">error</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#960050;background-color:#1e0010">使用</span> console<span style="color:#f92672">.</span>trace() <span style="color:#960050;background-color:#1e0010">输出函数调用堆栈</span>
-</span></span><span style="display:flex;"><span>console<span style="color:#f92672">.</span>trace();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 使用 console.trace() 输出函数调用堆栈
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">trace</span>();
 </span></span></code></pre></div><p>上面展示了一些常用的调试技巧，包括插入断点、使用 <code>console.log()</code> 输出调试信息、使用 <code>console.error()</code> 输出错误信息以及使用 <code>console.trace()</code> 输出函数调用堆栈。</p>
 <ol>
 <li>错误日志记录（Error Logging）：</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>javascript
-</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#960050;background-color:#1e0010">使用</span> try<span style="color:#f92672">-</span>catch <span style="color:#960050;background-color:#1e0010">捕获异常，并将异常信息记录到日志中</span>
-</span></span><span style="display:flex;"><span>try {
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">//</span> <span style="color:#960050;background-color:#1e0010">可能会抛出异常的代码块</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> result <span style="color:#f92672">=</span> someFunction();
-</span></span><span style="display:flex;"><span>  console<span style="color:#f92672">.</span>log(result);
-</span></span><span style="display:flex;"><span>} catch (error) {
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">//</span> <span style="color:#960050;background-color:#1e0010">记录异常信息到日志中</span>
-</span></span><span style="display:flex;"><span>  logError(error);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 使用 try-catch 捕获异常，并将异常信息记录到日志中
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 可能会抛出异常的代码块
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">someFunction</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>);
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 记录异常信息到日志中
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">logError</span>(<span style="color:#a6e22e">error</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#960050;background-color:#1e0010">日志记录函数</span>
-</span></span><span style="display:flex;"><span>function logError(error) {
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">//</span> <span style="color:#960050;background-color:#1e0010">将错误信息发送到服务器或者保存到本地文件中</span>
-</span></span><span style="display:flex;"><span>  console<span style="color:#f92672">.</span>error(<span style="color:#e6db74">&#39;Error logged:&#39;</span>, error);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 日志记录函数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">logError</span>(<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 将错误信息发送到服务器或者保存到本地文件中
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Error logged:&#34;</span>, <span style="color:#a6e22e">error</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>在实际项目中，我们通常会将错误信息记录到日志中，以便后续分析和排查问题。可以将错误信息发送到服务器或者保存到本地文件中。</p>
 <ol>
@@ -1130,6 +1133,17 @@ var _hmt = _hmt || [];
             container.appendChild(macTool)
         }
     });
+</script>
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
 </script>
 </body>
 
