@@ -2,62 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Distributed on X14n&#39;s Blog</title>
-    <link>http://localhost:1313/tags/distributed/</link>
+    <link>https://XianCH.github.io/tags/distributed/</link>
     <description>Recent content in Distributed on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 15 Jan 2023 10:16:51 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/distributed/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Jan 2023 10:16:51 +0000</lastBuildDate><atom:link href="https://XianCH.github.io/tags/distributed/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>微服务保护</title>
-      <link>http://localhost:1313/posts/tech/distributed/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4/</link>
+      <link>https://XianCH.github.io/posts/tech/distributed/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4/</link>
       <pubDate>Sun, 15 Jan 2023 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/distributed/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4/</guid>
+      <guid>https://XianCH.github.io/posts/tech/distributed/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4/</guid>
       <description>微服务保护 1.初识Sentinel 1.1.雪崩问题及解决方案 1.1.1.雪崩问题 微服务中，服务间调用关系错综复杂，一个微服务往往依赖于多个其它微服务。 如图，如果服务提供者I发生了故障，当前的应用的部分业务因为依赖于服务I，因此也会被阻塞。此时，其它不依赖于服务I的业务似乎不受影响</description>
     </item>
     
     <item>
       <title>多级缓存</title>
-      <link>http://localhost:1313/posts/tech/distributed/%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98/</link>
+      <link>https://XianCH.github.io/posts/tech/distributed/%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98/</link>
       <pubDate>Mon, 26 Dec 2022 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/distributed/%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98/</guid>
+      <guid>https://XianCH.github.io/posts/tech/distributed/%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98/</guid>
       <description>1.什么是多级缓存 传统的缓存策略一般是请求到达Tomcat后，先查询Redis，如果未命中则查询数据库，如图： 存在下面的问题： •请求要经过Tomcat处理，Tomcat的性能成为整个系统的瓶颈 •Redis缓存失效时，会对数据库产生冲击 多级缓存就是充分利用请求处理的每个环节，分别添</description>
     </item>
     
     <item>
       <title>springcloud</title>
-      <link>http://localhost:1313/posts/tech/distributed/springcloud/</link>
+      <link>https://XianCH.github.io/posts/tech/distributed/springcloud/</link>
       <pubDate>Thu, 22 Dec 2022 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/distributed/springcloud/</guid>
+      <guid>https://XianCH.github.io/posts/tech/distributed/springcloud/</guid>
       <description>springcloud学习</description>
     </item>
     
     <item>
       <title>RabbitMq部署指南</title>
-      <link>http://localhost:1313/posts/tech/distributed/rabbitmq%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/</link>
+      <link>https://XianCH.github.io/posts/tech/distributed/rabbitmq%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/</link>
       <pubDate>Wed, 19 Oct 2022 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/distributed/rabbitmq%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/</guid>
+      <guid>https://XianCH.github.io/posts/tech/distributed/rabbitmq%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/</guid>
       <description>rocketmq虚拟机部署和docker部署</description>
     </item>
     
     <item>
       <title>RabbitMq-2</title>
-      <link>http://localhost:1313/posts/tech/distributed/rabbitmq-2/</link>
+      <link>https://XianCH.github.io/posts/tech/distributed/rabbitmq-2/</link>
       <pubDate>Sat, 03 Sep 2022 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/distributed/rabbitmq-2/</guid>
+      <guid>https://XianCH.github.io/posts/tech/distributed/rabbitmq-2/</guid>
       <description>r2</description>
     </item>
     
     <item>
       <title>RabbitMq</title>
-      <link>http://localhost:1313/posts/tech/distributed/rabbitmq%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://XianCH.github.io/posts/tech/distributed/rabbitmq%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Thu, 01 Sep 2022 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/distributed/rabbitmq%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://XianCH.github.io/posts/tech/distributed/rabbitmq%E5%AD%A6%E4%B9%A0/</guid>
       <description>_</description>
     </item>
     

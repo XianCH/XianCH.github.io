@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,17 +9,17 @@
 <meta name="keywords" content="">
 <meta name="description" content="简述 以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点 mysql相关命令 #查看数据库引擎 show engine; #查看表结构 DESC tablename; #查看创建表的sql语句 show CREATE TABLE TABLE_NAME; #创建表 Drop table if exists `school`; CREATE TABLE `school` default character set utf8; use school; #自增 auto_increment; #主键 primary key(`column`); #设置引擎和编码 engine = innoDB DEFAULT CHARSET= UT8; #设置外键将产品的cid绑定到category的主">
 <meta name="author" content="x14n">
-<link rel="canonical" href="http://localhost:1313/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/">
+<link rel="canonical" href="https://XianCH.github.io/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="http://localhost:1313/img/favicon.icon">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/img/main.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/img/main.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/img/main.png">
-<link rel="mask-icon" href="http://localhost:1313/img/main.png">
+<link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
+<link rel="icon" type="image/png" sizes="16x16" href="https://XianCH.github.io/img/main.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://XianCH.github.io/img/main.png">
+<link rel="apple-touch-icon" href="https://XianCH.github.io/img/main.png">
+<link rel="mask-icon" href="https://XianCH.github.io/img/main.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="http://localhost:1313/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/">
+<link rel="alternate" hreflang="zh" href="https://XianCH.github.io/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/">
 <noscript>
     <style>
         #theme-toggle,
@@ -46,16 +46,19 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+
+  
+
 <meta property="og:title" content="Mysql重审" />
 <meta property="og:description" content="简述 以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点 mysql相关命令 #查看数据库引擎 show engine; #查看表结构 DESC tablename; #查看创建表的sql语句 show CREATE TABLE TABLE_NAME; #创建表 Drop table if exists `school`; CREATE TABLE `school` default character set utf8; use school; #自增 auto_increment; #主键 primary key(`column`); #设置引擎和编码 engine = innoDB DEFAULT CHARSET= UT8; #设置外键将产品的cid绑定到category的主" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/" />
-<meta property="og:image" content="http://localhost:1313/postsImg/mysql-r.png" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://XianCH.github.io/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/" />
+<meta property="og:image" content="https://XianCH.github.io/postsImg/mysql-r.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-11-22T18:47:52+08:00" />
 <meta property="article:modified_time" content="2023-11-22T18:47:52+08:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="http://localhost:1313/postsImg/mysql-r.png" />
+<meta name="twitter:image" content="https://XianCH.github.io/postsImg/mysql-r.png" />
 <meta name="twitter:title" content="Mysql重审"/>
 <meta name="twitter:description" content="简述 以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点 mysql相关命令 #查看数据库引擎 show engine; #查看表结构 DESC tablename; #查看创建表的sql语句 show CREATE TABLE TABLE_NAME; #创建表 Drop table if exists `school`; CREATE TABLE `school` default character set utf8; use school; #自增 auto_increment; #主键 primary key(`column`); #设置引擎和编码 engine = innoDB DEFAULT CHARSET= UT8; #设置外键将产品的cid绑定到category的主"/>
 
@@ -70,20 +73,20 @@ var _hmt = _hmt || [];
           "@type": "ListItem",
           "position":  1 ,
           "name": "📚文章",
-          "item": "http://localhost:1313/posts/"
+          "item": "https://XianCH.github.io/posts/"
         },
 
         {
           "@type": "ListItem",
           "position":  2 ,
           "name": "👨🏻‍💻 技术",
-          "item": "http://localhost:1313/posts/tech/"
+          "item": "https://XianCH.github.io/posts/tech/"
         }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "Mysql重审",
-      "item": "http://localhost:1313/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/"
+      "item": "https://XianCH.github.io/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/"
     }
   ]
 }
@@ -101,7 +104,7 @@ var _hmt = _hmt || [];
   "articleBody": "简述 以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点\nmysql相关命令 #查看数据库引擎 show engine; #查看表结构 DESC tablename; #查看创建表的sql语句 show CREATE TABLE TABLE_NAME; #创建表 Drop table if exists `school`; CREATE TABLE `school` default character set utf8; use school; #自增 auto_increment; #主键 primary key(`column`); #设置引擎和编码 engine = innoDB DEFAULT CHARSET= UT8; #设置外键将产品的cid绑定到category的主键上 constraint fk_product_category foreign key(cid) references category(id); #n表示一个字符，不管中英文（有待确定） varchar(n) #创建表并设置column drop table if exists `students`; CREATE TABLE `student`( `id` int NOT NULL AUTO_INCREMENT, `NAME` VARCHAR(20) NOT NULL , `SEX` SMALLINT DEFAULT NULL COMMENT '性别', `age` int NOT NULL , `IN_TIME` DATETIME NOT NULL , PRIMARY KEY(`id`) )default charset `UTF8`; #修改表 USE school; ALTER TABLE `students` RENAME TO `student`; #改报名 ALTER TABLE `students` add column `age` int not null after `sex`; ALTER TABLE `students` DROP column `nickname`;#删除表中的某一列 ALTER TABLE `students` CHANGE column_name new_name varchar(36);#修改某一列的的名称 ALTER TABLE police_org Drop primary key #修改表的主键 日期：DATE（YYYY-MM-DD） //比较常用 使用 CURDATE（） 时间：TIME（HH:MM:SS） //比较常用 使用CURTIME（） 年份：YEAR（YYYY） 最全时间：DATETIME（YYYY-MM-DD HH:MM:SS） //使用 NOW（） /*varchar(36) 可以保存多少中英文字符？*/ 答：具体还是要看版本的，自己在数据库中建个表测试下可以放多少个汉字。 4.0 版本以下，varchar(100)，指的是 100 字节，如果存放UTF8汉字时，只能存33个（每个汉字3字节） 5.0 版本以上，varchar(100)，指的是 100 字符，无论存放的是数字、字母还是UTF8汉字（每个汉字3字节），都可以存放100个。 mysql 练习题 问：查找年龄最大的学生的所有信息？\nselect * from student where age = (select MAX(age) from student); 问：查找年龄在 20-23 岁的学生？\nselect * from student where age=\u003e20 and age\u003c=23 问：查找 id 在 另一张表里的学生？\nSELECT * FROM household_record WHERE household_id NOT IN (SELECT id FROM household_info) 问：统计表中男女学生的人数？\n统计不同年龄段的人数，人数大于等于2\nselect sex,count(*) num from students group by sex; select age,count(id) from students group by age Having NUM \u003e 2 问：将学生按照年龄倒序排，按照 id 升序排？\nSELECT FROM students order by age desc ,id asc; 问：查找姓名以 a 开头 或者以 b 开头的学生？\nSELECT * FROM students WHERE name REGEXP '^a|^b'; SELECT * from students where name like 'a%' or name like 'b%'; /* LIKE子句 在 where like 的条件查询中，SQL 提供了四种匹配方式。 %：表示任意 0 个或多个字符。可匹配任意类型和长度的字符，有些情况下若是中文，请使用两个百分号（%%）表示。 _：表示任意单个字符。匹配单个任意字符，它常用来限制表达式的字符长度语句。 []：表示括号内所列字符中的一个（类似正则表达式）。指定一个字符、字符串或范围，要求所匹配对象为它们中的任一个。 [^] ：表示不在括号所列之内的单个字符。其取值和 [] 相同，但它要求所匹配对象为指定字符以外的任一个字符。 查询内容包含通配符时,由于通配符的缘故，导致我们查询特殊字符 “%”、“_”、“[” 的语句无法正常实现，而把特殊字符用 “[ ]” 括起便可正常查询。 '%a' //以a结尾的数据 'a%' //以a开头的数据 '%a%' //含有a的数据 '_a_' //三位且中间字母是a的 '_a' //两位且结尾字母是a的 'a_' //两位且开头字母是a的 */ /* REGEXP ：正则表达式 'a$' //以a结尾的数据 '^a' //以a开头的数据 'a' //含有a的数据 '^[a-z]|end$' //以字母开头或者以end结尾 */ 连表 连表查询练习 实战：\n准备工作：\nDROP TABLE IF EXISTS `users`; CREATE TABLE IF NOT EXISTS `users` ( `id` INT NOT NULL AUTO_INCREMENT COMMENT 'id', `uuid` VARCHAR(255) NOT NULL COMMENT 'uuid', `username` VARCHAR(150) NOT NULL COMMENT 'username', `nickname` VARCHAR(150) DEFAULT NULL COMMENT 'nickname', `email` VARCHAR(255) DEFAULT NULL COMMENT 'EMAIL', `password` VARCHAR(150) NOT NULL COMMENT 'password', `avatar` VARCHAR(250) DEFAULT NULL COMMENT 'avatar', `create_time` TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP(3) COMMENT 'CREATE TIME', `update_time` TIMESTAMP(3) DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(3) COMMENT 'UPDATE TIME', `delete_time` DATETIME(3) DEFAULT NULL COMMENT 'DELETE TIME', PRIMARY KEY (`id`), UNIQUE KEY `username` (`username`), UNIQUE KEY `idx_uuid` (`uuid`) ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT '用户表'; DROP TABLE IF EXISTS `user_friends`; CREATE TABLE IF NOT EXISTS `user_friends` ( `id` INT NOT NULL AUTO_INCREMENT COMMENT 'id', `user_id` INT DEFAULT NULL COMMENT 'USER ID', `friend_id` INT DEFAULT NULL COMMENT 'FRIEND ID', `create_time` TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP(3) COMMENT 'CREATE TIME', `update_time` TIMESTAMP(3) DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(3) COMMENT 'UPDATE TIME', `delete_time` DATETIME(3) DEFAULT NULL COMMENT 'DELETE TIME', PRIMARY KEY (`id`), KEY `idx_user_friends_user_id` (`user_id`), KEY `idx_user_friends_friends_id` (`friend_id`) ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT '用户好友关系表'; DROP TABLE IF EXISTS `message`; CREATE TABLE IF NOT EXISTS `message` ( `id` INT NOT NULL AUTO_INCREMENT COMMENT 'id', `from_user_id` INT DEFAULT NULL COMMENT '发送方id', `to_user_id` INT DEFAULT NULL COMMENT '目标用户id', `content` VARCHAR(2500) DEFAULT NULL COMMENT '消息内容', `url` VARCHAR(350) DEFAULT NULL COMMENT '内容地址', `pic` TEXT COMMENT '缩略图', `message_type` SMALLINT DEFAULT NULL COMMENT '消息类型：1.单聊，2.群聊', `content_type` SMALLINT DEFAULT NULL COMMENT '消息内容类型：1.text 2.file 3.image 4.audio 5.video', `delete_time` DATETIME(3) DEFAULT NULL COMMENT 'DELETE TIME', `create_time` TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP(3) COMMENT 'create time', `update_time` TIMESTAMP(3) DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(3) COMMENT 'UPDATE TIME', PRIMARY KEY (`id`), KEY `idx_message_to_user_id` (`to_user_id`), KEY `idx_message_from_user_id` (`from_user_id`) ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT '消息表'; DROP TABLE IF EXISTS `group`; CREATE TABLE IF NOT EXISTS `group` ( `id` INT NOT NULL AUTO_INCREMENT COMMENT 'id', `admin_id` INT DEFAULT NULL COMMENT 'ADMIN ID', `name` VARCHAR(150) DEFAULT NULL COMMENT 'group name', `notice` VARCHAR(300) DEFAULT NULL COMMENT 'group notice', `uuid` VARCHAR(150) DEFAULT NULL COMMENT 'uuid', `create_time` TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP(3) COMMENT 'CREATE TIME', `update_time` TIMESTAMP(3) DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(3) COMMENT 'UPDATE TIME', `delete_time` DATETIME(3) DEFAULT NULL COMMENT 'delete time', PRIMARY KEY (`id`), KEY `idx_groups_admin_id` (`admin_id`) ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT '群组表'; CREATE TABLE IF NOT EXISTS `group_member` ( `id` INT NOT NULL AUTO_INCREMENT COMMENT 'ID', `user_id` INT DEFAULT NULL COMMENT 'USER ID', `group_id` INT DEFAULT NULL COMMENT 'GROUP ID', `nickname` VARCHAR(150) DEFAULT NULL COMMENT 'USER NICKNAME', `create_time` TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP(3) COMMENT 'CREATE TIME', `update_time` TIMESTAMP(3) DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(3) COMMENT 'UPDATE TIME', `delete_time` BIGINT UNSIGNED DEFAULT NULL COMMENT 'DELETE TIME', `mute` SMALLINT DEFAULT NULL COMMENT '是否是禁言', PRIMARY KEY (`id`), KEY `idx_group_member_user_id` (`user_id`), KEY `idx_group_member_group_id` (`group_id`) ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT '用户群组表'; 用户表 用户好友关系表 群组表 群组成员表\nsql优化方案 1）应尽量避免在 where 子句中使用 != 或 \u003c\u003e 操作符，否则将引擎放弃使用索引而进行全表扫描。 2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：select id from t where num is null 可以在 num 上设置默认值 0，确保表中 num 列没有 null 值，然后这样查询： select id from t where num=0 3）很多时候用 exists 代替 in 是一个好的选择 4）用Where子句替换HAVING 子句 因为HAVING 只会在检索出所有记录之后才对结果集进行过滤\nmysql原理 database集群 ",
   "wordCount" : "2163",
   "inLanguage": "zh",
-  "image":"http://localhost:1313/postsImg/mysql-r.png","datePublished": "2023-11-22T18:47:52+08:00",
+  "image":"https://XianCH.github.io/postsImg/mysql-r.png","datePublished": "2023-11-22T18:47:52+08:00",
   "dateModified": "2023-11-22T18:47:52+08:00",
   "author":[{
     "@type": "Person",
@@ -109,14 +112,14 @@ var _hmt = _hmt || [];
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/"
+    "@id": "https://XianCH.github.io/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "X14n's Blog",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:1313/img/favicon.icon"
+      "url": "https://XianCH.github.io/img/favicon.icon"
     }
   }
 }
@@ -134,8 +137,8 @@ var _hmt = _hmt || [];
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
-            <img src="http://localhost:1313/img/main.png" alt="logo" aria-label="logo"
+            <a href="https://XianCH.github.io/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
+            <img src="https://XianCH.github.io/img/main.png" alt="logo" aria-label="logo"
                  height="35">x14n&#39;s Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
@@ -164,32 +167,32 @@ var _hmt = _hmt || [];
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
                 <span>🔍 搜索</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/" title="🏠 主页">
+                <a href="https://XianCH.github.io/" title="🏠 主页">
                 <span>🏠 主页</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/posts" title="📚 文章">
+                <a href="https://XianCH.github.io/posts" title="📚 文章">
                 <span>📚 文章</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags" title="🧩 标签">
+                <a href="https://XianCH.github.io/tags" title="🧩 标签">
                 <span>🧩 标签</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives/" title="⏱️ 时间轴">
+                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
                 <span>⏱️ 时间轴</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about" title="🙋🏻‍♂️ 关于">
+                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
                 <span>🙋🏻‍♂️ 关于</span>
                 </a>
             </li>
@@ -208,7 +211,7 @@ var _hmt = _hmt || [];
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="http://localhost:1313/">🏠 主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">📚文章</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/tech/">👨🏻‍💻 技术</a></div>
+            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
             <h1 class="post-title">
                 Mysql重审
             </h1>
@@ -284,7 +287,7 @@ var _hmt = _hmt || [];
                             <script>
                                 let url = document.documentURI
                                 
-                                let dnsUrl = "http://localhost:1313/"
+                                let dnsUrl = "https://XianCH.github.io/"
                                 let urlSplit = url.split(dnsUrl)
                                 let finalUrl = urlSplit[1]
                                 if (finalUrl[0] !== '/') {
@@ -317,7 +320,7 @@ var _hmt = _hmt || [];
 
 </div>
         </header> 
-<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="http://localhost:1313/postsImg/mysql-r.png" alt="">
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/mysql-r.png" alt="">
     
 </figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
@@ -598,12 +601,12 @@ var _hmt = _hmt || [];
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/tech/distributed/kafka/">
+  <a class="prev" href="https://XianCH.github.io/posts/tech/distributed/kafka/">
     <span class="title">« 上一页</span>
     <br>
     <span>Kafka</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/tech/distributed/nginx%E5%85%A5%E9%97%A8/">
+  <a class="next" href="https://XianCH.github.io/posts/tech/distributed/nginx%E5%85%A5%E9%97%A8/">
     <span class="title">下一页 »</span>
     <br>
     <span>Nginx</span>
@@ -626,7 +629,7 @@ var _hmt = _hmt || [];
         Copyright
         &copy;
         -2024
-        <a href="http://localhost:1313/" style="color:#939393;">X14n&#39;s Blog</a>
+        <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>
     <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;"></a>&nbsp;

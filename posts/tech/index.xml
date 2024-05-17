@@ -2,323 +2,323 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>👨🏻‍💻 技术 on X14n&#39;s Blog</title>
-    <link>http://localhost:1313/posts/tech/</link>
+    <link>https://XianCH.github.io/posts/tech/</link>
     <description>Recent content in 👨🏻‍💻 技术 on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 29 Mar 2024 12:48:24 +0800</lastBuildDate><atom:link href="http://localhost:1313/posts/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Mar 2024 12:48:24 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/posts/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Javascript复习</title>
-      <link>http://localhost:1313/posts/tech/front/javascript%E5%A4%8D%E4%B9%A0/</link>
+      <link>https://XianCH.github.io/posts/tech/front/javascript%E5%A4%8D%E4%B9%A0/</link>
       <pubDate>Fri, 29 Mar 2024 12:48:24 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/front/javascript%E5%A4%8D%E4%B9%A0/</guid>
+      <guid>https://XianCH.github.io/posts/tech/front/javascript%E5%A4%8D%E4%B9%A0/</guid>
       <description>JavaScript 01_基本语法和数据类型 变量、数据类型、运算符、条件语句、循环语句等基本语法和数据类型。 // 变量声明和赋值 let name = &amp;#34;John&amp;#34;; const age = 30; var isAdmin = true; // 数据类型 let num = 10; // Number let str = &amp;#34;Hello&amp;#34;; // String let bool = true; // Boolean let arr = [1, 2, 3]; // Array let obj = { name: &amp;#34;John&amp;#34;, age: 30 }; // Object let n = null; // Null let u = undefined; // Undefined // 运算符 let sum = 10 + 5; // 加法 let difference = 10 - 5; // 减</description>
     </item>
     
     <item>
       <title>Nvim_config(挖坑)</title>
-      <link>http://localhost:1313/posts/tech/linux/nvim_config/</link>
+      <link>https://XianCH.github.io/posts/tech/linux/nvim_config/</link>
       <pubDate>Sun, 25 Feb 2024 10:33:55 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/linux/nvim_config/</guid>
+      <guid>https://XianCH.github.io/posts/tech/linux/nvim_config/</guid>
       <description>前言 最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题 一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以 自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为 一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么</description>
     </item>
     
     <item>
       <title>本机archlinux调整</title>
-      <link>http://localhost:1313/posts/tech/arch/%E6%9C%AC%E6%9C%BAarchlinux%E8%B0%83%E6%95%B4/</link>
+      <link>https://XianCH.github.io/posts/tech/arch/%E6%9C%AC%E6%9C%BAarchlinux%E8%B0%83%E6%95%B4/</link>
       <pubDate>Fri, 08 Dec 2023 06:16:05 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/arch/%E6%9C%AC%E6%9C%BAarchlinux%E8%B0%83%E6%95%B4/</guid>
+      <guid>https://XianCH.github.io/posts/tech/arch/%E6%9C%AC%E6%9C%BAarchlinux%E8%B0%83%E6%95%B4/</guid>
       <description>arch linux 完善</description>
     </item>
     
     <item>
       <title>GolangIO</title>
-      <link>http://localhost:1313/posts/tech/go/golangio/</link>
+      <link>https://XianCH.github.io/posts/tech/go/golangio/</link>
       <pubDate>Thu, 07 Dec 2023 04:52:00 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/go/golangio/</guid>
+      <guid>https://XianCH.github.io/posts/tech/go/golangio/</guid>
       <description>解决自己在go io操作的疑惑</description>
     </item>
     
     <item>
       <title>Golang实现消息队列</title>
-      <link>http://localhost:1313/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</link>
+      <link>https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</link>
       <pubDate>Wed, 06 Dec 2023 21:02:13 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</guid>
+      <guid>https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</guid>
       <description></description>
     </item>
     
     <item>
       <title>字符集编码</title>
-      <link>http://localhost:1313/posts/tech/basic/%E5%AD%97%E7%AC%A6%E9%9B%86%E7%BC%96%E7%A0%81/</link>
+      <link>https://XianCH.github.io/posts/tech/basic/%E5%AD%97%E7%AC%A6%E9%9B%86%E7%BC%96%E7%A0%81/</link>
       <pubDate>Tue, 05 Dec 2023 23:41:02 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/basic/%E5%AD%97%E7%AC%A6%E9%9B%86%E7%BC%96%E7%A0%81/</guid>
+      <guid>https://XianCH.github.io/posts/tech/basic/%E5%AD%97%E7%AC%A6%E9%9B%86%E7%BC%96%E7%A0%81/</guid>
       <description>ascii unicode utf-8</description>
     </item>
     
     <item>
       <title>Golang实现通用线程池</title>
-      <link>http://localhost:1313/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0/</link>
+      <link>https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0/</link>
       <pubDate>Tue, 05 Dec 2023 03:10:31 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0/</guid>
+      <guid>https://XianCH.github.io/posts/tech/go/golang%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0/</guid>
       <description>go线程池</description>
     </item>
     
     <item>
       <title>Jwt</title>
-      <link>http://localhost:1313/posts/tech/basic/jwt/</link>
+      <link>https://XianCH.github.io/posts/tech/basic/jwt/</link>
       <pubDate>Thu, 23 Nov 2023 16:29:09 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/basic/jwt/</guid>
+      <guid>https://XianCH.github.io/posts/tech/basic/jwt/</guid>
       <description>简介 jwt(json web token)，主要用在跨域认证的问题 JWT原理 在https://jwt.io/ 这个网站可以进行jwt的encode 和decode，encode和decode分别如下 jwt组成 通过decode出来的数据，可以看到jwt由三部分组成 1.HEADER (ALGORITHM &amp;amp; TOKEN TYPE) 2.PAYLOAD (DATA) 3.SIGNATURE (SIGNATURE) Header Header 部分是一个 JSON 对象，描述</description>
     </item>
     
     <item>
       <title>Kafka</title>
-      <link>http://localhost:1313/posts/tech/distributed/kafka/</link>
+      <link>https://XianCH.github.io/posts/tech/distributed/kafka/</link>
       <pubDate>Wed, 22 Nov 2023 18:55:14 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/distributed/kafka/</guid>
+      <guid>https://XianCH.github.io/posts/tech/distributed/kafka/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mysql重审</title>
-      <link>http://localhost:1313/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/</link>
+      <link>https://XianCH.github.io/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/</link>
       <pubDate>Wed, 22 Nov 2023 18:47:52 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/</guid>
+      <guid>https://XianCH.github.io/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/</guid>
       <description>简述 以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点 mysql相关命令 #查看数据库引擎 show engine; #查看表结构 DESC tablename; #查看创建表的sql语句 show CREATE TABLE TABLE_NAME; #创建表 Drop table if exists `school`; CREATE TABLE `school` default character set utf8; use school; #自增 auto_increment; #主键 primary key(`column`); #设置引擎和编码 engine = innoDB DEFAULT CHARSET= UT8; #设置外键将产品的cid绑定到category的主</description>
     </item>
     
     <item>
       <title>Nginx</title>
-      <link>http://localhost:1313/posts/tech/distributed/nginx%E5%85%A5%E9%97%A8/</link>
+      <link>https://XianCH.github.io/posts/tech/distributed/nginx%E5%85%A5%E9%97%A8/</link>
       <pubDate>Thu, 19 Oct 2023 18:19:51 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/distributed/nginx%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://XianCH.github.io/posts/tech/distributed/nginx%E5%85%A5%E9%97%A8/</guid>
       <description>nginx入门与实战</description>
     </item>
     
     <item>
       <title>Gin框架学习</title>
-      <link>http://localhost:1313/posts/tech/go/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://XianCH.github.io/posts/tech/go/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Wed, 11 Oct 2023 17:30:30 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/go/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://XianCH.github.io/posts/tech/go/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/</guid>
       <description>gin 介绍 Gin is a web framework written in Go. It features a martini-like API with performance that is up to 40 times faster thanks to httprouter. If you need performance and good productivity, you will love Gin. The key features of Gin are: Zero allocation router Fast Middleware support Crash-free JSON validation Routes grouping Error management Rendering built-in Extendable Gin 与 net/http 的关系 gin是在 Golang HTTP 标准库 net/http 基础之上的再封装 Gin 框架使用示例 func main(){ mux := gin.Default() mux.Use(middleware) mux.Post(&amp;#34;/ping&amp;#34;,xxxhandler) if err :=mux.Run(&amp;#34;:8000&amp;#34;); err != nil { panic(err) } } func xxxhandler(c *gin.context){ c.Json(http.StatusOK,&amp;#34;pong&amp;#34;) } 简易解释（后面会详细解释）： gin.Default</description>
     </item>
     
     <item>
       <title>Websocket学习</title>
-      <link>http://localhost:1313/posts/tech/go/websocket%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://XianCH.github.io/posts/tech/go/websocket%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Wed, 11 Oct 2023 13:32:28 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/go/websocket%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://XianCH.github.io/posts/tech/go/websocket%E5%AD%A6%E4%B9%A0/</guid>
       <description>websocket学习，在go语言运用websocket</description>
     </item>
     
     <item>
       <title>Go基础标准库</title>
-      <link>http://localhost:1313/posts/tech/go/go%E5%9F%BA%E7%A1%80%E6%A0%87%E5%87%86%E5%BA%93/</link>
+      <link>https://XianCH.github.io/posts/tech/go/go%E5%9F%BA%E7%A1%80%E6%A0%87%E5%87%86%E5%BA%93/</link>
       <pubDate>Thu, 05 Oct 2023 15:37:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/go/go%E5%9F%BA%E7%A1%80%E6%A0%87%E5%87%86%E5%BA%93/</guid>
+      <guid>https://XianCH.github.io/posts/tech/go/go%E5%9F%BA%E7%A1%80%E6%A0%87%E5%87%86%E5%BA%93/</guid>
       <description>os os 包是 Go 语言标准库的一部分，主要用于与操作系统进行交互，提供了访问操作系统底层功能的功能。下面是关于 os 包的一些重要功能和用法： 文件和目录操作： os.Create：创建文件。 os.Open：打开文件。 os.OpenFile：以指定模式打开文件。 os.Remove：删除文件或目录。</description>
     </item>
     
     <item>
       <title>Go操作redis</title>
-      <link>http://localhost:1313/posts/tech/go/go%E6%93%8D%E4%BD%9Credis/</link>
+      <link>https://XianCH.github.io/posts/tech/go/go%E6%93%8D%E4%BD%9Credis/</link>
       <pubDate>Wed, 27 Sep 2023 07:00:18 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/go/go%E6%93%8D%E4%BD%9Credis/</guid>
+      <guid>https://XianCH.github.io/posts/tech/go/go%E6%93%8D%E4%BD%9Credis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Redis基础知识回顾(更新中)</title>
-      <link>http://localhost:1313/posts/tech/database/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <link>https://XianCH.github.io/posts/tech/database/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Tue, 26 Sep 2023 21:47:03 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/database/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <guid>https://XianCH.github.io/posts/tech/database/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
       <description>基础数据类型及运用场景 String 常用命令 普通字符串的基本操作： # 设置 key-value 类型的值 &amp;gt; SET name lin OK # 根据 key 获得对应的 value &amp;gt; GET name &amp;#34;lin&amp;#34; # 判断某个 key 是否存在 &amp;gt; EXISTS name (integer) 1 # 返回 key 所储存的字符串值的长度 &amp;gt; STRLEN name (integer) 3 # 删除某个 key 对应的值 &amp;gt; DEL name (integer) 1 批量设置 : # 批量设置 key-value 类型的值 &amp;gt; MSET key1 value1 key2 value2 OK # 批量获取多个 key 对应的 value &amp;gt; MGET</description>
     </item>
     
     <item>
       <title>Docker备忘录</title>
-      <link>http://localhost:1313/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/</link>
+      <link>https://XianCH.github.io/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/</link>
       <pubDate>Tue, 26 Sep 2023 18:52:17 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/</guid>
+      <guid>https://XianCH.github.io/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/</guid>
       <description>docker备忘录...</description>
     </item>
     
     <item>
       <title>Golang基础学习(更新中）</title>
-      <link>http://localhost:1313/posts/tech/go/golang%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://XianCH.github.io/posts/tech/go/golang%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Tue, 26 Sep 2023 08:01:37 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/go/golang%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://XianCH.github.io/posts/tech/go/golang%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</guid>
       <description>golang学习笔记</description>
     </item>
     
     <item>
       <title>go数据结构与算法（更新中）</title>
-      <link>http://localhost:1313/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</link>
+      <link>https://XianCH.github.io/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</link>
       <pubDate>Fri, 22 Sep 2023 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://XianCH.github.io/posts/tech/basic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</guid>
       <description>golang数据结构基础复习</description>
     </item>
     
     <item>
       <title>Golang相关练习题</title>
-      <link>http://localhost:1313/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/</link>
+      <link>https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/</link>
       <pubDate>Fri, 22 Sep 2023 09:54:06 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/</guid>
+      <guid>https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/</guid>
       <description>基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？ #var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值 var a int a =5 a :=5 #new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象 #make 用来创建切片，通道和映射</description>
     </item>
     
     <item>
       <title>arch安装以及i3wm配置</title>
-      <link>http://localhost:1313/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/</link>
+      <link>https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Wed, 30 Aug 2023 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/</guid>
       <description>这里大概记录自己archlinux的安装过程，还有i3wm的配置</description>
     </item>
     
     <item>
       <title>常用快捷键</title>
-      <link>http://localhost:1313/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <link>https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
       <pubDate>Sun, 23 Jul 2023 07:20:24 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <guid>https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
       <description>tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl+b 然</description>
     </item>
     
     <item>
       <title>关于twitter架构图的思考</title>
-      <link>http://localhost:1313/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/</link>
+      <link>https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/</link>
       <pubDate>Mon, 01 May 2023 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/</guid>
+      <guid>https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/</guid>
       <description>这个是elon发布的架构图 因为很多字看不清我在twitter上找了位架构师alex xu整理的图 https://twitter.com/alexxubyte/status/1594008281340530688 1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，</description>
     </item>
     
     <item>
       <title>java基础复习</title>
-      <link>http://localhost:1313/posts/tech/java/java%E5%A4%8D%E4%B9%A0/</link>
+      <link>https://XianCH.github.io/posts/tech/java/java%E5%A4%8D%E4%B9%A0/</link>
       <pubDate>Tue, 11 Apr 2023 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/java/java%E5%A4%8D%E4%B9%A0/</guid>
+      <guid>https://XianCH.github.io/posts/tech/java/java%E5%A4%8D%E4%B9%A0/</guid>
       <description>java基础复习</description>
     </item>
     
     <item>
       <title>java面试题</title>
-      <link>http://localhost:1313/posts/tech/java/java%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+      <link>https://XianCH.github.io/posts/tech/java/java%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
       <pubDate>Tue, 11 Apr 2023 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/java/java%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+      <guid>https://XianCH.github.io/posts/tech/java/java%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
       <description>golang数据结构基础复习</description>
     </item>
     
     <item>
       <title>java函数式编程思想</title>
-      <link>http://localhost:1313/posts/tech/java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</link>
+      <link>https://XianCH.github.io/posts/tech/java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Sat, 25 Mar 2023 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</guid>
+      <guid>https://XianCH.github.io/posts/tech/java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</guid>
       <description>//查询未成年作家的评分在70以上的书籍 由于洋流影响所以作家和书籍可能出现重复，需要进行去重 List&amp;lt;Book&amp;gt; bookList = new ArrayList&amp;lt;&amp;gt;(); Set&amp;lt;Book&amp;gt; uniqueBookValues = new HashSet&amp;lt;&amp;gt;(); Set&amp;lt;Author&amp;gt; uniqueAuthorValues = new HashSet&amp;lt;&amp;gt;(); for (Author author : authors) { if (uniqueAuthorValues.add(author)) { if (author.getAge() &amp;lt; 18) { List&amp;lt;Book&amp;gt; books = author.getBooks(); for (Book book : books) { if (book.getScore() &amp;gt; 70) { if (uniqueBookValues.add(book)) { bookList.add(book); } } } } } } System.out.println(bookList); List&amp;lt;Book&amp;gt; collect = authors.stream() .distinct() .filter(author -&amp;gt; author.getAge() &amp;lt; 18) .map(author -&amp;gt; author.getBooks()) .flatMap(Collection::stream) .filter(book -&amp;gt; book.getScore() &amp;gt; 70) .distinct() .collect(Collectors.toList()); System.out.println(collect); 1.2 函数式编程思想 1.2.1 概念 ​ 面向对象思</description>
     </item>
     
     <item>
       <title>微服务保护</title>
-      <link>http://localhost:1313/posts/tech/distributed/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4/</link>
+      <link>https://XianCH.github.io/posts/tech/distributed/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4/</link>
       <pubDate>Sun, 15 Jan 2023 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/distributed/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4/</guid>
+      <guid>https://XianCH.github.io/posts/tech/distributed/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4/</guid>
       <description>微服务保护 1.初识Sentinel 1.1.雪崩问题及解决方案 1.1.1.雪崩问题 微服务中，服务间调用关系错综复杂，一个微服务往往依赖于多个其它微服务。 如图，如果服务提供者I发生了故障，当前的应用的部分业务因为依赖于服务I，因此也会被阻塞。此时，其它不依赖于服务I的业务似乎不受影响</description>
     </item>
     
     <item>
       <title>多级缓存</title>
-      <link>http://localhost:1313/posts/tech/distributed/%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98/</link>
+      <link>https://XianCH.github.io/posts/tech/distributed/%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98/</link>
       <pubDate>Mon, 26 Dec 2022 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/distributed/%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98/</guid>
+      <guid>https://XianCH.github.io/posts/tech/distributed/%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98/</guid>
       <description>1.什么是多级缓存 传统的缓存策略一般是请求到达Tomcat后，先查询Redis，如果未命中则查询数据库，如图： 存在下面的问题： •请求要经过Tomcat处理，Tomcat的性能成为整个系统的瓶颈 •Redis缓存失效时，会对数据库产生冲击 多级缓存就是充分利用请求处理的每个环节，分别添</description>
     </item>
     
     <item>
       <title>springcloud</title>
-      <link>http://localhost:1313/posts/tech/distributed/springcloud/</link>
+      <link>https://XianCH.github.io/posts/tech/distributed/springcloud/</link>
       <pubDate>Thu, 22 Dec 2022 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/distributed/springcloud/</guid>
+      <guid>https://XianCH.github.io/posts/tech/distributed/springcloud/</guid>
       <description>springcloud学习</description>
     </item>
     
     <item>
       <title>RabbitMq部署指南</title>
-      <link>http://localhost:1313/posts/tech/distributed/rabbitmq%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/</link>
+      <link>https://XianCH.github.io/posts/tech/distributed/rabbitmq%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/</link>
       <pubDate>Wed, 19 Oct 2022 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/distributed/rabbitmq%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/</guid>
+      <guid>https://XianCH.github.io/posts/tech/distributed/rabbitmq%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/</guid>
       <description>rocketmq虚拟机部署和docker部署</description>
     </item>
     
     <item>
       <title>RabbitMq-2</title>
-      <link>http://localhost:1313/posts/tech/distributed/rabbitmq-2/</link>
+      <link>https://XianCH.github.io/posts/tech/distributed/rabbitmq-2/</link>
       <pubDate>Sat, 03 Sep 2022 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/distributed/rabbitmq-2/</guid>
+      <guid>https://XianCH.github.io/posts/tech/distributed/rabbitmq-2/</guid>
       <description>r2</description>
     </item>
     
     <item>
       <title>RabbitMq</title>
-      <link>http://localhost:1313/posts/tech/distributed/rabbitmq%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://XianCH.github.io/posts/tech/distributed/rabbitmq%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Thu, 01 Sep 2022 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/distributed/rabbitmq%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://XianCH.github.io/posts/tech/distributed/rabbitmq%E5%AD%A6%E4%B9%A0/</guid>
       <description>_</description>
     </item>
     
     <item>
       <title>springboot学习笔记</title>
-      <link>http://localhost:1313/posts/tech/java/springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <link>https://XianCH.github.io/posts/tech/java/springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Wed, 27 Jul 2022 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/java/springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://XianCH.github.io/posts/tech/java/springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>spring boot2学习笔记 一， spring boot2核心技术基础入门 1.spring能做什么 1.1 spring的能力 ![image-20220321190444355](spring boot2学习笔记.assets\image-20220321190444355.png) 二 、为什么用SpringBoot Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can &amp;ldquo;just run&amp;rdquo;. 能快速创建出生产级别的Sp</description>
     </item>
     
     <item>
       <title>sql备忘录</title>
-      <link>http://localhost:1313/posts/tech/database/sql%E5%A4%87%E5%BF%98%E5%BD%95/</link>
+      <link>https://XianCH.github.io/posts/tech/database/sql%E5%A4%87%E5%BF%98%E5%BD%95/</link>
       <pubDate>Wed, 04 May 2022 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/database/sql%E5%A4%87%E5%BF%98%E5%BD%95/</guid>
+      <guid>https://XianCH.github.io/posts/tech/database/sql%E5%A4%87%E5%BF%98%E5%BD%95/</guid>
       <description>_</description>
     </item>
     
     <item>
       <title>springmvc学习笔记笔记</title>
-      <link>http://localhost:1313/posts/tech/java/springmvc/</link>
+      <link>https://XianCH.github.io/posts/tech/java/springmvc/</link>
       <pubDate>Thu, 03 Feb 2022 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/java/springmvc/</guid>
+      <guid>https://XianCH.github.io/posts/tech/java/springmvc/</guid>
       <description>springmvc学习</description>
     </item>
     

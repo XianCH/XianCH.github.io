@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,17 +9,17 @@
 <meta name="keywords" content="">
 <meta name="description" content="docker备忘录...">
 <meta name="author" content="x14n">
-<link rel="canonical" href="http://localhost:1313/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/">
+<link rel="canonical" href="https://XianCH.github.io/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="http://localhost:1313/img/favicon.icon">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/img/main.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/img/main.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/img/main.png">
-<link rel="mask-icon" href="http://localhost:1313/img/main.png">
+<link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
+<link rel="icon" type="image/png" sizes="16x16" href="https://XianCH.github.io/img/main.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://XianCH.github.io/img/main.png">
+<link rel="apple-touch-icon" href="https://XianCH.github.io/img/main.png">
+<link rel="mask-icon" href="https://XianCH.github.io/img/main.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="http://localhost:1313/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/">
+<link rel="alternate" hreflang="zh" href="https://XianCH.github.io/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/">
 <noscript>
     <style>
         #theme-toggle,
@@ -46,16 +46,19 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+
+  
+
 <meta property="og:title" content="Docker备忘录" />
 <meta property="og:description" content="docker备忘录..." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/" />
-<meta property="og:image" content="http://localhost:1313/postsImg/docker.png" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://XianCH.github.io/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/" />
+<meta property="og:image" content="https://XianCH.github.io/postsImg/docker.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-09-26T18:52:17+00:00" />
 <meta property="article:modified_time" content="2023-09-26T18:52:17+00:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="http://localhost:1313/postsImg/docker.png" />
+<meta name="twitter:image" content="https://XianCH.github.io/postsImg/docker.png" />
 <meta name="twitter:title" content="Docker备忘录"/>
 <meta name="twitter:description" content="docker备忘录..."/>
 
@@ -70,20 +73,20 @@ var _hmt = _hmt || [];
           "@type": "ListItem",
           "position":  1 ,
           "name": "📚文章",
-          "item": "http://localhost:1313/posts/"
+          "item": "https://XianCH.github.io/posts/"
         },
 
         {
           "@type": "ListItem",
           "position":  2 ,
           "name": "👨🏻‍💻 技术",
-          "item": "http://localhost:1313/posts/tech/"
+          "item": "https://XianCH.github.io/posts/tech/"
         }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "Docker备忘录",
-      "item": "http://localhost:1313/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/"
+      "item": "https://XianCH.github.io/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/"
     }
   ]
 }
@@ -101,7 +104,7 @@ var _hmt = _hmt || [];
   "articleBody": "docker常用命令 容器 进入容器 docker exec -it contaionName /bin/bash 查看容器日志 docker logs -f contaionName # 停止运行的容器 docker stop [容器ID] # 杀死容器进程 docker kill [容器ID] 镜像 导出镜像\ndocker save 导入镜像\ndocker load docker安装相关软件 redis 运行容器\ndocker run -itd --name redis-test -p 6379:6379 redis docker run --restart=always --log-opt max-size=100m --log-opt max-file=2 -p 6379:6379 --name myredis -v /home/redis/myredis/myredis.conf:/etc/redis/redis.conf -v /home/redis/myredis/data:/data -d redis redis-server /etc/redis/redis.conf --appendonly yes --requirepass 000415 参数说明\n--restart=always 总是开机启动 --log是日志方面的 -p 6379:6379 将6379端口挂载出去 --name 给这个容器取一个名字 -v 数据卷挂载 –appendonly yes 开启redis 持久化 –requirepass 000415 设置密码 （ nacos 下载镜像\ndocker pull nacos/nacos-server:2.0.3 挂载目录\nmkdir -p /usr/local/docker/nacos/conf mkdir -p /usr/local/docker/nacos/data mkdir -p /usr/local/docker/nacos/logs chmod a+w /usr/local/docker/nacos 在/usr/local/docker/nacos/conf目录下新建application.properties文件\n在`/usr/local/docker/nacos/conf`目录下新建`application.properties`文件 server.servlet.contextPath=/nacos server.port=8848 spring.datasource.platform=mysql ### Count of DB: db.num=1 ### Connect URL of DB: db.url.0=jdbc:mysql://192.168.164.101:3306/nacos?characterEncoding=utf8\u0026connectTimeout=1000\u0026socketTimeout=3000\u0026autoReconnect=true\u0026useUnicode=true\u0026useSSL=false\u0026serverTimezone=UTC db.user.0=root db.password.0=root ### Connection pool configuration: hikariCP db.pool.config.connectionTimeout=30000 db.pool.config.validationTimeout=10000 db.pool.config.maximumPoolSize=20 db.pool.config.minimumIdle=2 nacos.naming.empty-service.auto-clean=true nacos.naming.empty-service.clean.initial-delay-ms=50000 nacos.naming.empty-service.clean.period-time-ms=30000 server.tomcat.accesslog.enabled=true ### The access log pattern: server.tomcat.accesslog.pattern=%h %l %u %t \"%r\" %s %b %D %{User-Agent}i %{Request-Source}i nacos.security.ignore.urls=/,/error,/**/*.css,/**/*.js,/**/*.html,/**/*.map,/**/*.svg,/**/*.png,/**/*.ico,/console-ui/public/**,/v1/auth/**,/v1/console/health/**,/actuator/**,/v1/console/server/** ### The auth system to use, currently only 'nacos' and 'ldap' is supported: nacos.core.auth.system.type=nacos ### If turn on auth system: nacos.core.auth.enabled=false ### The token expiration in seconds: nacos.core.auth.default.token.expire.seconds=18000 ### The default token: nacos.core.auth.default.token.secret.key=SecretKey012345678901234567890123456789012345678901234567890123456789 nacos.core.auth.caching.enabled=true nacos.core.auth.enable.userAgentAuthWhite=false nacos.core.auth.server.identity.key=serverIdentity nacos.core.auth.server.identity.value=security nacos.istio.mcp.server.enabled=false 初始化nacos数据库nacos.sql\n放到conf目录下\n/* * Copyright 1999-2018 Alibaba Group Holding Ltd. * * Licensed under the Apache License, Version 2.0 (the \"License\"); * you may not use this file except in compliance with the License. * You may obtain a copy of the License at * * http://www.apache.org/licenses/LICENSE-2.0 * * Unless required by applicable law or agreed to in writing, software * distributed under the License is distributed on an \"AS IS\" BASIS, * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. * See the License for the specific language governing permissions and * limitations under the License. */ /******************************************/ /* 数据库全名 = nacos_config */ /* 表名称 = config_info */ /******************************************/ CREATE TABLE `config_info` ( `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id', `data_id` varchar(255) NOT NULL COMMENT 'data_id', `group_id` varchar(255) DEFAULT NULL, `content` longtext NOT NULL COMMENT 'content', `md5` varchar(32) DEFAULT NULL COMMENT 'md5', `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间', `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间', `src_user` text COMMENT 'source user', `src_ip` varchar(50) DEFAULT NULL COMMENT 'source ip', `app_name` varchar(128) DEFAULT NULL, `tenant_id` varchar(128) DEFAULT '' COMMENT '租户字段', `c_desc` varchar(256) DEFAULT NULL, `c_use` varchar(64) DEFAULT NULL, `effect` varchar(64) DEFAULT NULL, `type` varchar(64) DEFAULT NULL, `c_schema` text, PRIMARY KEY (`id`), UNIQUE KEY `uk_configinfo_datagrouptenant` (`data_id`,`group_id`,`tenant_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='config_info'; /******************************************/ /* 数据库全名 = nacos_config */ /* 表名称 = config_info_aggr */ /******************************************/ CREATE TABLE `config_info_aggr` ( `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id', `data_id` varchar(255) NOT NULL COMMENT 'data_id', `group_id` varchar(255) NOT NULL COMMENT 'group_id', `datum_id` varchar(255) NOT NULL COMMENT 'datum_id', `content` longtext NOT NULL COMMENT '内容', `gmt_modified` datetime NOT NULL COMMENT '修改时间', `app_name` varchar(128) DEFAULT NULL, `tenant_id` varchar(128) DEFAULT '' COMMENT '租户字段', PRIMARY KEY (`id`), UNIQUE KEY `uk_configinfoaggr_datagrouptenantdatum` (`data_id`,`group_id`,`tenant_id`,`datum_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='增加租户字段'; /******************************************/ /* 数据库全名 = nacos_config */ /* 表名称 = config_info_beta */ /******************************************/ CREATE TABLE `config_info_beta` ( `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id', `data_id` varchar(255) NOT NULL COMMENT 'data_id', `group_id` varchar(128) NOT NULL COMMENT 'group_id', `app_name` varchar(128) DEFAULT NULL COMMENT 'app_name', `content` longtext NOT NULL COMMENT 'content', `beta_ips` varchar(1024) DEFAULT NULL COMMENT 'betaIps', `md5` varchar(32) DEFAULT NULL COMMENT 'md5', `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间', `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间', `src_user` text COMMENT 'source user', `src_ip` varchar(50) DEFAULT NULL COMMENT 'source ip', `tenant_id` varchar(128) DEFAULT '' COMMENT '租户字段', PRIMARY KEY (`id`), UNIQUE KEY `uk_configinfobeta_datagrouptenant` (`data_id`,`group_id`,`tenant_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='config_info_beta'; /******************************************/ /* 数据库全名 = nacos_config */ /* 表名称 = config_info_tag */ /******************************************/ CREATE TABLE `config_info_tag` ( `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id', `data_id` varchar(255) NOT NULL COMMENT 'data_id', `group_id` varchar(128) NOT NULL COMMENT 'group_id', `tenant_id` varchar(128) DEFAULT '' COMMENT 'tenant_id', `tag_id` varchar(128) NOT NULL COMMENT 'tag_id', `app_name` varchar(128) DEFAULT NULL COMMENT 'app_name', `content` longtext NOT NULL COMMENT 'content', `md5` varchar(32) DEFAULT NULL COMMENT 'md5', `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间', `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间', `src_user` text COMMENT 'source user', `src_ip` varchar(50) DEFAULT NULL COMMENT 'source ip', PRIMARY KEY (`id`), UNIQUE KEY `uk_configinfotag_datagrouptenanttag` (`data_id`,`group_id`,`tenant_id`,`tag_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='config_info_tag'; /******************************************/ /* 数据库全名 = nacos_config */ /* 表名称 = config_tags_relation */ /******************************************/ CREATE TABLE `config_tags_relation` ( `id` bigint(20) NOT NULL COMMENT 'id', `tag_name` varchar(128) NOT NULL COMMENT 'tag_name', `tag_type` varchar(64) DEFAULT NULL COMMENT 'tag_type', `data_id` varchar(255) NOT NULL COMMENT 'data_id', `group_id` varchar(128) NOT NULL COMMENT 'group_id', `tenant_id` varchar(128) DEFAULT '' COMMENT 'tenant_id', `nid` bigint(20) NOT NULL AUTO_INCREMENT, PRIMARY KEY (`nid`), UNIQUE KEY `uk_configtagrelation_configidtag` (`id`,`tag_name`,`tag_type`), KEY `idx_tenant_id` (`tenant_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='config_tag_relation'; /******************************************/ /* 数据库全名 = nacos_config */ /* 表名称 = group_capacity */ /******************************************/ CREATE TABLE `group_capacity` ( `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键ID', `group_id` varchar(128) NOT NULL DEFAULT '' COMMENT 'Group ID，空字符表示整个集群', `quota` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '配额，0表示使用默认值', `usage` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '使用量', `max_size` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '单个配置大小上限，单位为字节，0表示使用默认值', `max_aggr_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '聚合子配置最大个数，，0表示使用默认值', `max_aggr_size` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '单个聚合数据的子配置大小上限，单位为字节，0表示使用默认值', `max_history_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '最大变更历史数量', `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间', `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间', PRIMARY KEY (`id`), UNIQUE KEY `uk_group_id` (`group_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='集群、各Group容量信息表'; /******************************************/ /* 数据库全名 = nacos_config */ /* 表名称 = his_config_info */ /******************************************/ CREATE TABLE `his_config_info` ( `id` bigint(64) unsigned NOT NULL, `nid` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `data_id` varchar(255) NOT NULL, `group_id` varchar(128) NOT NULL, `app_name` varchar(128) DEFAULT NULL COMMENT 'app_name', `content` longtext NOT NULL, `md5` varchar(32) DEFAULT NULL, `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, `src_user` text, `src_ip` varchar(50) DEFAULT NULL, `op_type` char(10) DEFAULT NULL, `tenant_id` varchar(128) DEFAULT '' COMMENT '租户字段', PRIMARY KEY (`nid`), KEY `idx_gmt_create` (`gmt_create`), KEY `idx_gmt_modified` (`gmt_modified`), KEY `idx_did` (`data_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='多租户改造'; /******************************************/ /* 数据库全名 = nacos_config */ /* 表名称 = tenant_capacity */ /******************************************/ CREATE TABLE `tenant_capacity` ( `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键ID', `tenant_id` varchar(128) NOT NULL DEFAULT '' COMMENT 'Tenant ID', `quota` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '配额，0表示使用默认值', `usage` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '使用量', `max_size` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '单个配置大小上限，单位为字节，0表示使用默认值', `max_aggr_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '聚合子配置最大个数', `max_aggr_size` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '单个聚合数据的子配置大小上限，单位为字节，0表示使用默认值', `max_history_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '最大变更历史数量', `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间', `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间', PRIMARY KEY (`id`), UNIQUE KEY `uk_tenant_id` (`tenant_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='租户容量信息表'; CREATE TABLE `tenant_info` ( `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id', `kp` varchar(128) NOT NULL COMMENT 'kp', `tenant_id` varchar(128) default '' COMMENT 'tenant_id', `tenant_name` varchar(128) default '' COMMENT 'tenant_name', `tenant_desc` varchar(256) DEFAULT NULL COMMENT 'tenant_desc', `create_source` varchar(32) DEFAULT NULL COMMENT 'create_source', `gmt_create` bigint(20) NOT NULL COMMENT '创建时间', `gmt_modified` bigint(20) NOT NULL COMMENT '修改时间', PRIMARY KEY (`id`), UNIQUE KEY `uk_tenant_info_kptenantid` (`kp`,`tenant_id`), KEY `idx_tenant_id` (`tenant_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='tenant_info'; CREATE TABLE `users` ( `username` varchar(50) NOT NULL PRIMARY KEY, `password` varchar(500) NOT NULL, `enabled` boolean NOT NULL ); CREATE TABLE `roles` ( `username` varchar(50) NOT NULL, `role` varchar(50) NOT NULL, UNIQUE INDEX `idx_user_role` (`username` ASC, `role` ASC) USING BTREE ); CREATE TABLE `permissions` ( `role` varchar(50) NOT NULL, `resource` varchar(255) NOT NULL, `action` varchar(8) NOT NULL, UNIQUE INDEX `uk_role_permission` (`role`,`resource`,`action`) USING BTREE ); INSERT INTO users (username, password, enabled) VALUES ('nacos', '$2a$10$EuWPZHzz32dJN7jexM34MOeYirDdFAZm2kuWj7VEOJhhZkDrxfvUu', TRUE); INSERT INTO roles (username, role) VALUES ('nacos', 'ROLE_ADMIN'); 运行\ndocker run -it --name nacos \\ -p 8848:8848 \\ -e MODE=standalone \\ -v /usr/local/docker/nacos/conf/application.properties:/home/nacos/conf/application.properties \\ -v /usr/local/docker/nacos/conf/data:/home/nacos/conf/data \\ -v /usr/local/docker/nacos/conf/logs:/home/nacos/conf/logs \\ -d nacos/nacos-server:2.0.3 mysql docker run -d --name=mysql-server -p 3306:3306 -v mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=your_password mysql docker run -d --name=mysql-server -p 3306:3306 -e MYSQL_ROOT_PASSWORD=your_password mysql nginx Nginx 配置文件：你通常会想要自定义 Nginx 的配置。你可以将自定义的 Nginx 配置文件挂载到容器内，以覆盖默认配置。你可以使用 -v 标志来挂载主机上的配置文件到容器内，就像上面的示例所示。这样，你可以在主机上编辑配置文件，然后容器将使用你的自定义配置。\ndocker run -d -p 80:80 -v /host/path/nginx.conf:/etc/nginx/nginx.conf:ro nginx 网站内容：如果你要提供静态网页或其他文件，你可以将这些文件挂载到容器内的 Nginx 根目录中。这通常发生在挂载一个目录，其中包含你的网站文件。\ndocker run -d -p 80:80 -v /host/path/html:/usr/share/nginx/html nginx SSL 证书：如果你使用 HTTPS，你需要提供 SSL 证书和密钥。你可以将 SSL 证书挂载到容器内的适当位置，以便 Nginx 可以使用它们。\ndocker run -d -p 443:443 -v /host/path/certs:/etc/nginx/certs nginx 日志文件：如果你想在主机上保存 Nginx 的访问日志和错误日志，你可以挂载一个目录以便容器可以将日志文件写入该目录。\ndocker run -d -p 80:80 -v /host/path/logs:/var/log/nginx nginx 拉取镜像\ndocker pull nginx:latest 运行镜像\ndocker run --name nginx -p 80:80 -d nginx 创建挂载目录\nmkdir -p ~/Documents/dockerdata/nginx/conf / mkdir -p ~/Documents/dockerdata/nginx/conf.d / mkdir -p ~/Documents/dockerdata/nginx/html / mkdir -p ~/Documents/dockerdata/nginx/log / 拷贝容器里面的内容\ndocker cp nginx:/etc/nginx/nginx.conf ~/Documents/dockerdata/nginx/conf/nginx.conf / docker cp nginx:/etc/nginx/conf.d ~/Documents/dockerdata/nginx / docker cp nginx:/usr/share/nginx/html ~/Documents/dockerdata/nginx / 停止并关闭容器\ndocker rm -f nginx 重新启动容器\ndocker run --name nginx -p 80:80 --privileged --restart=always \\ -v ~/Documents/dockerdata/nginx/conf/nginx.conf:/etc/nginx/nginx.conf:rw \\ -v ~/Documents/dockerdata/nginx/conf.d:/etc/nginx/conf.d:rw \\ -v ~/Documents/dockerdata/nginx/html:/usr/share/nginx/html:rw \\ -v ~/Documents/dockerdata/nginx/log:/var/log/nginx \\ -d nginx portainer docker network disconnect bridge mysql-server docker network connect portainer-net mysql-server docker network inspect bridge docker network create portainer-net docker run -d -p 9000:9000 --name=portainer --restart=always \\ -v /var/run/docker.sock:/var/run/docker.sock \\ -v portainer_data:/data --network portainer-net portainer/portainer-ce ",
   "wordCount" : "2775",
   "inLanguage": "zh",
-  "image":"http://localhost:1313/postsImg/docker.png","datePublished": "2023-09-26T18:52:17Z",
+  "image":"https://XianCH.github.io/postsImg/docker.png","datePublished": "2023-09-26T18:52:17Z",
   "dateModified": "2023-09-26T18:52:17Z",
   "author":[{
     "@type": "Person",
@@ -109,14 +112,14 @@ var _hmt = _hmt || [];
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/"
+    "@id": "https://XianCH.github.io/posts/tech/tool/docker%E5%A4%87%E5%BF%98%E5%BD%95/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "X14n's Blog",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:1313/img/favicon.icon"
+      "url": "https://XianCH.github.io/img/favicon.icon"
     }
   }
 }
@@ -134,8 +137,8 @@ var _hmt = _hmt || [];
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
-            <img src="http://localhost:1313/img/main.png" alt="logo" aria-label="logo"
+            <a href="https://XianCH.github.io/" accesskey="h" title="x14n&#39;s Blog (Alt + H)">
+            <img src="https://XianCH.github.io/img/main.png" alt="logo" aria-label="logo"
                  height="35">x14n&#39;s Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
@@ -164,32 +167,32 @@ var _hmt = _hmt || [];
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <a href="https://XianCH.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
                 <span>🔍 搜索</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/" title="🏠 主页">
+                <a href="https://XianCH.github.io/" title="🏠 主页">
                 <span>🏠 主页</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/posts" title="📚 文章">
+                <a href="https://XianCH.github.io/posts" title="📚 文章">
                 <span>📚 文章</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags" title="🧩 标签">
+                <a href="https://XianCH.github.io/tags" title="🧩 标签">
                 <span>🧩 标签</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives/" title="⏱️ 时间轴">
+                <a href="https://XianCH.github.io/archives/" title="⏱️ 时间轴">
                 <span>⏱️ 时间轴</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about" title="🙋🏻‍♂️ 关于">
+                <a href="https://XianCH.github.io/about" title="🙋🏻‍♂️ 关于">
                 <span>🙋🏻‍♂️ 关于</span>
                 </a>
             </li>
@@ -208,7 +211,7 @@ var _hmt = _hmt || [];
 <article class="post-single">
     <div id="single-content">
         <header class="post-header">
-            <div class="breadcrumbs"><a href="http://localhost:1313/">🏠 主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">📚文章</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/tech/">👨🏻‍💻 技术</a></div>
+            <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">👨🏻‍💻 技术</a></div>
             <h1 class="post-title">
                 Docker备忘录
             </h1>
@@ -267,7 +270,7 @@ var _hmt = _hmt || [];
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="http://localhost:1313/tags/tool/" style="color: var(--secondary)!important;">Tool</a>
+                <a href="https://XianCH.github.io/tags/tool/" style="color: var(--secondary)!important;">Tool</a>
             </span>
         </span>
     </span>
@@ -288,7 +291,7 @@ var _hmt = _hmt || [];
                             <script>
                                 let url = document.documentURI
                                 
-                                let dnsUrl = "http://localhost:1313/"
+                                let dnsUrl = "https://XianCH.github.io/"
                                 let urlSplit = url.split(dnsUrl)
                                 let finalUrl = urlSplit[1]
                                 if (finalUrl[0] !== '/') {
@@ -321,7 +324,7 @@ var _hmt = _hmt || [];
 
 </div>
         </header> 
-<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="http://localhost:1313/postsImg/docker.png" alt="">
+<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/docker.png" alt="">
     
 </figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
@@ -808,12 +811,12 @@ var _hmt = _hmt || [];
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/tech/database/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+  <a class="prev" href="https://XianCH.github.io/posts/tech/database/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
     <span class="title">« 上一页</span>
     <br>
     <span>Redis基础知识回顾(更新中)</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/tech/go/golang%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">
+  <a class="next" href="https://XianCH.github.io/posts/tech/go/golang%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">
     <span class="title">下一页 »</span>
     <br>
     <span>Golang基础学习(更新中）</span>
@@ -836,7 +839,7 @@ var _hmt = _hmt || [];
         Copyright
         &copy;
         -2024
-        <a href="http://localhost:1313/" style="color:#939393;">X14n&#39;s Blog</a>
+        <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>
     <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;"></a>&nbsp;

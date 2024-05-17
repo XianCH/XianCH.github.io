@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>ArchLinux on X14n&#39;s Blog</title>
-    <link>http://localhost:1313/tags/archlinux/</link>
+    <link>https://XianCH.github.io/tags/archlinux/</link>
     <description>Recent content in ArchLinux on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 30 Aug 2023 10:16:51 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Aug 2023 10:16:51 +0000</lastBuildDate><atom:link href="https://XianCH.github.io/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>arch安装以及i3wm配置</title>
-      <link>http://localhost:1313/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/</link>
+      <link>https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Wed, 30 Aug 2023 10:16:51 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://XianCH.github.io/posts/tech/archlinux/archlinux%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Ai3wm%E9%85%8D%E7%BD%AE/</guid>
       <description>这里大概记录自己archlinux的安装过程，还有i3wm的配置</description>
     </item>
     
