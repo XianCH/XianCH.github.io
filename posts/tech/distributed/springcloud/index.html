@@ -46,9 +46,6 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
-  
-
 <meta property="og:title" content="springcloud" />
 <meta property="og:description" content="springcloud学习" />
 <meta property="og:type" content="article" />
@@ -553,8 +550,7 @@ var _hmt = _hmt || [];
 <p><img loading="lazy" src="assets/image-20210714164856664.png" alt="image-20210714164856664"  />
 </p>
 <blockquote>
-<p>注意：项目的核心配置，需要热更新的配置才有放到nacos管理的必要。基本不会变更的一些配置还是保存在微服务本地比较好。</p>
-</blockquote>
+<p>注意：项目的核心配置，需要热更新的配置才有放到nacos管理的必要。基本不会变更的一些配置还是保存在微服务本地比较好。</p></blockquote>
 <h3 id="112从微服务拉取配置">1.1.2.从微服务拉取配置<a hidden class="anchor" aria-hidden="true" href="#112从微服务拉取配置">#</a></h3>
 <p>微服务要拉取nacos中管理的配置，并且与本地的application.yml配置合并，才能完成项目启动。</p>
 <p>但如果尚未读取application.yml，又如何得知nacos地址呢？</p>
@@ -787,40 +783,40 @@ var _hmt = _hmt || [];
 <h2 id="22自定义配置">2.2.自定义配置<a hidden class="anchor" aria-hidden="true" href="#22自定义配置">#</a></h2>
 <p>Feign可以支持很多的自定义配置，如下表所示：</p>
 <table>
-<thead>
-<tr>
-<th>类型</th>
-<th>作用</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>feign.Logger.Level</strong></td>
-<td>修改日志级别</td>
-<td>包含四种不同的级别：NONE、BASIC、HEADERS、FULL</td>
-</tr>
-<tr>
-<td>feign.codec.Decoder</td>
-<td>响应结果的解析器</td>
-<td>http远程调用的结果做解析，例如解析json字符串为java对象</td>
-</tr>
-<tr>
-<td>feign.codec.Encoder</td>
-<td>请求参数编码</td>
-<td>将请求参数编码，便于通过http请求发送</td>
-</tr>
-<tr>
-<td>feign. Contract</td>
-<td>支持的注解格式</td>
-<td>默认是SpringMVC的注解</td>
-</tr>
-<tr>
-<td>feign. Retryer</td>
-<td>失败重试机制</td>
-<td>请求失败的重试机制，默认是没有，不过会使用Ribbon的重试</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>类型</th>
+          <th>作用</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>feign.Logger.Level</strong></td>
+          <td>修改日志级别</td>
+          <td>包含四种不同的级别：NONE、BASIC、HEADERS、FULL</td>
+      </tr>
+      <tr>
+          <td>feign.codec.Decoder</td>
+          <td>响应结果的解析器</td>
+          <td>http远程调用的结果做解析，例如解析json字符串为java对象</td>
+      </tr>
+      <tr>
+          <td>feign.codec.Encoder</td>
+          <td>请求参数编码</td>
+          <td>将请求参数编码，便于通过http请求发送</td>
+      </tr>
+      <tr>
+          <td>feign. Contract</td>
+          <td>支持的注解格式</td>
+          <td>默认是SpringMVC的注解</td>
+      </tr>
+      <tr>
+          <td>feign. Retryer</td>
+          <td>失败重试机制</td>
+          <td>请求失败的重试机制，默认是没有，不过会使用Ribbon的重试</td>
+      </tr>
+  </tbody>
 </table>
 <p>一般情况下，默认值就能满足我们使用，如果要自定义时，只需要创建自定义的@Bean覆盖默认Bean即可。</p>
 <p>下面以日志为例来演示如何自定义配置。</p>
@@ -1082,70 +1078,70 @@ var _hmt = _hmt || [];
 <p><code>org.springframework.cloud.gateway.handler.predicate.PathRoutePredicateFactory</code>类来</p>
 <p>处理的，像这样的断言工厂在SpringCloudGateway还有十几个:</p>
 <table>
-<thead>
-<tr>
-<th><strong>名称</strong></th>
-<th><strong>说明</strong></th>
-<th><strong>示例</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>After</td>
-<td>是某个时间点后的请求</td>
-<td>-  After=2037-01-20T17:42:47.789-07:00[America/Denver]</td>
-</tr>
-<tr>
-<td>Before</td>
-<td>是某个时间点之前的请求</td>
-<td>-  Before=2031-04-13T15:14:47.433+08:00[Asia/Shanghai]</td>
-</tr>
-<tr>
-<td>Between</td>
-<td>是某两个时间点之前的请求</td>
-<td>-  Between=2037-01-20T17:42:47.789-07:00[America/Denver],  2037-01-21T17:42:47.789-07:00[America/Denver]</td>
-</tr>
-<tr>
-<td>Cookie</td>
-<td>请求必须包含某些cookie</td>
-<td>- Cookie=chocolate, ch.p</td>
-</tr>
-<tr>
-<td>Header</td>
-<td>请求必须包含某些header</td>
-<td>- Header=X-Request-Id, \d+</td>
-</tr>
-<tr>
-<td>Host</td>
-<td>请求必须是访问某个host（域名）</td>
-<td>-  Host=<strong>.somehost.org,</strong>.anotherhost.org</td>
-</tr>
-<tr>
-<td>Method</td>
-<td>请求方式必须是指定方式</td>
-<td>- Method=GET,POST</td>
-</tr>
-<tr>
-<td>Path</td>
-<td>请求路径必须符合指定规则</td>
-<td>- Path=/red/{segment},/blue/**</td>
-</tr>
-<tr>
-<td>Query</td>
-<td>请求参数必须包含指定参数</td>
-<td>- Query=name, Jack或者-  Query=name</td>
-</tr>
-<tr>
-<td>RemoteAddr</td>
-<td>请求者的ip必须是指定范围</td>
-<td>- RemoteAddr=192.168.1.1/24</td>
-</tr>
-<tr>
-<td>Weight</td>
-<td>权重处理</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>名称</strong></th>
+          <th><strong>说明</strong></th>
+          <th><strong>示例</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>After</td>
+          <td>是某个时间点后的请求</td>
+          <td>-  After=2037-01-20T17:42:47.789-07:00[America/Denver]</td>
+      </tr>
+      <tr>
+          <td>Before</td>
+          <td>是某个时间点之前的请求</td>
+          <td>-  Before=2031-04-13T15:14:47.433+08:00[Asia/Shanghai]</td>
+      </tr>
+      <tr>
+          <td>Between</td>
+          <td>是某两个时间点之前的请求</td>
+          <td>-  Between=2037-01-20T17:42:47.789-07:00[America/Denver],  2037-01-21T17:42:47.789-07:00[America/Denver]</td>
+      </tr>
+      <tr>
+          <td>Cookie</td>
+          <td>请求必须包含某些cookie</td>
+          <td>- Cookie=chocolate, ch.p</td>
+      </tr>
+      <tr>
+          <td>Header</td>
+          <td>请求必须包含某些header</td>
+          <td>- Header=X-Request-Id, \d+</td>
+      </tr>
+      <tr>
+          <td>Host</td>
+          <td>请求必须是访问某个host（域名）</td>
+          <td>-  Host=<strong>.somehost.org,</strong>.anotherhost.org</td>
+      </tr>
+      <tr>
+          <td>Method</td>
+          <td>请求方式必须是指定方式</td>
+          <td>- Method=GET,POST</td>
+      </tr>
+      <tr>
+          <td>Path</td>
+          <td>请求路径必须符合指定规则</td>
+          <td>- Path=/red/{segment},/blue/**</td>
+      </tr>
+      <tr>
+          <td>Query</td>
+          <td>请求参数必须包含指定参数</td>
+          <td>- Query=name, Jack或者-  Query=name</td>
+      </tr>
+      <tr>
+          <td>RemoteAddr</td>
+          <td>请求者的ip必须是指定范围</td>
+          <td>- RemoteAddr=192.168.1.1/24</td>
+      </tr>
+      <tr>
+          <td>Weight</td>
+          <td>权重处理</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <p>我们只需要掌握Path这种路由工程就可以了。</p>
 <h2 id="34过滤器工厂">3.4.过滤器工厂<a hidden class="anchor" aria-hidden="true" href="#34过滤器工厂">#</a></h2>
@@ -1155,40 +1151,39 @@ var _hmt = _hmt || [];
 <h3 id="341路由过滤器的种类">3.4.1.路由过滤器的种类<a hidden class="anchor" aria-hidden="true" href="#341路由过滤器的种类">#</a></h3>
 <p>Spring提供了31种不同的路由过滤器工厂。例如：</p>
 <table>
-<thead>
-<tr>
-<th><strong>名称</strong></th>
-<th><strong>说明</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AddRequestHeader</td>
-<td>给当前请求添加一个请求头</td>
-</tr>
-<tr>
-<td>RemoveRequestHeader</td>
-<td>移除请求中的一个请求头</td>
-</tr>
-<tr>
-<td>AddResponseHeader</td>
-<td>给响应结果中添加一个响应头</td>
-</tr>
-<tr>
-<td>RemoveResponseHeader</td>
-<td>从响应结果中移除有一个响应头</td>
-</tr>
-<tr>
-<td>RequestRateLimiter</td>
-<td>限制请求的流量</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>名称</strong></th>
+          <th><strong>说明</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>AddRequestHeader</td>
+          <td>给当前请求添加一个请求头</td>
+      </tr>
+      <tr>
+          <td>RemoveRequestHeader</td>
+          <td>移除请求中的一个请求头</td>
+      </tr>
+      <tr>
+          <td>AddResponseHeader</td>
+          <td>给响应结果中添加一个响应头</td>
+      </tr>
+      <tr>
+          <td>RemoveResponseHeader</td>
+          <td>从响应结果中移除有一个响应头</td>
+      </tr>
+      <tr>
+          <td>RequestRateLimiter</td>
+          <td>限制请求的流量</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="342请求头过滤器">3.4.2.请求头过滤器<a hidden class="anchor" aria-hidden="true" href="#342请求头过滤器">#</a></h3>
 <p>下面我们以AddRequestHeader 为例来讲解。</p>
 <blockquote>
-<p><strong>需求</strong>：给所有进入userservice的请求添加一个请求头：Truth=itcast is freaking awesome!</p>
-</blockquote>
+<p><strong>需求</strong>：给所有进入userservice的请求添加一个请求头：Truth=itcast is freaking awesome!</p></blockquote>
 <p>只需要修改gateway服务的application.yml文件，添加路由过滤即可：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">spring</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">cloud</span>:
@@ -1376,7 +1371,7 @@ var _hmt = _hmt || [];
     <span>
         Copyright
         &copy;
-        -2024
+        -2025
         <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>

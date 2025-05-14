@@ -7,7 +7,61 @@
 <meta name="robots" content="index, follow">
 <title>Javascript复习 | X14n&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="JavaScript 01_基本语法和数据类型 变量、数据类型、运算符、条件语句、循环语句等基本语法和数据类型。 // 变量声明和赋值 let name = &#34;John&#34;; const age = 30; var isAdmin = true; // 数据类型 let num = 10; // Number let str = &#34;Hello&#34;; // String let bool = true; // Boolean let arr = [1, 2, 3]; // Array let obj = { name: &#34;John&#34;, age: 30 }; // Object let n = null; // Null let u = undefined; // Undefined // 运算符 let sum = 10 &#43; 5; // 加法 let difference = 10 - 5; // 减">
+<meta name="description" content="JavaScript
+01_基本语法和数据类型
+变量、数据类型、运算符、条件语句、循环语句等基本语法和数据类型。
+// 变量声明和赋值
+let name = &#34;John&#34;;
+const age = 30;
+var isAdmin = true;
+
+// 数据类型
+let num = 10; // Number
+let str = &#34;Hello&#34;; // String
+let bool = true; // Boolean
+let arr = [1, 2, 3]; // Array
+let obj = { name: &#34;John&#34;, age: 30 }; // Object
+let n = null; // Null
+let u = undefined; // Undefined
+
+// 运算符
+let sum = 10 &#43; 5; // 加法
+let difference = 10 - 5; // 减法
+let product = 10 * 5; // 乘法
+let quotient = 10 / 5; // 除法
+let remainder = 10 % 3; // 取余
+let increment = 10&#43;&#43;; // 自增
+let decrement = 10--; // 自减
+
+// 条件语句
+if (isAdmin) {
+    console.log(&#34;User is an admin&#34;);
+} else if (age &gt;= 18) {
+    console.log(&#34;User is an adult&#34;);
+} else {
+    console.log(&#34;User is a minor&#34;);
+}
+
+// 循环语句
+for (let i = 0; i &lt; arr.length; i&#43;&#43;) {
+    console.log(arr[i]);
+}
+
+let i = 0;
+while (i &lt; arr.length) {
+    console.log(arr[i]);
+    i&#43;&#43;;
+}
+
+// 函数声明
+function greet(name) {
+    console.log(&#34;Hello, &#34; &#43; name &#43; &#34;!&#34;);
+}
+
+// 调用函数
+greet(&#34;John&#34;);
+02_函数和作用域
+函数的定义、调用、参数传递、作用域链、闭包等相关概念和用法。">
 <meta name="author" content="x14n">
 <link rel="canonical" href="https://XianCH.github.io/posts/tech/front/javascript%E5%A4%8D%E4%B9%A0/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -46,11 +100,62 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
-  
-
 <meta property="og:title" content="Javascript复习" />
-<meta property="og:description" content="JavaScript 01_基本语法和数据类型 变量、数据类型、运算符、条件语句、循环语句等基本语法和数据类型。 // 变量声明和赋值 let name = &#34;John&#34;; const age = 30; var isAdmin = true; // 数据类型 let num = 10; // Number let str = &#34;Hello&#34;; // String let bool = true; // Boolean let arr = [1, 2, 3]; // Array let obj = { name: &#34;John&#34;, age: 30 }; // Object let n = null; // Null let u = undefined; // Undefined // 运算符 let sum = 10 &#43; 5; // 加法 let difference = 10 - 5; // 减" />
+<meta property="og:description" content="JavaScript
+01_基本语法和数据类型
+变量、数据类型、运算符、条件语句、循环语句等基本语法和数据类型。
+// 变量声明和赋值
+let name = &#34;John&#34;;
+const age = 30;
+var isAdmin = true;
+
+// 数据类型
+let num = 10; // Number
+let str = &#34;Hello&#34;; // String
+let bool = true; // Boolean
+let arr = [1, 2, 3]; // Array
+let obj = { name: &#34;John&#34;, age: 30 }; // Object
+let n = null; // Null
+let u = undefined; // Undefined
+
+// 运算符
+let sum = 10 &#43; 5; // 加法
+let difference = 10 - 5; // 减法
+let product = 10 * 5; // 乘法
+let quotient = 10 / 5; // 除法
+let remainder = 10 % 3; // 取余
+let increment = 10&#43;&#43;; // 自增
+let decrement = 10--; // 自减
+
+// 条件语句
+if (isAdmin) {
+    console.log(&#34;User is an admin&#34;);
+} else if (age &gt;= 18) {
+    console.log(&#34;User is an adult&#34;);
+} else {
+    console.log(&#34;User is a minor&#34;);
+}
+
+// 循环语句
+for (let i = 0; i &lt; arr.length; i&#43;&#43;) {
+    console.log(arr[i]);
+}
+
+let i = 0;
+while (i &lt; arr.length) {
+    console.log(arr[i]);
+    i&#43;&#43;;
+}
+
+// 函数声明
+function greet(name) {
+    console.log(&#34;Hello, &#34; &#43; name &#43; &#34;!&#34;);
+}
+
+// 调用函数
+greet(&#34;John&#34;);
+02_函数和作用域
+函数的定义、调用、参数传递、作用域链、闭包等相关概念和用法。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://XianCH.github.io/posts/tech/front/javascript%E5%A4%8D%E4%B9%A0/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-03-29T12:48:24+08:00" />
@@ -58,7 +163,61 @@ var _hmt = _hmt || [];
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Javascript复习"/>
-<meta name="twitter:description" content="JavaScript 01_基本语法和数据类型 变量、数据类型、运算符、条件语句、循环语句等基本语法和数据类型。 // 变量声明和赋值 let name = &#34;John&#34;; const age = 30; var isAdmin = true; // 数据类型 let num = 10; // Number let str = &#34;Hello&#34;; // String let bool = true; // Boolean let arr = [1, 2, 3]; // Array let obj = { name: &#34;John&#34;, age: 30 }; // Object let n = null; // Null let u = undefined; // Undefined // 运算符 let sum = 10 &#43; 5; // 加法 let difference = 10 - 5; // 减"/>
+<meta name="twitter:description" content="JavaScript
+01_基本语法和数据类型
+变量、数据类型、运算符、条件语句、循环语句等基本语法和数据类型。
+// 变量声明和赋值
+let name = &#34;John&#34;;
+const age = 30;
+var isAdmin = true;
+
+// 数据类型
+let num = 10; // Number
+let str = &#34;Hello&#34;; // String
+let bool = true; // Boolean
+let arr = [1, 2, 3]; // Array
+let obj = { name: &#34;John&#34;, age: 30 }; // Object
+let n = null; // Null
+let u = undefined; // Undefined
+
+// 运算符
+let sum = 10 &#43; 5; // 加法
+let difference = 10 - 5; // 减法
+let product = 10 * 5; // 乘法
+let quotient = 10 / 5; // 除法
+let remainder = 10 % 3; // 取余
+let increment = 10&#43;&#43;; // 自增
+let decrement = 10--; // 自减
+
+// 条件语句
+if (isAdmin) {
+    console.log(&#34;User is an admin&#34;);
+} else if (age &gt;= 18) {
+    console.log(&#34;User is an adult&#34;);
+} else {
+    console.log(&#34;User is a minor&#34;);
+}
+
+// 循环语句
+for (let i = 0; i &lt; arr.length; i&#43;&#43;) {
+    console.log(arr[i]);
+}
+
+let i = 0;
+while (i &lt; arr.length) {
+    console.log(arr[i]);
+    i&#43;&#43;;
+}
+
+// 函数声明
+function greet(name) {
+    console.log(&#34;Hello, &#34; &#43; name &#43; &#34;!&#34;);
+}
+
+// 调用函数
+greet(&#34;John&#34;);
+02_函数和作用域
+函数的定义、调用、参数传递、作用域链、闭包等相关概念和用法。"/>
 
 
 <script type="application/ld+json">
@@ -95,7 +254,7 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "Javascript复习",
   "name": "Javascript复习",
-  "description": "JavaScript 01_基本语法和数据类型 变量、数据类型、运算符、条件语句、循环语句等基本语法和数据类型。 // 变量声明和赋值 let name = \u0026#34;John\u0026#34;; const age = 30; var isAdmin = true; // 数据类型 let num = 10; // Number let str = \u0026#34;Hello\u0026#34;; // String let bool = true; // Boolean let arr = [1, 2, 3]; // Array let obj = { name: \u0026#34;John\u0026#34;, age: 30 }; // Object let n = null; // Null let u = undefined; // Undefined // 运算符 let sum = 10 + 5; // 加法 let difference = 10 - 5; // 减",
+  "description": "JavaScript 01_基本语法和数据类型 变量、数据类型、运算符、条件语句、循环语句等基本语法和数据类型。\n// 变量声明和赋值 let name = \u0026#34;John\u0026#34;; const age = 30; var isAdmin = true; // 数据类型 let num = 10; // Number let str = \u0026#34;Hello\u0026#34;; // String let bool = true; // Boolean let arr = [1, 2, 3]; // Array let obj = { name: \u0026#34;John\u0026#34;, age: 30 }; // Object let n = null; // Null let u = undefined; // Undefined // 运算符 let sum = 10 + 5; // 加法 let difference = 10 - 5; // 减法 let product = 10 * 5; // 乘法 let quotient = 10 / 5; // 除法 let remainder = 10 % 3; // 取余 let increment = 10++; // 自增 let decrement = 10--; // 自减 // 条件语句 if (isAdmin) { console.log(\u0026#34;User is an admin\u0026#34;); } else if (age \u0026gt;= 18) { console.log(\u0026#34;User is an adult\u0026#34;); } else { console.log(\u0026#34;User is a minor\u0026#34;); } // 循环语句 for (let i = 0; i \u0026lt; arr.length; i++) { console.log(arr[i]); } let i = 0; while (i \u0026lt; arr.length) { console.log(arr[i]); i++; } // 函数声明 function greet(name) { console.log(\u0026#34;Hello, \u0026#34; + name + \u0026#34;!\u0026#34;); } // 调用函数 greet(\u0026#34;John\u0026#34;); 02_函数和作用域 函数的定义、调用、参数传递、作用域链、闭包等相关概念和用法。\n",
   "keywords": [
     ""
   ],
@@ -930,6 +1089,11 @@ var _hmt = _hmt || [];
         <footer class="post-footer">
             
 <nav class="paginav">
+  <a class="prev" href="https://XianCH.github.io/posts/tech/web/server_setup/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Server_setup</span>
+  </a>
   <a class="next" href="https://XianCH.github.io/posts/tech/linux/nvim_config/">
     <span class="title">下一页 »</span>
     <br>
@@ -952,7 +1116,7 @@ var _hmt = _hmt || [];
     <span>
         Copyright
         &copy;
-        -2024
+        -2025
         <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>

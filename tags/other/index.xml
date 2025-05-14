@@ -22,7 +22,10 @@
       <pubDate>Mon, 01 May 2023 10:16:51 +0000</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/</guid>
-      <description>这个是elon发布的架构图 因为很多字看不清我在twitter上找了位架构师alex xu整理的图 https://twitter.com/alexxubyte/status/1594008281340530688 1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，</description>
+      <description>&lt;p&gt;这个是elon发布的架构图&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;twitter%e6%9e%b6%e6%9e%84%e5%9b%be%e7%9a%84%e6%80%9d%e8%80%83.assets/Fh6qtzdUAAARaTI.jpg&#34; alt=&#34;&#34;  /&gt;
+因为很多字看不清我在twitter上找了位架构师alex xu整理的图 &lt;a href=&#34;https://twitter.com/alexxubyte/status/1594008281340530688&#34;&gt;https://twitter.com/alexxubyte/status/1594008281340530688&lt;/a&gt;&lt;img src=&#34;twitter架构图的思考.assets/Fh8OE2jUAAEIVRR.jpg&#34; style=&#34;zoom:20%;&#34; /&gt;&lt;img src=&#34;twitter架构图的思考.assets/image-20230328044142610.png&#34; alt=&#34;image-20230328044142610&#34; style=&#34;zoom:50%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，安卓用户拥有更高的性能和体验。而 iphone版 twitter感觉就是像是网站web端吧，，它需要依赖浏览器来加载和渲染内容，相对于原生应用程序，它可能会具有一些限制和性能上的劣势。如果twitter的ui代码出问题了，安卓用户应该会直接收到报错吧，这里都针对不同系统的用户有不同的拦截器吧。&lt;/p&gt;</description>
     </item>
     
   </channel>

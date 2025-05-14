@@ -7,7 +7,37 @@
 <meta name="robots" content="index, follow">
 <title>java函数式编程思想 | X14n&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="//查询未成年作家的评分在70以上的书籍 由于洋流影响所以作家和书籍可能出现重复，需要进行去重 List&lt;Book&gt; bookList = new ArrayList&lt;&gt;(); Set&lt;Book&gt; uniqueBookValues = new HashSet&lt;&gt;(); Set&lt;Author&gt; uniqueAuthorValues = new HashSet&lt;&gt;(); for (Author author : authors) { if (uniqueAuthorValues.add(author)) { if (author.getAge() &lt; 18) { List&lt;Book&gt; books = author.getBooks(); for (Book book : books) { if (book.getScore() &gt; 70) { if (uniqueBookValues.add(book)) { bookList.add(book); } } } } } } System.out.println(bookList); List&lt;Book&gt; collect = authors.stream() .distinct() .filter(author -&gt; author.getAge() &lt; 18) .map(author -&gt; author.getBooks()) .flatMap(Collection::stream) .filter(book -&gt; book.getScore() &gt; 70) .distinct() .collect(Collectors.toList()); System.out.println(collect); 1.2 函数式编程思想 1.2.1 概念 ​ 面向对象思">
+<meta name="description" content="//查询未成年作家的评分在70以上的书籍 由于洋流影响所以作家和书籍可能出现重复，需要进行去重
+List&lt;Book&gt; bookList = new ArrayList&lt;&gt;();
+Set&lt;Book&gt; uniqueBookValues = new HashSet&lt;&gt;();
+Set&lt;Author&gt; uniqueAuthorValues = new HashSet&lt;&gt;();
+for (Author author : authors) {
+    if (uniqueAuthorValues.add(author)) {
+        if (author.getAge() &lt; 18) {
+            List&lt;Book&gt; books = author.getBooks();
+            for (Book book : books) {
+                if (book.getScore() &gt; 70) {
+                    if (uniqueBookValues.add(book)) {
+                        bookList.add(book);
+                    }
+                }
+            }
+        }
+    }
+}
+System.out.println(bookList);
+List&lt;Book&gt; collect = authors.stream()
+    .distinct()
+    .filter(author -&gt; author.getAge() &lt; 18)
+    .map(author -&gt; author.getBooks())
+    .flatMap(Collection::stream)
+    .filter(book -&gt; book.getScore() &gt; 70)
+    .distinct()
+    .collect(Collectors.toList());
+System.out.println(collect);
+1.2 函数式编程思想
+1.2.1 概念
+​	面向对象思想需要关注用什么对象完成什么事情。而函数式编程思想就类似于我们数学中的函数。它主要关注的是对数据进行了什么操作。">
 <meta name="author" content="x14n">
 <link rel="canonical" href="https://XianCH.github.io/posts/tech/java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -46,11 +76,38 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
-  
-
 <meta property="og:title" content="java函数式编程思想" />
-<meta property="og:description" content="//查询未成年作家的评分在70以上的书籍 由于洋流影响所以作家和书籍可能出现重复，需要进行去重 List&lt;Book&gt; bookList = new ArrayList&lt;&gt;(); Set&lt;Book&gt; uniqueBookValues = new HashSet&lt;&gt;(); Set&lt;Author&gt; uniqueAuthorValues = new HashSet&lt;&gt;(); for (Author author : authors) { if (uniqueAuthorValues.add(author)) { if (author.getAge() &lt; 18) { List&lt;Book&gt; books = author.getBooks(); for (Book book : books) { if (book.getScore() &gt; 70) { if (uniqueBookValues.add(book)) { bookList.add(book); } } } } } } System.out.println(bookList); List&lt;Book&gt; collect = authors.stream() .distinct() .filter(author -&gt; author.getAge() &lt; 18) .map(author -&gt; author.getBooks()) .flatMap(Collection::stream) .filter(book -&gt; book.getScore() &gt; 70) .distinct() .collect(Collectors.toList()); System.out.println(collect); 1.2 函数式编程思想 1.2.1 概念 ​ 面向对象思" />
+<meta property="og:description" content="//查询未成年作家的评分在70以上的书籍 由于洋流影响所以作家和书籍可能出现重复，需要进行去重
+List&lt;Book&gt; bookList = new ArrayList&lt;&gt;();
+Set&lt;Book&gt; uniqueBookValues = new HashSet&lt;&gt;();
+Set&lt;Author&gt; uniqueAuthorValues = new HashSet&lt;&gt;();
+for (Author author : authors) {
+    if (uniqueAuthorValues.add(author)) {
+        if (author.getAge() &lt; 18) {
+            List&lt;Book&gt; books = author.getBooks();
+            for (Book book : books) {
+                if (book.getScore() &gt; 70) {
+                    if (uniqueBookValues.add(book)) {
+                        bookList.add(book);
+                    }
+                }
+            }
+        }
+    }
+}
+System.out.println(bookList);
+List&lt;Book&gt; collect = authors.stream()
+    .distinct()
+    .filter(author -&gt; author.getAge() &lt; 18)
+    .map(author -&gt; author.getBooks())
+    .flatMap(Collection::stream)
+    .filter(book -&gt; book.getScore() &gt; 70)
+    .distinct()
+    .collect(Collectors.toList());
+System.out.println(collect);
+1.2 函数式编程思想
+1.2.1 概念
+​	面向对象思想需要关注用什么对象完成什么事情。而函数式编程思想就类似于我们数学中的函数。它主要关注的是对数据进行了什么操作。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://XianCH.github.io/posts/tech/java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" />
 <meta property="og:image" content="https://XianCH.github.io/postsImg/function.jpg" /><meta property="article:section" content="posts" />
@@ -60,7 +117,37 @@ var _hmt = _hmt || [];
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://XianCH.github.io/postsImg/function.jpg" />
 <meta name="twitter:title" content="java函数式编程思想"/>
-<meta name="twitter:description" content="//查询未成年作家的评分在70以上的书籍 由于洋流影响所以作家和书籍可能出现重复，需要进行去重 List&lt;Book&gt; bookList = new ArrayList&lt;&gt;(); Set&lt;Book&gt; uniqueBookValues = new HashSet&lt;&gt;(); Set&lt;Author&gt; uniqueAuthorValues = new HashSet&lt;&gt;(); for (Author author : authors) { if (uniqueAuthorValues.add(author)) { if (author.getAge() &lt; 18) { List&lt;Book&gt; books = author.getBooks(); for (Book book : books) { if (book.getScore() &gt; 70) { if (uniqueBookValues.add(book)) { bookList.add(book); } } } } } } System.out.println(bookList); List&lt;Book&gt; collect = authors.stream() .distinct() .filter(author -&gt; author.getAge() &lt; 18) .map(author -&gt; author.getBooks()) .flatMap(Collection::stream) .filter(book -&gt; book.getScore() &gt; 70) .distinct() .collect(Collectors.toList()); System.out.println(collect); 1.2 函数式编程思想 1.2.1 概念 ​ 面向对象思"/>
+<meta name="twitter:description" content="//查询未成年作家的评分在70以上的书籍 由于洋流影响所以作家和书籍可能出现重复，需要进行去重
+List&lt;Book&gt; bookList = new ArrayList&lt;&gt;();
+Set&lt;Book&gt; uniqueBookValues = new HashSet&lt;&gt;();
+Set&lt;Author&gt; uniqueAuthorValues = new HashSet&lt;&gt;();
+for (Author author : authors) {
+    if (uniqueAuthorValues.add(author)) {
+        if (author.getAge() &lt; 18) {
+            List&lt;Book&gt; books = author.getBooks();
+            for (Book book : books) {
+                if (book.getScore() &gt; 70) {
+                    if (uniqueBookValues.add(book)) {
+                        bookList.add(book);
+                    }
+                }
+            }
+        }
+    }
+}
+System.out.println(bookList);
+List&lt;Book&gt; collect = authors.stream()
+    .distinct()
+    .filter(author -&gt; author.getAge() &lt; 18)
+    .map(author -&gt; author.getBooks())
+    .flatMap(Collection::stream)
+    .filter(book -&gt; book.getScore() &gt; 70)
+    .distinct()
+    .collect(Collectors.toList());
+System.out.println(collect);
+1.2 函数式编程思想
+1.2.1 概念
+​	面向对象思想需要关注用什么对象完成什么事情。而函数式编程思想就类似于我们数学中的函数。它主要关注的是对数据进行了什么操作。"/>
 
 
 <script type="application/ld+json">
@@ -97,7 +184,7 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "java函数式编程思想",
   "name": "java函数式编程思想",
-  "description": "//查询未成年作家的评分在70以上的书籍 由于洋流影响所以作家和书籍可能出现重复，需要进行去重 List\u0026lt;Book\u0026gt; bookList = new ArrayList\u0026lt;\u0026gt;(); Set\u0026lt;Book\u0026gt; uniqueBookValues = new HashSet\u0026lt;\u0026gt;(); Set\u0026lt;Author\u0026gt; uniqueAuthorValues = new HashSet\u0026lt;\u0026gt;(); for (Author author : authors) { if (uniqueAuthorValues.add(author)) { if (author.getAge() \u0026lt; 18) { List\u0026lt;Book\u0026gt; books = author.getBooks(); for (Book book : books) { if (book.getScore() \u0026gt; 70) { if (uniqueBookValues.add(book)) { bookList.add(book); } } } } } } System.out.println(bookList); List\u0026lt;Book\u0026gt; collect = authors.stream() .distinct() .filter(author -\u0026gt; author.getAge() \u0026lt; 18) .map(author -\u0026gt; author.getBooks()) .flatMap(Collection::stream) .filter(book -\u0026gt; book.getScore() \u0026gt; 70) .distinct() .collect(Collectors.toList()); System.out.println(collect); 1.2 函数式编程思想 1.2.1 概念 ​ 面向对象思",
+  "description": "//查询未成年作家的评分在70以上的书籍 由于洋流影响所以作家和书籍可能出现重复，需要进行去重 List\u0026lt;Book\u0026gt; bookList = new ArrayList\u0026lt;\u0026gt;(); Set\u0026lt;Book\u0026gt; uniqueBookValues = new HashSet\u0026lt;\u0026gt;(); Set\u0026lt;Author\u0026gt; uniqueAuthorValues = new HashSet\u0026lt;\u0026gt;(); for (Author author : authors) { if (uniqueAuthorValues.add(author)) { if (author.getAge() \u0026lt; 18) { List\u0026lt;Book\u0026gt; books = author.getBooks(); for (Book book : books) { if (book.getScore() \u0026gt; 70) { if (uniqueBookValues.add(book)) { bookList.add(book); } } } } } } System.out.println(bookList); List\u0026lt;Book\u0026gt; collect = authors.stream() .distinct() .filter(author -\u0026gt; author.getAge() \u0026lt; 18) .map(author -\u0026gt; author.getBooks()) .flatMap(Collection::stream) .filter(book -\u0026gt; book.getScore() \u0026gt; 70) .distinct() .collect(Collectors.toList()); System.out.println(collect); 1.2 函数式编程思想 1.2.1 概念 ​\t面向对象思想需要关注用什么对象完成什么事情。而函数式编程思想就类似于我们数学中的函数。它主要关注的是对数据进行了什么操作。\n",
   "keywords": [
     ""
   ],
@@ -410,7 +497,7 @@ var _hmt = _hmt || [];
                 <li>
                     <a href="#count" aria-label="count">count</a></li>
                 <li>
-                    <a href="#maxmin" aria-label="max&amp;amp;min">max&amp;min</a></li>
+                    <a href="#maxmin" aria-label="max&amp;min">max&amp;min</a></li>
                 <li>
                     <a href="#collect" aria-label="collect">collect</a></li>
                 <li>
@@ -629,8 +716,7 @@ var _hmt = _hmt || [];
 <p>​	Lambda是JDK8中一个语法糖。他可以对某些匿名内部类的写法进行简化。它是函数式编程思想的一个重要体现。让我们不用关注是什么对象。而是更关注我们对数据进行了什么操作。</p>
 <h3 id="22-核心原则">2.2 核心原则<a hidden class="anchor" aria-hidden="true" href="#22-核心原则">#</a></h3>
 <blockquote>
-<p>可推导可省略</p>
-</blockquote>
+<p>可推导可省略</p></blockquote>
 <h3 id="2-3-基本格式">2. 3 基本格式<a hidden class="anchor" aria-hidden="true" href="#2-3-基本格式">#</a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>(参数列表)<span style="color:#f92672">-&gt;</span>{代码}
 </span></span></code></pre></div><h4 id="例一">例一<a hidden class="anchor" aria-hidden="true" href="#例一">#</a></h4>
@@ -1484,7 +1570,7 @@ var _hmt = _hmt || [];
     <span>
         Copyright
         &copy;
-        -2024
+        -2025
         <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>

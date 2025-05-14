@@ -13,7 +13,17 @@
       <pubDate>Sun, 15 Jan 2023 10:16:51 +0000</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/distributed/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4/</guid>
-      <description>微服务保护 1.初识Sentinel 1.1.雪崩问题及解决方案 1.1.1.雪崩问题 微服务中，服务间调用关系错综复杂，一个微服务往往依赖于多个其它微服务。 如图，如果服务提供者I发生了故障，当前的应用的部分业务因为依赖于服务I，因此也会被阻塞。此时，其它不依赖于服务I的业务似乎不受影响</description>
+      <description>&lt;h1 id=&#34;微服务保护&#34;&gt;微服务保护&lt;/h1&gt;
+&lt;h1 id=&#34;1初识sentinel&#34;&gt;1.初识Sentinel&lt;/h1&gt;
+&lt;h2 id=&#34;11雪崩问题及解决方案&#34;&gt;1.1.雪崩问题及解决方案&lt;/h2&gt;
+&lt;h3 id=&#34;111雪崩问题&#34;&gt;1.1.1.雪崩问题&lt;/h3&gt;
+&lt;p&gt;微服务中，服务间调用关系错综复杂，一个微服务往往依赖于多个其它微服务。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;assets/1533829099748.png&#34; alt=&#34;1533829099748&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;如图，如果服务提供者I发生了故障，当前的应用的部分业务因为依赖于服务I，因此也会被阻塞。此时，其它不依赖于服务I的业务似乎不受影响。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;assets/1533829198240.png&#34; alt=&#34;1533829198240&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;但是，依赖服务I的业务请求被阻塞，用户不会得到响应，则tomcat的这个线程不会释放，于是越来越多的用户请求到来，越来越多的线程会阻塞：&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -22,7 +32,14 @@
       <pubDate>Mon, 26 Dec 2022 10:16:51 +0000</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/distributed/%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98/</guid>
-      <description>1.什么是多级缓存 传统的缓存策略一般是请求到达Tomcat后，先查询Redis，如果未命中则查询数据库，如图： 存在下面的问题： •请求要经过Tomcat处理，Tomcat的性能成为整个系统的瓶颈 •Redis缓存失效时，会对数据库产生冲击 多级缓存就是充分利用请求处理的每个环节，分别添</description>
+      <description>&lt;h1 id=&#34;1什么是多级缓存&#34;&gt;1.什么是多级缓存&lt;/h1&gt;
+&lt;p&gt;传统的缓存策略一般是请求到达Tomcat后，先查询Redis，如果未命中则查询数据库，如图：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;./assets/image-20210821075259137.png&#34; alt=&#34;image-20210821075259137&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;存在下面的问题：&lt;/p&gt;
+&lt;p&gt;•请求要经过Tomcat处理，Tomcat的性能成为整个系统的瓶颈&lt;/p&gt;
+&lt;p&gt;•Redis缓存失效时，会对数据库产生冲击&lt;/p&gt;
+&lt;p&gt;多级缓存就是充分利用请求处理的每个环节，分别添加缓存，减轻Tomcat压力，提升服务性能：&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -6,14 +6,92 @@
     <description>Recent content on X14n&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 29 Mar 2024 12:48:24 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 May 2025 01:38:06 +0800</lastBuildDate><atom:link href="https://XianCH.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Server_setup</title>
+      <link>https://XianCH.github.io/posts/tech/web/server_setup/</link>
+      <pubDate>Thu, 15 May 2025 01:38:06 +0800</pubDate>
+      
+      <guid>https://XianCH.github.io/posts/tech/web/server_setup/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;123.com 和 www.123.com 是两个不同的子域名，你需要在 DNS 和 Web 服务器中配置它们的关系（通常会设置为自动跳转或都指向同一个内容）。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;具体原因分析&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;DNS 配置不一致&lt;/p&gt;
+&lt;p&gt;123.com 是主域名（根域名）。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.123.com&#34;&gt;www.123.com&lt;/a&gt; 是主域名下的一个子域名（www 是子域名）。&lt;/p&gt;
+&lt;p&gt;如果你的 DNS 服务商（如阿里云、Cloudflare、DNSPod 等）中：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; 只配置了一个 A 记录（如 www.123.com -&amp;gt; IP地址）
+
+ 那么 123.com 访问时可能无法正确解析，或访问到不同服务。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;服务器未做统一跳转或绑定&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Javascript复习</title>
       <link>https://XianCH.github.io/posts/tech/front/javascript%E5%A4%8D%E4%B9%A0/</link>
       <pubDate>Fri, 29 Mar 2024 12:48:24 +0800</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/front/javascript%E5%A4%8D%E4%B9%A0/</guid>
-      <description>JavaScript 01_基本语法和数据类型 变量、数据类型、运算符、条件语句、循环语句等基本语法和数据类型。 // 变量声明和赋值 let name = &amp;#34;John&amp;#34;; const age = 30; var isAdmin = true; // 数据类型 let num = 10; // Number let str = &amp;#34;Hello&amp;#34;; // String let bool = true; // Boolean let arr = [1, 2, 3]; // Array let obj = { name: &amp;#34;John&amp;#34;, age: 30 }; // Object let n = null; // Null let u = undefined; // Undefined // 运算符 let sum = 10 + 5; // 加法 let difference = 10 - 5; // 减</description>
+      <description>&lt;h1 id=&#34;javascript&#34;&gt;JavaScript&lt;/h1&gt;
+&lt;h2 id=&#34;01_基本语法和数据类型&#34;&gt;01_基本语法和数据类型&lt;/h2&gt;
+&lt;p&gt;变量、数据类型、运算符、条件语句、循环语句等基本语法和数据类型。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 变量声明和赋值
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;John&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;age&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;isAdmin&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 数据类型
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;num&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;// Number
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;str&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello&amp;#34;&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;// String
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;bool&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;// Boolean
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;arr&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;]; &lt;span style=&#34;color:#75715e&#34;&gt;// Array
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;obj&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; { &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;John&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;age&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; }; &lt;span style=&#34;color:#75715e&#34;&gt;// Object
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;n&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;// Null
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;u&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;undefined&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;// Undefined
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 运算符
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;sum&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;// 加法
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;difference&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;// 减法
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;product&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;// 乘法
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;quotient&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;// 除法
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;remainder&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;// 取余
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;increment&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;// 自增
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;decrement&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;// 自减
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 条件语句
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;isAdmin&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;User is an admin&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;age&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;User is an adult&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;User is a minor&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 循环语句
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; &lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;arr&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt;; &lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;arr&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt;]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;arr&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;arr&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt;]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 函数声明
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;greet&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;!&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 调用函数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;greet&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;John&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;02_函数和作用域&#34;&gt;02_函数和作用域&lt;/h2&gt;
+&lt;p&gt;函数的定义、调用、参数传递、作用域链、闭包等相关概念和用法。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -22,7 +100,85 @@
       <pubDate>Sun, 25 Feb 2024 10:33:55 +0800</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/linux/nvim_config/</guid>
-      <description>前言 最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题 一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以 自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为 一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题
+一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以
+自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为
+一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么。&lt;/p&gt;
+&lt;h2 id=&#34;需求列表&#34;&gt;需求列表&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;文件管理&lt;/li&gt;
+&lt;li&gt;文件搜索&lt;/li&gt;
+&lt;li&gt;文件查找&lt;/li&gt;
+&lt;li&gt;文字查找&lt;/li&gt;
+&lt;li&gt;插件管理&lt;/li&gt;
+&lt;li&gt;快捷键绑定&lt;/li&gt;
+&lt;li&gt;内嵌终端&lt;/li&gt;
+&lt;li&gt;debug&lt;/li&gt;
+&lt;li&gt;语言服务&lt;/li&gt;
+&lt;li&gt;语言格式化&lt;/li&gt;
+&lt;li&gt;输入提示&lt;/li&gt;
+&lt;li&gt;插件管理&lt;/li&gt;
+&lt;li&gt;主题样式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;initlua&#34;&gt;init.lua&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;touch init.lua &amp;amp;&amp;amp; mkdir lua
+&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lua&#34; data-lang=&#34;lua&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;local&lt;/span&gt; option &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vim.opt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;local&lt;/span&gt; buffer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vim.b
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;local&lt;/span&gt; global &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vim.g
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;-- Globol Settings --&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.showmode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.backspace &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; { &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;indent&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;eol&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;start&amp;#34;&lt;/span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.tabstop &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.shiftwidth &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.expandtab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.shiftround &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.autoindent &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.smartindent &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.number &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.relativenumber &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.wildmenu &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.hlsearch &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.ignorecase &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.smartcase &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.completeopt &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; { &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;menu&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;menuone&amp;#34;&lt;/span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.cursorline &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.termguicolors &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.signcolumn &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;yes&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.autoread &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.title &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.swapfile &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.backup &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.updatetime &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.mouse &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;a&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.undofile &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.undodir &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vim.fn.expand(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;$HOME/.local/share/nvim/undo&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.exrc &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.wrap &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;option.splitright &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;-- Buffer Settings --&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;buffer.fileenconding &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;-- Global Settings --&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;global.mapleader &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;-- Key mappings --&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim.keymap.set({ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;n&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;i&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;v&amp;#34;&lt;/span&gt; }, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;Left&amp;gt;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;Nop&amp;gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim.keymap.set({ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;n&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;i&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;v&amp;#34;&lt;/span&gt; }, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;Right&amp;gt;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;Nop&amp;gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim.keymap.set({ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;n&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;i&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;v&amp;#34;&lt;/span&gt; }, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;Up&amp;gt;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;Nop&amp;gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim.keymap.set({ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;n&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;i&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;v&amp;#34;&lt;/span&gt; }, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;Down&amp;gt;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;Nop&amp;gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim.keymap.set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;n&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;A-Tab&amp;gt;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;cmd&amp;gt;bNext&amp;lt;CR&amp;gt;&amp;#34;&lt;/span&gt;) 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim.keymap.set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;n&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;leader&amp;gt;bc&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;cmd&amp;gt;bd&amp;lt;CR&amp;gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim.keymap.set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;v&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;J&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:m &amp;#39;&amp;gt;+1&amp;lt;CR&amp;gt;gv=gv&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim.keymap.set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;v&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;K&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:m &amp;#39;&amp;lt;-2&amp;lt;CR&amp;gt;gv=gv&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim.keymap.set({ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;v&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;n&amp;#34;&lt;/span&gt; }, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;leader&amp;gt;y&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;+y&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;插件管理lazynvim&#34;&gt;插件管理（lazy.nvim）&lt;/h2&gt;
+&lt;p&gt;github地址：https://github.com/folke/lazy.nvim&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -31,7 +187,17 @@
       <pubDate>Fri, 23 Feb 2024 06:59:58 +0800</pubDate>
       
       <guid>https://XianCH.github.io/posts/life/2024%E8%AE%A1%E5%88%92%E5%92%8C%E6%83%B3%E6%B3%95/</guid>
-      <description>关于2024我的想法挺简单的，找一份稳定的工作，好好学习，认真对待计划好的事情。 想法 编写好博客 多读书 编写英文文章 数学理论知识 对计算机基础原理有更深入的认识 少抽烟 多跟父母交流</description>
+      <description>&lt;p&gt;关于2024我的想法挺简单的，找一份稳定的工作，好好学习，认真对待计划好的事情。&lt;/p&gt;
+&lt;h2 id=&#34;想法&#34;&gt;想法&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;编写好博客&lt;/li&gt;
+&lt;li&gt;多读书&lt;/li&gt;
+&lt;li&gt;编写英文文章&lt;/li&gt;
+&lt;li&gt;数学理论知识&lt;/li&gt;
+&lt;li&gt;对计算机基础原理有更深入的认识&lt;/li&gt;
+&lt;li&gt;少抽烟&lt;/li&gt;
+&lt;li&gt;多跟父母交流&lt;/li&gt;
+&lt;/ol&gt;</description>
     </item>
     
     <item>
@@ -85,7 +251,19 @@
       <pubDate>Thu, 23 Nov 2023 16:29:09 +0800</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/basic/jwt/</guid>
-      <description>简介 jwt(json web token)，主要用在跨域认证的问题 JWT原理 在https://jwt.io/ 这个网站可以进行jwt的encode 和decode，encode和decode分别如下 jwt组成 通过decode出来的数据，可以看到jwt由三部分组成 1.HEADER (ALGORITHM &amp;amp; TOKEN TYPE) 2.PAYLOAD (DATA) 3.SIGNATURE (SIGNATURE) Header Header 部分是一个 JSON 对象，描述</description>
+      <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+&lt;p&gt;jwt(json web token)，主要用在跨域认证的问题&lt;/p&gt;
+&lt;h2 id=&#34;jwt原理&#34;&gt;JWT原理&lt;/h2&gt;
+&lt;p&gt;在https://jwt.io/ 这个网站可以进行jwt的encode 和decode，encode和decode分别如下&lt;/p&gt;
+&lt;img src=&#34;./index.assets/image-20231123163611920.png&#34; alt=&#34;image-20231123163611920&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;img src=&#34;./index.assets/image-20231123163747214.png&#34; alt=&#34;image-20231123163747214&#34; style=&#34;zoom:25%;&#34; /&gt;
+&lt;h3 id=&#34;jwt组成&#34;&gt;jwt组成&lt;/h3&gt;
+&lt;p&gt;通过decode出来的数据，可以看到jwt由三部分组成&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;1.HEADER		(ALGORITHM &amp;amp; TOKEN TYPE)
+2.PAYLOAD		(DATA)
+3.SIGNATURE		(SIGNATURE)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;header&#34;&gt;Header&lt;/h3&gt;
+&lt;p&gt;Header 部分是一个 JSON 对象，描述 JWT 的元数据，通常是下面的样子。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -103,7 +281,59 @@
       <pubDate>Wed, 22 Nov 2023 18:47:52 +0800</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/</guid>
-      <description>简述 以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点 mysql相关命令 #查看数据库引擎 show engine; #查看表结构 DESC tablename; #查看创建表的sql语句 show CREATE TABLE TABLE_NAME; #创建表 Drop table if exists `school`; CREATE TABLE `school` default character set utf8; use school; #自增 auto_increment; #主键 primary key(`column`); #设置引擎和编码 engine = innoDB DEFAULT CHARSET= UT8; #设置外键将产品的cid绑定到category的主</description>
+      <description>&lt;h2 id=&#34;简述&#34;&gt;简述&lt;/h2&gt;
+&lt;p&gt;以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点&lt;/p&gt;
+&lt;h2 id=&#34;mysql相关命令&#34;&gt;mysql相关命令&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;查看数据库引擎&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;show&lt;/span&gt; engine;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;查看表结构&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;DESC&lt;/span&gt; tablename;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;查看创建表的&lt;/span&gt;sql语句
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;show&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TABLE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TABLE_NAME&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;创建表&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Drop&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;table&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;exists&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;school&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TABLE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;school&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;default&lt;/span&gt; character &lt;span style=&#34;color:#66d9ef&#34;&gt;set&lt;/span&gt; utf8;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;use school;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;自增&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;auto_increment;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;主键&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;primary&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;key&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;column&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;设置引擎和编码&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;engine &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; innoDB &lt;span style=&#34;color:#66d9ef&#34;&gt;DEFAULT&lt;/span&gt; CHARSET&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; UT8;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;设置外键将产品的&lt;/span&gt;cid绑定到category的主键上
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;constraint&lt;/span&gt; fk_product_category &lt;span style=&#34;color:#66d9ef&#34;&gt;foreign&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;key&lt;/span&gt;(cid) &lt;span style=&#34;color:#66d9ef&#34;&gt;references&lt;/span&gt; category(id);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#&lt;/span&gt;n表示一个字符&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，不管中英文（有待确定）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;varchar(n)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;创建表并设置&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;column&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;drop&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;table&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;exists&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;students&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TABLE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;student&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;id&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt; int &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt; AUTO_INCREMENT,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;NAME&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt; VARCHAR(&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt; ,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;SEX&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt; SMALLINT &lt;span style=&#34;color:#66d9ef&#34;&gt;DEFAULT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;COMMENT&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;性别&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;age&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt; int &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt; ,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;IN_TIME&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt; DATETIME &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt; ,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;PRIMARY&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;KEY&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;id&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)&lt;span style=&#34;color:#66d9ef&#34;&gt;default&lt;/span&gt; charset &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;UTF8&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;修改表&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;USE school;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ALTER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TABLE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;students&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;RENAME&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TO&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;student&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;改报名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ALTER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TABLE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;students&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;add&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;column&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;age&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt; int &lt;span style=&#34;color:#66d9ef&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;after&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;sex&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ALTER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TABLE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;students&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;DROP&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;column&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;nickname&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;;&lt;span style=&#34;color:#f92672&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;删除表中的某一列&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ALTER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TABLE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;students&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt; CHANGE &lt;span style=&#34;color:#66d9ef&#34;&gt;column_name&lt;/span&gt; new_name varchar(&lt;span style=&#34;color:#ae81ff&#34;&gt;36&lt;/span&gt;);&lt;span style=&#34;color:#f92672&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;修改某一列的的名称&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ALTER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TABLE&lt;/span&gt; police_org &lt;span style=&#34;color:#66d9ef&#34;&gt;Drop&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;primary&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;key&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;修改表的主键&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;日期：&lt;/span&gt;DATE&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;YYYY&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;MM&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;DD&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;比较常用&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;使用&lt;/span&gt; CURDATE&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;时间：&lt;/span&gt;TIME&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;HH:MM:SS&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;比较常用&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;使用&lt;/span&gt;CURTIME&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;年份：&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;YEAR&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;YYYY&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;最全时间：&lt;/span&gt;DATETIME&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;YYYY&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;MM&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;DD HH:MM:SS&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;使用&lt;/span&gt;  NOW&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/*varchar(36) 可以保存多少中英文字符？*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;答：具体还是要看版本的，自己在数据库中建个表测试下可以放多少个汉字。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;版本以下，&lt;/span&gt;varchar(&lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;)&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，指的是&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;字节，如果存放&lt;/span&gt;UTF8汉字时&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，只能存&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;33&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;个（每个汉字&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;字节）&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;版本以上，&lt;/span&gt;varchar(&lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;)&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，指的是&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;字符，无论存放的是数字、字母还是&lt;/span&gt;UTF8汉字&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（每个汉字&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;字节），都可以存放&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;个。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;mysql-练习题&#34;&gt;mysql 练习题&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;问：查找年龄最大的学生的所有信息？&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -121,7 +351,9 @@
       <pubDate>Sat, 14 Oct 2023 18:12:42 +0800</pubDate>
       
       <guid>https://XianCH.github.io/posts/life/%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</guid>
-      <description>杂谈 ​ 最近这段时间，总有一种奇怪的想法，感觉自己做了很多事情，但其实又什么都没做，就像我github上面的活动一样，感觉自己好像写了很多东西，相比过去那个写了就不管了得我来说，这不是挺好的的吗，又仔细看看，自己每天push的东西，真的是一坨屎，看看别人写的东西吧，又好多看不懂，看</description>
+      <description>&lt;img src=&#34;./index.assets/image-20231014184130058.png&#34; alt=&#34;image-20231014184130058&#34; style=&#34;zoom:60%;&#34; /&gt;
+&lt;h2 id=&#34;杂谈&#34;&gt;杂谈&lt;/h2&gt;
+&lt;p&gt;​		最近这段时间，总有一种奇怪的想法，感觉自己做了很多事情，但其实又什么都没做，就像我github上面的活动一样，&lt;img src=&#34;./index.assets/image-20231014181817119.png&#34; alt=&#34;image-20231014181817119&#34; style=&#34;zoom:25%;&#34; /&gt;感觉自己好像写了很多东西，相比过去那个写了就不管了得我来说，这不是挺好的的吗，又仔细看看，自己每天push的东西，真的是一坨屎，看看别人写的东西吧，又好多看不懂，看看自己的写的什么垃圾博客吧，真的不知道写的是什么。但是我又很需要这种感觉自己很忙的感觉，这是为什么呢，可能是因为我现在还没有工作（其实是找不到工作），又不想每天无所事事，毕竟我就是很喜欢带着耳机，对着电脑，在自己世界里的感觉，也可以说我4月份找工作的经历，让我真的害怕找工作了，现在想跨出哪一步真的受不了，外面那些很早就出去工作的同龄人，工作经验和能力不比我丰富吗？还没毕业在校的，不必我更有激情吗？在外面工作了很多年的程序员，就更不用说了吗？还有github上面的一众大神&amp;hellip;&amp;hellip;..&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -130,7 +362,40 @@
       <pubDate>Wed, 11 Oct 2023 17:30:30 +0800</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/go/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/</guid>
-      <description>gin 介绍 Gin is a web framework written in Go. It features a martini-like API with performance that is up to 40 times faster thanks to httprouter. If you need performance and good productivity, you will love Gin. The key features of Gin are: Zero allocation router Fast Middleware support Crash-free JSON validation Routes grouping Error management Rendering built-in Extendable Gin 与 net/http 的关系 gin是在 Golang HTTP 标准库 net/http 基础之上的再封装 Gin 框架使用示例 func main(){ mux := gin.Default() mux.Use(middleware) mux.Post(&amp;#34;/ping&amp;#34;,xxxhandler) if err :=mux.Run(&amp;#34;:8000&amp;#34;); err != nil { panic(err) } } func xxxhandler(c *gin.context){ c.Json(http.StatusOK,&amp;#34;pong&amp;#34;) } 简易解释（后面会详细解释）： gin.Default</description>
+      <description>&lt;h2 id=&#34;gin-介绍&#34;&gt;gin 介绍&lt;/h2&gt;
+&lt;p&gt;Gin is a web framework written in &lt;a href=&#34;https://go.dev/&#34;&gt;Go&lt;/a&gt;. It features a martini-like API with performance that is up to 40 times faster thanks to &lt;a href=&#34;https://github.com/julienschmidt/httprouter&#34;&gt;httprouter&lt;/a&gt;. If you need performance and good productivity, you will love Gin.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The key features of Gin are:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Zero allocation router&lt;/li&gt;
+&lt;li&gt;Fast&lt;/li&gt;
+&lt;li&gt;Middleware support&lt;/li&gt;
+&lt;li&gt;Crash-free&lt;/li&gt;
+&lt;li&gt;JSON validation&lt;/li&gt;
+&lt;li&gt;Routes grouping&lt;/li&gt;
+&lt;li&gt;Error management&lt;/li&gt;
+&lt;li&gt;Rendering built-in&lt;/li&gt;
+&lt;li&gt;Extendable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;gin-与-nethttp-的关系&#34;&gt;Gin 与 net/http 的关系&lt;/h2&gt;
+&lt;p&gt;gin是在 Golang HTTP 标准库 net/http 基础之上的再封装&lt;/p&gt;
+&lt;img src=&#34;./index.assets/image-20231022202236741.png&#34; alt=&#34;image-20231022202236741&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;h2 id=&#34;gin-框架使用示例&#34;&gt;Gin 框架使用示例&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;mux&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;gin&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Default&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;mux&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Use&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;middleware&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;mux&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Post&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/ping&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#a6e22e&#34;&gt;xxxhandler&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;mux&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Run&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:8000&amp;#34;&lt;/span&gt;); &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        panic(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;xxxhandler&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;gin&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;context&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Json&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;http&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;StatusOK&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pong&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;简易解释（后面会详细解释）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;gin.Default()返回默认的gin Engine&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -148,7 +413,95 @@
       <pubDate>Thu, 05 Oct 2023 15:37:25 +0800</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/go/go%E5%9F%BA%E7%A1%80%E6%A0%87%E5%87%86%E5%BA%93/</guid>
-      <description>os os 包是 Go 语言标准库的一部分，主要用于与操作系统进行交互，提供了访问操作系统底层功能的功能。下面是关于 os 包的一些重要功能和用法： 文件和目录操作： os.Create：创建文件。 os.Open：打开文件。 os.OpenFile：以指定模式打开文件。 os.Remove：删除文件或目录。</description>
+      <description>&lt;h1 id=&#34;os&#34;&gt;os&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;os&lt;/code&gt; 包是 Go 语言标准库的一部分，主要用于与操作系统进行交互，提供了访问操作系统底层功能的功能。下面是关于 &lt;code&gt;os&lt;/code&gt; 包的一些重要功能和用法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;文件和目录操作&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;os.Create&lt;/code&gt;：创建文件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Open&lt;/code&gt;：打开文件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.OpenFile&lt;/code&gt;：以指定模式打开文件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Remove&lt;/code&gt;：删除文件或目录。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Rename&lt;/code&gt;：重命名文件或目录。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Mkdir&lt;/code&gt;：创建目录。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.MkdirAll&lt;/code&gt;：递归创建目录。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Chdir&lt;/code&gt;：改变工作目录。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Getwd&lt;/code&gt;：获取当前工作目录。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Stat&lt;/code&gt;：获取文件或目录的信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文件描述符&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;os.Stdin&lt;/code&gt;、&lt;code&gt;os.Stdout&lt;/code&gt;、&lt;code&gt;os.Stderr&lt;/code&gt;：标准输入、标准输出和标准错误的文件描述符。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.File&lt;/code&gt;：表示文件的结构，包括文件描述符、文件名等信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;环境变量&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;os.Getenv&lt;/code&gt;：获取环境变量的值。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Setenv&lt;/code&gt;：设置环境变量的值。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Unsetenv&lt;/code&gt;：删除环境变量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;进程控制&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;os.Args&lt;/code&gt;：命令行参数。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Getpid&lt;/code&gt;：获取当前进程的 PID。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Getppid&lt;/code&gt;：获取父进程的 PID。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Exit&lt;/code&gt;：退出当前进程。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信号处理&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;os.Signal&lt;/code&gt;：表示操作系统信号的类型。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Notify&lt;/code&gt;：用于接收指定的操作系统信号。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用户和组信息&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;os.User&lt;/code&gt;：表示用户的结构。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.LookupEnv&lt;/code&gt;：根据环境变量名查找环境变量值。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Hostname&lt;/code&gt;：获取主机名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;权限和文件信息&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;os.Chmod&lt;/code&gt;：改变文件或目录的权限。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Chtimes&lt;/code&gt;：改变文件或目录的访问和修改时间。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Symlink&lt;/code&gt;：创建符号链接。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Readlink&lt;/code&gt;：读取符号链接目标路径。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Lstat&lt;/code&gt;：获取符号链接信息，而不是目标文件信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文件路径操作&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;os.PathSeparator&lt;/code&gt;：表示文件路径中的路径分隔符。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Join&lt;/code&gt;：连接路径元素以创建有效的文件路径。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Split&lt;/code&gt;：分割文件路径为目录和文件名。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.IsExist&lt;/code&gt;：判断错误是否表示文件已存在。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.IsNotExist&lt;/code&gt;：判断错误是否表示文件不存在。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;执行外部命令&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;os.Exec&lt;/code&gt;：执行外部命令并获取其输出。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.StartProcess&lt;/code&gt;：以指定的属性启动新进程。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文件锁&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;os.FileLock&lt;/code&gt;：文件锁结构，用于文件的读写锁定。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;平台相关功能&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;os.Environ&lt;/code&gt;：获取当前进程的所有环境变量。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.Hostname&lt;/code&gt;：获取主机名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;io&#34;&gt;io&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;io&lt;/code&gt; 包是 Go 语言标准库中的一个核心包，提供了对输入和输出操作的抽象和通用接口。这个包包含了许多接口和类型，用于处理文件、网络连接、内存缓冲、压缩、解压缩等 I/O 相关的操作。以下是一些 &lt;code&gt;io&lt;/code&gt; 包的重要接口和类型：&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -166,7 +519,34 @@
       <pubDate>Tue, 26 Sep 2023 21:47:03 +0000</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/database/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
-      <description>基础数据类型及运用场景 String 常用命令 普通字符串的基本操作： # 设置 key-value 类型的值 &amp;gt; SET name lin OK # 根据 key 获得对应的 value &amp;gt; GET name &amp;#34;lin&amp;#34; # 判断某个 key 是否存在 &amp;gt; EXISTS name (integer) 1 # 返回 key 所储存的字符串值的长度 &amp;gt; STRLEN name (integer) 3 # 删除某个 key 对应的值 &amp;gt; DEL name (integer) 1 批量设置 : # 批量设置 key-value 类型的值 &amp;gt; MSET key1 value1 key2 value2 OK # 批量获取多个 key 对应的 value &amp;gt; MGET</description>
+      <description>&lt;h1 id=&#34;基础数据类型及运用场景&#34;&gt;基础数据类型及运用场景&lt;/h1&gt;
+&lt;h2 id=&#34;string&#34;&gt;String&lt;/h2&gt;
+&lt;h3 id=&#34;常用命令&#34;&gt;常用命令&lt;/h3&gt;
+&lt;p&gt;普通字符串的基本操作：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 设置 key-value 类型的值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; SET name lin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 根据 key 获得对应的 value&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; GET name
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;lin&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 判断某个 key 是否存在&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; EXISTS name
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;integer&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 返回 key 所储存的字符串值的长度&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; STRLEN name
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;integer&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 删除某个 key 对应的值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; DEL name
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;integer&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;批量设置 :&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 批量设置 key-value 类型的值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; MSET key1 value1 key2 value2 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 批量获取多个 key 对应的 value&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; MGET key1 key2 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;value1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;value2&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;计数器（字符串的内容为整数的时候可以使用）：&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -202,7 +582,23 @@
       <pubDate>Fri, 22 Sep 2023 09:54:06 +0000</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/</guid>
-      <description>基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？ #var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值 var a int a =5 a :=5 #new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象 #make 用来创建切片，通道和映射</description>
+      <description>&lt;h2&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;基础相关&#34;&gt;基础相关&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值
+var a int
+a =5
+a :=5
+
+#new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象
+#make 用来创建切片，通道和映射等内置数据结构，并初始化
+p := new(int)
+slience := make([]int,0,10)
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;defer是做什么用的，如果一个程序里面有多个defer会怎么样？&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -220,7 +616,178 @@
       <pubDate>Sun, 23 Jul 2023 07:20:24 +0000</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
-      <description>tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl+b 然</description>
+      <description>&lt;h1 id=&#34;tmux常用命令&#34;&gt;tmux常用命令&lt;/h1&gt;
+&lt;h2 id=&#34;终端中使用-tmux-命令&#34;&gt;终端中使用 Tmux 命令&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;启动 tmux 使用 &lt;code&gt;-s&lt;/code&gt; 命令指定会话名称，使用 &lt;code&gt;-n&lt;/code&gt; 命令指定窗口名称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ tmux new -s sessionName -n window
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;退出会话(tmux会话内命令)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ tmux detach
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;退出并关闭会话（窗口,窗格）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ exit
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;结束后台的会话&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#通过会话编号
+
+$ tmux kill-session -t 0
+
+#通过会话名称
+
+$ tmux kill-session -t sessionName 
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;查看所有会话&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ tmux ls
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;激活会话&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ tmux attach -t sessionName
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;tmux-内使用前缀-ctrlb-然后对应快捷键执行命令&#34;&gt;Tmux 内使用前缀 Ctrl+b 然后对应快捷键执行命令&lt;/h2&gt;
+&lt;h3 id=&#34;会话常用快捷操作&#34;&gt;会话常用快捷操作&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;快捷键&lt;/th&gt;
+          &lt;th&gt;说明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;?&lt;/td&gt;
+          &lt;td&gt;所有快捷键，q退出&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;:new sessionName&lt;/td&gt;
+          &lt;td&gt;创建新会话&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;s&lt;/td&gt;
+          &lt;td&gt;切换会话&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$&lt;/td&gt;
+          &lt;td&gt;重命名当前会话&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;d&lt;/td&gt;
+          &lt;td&gt;离开会话返回shell（与tmux detach功能相同）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl+z&lt;/td&gt;
+          &lt;td&gt;挂起会话，返回shell&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;窗口常用快捷操作&#34;&gt;窗口常用快捷操作&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;快捷键&lt;/th&gt;
+          &lt;th&gt;说明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;c&lt;/td&gt;
+          &lt;td&gt;创建新窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;w&lt;/td&gt;
+          &lt;td&gt;显示窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;数字键&lt;/td&gt;
+          &lt;td&gt;选择对应窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;p&lt;/td&gt;
+          &lt;td&gt;前一个窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;后一个窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;f&lt;/td&gt;
+          &lt;td&gt;查找窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;,&lt;/td&gt;
+          &lt;td&gt;重命名窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&amp;amp;&lt;/td&gt;
+          &lt;td&gt;关闭窗口（带提示）&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;窗格常用快捷键&#34;&gt;窗格常用快捷键&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;快捷键&lt;/th&gt;
+          &lt;th&gt;说明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%&lt;/td&gt;
+          &lt;td&gt;垂直分割&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;”&lt;/td&gt;
+          &lt;td&gt;水平分割&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;o&lt;/td&gt;
+          &lt;td&gt;切换窗格&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;x&lt;/td&gt;
+          &lt;td&gt;关闭窗格&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;space&lt;/td&gt;
+          &lt;td&gt;切换窗格布局&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;q&lt;/td&gt;
+          &lt;td&gt;显示窗格编号，按对应数字选择窗格&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;{&lt;/td&gt;
+          &lt;td&gt;与上一个窗格调换位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;}&lt;/td&gt;
+          &lt;td&gt;与下一个窗格调换位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;z&lt;/td&gt;
+          &lt;td&gt;当前窗格最大化&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;!&lt;/td&gt;
+          &lt;td&gt;取消所有窗口保留当前窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl+方向键&lt;/td&gt;
+          &lt;td&gt;以1个单元格为单位移动边缘以调整当前窗格大小&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt+方向键&lt;/td&gt;
+          &lt;td&gt;以5个单元格为单位移动边缘以调整当前窗格大小&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;vim-使用技巧--使用技巧&#34;&gt;vim 使用技巧 [#](&lt;a href=&#34;https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim&#34;&gt;https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim&lt;/a&gt; 使用技巧)&lt;/h1&gt;
+&lt;p&gt;下面的命令是我常用的一些快捷键操作，我使用的编辑器是 vscode，安装了 vim 插件。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -229,7 +796,10 @@
       <pubDate>Mon, 01 May 2023 10:16:51 +0000</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/</guid>
-      <description>这个是elon发布的架构图 因为很多字看不清我在twitter上找了位架构师alex xu整理的图 https://twitter.com/alexxubyte/status/1594008281340530688 1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，</description>
+      <description>&lt;p&gt;这个是elon发布的架构图&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;twitter%e6%9e%b6%e6%9e%84%e5%9b%be%e7%9a%84%e6%80%9d%e8%80%83.assets/Fh6qtzdUAAARaTI.jpg&#34; alt=&#34;&#34;  /&gt;
+因为很多字看不清我在twitter上找了位架构师alex xu整理的图 &lt;a href=&#34;https://twitter.com/alexxubyte/status/1594008281340530688&#34;&gt;https://twitter.com/alexxubyte/status/1594008281340530688&lt;/a&gt;&lt;img src=&#34;twitter架构图的思考.assets/Fh8OE2jUAAEIVRR.jpg&#34; style=&#34;zoom:20%;&#34; /&gt;&lt;img src=&#34;twitter架构图的思考.assets/image-20230328044142610.png&#34; alt=&#34;image-20230328044142610&#34; style=&#34;zoom:50%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，安卓用户拥有更高的性能和体验。而 iphone版 twitter感觉就是像是网站web端吧，，它需要依赖浏览器来加载和渲染内容，相对于原生应用程序，它可能会具有一些限制和性能上的劣势。如果twitter的ui代码出问题了，安卓用户应该会直接收到报错吧，这里都针对不同系统的用户有不同的拦截器吧。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -256,7 +826,37 @@
       <pubDate>Sat, 25 Mar 2023 10:16:51 +0000</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/java/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</guid>
-      <description>//查询未成年作家的评分在70以上的书籍 由于洋流影响所以作家和书籍可能出现重复，需要进行去重 List&amp;lt;Book&amp;gt; bookList = new ArrayList&amp;lt;&amp;gt;(); Set&amp;lt;Book&amp;gt; uniqueBookValues = new HashSet&amp;lt;&amp;gt;(); Set&amp;lt;Author&amp;gt; uniqueAuthorValues = new HashSet&amp;lt;&amp;gt;(); for (Author author : authors) { if (uniqueAuthorValues.add(author)) { if (author.getAge() &amp;lt; 18) { List&amp;lt;Book&amp;gt; books = author.getBooks(); for (Book book : books) { if (book.getScore() &amp;gt; 70) { if (uniqueBookValues.add(book)) { bookList.add(book); } } } } } } System.out.println(bookList); List&amp;lt;Book&amp;gt; collect = authors.stream() .distinct() .filter(author -&amp;gt; author.getAge() &amp;lt; 18) .map(author -&amp;gt; author.getBooks()) .flatMap(Collection::stream) .filter(book -&amp;gt; book.getScore() &amp;gt; 70) .distinct() .collect(Collectors.toList()); System.out.println(collect); 1.2 函数式编程思想 1.2.1 概念 ​ 面向对象思</description>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//查询未成年作家的评分在70以上的书籍 由于洋流影响所以作家和书籍可能出现重复，需要进行去重&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;List&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;Book&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; bookList &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ArrayList&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Set&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;Book&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; uniqueBookValues &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; HashSet&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Set&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;Author&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; uniqueAuthorValues &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; HashSet&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (Author author : authors) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (uniqueAuthorValues.&lt;span style=&#34;color:#a6e22e&#34;&gt;add&lt;/span&gt;(author)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (author.&lt;span style=&#34;color:#a6e22e&#34;&gt;getAge&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; 18) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            List&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;Book&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; books &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; author.&lt;span style=&#34;color:#a6e22e&#34;&gt;getBooks&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (Book book : books) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (book.&lt;span style=&#34;color:#a6e22e&#34;&gt;getScore&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; 70) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (uniqueBookValues.&lt;span style=&#34;color:#a6e22e&#34;&gt;add&lt;/span&gt;(book)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        bookList.&lt;span style=&#34;color:#a6e22e&#34;&gt;add&lt;/span&gt;(book);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(bookList);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;List&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;Book&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; collect &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; authors.&lt;span style=&#34;color:#a6e22e&#34;&gt;stream&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    .&lt;span style=&#34;color:#a6e22e&#34;&gt;distinct&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    .&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(author &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt; author.&lt;span style=&#34;color:#a6e22e&#34;&gt;getAge&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; 18)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    .&lt;span style=&#34;color:#a6e22e&#34;&gt;map&lt;/span&gt;(author &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt; author.&lt;span style=&#34;color:#a6e22e&#34;&gt;getBooks&lt;/span&gt;())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    .&lt;span style=&#34;color:#a6e22e&#34;&gt;flatMap&lt;/span&gt;(Collection::stream)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    .&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(book &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt; book.&lt;span style=&#34;color:#a6e22e&#34;&gt;getScore&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; 70)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    .&lt;span style=&#34;color:#a6e22e&#34;&gt;distinct&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    .&lt;span style=&#34;color:#a6e22e&#34;&gt;collect&lt;/span&gt;(Collectors.&lt;span style=&#34;color:#a6e22e&#34;&gt;toList&lt;/span&gt;());
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(collect);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;12-函数式编程思想&#34;&gt;1.2 函数式编程思想&lt;/h3&gt;
+&lt;h4 id=&#34;121-概念&#34;&gt;1.2.1 概念&lt;/h4&gt;
+&lt;p&gt;​	面向对象思想需要关注用什么对象完成什么事情。而函数式编程思想就类似于我们数学中的函数。它主要关注的是对数据进行了什么操作。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -265,7 +865,17 @@
       <pubDate>Sun, 15 Jan 2023 10:16:51 +0000</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/distributed/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4/</guid>
-      <description>微服务保护 1.初识Sentinel 1.1.雪崩问题及解决方案 1.1.1.雪崩问题 微服务中，服务间调用关系错综复杂，一个微服务往往依赖于多个其它微服务。 如图，如果服务提供者I发生了故障，当前的应用的部分业务因为依赖于服务I，因此也会被阻塞。此时，其它不依赖于服务I的业务似乎不受影响</description>
+      <description>&lt;h1 id=&#34;微服务保护&#34;&gt;微服务保护&lt;/h1&gt;
+&lt;h1 id=&#34;1初识sentinel&#34;&gt;1.初识Sentinel&lt;/h1&gt;
+&lt;h2 id=&#34;11雪崩问题及解决方案&#34;&gt;1.1.雪崩问题及解决方案&lt;/h2&gt;
+&lt;h3 id=&#34;111雪崩问题&#34;&gt;1.1.1.雪崩问题&lt;/h3&gt;
+&lt;p&gt;微服务中，服务间调用关系错综复杂，一个微服务往往依赖于多个其它微服务。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;assets/1533829099748.png&#34; alt=&#34;1533829099748&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;如图，如果服务提供者I发生了故障，当前的应用的部分业务因为依赖于服务I，因此也会被阻塞。此时，其它不依赖于服务I的业务似乎不受影响。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;assets/1533829198240.png&#34; alt=&#34;1533829198240&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;但是，依赖服务I的业务请求被阻塞，用户不会得到响应，则tomcat的这个线程不会释放，于是越来越多的用户请求到来，越来越多的线程会阻塞：&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -274,7 +884,14 @@
       <pubDate>Mon, 26 Dec 2022 10:16:51 +0000</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/distributed/%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98/</guid>
-      <description>1.什么是多级缓存 传统的缓存策略一般是请求到达Tomcat后，先查询Redis，如果未命中则查询数据库，如图： 存在下面的问题： •请求要经过Tomcat处理，Tomcat的性能成为整个系统的瓶颈 •Redis缓存失效时，会对数据库产生冲击 多级缓存就是充分利用请求处理的每个环节，分别添</description>
+      <description>&lt;h1 id=&#34;1什么是多级缓存&#34;&gt;1.什么是多级缓存&lt;/h1&gt;
+&lt;p&gt;传统的缓存策略一般是请求到达Tomcat后，先查询Redis，如果未命中则查询数据库，如图：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;./assets/image-20210821075259137.png&#34; alt=&#34;image-20210821075259137&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;存在下面的问题：&lt;/p&gt;
+&lt;p&gt;•请求要经过Tomcat处理，Tomcat的性能成为整个系统的瓶颈&lt;/p&gt;
+&lt;p&gt;•Redis缓存失效时，会对数据库产生冲击&lt;/p&gt;
+&lt;p&gt;多级缓存就是充分利用请求处理的每个环节，分别添加缓存，减轻Tomcat压力，提升服务性能：&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -319,7 +936,26 @@
       <pubDate>Wed, 27 Jul 2022 10:16:51 +0000</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/java/springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>spring boot2学习笔记 一， spring boot2核心技术基础入门 1.spring能做什么 1.1 spring的能力 ![image-20220321190444355](spring boot2学习笔记.assets\image-20220321190444355.png) 二 、为什么用SpringBoot Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can &amp;ldquo;just run&amp;rdquo;. 能快速创建出生产级别的Sp</description>
+      <description>&lt;h1 id=&#34;spring-boot2学习笔记&#34;&gt;spring boot2学习笔记&lt;/h1&gt;
+&lt;h2 id=&#34;一spring-boot2核心技术基础入门&#34;&gt;一，	spring boot2核心技术基础入门&lt;/h2&gt;
+&lt;h3 id=&#34;1spring能做什么&#34;&gt;1.spring能做什么&lt;/h3&gt;
+&lt;h4 id=&#34;11-spring的能力&#34;&gt;1.1 spring的能力&lt;/h4&gt;
+&lt;p&gt;![image-20220321190444355](spring boot2学习笔记.assets\image-20220321190444355.png)&lt;/p&gt;
+&lt;h2 id=&#34;二为什么用springboot&#34;&gt;二	、为什么用SpringBoot&lt;/h2&gt;
+&lt;p&gt;Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can &amp;ldquo;just run&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;能快速创建出生产级别的Spring应用&lt;/p&gt;
+&lt;h3 id=&#34;21springboot优点&#34;&gt;2.1、SpringBoot优点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create stand-alone Spring applications&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;创建独立Spring应用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -364,7 +1000,62 @@
       <pubDate>Sat, 06 Nov 2021 15:15:53 +0800</pubDate>
       
       <guid>https://XianCH.github.io/links/</guid>
-      <description>Sulv&amp;#39;s Blog 一个记录技术、阅读、生活的博客 👉友链格式 名称： Sulv&amp;rsquo;s Blog 网址： https://www.sulvblog.cn 图标： https://www.sulvblog.cn/img/Q.gif 描述： 一个记录技术、阅读、生活的博客 👉友链申请要求 秉承互换友链原则、文章定期更新、不能有太多广告、个人描述字数控制在15字内 👉Hugo博客交流群 787018782</description>
+      <description>&lt;div class=&#34;friend&#34;&gt;
+&lt;a target=&#34;_blank&#34; href=https://www.sulvblog.cn title=Sulv&amp;#39;s&amp;#32;Blog class=&#34;friendurl&#34;&gt;
+  &lt;div class=&#34;frienddiv&#34;&gt;
+    &lt;div class=&#34;frienddivleft&#34;&gt;
+      &lt;img class=&#34;myfriend&#34; src=https://www.sulvblog.cn/img/Q.gif /&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;frienddivright&#34;&gt;
+      &lt;div class=&#34;friendname&#34;&gt;Sulv&amp;#39;s Blog&lt;/div&gt;
+      &lt;div class=&#34;friendinfo&#34;&gt;一个记录技术、阅读、生活的博客&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/a&gt;
+
+&lt;/div&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;div style=&#34;font-size: 20px;&#34; class=&#34;youlian&#34;&gt;👉友链格式&lt;/div&gt;
+&lt;div style=&#34;font-size: 16px;&#34;&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;名称：&lt;/td&gt;
+          &lt;td&gt;Sulv&amp;rsquo;s Blog&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;网址：&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.sulvblog.cn&#34;&gt;https://www.sulvblog.cn&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;图标：&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.sulvblog.cn/img/Q.gif&#34;&gt;https://www.sulvblog.cn/img/Q.gif&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;描述：&lt;/td&gt;
+          &lt;td&gt;一个记录技术、阅读、生活的博客&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;br/&gt;
+&lt;div style=&#34;font-size: 20px;&#34;&gt;👉友链申请要求&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;秉承互换友链原则、文章定期更新&lt;!-- 、网站在工信部备案 --&gt;、不能有太多广告、个人描述字数控制在15字内&lt;/p&gt;&lt;/blockquote&gt;
+&lt;br/&gt;
+&lt;div style=&#34;font-size: 20px;&#34;&gt;👉Hugo博客交流群&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;787018782&lt;/p&gt;&lt;/blockquote&gt;</description>
     </item>
     
     <item>
@@ -373,7 +1064,29 @@
       <pubDate>Sat, 06 Nov 2021 14:57:28 +0800</pubDate>
       
       <guid>https://XianCH.github.io/about/</guid>
-      <description>x14n 23 take it ez&amp;hellip;&amp;hellip;</description>
+      <description>&lt;p style=&#34;font-size: 25px;&#34;&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;x14n&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;23&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;take it ez&amp;hellip;&amp;hellip;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
     </item>
     
     

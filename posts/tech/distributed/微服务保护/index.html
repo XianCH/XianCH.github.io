@@ -7,7 +7,17 @@
 <meta name="robots" content="index, follow">
 <title>微服务保护 | X14n&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="微服务保护 1.初识Sentinel 1.1.雪崩问题及解决方案 1.1.1.雪崩问题 微服务中，服务间调用关系错综复杂，一个微服务往往依赖于多个其它微服务。 如图，如果服务提供者I发生了故障，当前的应用的部分业务因为依赖于服务I，因此也会被阻塞。此时，其它不依赖于服务I的业务似乎不受影响">
+<meta name="description" content="微服务保护
+1.初识Sentinel
+1.1.雪崩问题及解决方案
+1.1.1.雪崩问题
+微服务中，服务间调用关系错综复杂，一个微服务往往依赖于多个其它微服务。
+
+
+如图，如果服务提供者I发生了故障，当前的应用的部分业务因为依赖于服务I，因此也会被阻塞。此时，其它不依赖于服务I的业务似乎不受影响。
+
+
+但是，依赖服务I的业务请求被阻塞，用户不会得到响应，则tomcat的这个线程不会释放，于是越来越多的用户请求到来，越来越多的线程会阻塞：">
 <meta name="author" content="x14n">
 <link rel="canonical" href="https://XianCH.github.io/posts/tech/distributed/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -46,11 +56,18 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
-  
-
 <meta property="og:title" content="微服务保护" />
-<meta property="og:description" content="微服务保护 1.初识Sentinel 1.1.雪崩问题及解决方案 1.1.1.雪崩问题 微服务中，服务间调用关系错综复杂，一个微服务往往依赖于多个其它微服务。 如图，如果服务提供者I发生了故障，当前的应用的部分业务因为依赖于服务I，因此也会被阻塞。此时，其它不依赖于服务I的业务似乎不受影响" />
+<meta property="og:description" content="微服务保护
+1.初识Sentinel
+1.1.雪崩问题及解决方案
+1.1.1.雪崩问题
+微服务中，服务间调用关系错综复杂，一个微服务往往依赖于多个其它微服务。
+
+
+如图，如果服务提供者I发生了故障，当前的应用的部分业务因为依赖于服务I，因此也会被阻塞。此时，其它不依赖于服务I的业务似乎不受影响。
+
+
+但是，依赖服务I的业务请求被阻塞，用户不会得到响应，则tomcat的这个线程不会释放，于是越来越多的用户请求到来，越来越多的线程会阻塞：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://XianCH.github.io/posts/tech/distributed/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8A%A4/" />
 <meta property="og:image" content="https://XianCH.github.io/postsImg/weifuwu.png" /><meta property="article:section" content="posts" />
@@ -60,7 +77,17 @@ var _hmt = _hmt || [];
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://XianCH.github.io/postsImg/weifuwu.png" />
 <meta name="twitter:title" content="微服务保护"/>
-<meta name="twitter:description" content="微服务保护 1.初识Sentinel 1.1.雪崩问题及解决方案 1.1.1.雪崩问题 微服务中，服务间调用关系错综复杂，一个微服务往往依赖于多个其它微服务。 如图，如果服务提供者I发生了故障，当前的应用的部分业务因为依赖于服务I，因此也会被阻塞。此时，其它不依赖于服务I的业务似乎不受影响"/>
+<meta name="twitter:description" content="微服务保护
+1.初识Sentinel
+1.1.雪崩问题及解决方案
+1.1.1.雪崩问题
+微服务中，服务间调用关系错综复杂，一个微服务往往依赖于多个其它微服务。
+
+
+如图，如果服务提供者I发生了故障，当前的应用的部分业务因为依赖于服务I，因此也会被阻塞。此时，其它不依赖于服务I的业务似乎不受影响。
+
+
+但是，依赖服务I的业务请求被阻塞，用户不会得到响应，则tomcat的这个线程不会释放，于是越来越多的用户请求到来，越来越多的线程会阻塞："/>
 
 
 <script type="application/ld+json">
@@ -97,7 +124,7 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "微服务保护",
   "name": "微服务保护",
-  "description": "微服务保护 1.初识Sentinel 1.1.雪崩问题及解决方案 1.1.1.雪崩问题 微服务中，服务间调用关系错综复杂，一个微服务往往依赖于多个其它微服务。 如图，如果服务提供者I发生了故障，当前的应用的部分业务因为依赖于服务I，因此也会被阻塞。此时，其它不依赖于服务I的业务似乎不受影响",
+  "description": "微服务保护 1.初识Sentinel 1.1.雪崩问题及解决方案 1.1.1.雪崩问题 微服务中，服务间调用关系错综复杂，一个微服务往往依赖于多个其它微服务。\n如图，如果服务提供者I发生了故障，当前的应用的部分业务因为依赖于服务I，因此也会被阻塞。此时，其它不依赖于服务I的业务似乎不受影响。\n但是，依赖服务I的业务请求被阻塞，用户不会得到响应，则tomcat的这个线程不会释放，于是越来越多的用户请求到来，越来越多的线程会阻塞：\n",
   "keywords": [
     ""
   ],
@@ -662,70 +689,70 @@ var _hmt = _hmt || [];
 </ul>
 <p>早期比较流行的是Hystrix框架，但目前国内实用最广泛的还是阿里巴巴的Sentinel框架，这里我们做下对比：</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th><strong>Sentinel</strong></th>
-<th><strong>Hystrix</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>隔离策略</td>
-<td>信号量隔离</td>
-<td>线程池隔离/信号量隔离</td>
-</tr>
-<tr>
-<td>熔断降级策略</td>
-<td>基于慢调用比例或异常比例</td>
-<td>基于失败比率</td>
-</tr>
-<tr>
-<td>实时指标实现</td>
-<td>滑动窗口</td>
-<td>滑动窗口（基于 RxJava）</td>
-</tr>
-<tr>
-<td>规则配置</td>
-<td>支持多种数据源</td>
-<td>支持多种数据源</td>
-</tr>
-<tr>
-<td>扩展性</td>
-<td>多个扩展点</td>
-<td>插件的形式</td>
-</tr>
-<tr>
-<td>基于注解的支持</td>
-<td>支持</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>限流</td>
-<td>基于 QPS，支持基于调用关系的限流</td>
-<td>有限的支持</td>
-</tr>
-<tr>
-<td>流量整形</td>
-<td>支持慢启动、匀速排队模式</td>
-<td>不支持</td>
-</tr>
-<tr>
-<td>系统自适应保护</td>
-<td>支持</td>
-<td>不支持</td>
-</tr>
-<tr>
-<td>控制台</td>
-<td>开箱即用，可配置规则、查看秒级监控、机器发现等</td>
-<td>不完善</td>
-</tr>
-<tr>
-<td>常见框架的适配</td>
-<td>Servlet、Spring Cloud、Dubbo、gRPC  等</td>
-<td>Servlet、Spring Cloud Netflix</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th><strong>Sentinel</strong></th>
+          <th><strong>Hystrix</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>隔离策略</td>
+          <td>信号量隔离</td>
+          <td>线程池隔离/信号量隔离</td>
+      </tr>
+      <tr>
+          <td>熔断降级策略</td>
+          <td>基于慢调用比例或异常比例</td>
+          <td>基于失败比率</td>
+      </tr>
+      <tr>
+          <td>实时指标实现</td>
+          <td>滑动窗口</td>
+          <td>滑动窗口（基于 RxJava）</td>
+      </tr>
+      <tr>
+          <td>规则配置</td>
+          <td>支持多种数据源</td>
+          <td>支持多种数据源</td>
+      </tr>
+      <tr>
+          <td>扩展性</td>
+          <td>多个扩展点</td>
+          <td>插件的形式</td>
+      </tr>
+      <tr>
+          <td>基于注解的支持</td>
+          <td>支持</td>
+          <td>支持</td>
+      </tr>
+      <tr>
+          <td>限流</td>
+          <td>基于 QPS，支持基于调用关系的限流</td>
+          <td>有限的支持</td>
+      </tr>
+      <tr>
+          <td>流量整形</td>
+          <td>支持慢启动、匀速排队模式</td>
+          <td>不支持</td>
+      </tr>
+      <tr>
+          <td>系统自适应保护</td>
+          <td>支持</td>
+          <td>不支持</td>
+      </tr>
+      <tr>
+          <td>控制台</td>
+          <td>开箱即用，可配置规则、查看秒级监控、机器发现等</td>
+          <td>不完善</td>
+      </tr>
+      <tr>
+          <td>常见框架的适配</td>
+          <td>Servlet、Spring Cloud、Dubbo、gRPC  等</td>
+          <td>Servlet、Spring Cloud Netflix</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="13sentinel介绍和安装">1.3.Sentinel介绍和安装<a hidden class="anchor" aria-hidden="true" href="#13sentinel介绍和安装">#</a></h2>
 <h3 id="131初识sentinel">1.3.1.初识Sentinel<a hidden class="anchor" aria-hidden="true" href="#131初识sentinel">#</a></h3>
@@ -746,30 +773,30 @@ var _hmt = _hmt || [];
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>java -jar sentinel-dashboard-1.8.1.jar
 </span></span></code></pre></div><p>如果要修改Sentinel的默认端口、账户、密码，可以通过下列配置：</p>
 <table>
-<thead>
-<tr>
-<th><strong>配置项</strong></th>
-<th><strong>默认值</strong></th>
-<th><strong>说明</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>server.port</td>
-<td>8080</td>
-<td>服务端口</td>
-</tr>
-<tr>
-<td>sentinel.dashboard.auth.username</td>
-<td>sentinel</td>
-<td>默认用户名</td>
-</tr>
-<tr>
-<td>sentinel.dashboard.auth.password</td>
-<td>sentinel</td>
-<td>默认密码</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>配置项</strong></th>
+          <th><strong>默认值</strong></th>
+          <th><strong>说明</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>server.port</td>
+          <td>8080</td>
+          <td>服务端口</td>
+      </tr>
+      <tr>
+          <td>sentinel.dashboard.auth.username</td>
+          <td>sentinel</td>
+          <td>默认用户名</td>
+      </tr>
+      <tr>
+          <td>sentinel.dashboard.auth.password</td>
+          <td>sentinel</td>
+          <td>默认密码</td>
+      </tr>
+  </tbody>
 </table>
 <p>例如，修改端口：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>java -Dserver.port<span style="color:#f92672">=</span><span style="color:#ae81ff">8090</span> -jar sentinel-dashboard-1.8.1.jar
@@ -849,8 +876,7 @@ var _hmt = _hmt || [];
 <p><img loading="lazy" src="assets/image-20210715200804594.png" alt="image-20210715200804594"  />
 </p>
 <blockquote>
-<p>注意，不要点击菜单中的执行按钮来运行。</p>
-</blockquote>
+<p>注意，不要点击菜单中的执行按钮来运行。</p></blockquote>
 <p>结果：</p>
 <p><img loading="lazy" src="assets/image-20210715200853671.png" alt="image-20210715200853671"  />
 </p>
@@ -1524,34 +1550,34 @@ var _hmt = _hmt || [];
 </ul>
 <p>这里的BlockException包含多个不同的子类：</p>
 <table>
-<thead>
-<tr>
-<th><strong>异常</strong></th>
-<th><strong>说明</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>FlowException</td>
-<td>限流异常</td>
-</tr>
-<tr>
-<td>ParamFlowException</td>
-<td>热点参数限流的异常</td>
-</tr>
-<tr>
-<td>DegradeException</td>
-<td>降级异常</td>
-</tr>
-<tr>
-<td>AuthorityException</td>
-<td>授权规则异常</td>
-</tr>
-<tr>
-<td>SystemBlockException</td>
-<td>系统规则异常</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>异常</strong></th>
+          <th><strong>说明</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>FlowException</td>
+          <td>限流异常</td>
+      </tr>
+      <tr>
+          <td>ParamFlowException</td>
+          <td>热点参数限流的异常</td>
+      </tr>
+      <tr>
+          <td>DegradeException</td>
+          <td>降级异常</td>
+      </tr>
+      <tr>
+          <td>AuthorityException</td>
+          <td>授权规则异常</td>
+      </tr>
+      <tr>
+          <td>SystemBlockException</td>
+          <td>系统规则异常</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="422自定义异常处理">4.2.2.自定义异常处理<a hidden class="anchor" aria-hidden="true" href="#422自定义异常处理">#</a></h3>
 <p>下面，我们就在order-service定义一个自定义异常处理类：</p>
@@ -1653,7 +1679,7 @@ var _hmt = _hmt || [];
     <span>
         Copyright
         &copy;
-        -2024
+        -2025
         <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>

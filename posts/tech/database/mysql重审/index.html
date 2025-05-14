@@ -7,7 +7,59 @@
 <meta name="robots" content="index, follow">
 <title>Mysql重审 | X14n&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="简述 以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点 mysql相关命令 #查看数据库引擎 show engine; #查看表结构 DESC tablename; #查看创建表的sql语句 show CREATE TABLE TABLE_NAME; #创建表 Drop table if exists `school`; CREATE TABLE `school` default character set utf8; use school; #自增 auto_increment; #主键 primary key(`column`); #设置引擎和编码 engine = innoDB DEFAULT CHARSET= UT8; #设置外键将产品的cid绑定到category的主">
+<meta name="description" content="简述
+以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点
+mysql相关命令
+#查看数据库引擎
+show engine;
+#查看表结构
+DESC tablename;
+#查看创建表的sql语句
+show CREATE TABLE TABLE_NAME;
+#创建表
+Drop table if exists `school`;
+CREATE TABLE `school` default character set utf8;
+use school;
+#自增
+auto_increment;
+#主键
+primary key(`column`);
+#设置引擎和编码
+engine = innoDB DEFAULT CHARSET= UT8;
+#设置外键将产品的cid绑定到category的主键上
+constraint fk_product_category foreign key(cid) references category(id);
+#n表示一个字符，不管中英文（有待确定）
+varchar(n)
+#创建表并设置column
+drop table if exists `students`;
+CREATE TABLE `student`(
+	`id` int NOT NULL AUTO_INCREMENT,
+    `NAME` VARCHAR(20) NOT NULL ,
+    `SEX` SMALLINT DEFAULT NULL COMMENT &#39;性别&#39;,
+    `age` int NOT NULL ,
+    `IN_TIME` DATETIME NOT NULL ,
+    PRIMARY KEY(`id`)
+)default charset `UTF8`;
+
+#修改表
+USE school;
+ALTER TABLE `students` RENAME TO `student`; #改报名
+ALTER TABLE `students` add column `age` int not null after `sex`;
+ALTER TABLE `students` DROP column `nickname`;#删除表中的某一列
+ALTER TABLE `students` CHANGE column_name new_name varchar(36);#修改某一列的的名称
+ALTER TABLE police_org Drop primary key #修改表的主键
+
+日期：DATE（YYYY-MM-DD） //比较常用 使用 CURDATE（）
+时间：TIME（HH:MM:SS） //比较常用 使用CURTIME（）
+年份：YEAR（YYYY）
+最全时间：DATETIME（YYYY-MM-DD HH:MM:SS） //使用  NOW（）
+
+/*varchar(36) 可以保存多少中英文字符？*/
+答：具体还是要看版本的，自己在数据库中建个表测试下可以放多少个汉字。
+4.0 版本以下，varchar(100)，指的是 100 字节，如果存放UTF8汉字时，只能存33个（每个汉字3字节） 
+5.0 版本以上，varchar(100)，指的是 100 字符，无论存放的是数字、字母还是UTF8汉字（每个汉字3字节），都可以存放100个。
+mysql 练习题
+问：查找年龄最大的学生的所有信息？">
 <meta name="author" content="x14n">
 <link rel="canonical" href="https://XianCH.github.io/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -46,11 +98,60 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
-  
-
 <meta property="og:title" content="Mysql重审" />
-<meta property="og:description" content="简述 以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点 mysql相关命令 #查看数据库引擎 show engine; #查看表结构 DESC tablename; #查看创建表的sql语句 show CREATE TABLE TABLE_NAME; #创建表 Drop table if exists `school`; CREATE TABLE `school` default character set utf8; use school; #自增 auto_increment; #主键 primary key(`column`); #设置引擎和编码 engine = innoDB DEFAULT CHARSET= UT8; #设置外键将产品的cid绑定到category的主" />
+<meta property="og:description" content="简述
+以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点
+mysql相关命令
+#查看数据库引擎
+show engine;
+#查看表结构
+DESC tablename;
+#查看创建表的sql语句
+show CREATE TABLE TABLE_NAME;
+#创建表
+Drop table if exists `school`;
+CREATE TABLE `school` default character set utf8;
+use school;
+#自增
+auto_increment;
+#主键
+primary key(`column`);
+#设置引擎和编码
+engine = innoDB DEFAULT CHARSET= UT8;
+#设置外键将产品的cid绑定到category的主键上
+constraint fk_product_category foreign key(cid) references category(id);
+#n表示一个字符，不管中英文（有待确定）
+varchar(n)
+#创建表并设置column
+drop table if exists `students`;
+CREATE TABLE `student`(
+	`id` int NOT NULL AUTO_INCREMENT,
+    `NAME` VARCHAR(20) NOT NULL ,
+    `SEX` SMALLINT DEFAULT NULL COMMENT &#39;性别&#39;,
+    `age` int NOT NULL ,
+    `IN_TIME` DATETIME NOT NULL ,
+    PRIMARY KEY(`id`)
+)default charset `UTF8`;
+
+#修改表
+USE school;
+ALTER TABLE `students` RENAME TO `student`; #改报名
+ALTER TABLE `students` add column `age` int not null after `sex`;
+ALTER TABLE `students` DROP column `nickname`;#删除表中的某一列
+ALTER TABLE `students` CHANGE column_name new_name varchar(36);#修改某一列的的名称
+ALTER TABLE police_org Drop primary key #修改表的主键
+
+日期：DATE（YYYY-MM-DD） //比较常用 使用 CURDATE（）
+时间：TIME（HH:MM:SS） //比较常用 使用CURTIME（）
+年份：YEAR（YYYY）
+最全时间：DATETIME（YYYY-MM-DD HH:MM:SS） //使用  NOW（）
+
+/*varchar(36) 可以保存多少中英文字符？*/
+答：具体还是要看版本的，自己在数据库中建个表测试下可以放多少个汉字。
+4.0 版本以下，varchar(100)，指的是 100 字节，如果存放UTF8汉字时，只能存33个（每个汉字3字节） 
+5.0 版本以上，varchar(100)，指的是 100 字符，无论存放的是数字、字母还是UTF8汉字（每个汉字3字节），都可以存放100个。
+mysql 练习题
+问：查找年龄最大的学生的所有信息？" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://XianCH.github.io/posts/tech/database/mysql%E9%87%8D%E5%AE%A1/" />
 <meta property="og:image" content="https://XianCH.github.io/postsImg/mysql-r.png" /><meta property="article:section" content="posts" />
@@ -60,7 +161,59 @@ var _hmt = _hmt || [];
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://XianCH.github.io/postsImg/mysql-r.png" />
 <meta name="twitter:title" content="Mysql重审"/>
-<meta name="twitter:description" content="简述 以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点 mysql相关命令 #查看数据库引擎 show engine; #查看表结构 DESC tablename; #查看创建表的sql语句 show CREATE TABLE TABLE_NAME; #创建表 Drop table if exists `school`; CREATE TABLE `school` default character set utf8; use school; #自增 auto_increment; #主键 primary key(`column`); #设置引擎和编码 engine = innoDB DEFAULT CHARSET= UT8; #设置外键将产品的cid绑定到category的主"/>
+<meta name="twitter:description" content="简述
+以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点
+mysql相关命令
+#查看数据库引擎
+show engine;
+#查看表结构
+DESC tablename;
+#查看创建表的sql语句
+show CREATE TABLE TABLE_NAME;
+#创建表
+Drop table if exists `school`;
+CREATE TABLE `school` default character set utf8;
+use school;
+#自增
+auto_increment;
+#主键
+primary key(`column`);
+#设置引擎和编码
+engine = innoDB DEFAULT CHARSET= UT8;
+#设置外键将产品的cid绑定到category的主键上
+constraint fk_product_category foreign key(cid) references category(id);
+#n表示一个字符，不管中英文（有待确定）
+varchar(n)
+#创建表并设置column
+drop table if exists `students`;
+CREATE TABLE `student`(
+	`id` int NOT NULL AUTO_INCREMENT,
+    `NAME` VARCHAR(20) NOT NULL ,
+    `SEX` SMALLINT DEFAULT NULL COMMENT &#39;性别&#39;,
+    `age` int NOT NULL ,
+    `IN_TIME` DATETIME NOT NULL ,
+    PRIMARY KEY(`id`)
+)default charset `UTF8`;
+
+#修改表
+USE school;
+ALTER TABLE `students` RENAME TO `student`; #改报名
+ALTER TABLE `students` add column `age` int not null after `sex`;
+ALTER TABLE `students` DROP column `nickname`;#删除表中的某一列
+ALTER TABLE `students` CHANGE column_name new_name varchar(36);#修改某一列的的名称
+ALTER TABLE police_org Drop primary key #修改表的主键
+
+日期：DATE（YYYY-MM-DD） //比较常用 使用 CURDATE（）
+时间：TIME（HH:MM:SS） //比较常用 使用CURTIME（）
+年份：YEAR（YYYY）
+最全时间：DATETIME（YYYY-MM-DD HH:MM:SS） //使用  NOW（）
+
+/*varchar(36) 可以保存多少中英文字符？*/
+答：具体还是要看版本的，自己在数据库中建个表测试下可以放多少个汉字。
+4.0 版本以下，varchar(100)，指的是 100 字节，如果存放UTF8汉字时，只能存33个（每个汉字3字节） 
+5.0 版本以上，varchar(100)，指的是 100 字符，无论存放的是数字、字母还是UTF8汉字（每个汉字3字节），都可以存放100个。
+mysql 练习题
+问：查找年龄最大的学生的所有信息？"/>
 
 
 <script type="application/ld+json">
@@ -97,7 +250,7 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "Mysql重审",
   "name": "Mysql重审",
-  "description": "简述 以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点 mysql相关命令 #查看数据库引擎 show engine; #查看表结构 DESC tablename; #查看创建表的sql语句 show CREATE TABLE TABLE_NAME; #创建表 Drop table if exists `school`; CREATE TABLE `school` default character set utf8; use school; #自增 auto_increment; #主键 primary key(`column`); #设置引擎和编码 engine = innoDB DEFAULT CHARSET= UT8; #设置外键将产品的cid绑定到category的主",
+  "description": "简述 以前在学习mysql的过程中 ，需要复习还有需要拓展的知识点\nmysql相关命令 #查看数据库引擎 show engine; #查看表结构 DESC tablename; #查看创建表的sql语句 show CREATE TABLE TABLE_NAME; #创建表 Drop table if exists `school`; CREATE TABLE `school` default character set utf8; use school; #自增 auto_increment; #主键 primary key(`column`); #设置引擎和编码 engine = innoDB DEFAULT CHARSET= UT8; #设置外键将产品的cid绑定到category的主键上 constraint fk_product_category foreign key(cid) references category(id); #n表示一个字符，不管中英文（有待确定） varchar(n) #创建表并设置column drop table if exists `students`; CREATE TABLE `student`( `id` int NOT NULL AUTO_INCREMENT, `NAME` VARCHAR(20) NOT NULL , `SEX` SMALLINT DEFAULT NULL COMMENT \u0026#39;性别\u0026#39;, `age` int NOT NULL , `IN_TIME` DATETIME NOT NULL , PRIMARY KEY(`id`) )default charset `UTF8`; #修改表 USE school; ALTER TABLE `students` RENAME TO `student`; #改报名 ALTER TABLE `students` add column `age` int not null after `sex`; ALTER TABLE `students` DROP column `nickname`;#删除表中的某一列 ALTER TABLE `students` CHANGE column_name new_name varchar(36);#修改某一列的的名称 ALTER TABLE police_org Drop primary key #修改表的主键 日期：DATE（YYYY-MM-DD） //比较常用 使用 CURDATE（） 时间：TIME（HH:MM:SS） //比较常用 使用CURTIME（） 年份：YEAR（YYYY） 最全时间：DATETIME（YYYY-MM-DD HH:MM:SS） //使用 NOW（） /*varchar(36) 可以保存多少中英文字符？*/ 答：具体还是要看版本的，自己在数据库中建个表测试下可以放多少个汉字。 4.0 版本以下，varchar(100)，指的是 100 字节，如果存放UTF8汉字时，只能存33个（每个汉字3字节） 5.0 版本以上，varchar(100)，指的是 100 字符，无论存放的是数字、字母还是UTF8汉字（每个汉字3字节），都可以存放100个。 mysql 练习题 问：查找年龄最大的学生的所有信息？\n",
   "keywords": [
     ""
   ],
@@ -628,7 +781,7 @@ var _hmt = _hmt || [];
     <span>
         Copyright
         &copy;
-        -2024
+        -2025
         <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>

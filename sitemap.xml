@@ -2,16 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://XianCH.github.io/posts/tech/front/javascript%E5%A4%8D%E4%B9%A0/</loc>
-    <lastmod>2024-03-29T12:48:24+08:00</lastmod>
-  </url><url>
     <loc>https://XianCH.github.io/posts/</loc>
-    <lastmod>2024-03-29T12:48:24+08:00</lastmod>
+    <lastmod>2025-05-15T01:38:06+08:00</lastmod>
+  </url><url>
+    <loc>https://XianCH.github.io/posts/tech/web/server_setup/</loc>
+    <lastmod>2025-05-15T01:38:06+08:00</lastmod>
   </url><url>
     <loc>https://XianCH.github.io/posts/tech/</loc>
-    <lastmod>2024-03-29T12:48:24+08:00</lastmod>
+    <lastmod>2025-05-15T01:38:06+08:00</lastmod>
   </url><url>
     <loc>https://XianCH.github.io/</loc>
+    <lastmod>2025-05-15T01:38:06+08:00</lastmod>
+  </url><url>
+    <loc>https://XianCH.github.io/posts/tech/front/javascript%E5%A4%8D%E4%B9%A0/</loc>
     <lastmod>2024-03-29T12:48:24+08:00</lastmod>
   </url><url>
     <loc>https://XianCH.github.io/posts/tech/linux/nvim_config/</loc>
@@ -146,19 +149,19 @@
     <loc>https://XianCH.github.io/posts/tech/java/springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-09-22T10:16:51+00:00</lastmod>
   </url><url>
-    <loc>https://XianCH.github.io/tags/life/</loc>
+    <loc>https://XianCH.github.io/posts/life/life/</loc>
     <lastmod>2022-05-05T00:18:15+08:00</lastmod>
   </url><url>
-    <loc>https://XianCH.github.io/posts/life/life/</loc>
+    <loc>https://XianCH.github.io/tags/life/</loc>
     <lastmod>2022-05-05T00:18:15+08:00</lastmod>
   </url><url>
     <loc>https://XianCH.github.io/posts/read/</loc>
     <lastmod>2022-05-05T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://XianCH.github.io/tags/read/</loc>
+    <loc>https://XianCH.github.io/posts/read/read/</loc>
     <lastmod>2022-05-05T00:18:06+08:00</lastmod>
   </url><url>
-    <loc>https://XianCH.github.io/posts/read/read/</loc>
+    <loc>https://XianCH.github.io/tags/read/</loc>
     <lastmod>2022-05-05T00:18:06+08:00</lastmod>
   </url><url>
     <loc>https://XianCH.github.io/tags/database/</loc>

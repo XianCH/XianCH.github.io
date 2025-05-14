@@ -7,7 +7,19 @@
 <meta name="robots" content="index, follow">
 <title>Jwt | X14n&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="简介 jwt(json web token)，主要用在跨域认证的问题 JWT原理 在https://jwt.io/ 这个网站可以进行jwt的encode 和decode，encode和decode分别如下 jwt组成 通过decode出来的数据，可以看到jwt由三部分组成 1.HEADER (ALGORITHM &amp; TOKEN TYPE) 2.PAYLOAD (DATA) 3.SIGNATURE (SIGNATURE) Header Header 部分是一个 JSON 对象，描述">
+<meta name="description" content="简介
+jwt(json web token)，主要用在跨域认证的问题
+JWT原理
+在https://jwt.io/ 这个网站可以进行jwt的encode 和decode，encode和decode分别如下
+
+
+jwt组成
+通过decode出来的数据，可以看到jwt由三部分组成
+1.HEADER		(ALGORITHM &amp; TOKEN TYPE)
+2.PAYLOAD		(DATA)
+3.SIGNATURE		(SIGNATURE)
+Header
+Header 部分是一个 JSON 对象，描述 JWT 的元数据，通常是下面的样子。">
 <meta name="author" content="x14n">
 <link rel="canonical" href="https://XianCH.github.io/posts/tech/basic/jwt/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -46,11 +58,20 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
-  
-
 <meta property="og:title" content="Jwt" />
-<meta property="og:description" content="简介 jwt(json web token)，主要用在跨域认证的问题 JWT原理 在https://jwt.io/ 这个网站可以进行jwt的encode 和decode，encode和decode分别如下 jwt组成 通过decode出来的数据，可以看到jwt由三部分组成 1.HEADER (ALGORITHM &amp; TOKEN TYPE) 2.PAYLOAD (DATA) 3.SIGNATURE (SIGNATURE) Header Header 部分是一个 JSON 对象，描述" />
+<meta property="og:description" content="简介
+jwt(json web token)，主要用在跨域认证的问题
+JWT原理
+在https://jwt.io/ 这个网站可以进行jwt的encode 和decode，encode和decode分别如下
+
+
+jwt组成
+通过decode出来的数据，可以看到jwt由三部分组成
+1.HEADER		(ALGORITHM &amp; TOKEN TYPE)
+2.PAYLOAD		(DATA)
+3.SIGNATURE		(SIGNATURE)
+Header
+Header 部分是一个 JSON 对象，描述 JWT 的元数据，通常是下面的样子。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://XianCH.github.io/posts/tech/basic/jwt/" />
 <meta property="og:image" content="https://XianCH.github.io/postsImg/jwt.png" /><meta property="article:section" content="posts" />
@@ -60,7 +81,19 @@ var _hmt = _hmt || [];
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://XianCH.github.io/postsImg/jwt.png" />
 <meta name="twitter:title" content="Jwt"/>
-<meta name="twitter:description" content="简介 jwt(json web token)，主要用在跨域认证的问题 JWT原理 在https://jwt.io/ 这个网站可以进行jwt的encode 和decode，encode和decode分别如下 jwt组成 通过decode出来的数据，可以看到jwt由三部分组成 1.HEADER (ALGORITHM &amp; TOKEN TYPE) 2.PAYLOAD (DATA) 3.SIGNATURE (SIGNATURE) Header Header 部分是一个 JSON 对象，描述"/>
+<meta name="twitter:description" content="简介
+jwt(json web token)，主要用在跨域认证的问题
+JWT原理
+在https://jwt.io/ 这个网站可以进行jwt的encode 和decode，encode和decode分别如下
+
+
+jwt组成
+通过decode出来的数据，可以看到jwt由三部分组成
+1.HEADER		(ALGORITHM &amp; TOKEN TYPE)
+2.PAYLOAD		(DATA)
+3.SIGNATURE		(SIGNATURE)
+Header
+Header 部分是一个 JSON 对象，描述 JWT 的元数据，通常是下面的样子。"/>
 
 
 <script type="application/ld+json">
@@ -97,7 +130,7 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "Jwt",
   "name": "Jwt",
-  "description": "简介 jwt(json web token)，主要用在跨域认证的问题 JWT原理 在https://jwt.io/ 这个网站可以进行jwt的encode 和decode，encode和decode分别如下 jwt组成 通过decode出来的数据，可以看到jwt由三部分组成 1.HEADER (ALGORITHM \u0026amp; TOKEN TYPE) 2.PAYLOAD (DATA) 3.SIGNATURE (SIGNATURE) Header Header 部分是一个 JSON 对象，描述",
+  "description": "简介 jwt(json web token)，主要用在跨域认证的问题\nJWT原理 在https://jwt.io/ 这个网站可以进行jwt的encode 和decode，encode和decode分别如下\njwt组成 通过decode出来的数据，可以看到jwt由三部分组成\n1.HEADER\t(ALGORITHM \u0026amp; TOKEN TYPE) 2.PAYLOAD\t(DATA) 3.SIGNATURE\t(SIGNATURE) Header Header 部分是一个 JSON 对象，描述 JWT 的元数据，通常是下面的样子。\n",
   "keywords": [
     ""
   ],
@@ -486,8 +519,8 @@ jti (JWT ID)：编号
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">MySecurt</span> = []byte(<span style="color:#e6db74">&#34;x14nch911&#34;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//生成token
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">GenToken</span>(<span style="color:#a6e22e">username</span> <span style="color:#66d9ef">string</span>) (<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//生成token</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">GenToken</span>(<span style="color:#a6e22e">username</span> <span style="color:#66d9ef">string</span>) (<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">error</span>) {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">c</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">MyCliams</span>{
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">username</span>,
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">jwt</span>.<span style="color:#a6e22e">StandardClaims</span>{
@@ -500,10 +533,10 @@ jti (JWT ID)：编号
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">SignedString</span>(<span style="color:#a6e22e">MySecurt</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 校验token
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ParseToken</span>(<span style="color:#a6e22e">tokenString</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">MyCliams</span>, <span style="color:#66d9ef">error</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//解析token
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">token</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">jwt</span>.<span style="color:#a6e22e">ParseWithClaims</span>(<span style="color:#a6e22e">tokenString</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">MyCliams</span>{}, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">token</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">jwt</span>.<span style="color:#a6e22e">Token</span>) (<span style="color:#a6e22e">i</span> <span style="color:#66d9ef">interface</span>{}, <span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 校验token</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ParseToken</span>(<span style="color:#a6e22e">tokenString</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">MyCliams</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//解析token</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">token</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">jwt</span>.<span style="color:#a6e22e">ParseWithClaims</span>(<span style="color:#a6e22e">tokenString</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">MyCliams</span>{}, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">token</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">jwt</span>.<span style="color:#a6e22e">Token</span>) (<span style="color:#a6e22e">i</span> <span style="color:#66d9ef">interface</span>{}, <span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>) {
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">MySecurt</span>, <span style="color:#66d9ef">nil</span>
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>
@@ -552,7 +585,7 @@ jti (JWT ID)：编号
     <span>
         Copyright
         &copy;
-        -2024
+        -2025
         <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>

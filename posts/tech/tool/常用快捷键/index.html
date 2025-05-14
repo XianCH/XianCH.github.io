@@ -7,7 +7,178 @@
 <meta name="robots" content="index, follow">
 <title>常用快捷键 | X14n&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl&#43;b 然">
+<meta name="description" content="tmux常用命令
+终端中使用 Tmux 命令
+
+启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称
+
+$ tmux new -s sessionName -n window
+
+退出会话(tmux会话内命令)
+
+$ tmux detach
+
+退出并关闭会话（窗口,窗格）
+
+$ exit
+
+结束后台的会话
+
+#通过会话编号
+
+$ tmux kill-session -t 0
+
+#通过会话名称
+
+$ tmux kill-session -t sessionName 
+
+查看所有会话
+
+$ tmux ls
+
+激活会话
+
+$ tmux attach -t sessionName
+Tmux 内使用前缀 Ctrl&#43;b 然后对应快捷键执行命令
+会话常用快捷操作
+
+  
+      
+          快捷键
+          说明
+      
+  
+  
+      
+          ?
+          所有快捷键，q退出
+      
+      
+          :new sessionName
+          创建新会话
+      
+      
+          s
+          切换会话
+      
+      
+          $
+          重命名当前会话
+      
+      
+          d
+          离开会话返回shell（与tmux detach功能相同）
+      
+      
+          Ctrl&#43;z
+          挂起会话，返回shell
+      
+  
+
+窗口常用快捷操作
+
+  
+      
+          快捷键
+          说明
+      
+  
+  
+      
+          c
+          创建新窗口
+      
+      
+          w
+          显示窗口
+      
+      
+          数字键
+          选择对应窗口
+      
+      
+          p
+          前一个窗口
+      
+      
+          n
+          后一个窗口
+      
+      
+          f
+          查找窗口
+      
+      
+          ,
+          重命名窗口
+      
+      
+          &amp;
+          关闭窗口（带提示）
+      
+  
+
+窗格常用快捷键
+
+  
+      
+          快捷键
+          说明
+      
+  
+  
+      
+          %
+          垂直分割
+      
+      
+          ”
+          水平分割
+      
+      
+          o
+          切换窗格
+      
+      
+          x
+          关闭窗格
+      
+      
+          space
+          切换窗格布局
+      
+      
+          q
+          显示窗格编号，按对应数字选择窗格
+      
+      
+          {
+          与上一个窗格调换位置
+      
+      
+          }
+          与下一个窗格调换位置
+      
+      
+          z
+          当前窗格最大化
+      
+      
+          !
+          取消所有窗口保留当前窗口
+      
+      
+          Ctrl&#43;方向键
+          以1个单元格为单位移动边缘以调整当前窗格大小
+      
+      
+          Alt&#43;方向键
+          以5个单元格为单位移动边缘以调整当前窗格大小
+      
+  
+
+vim 使用技巧 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim 使用技巧)
+下面的命令是我常用的一些快捷键操作，我使用的编辑器是 vscode，安装了 vim 插件。">
 <meta name="author" content="x14n">
 <link rel="canonical" href="https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -46,11 +217,179 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+<meta property="og:title" content="常用快捷键" />
+<meta property="og:description" content="tmux常用命令
+终端中使用 Tmux 命令
+
+启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称
+
+$ tmux new -s sessionName -n window
+
+退出会话(tmux会话内命令)
+
+$ tmux detach
+
+退出并关闭会话（窗口,窗格）
+
+$ exit
+
+结束后台的会话
+
+#通过会话编号
+
+$ tmux kill-session -t 0
+
+#通过会话名称
+
+$ tmux kill-session -t sessionName 
+
+查看所有会话
+
+$ tmux ls
+
+激活会话
+
+$ tmux attach -t sessionName
+Tmux 内使用前缀 Ctrl&#43;b 然后对应快捷键执行命令
+会话常用快捷操作
 
   
+      
+          快捷键
+          说明
+      
+  
+  
+      
+          ?
+          所有快捷键，q退出
+      
+      
+          :new sessionName
+          创建新会话
+      
+      
+          s
+          切换会话
+      
+      
+          $
+          重命名当前会话
+      
+      
+          d
+          离开会话返回shell（与tmux detach功能相同）
+      
+      
+          Ctrl&#43;z
+          挂起会话，返回shell
+      
+  
 
-<meta property="og:title" content="常用快捷键" />
-<meta property="og:description" content="tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl&#43;b 然" />
+窗口常用快捷操作
+
+  
+      
+          快捷键
+          说明
+      
+  
+  
+      
+          c
+          创建新窗口
+      
+      
+          w
+          显示窗口
+      
+      
+          数字键
+          选择对应窗口
+      
+      
+          p
+          前一个窗口
+      
+      
+          n
+          后一个窗口
+      
+      
+          f
+          查找窗口
+      
+      
+          ,
+          重命名窗口
+      
+      
+          &amp;
+          关闭窗口（带提示）
+      
+  
+
+窗格常用快捷键
+
+  
+      
+          快捷键
+          说明
+      
+  
+  
+      
+          %
+          垂直分割
+      
+      
+          ”
+          水平分割
+      
+      
+          o
+          切换窗格
+      
+      
+          x
+          关闭窗格
+      
+      
+          space
+          切换窗格布局
+      
+      
+          q
+          显示窗格编号，按对应数字选择窗格
+      
+      
+          {
+          与上一个窗格调换位置
+      
+      
+          }
+          与下一个窗格调换位置
+      
+      
+          z
+          当前窗格最大化
+      
+      
+          !
+          取消所有窗口保留当前窗口
+      
+      
+          Ctrl&#43;方向键
+          以1个单元格为单位移动边缘以调整当前窗格大小
+      
+      
+          Alt&#43;方向键
+          以5个单元格为单位移动边缘以调整当前窗格大小
+      
+  
+
+vim 使用技巧 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim 使用技巧)
+下面的命令是我常用的一些快捷键操作，我使用的编辑器是 vscode，安装了 vim 插件。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" />
 <meta property="og:image" content="https://XianCH.github.io/postsImg/hotkey.jpg" /><meta property="article:section" content="posts" />
@@ -60,7 +399,178 @@ var _hmt = _hmt || [];
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://XianCH.github.io/postsImg/hotkey.jpg" />
 <meta name="twitter:title" content="常用快捷键"/>
-<meta name="twitter:description" content="tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl&#43;b 然"/>
+<meta name="twitter:description" content="tmux常用命令
+终端中使用 Tmux 命令
+
+启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称
+
+$ tmux new -s sessionName -n window
+
+退出会话(tmux会话内命令)
+
+$ tmux detach
+
+退出并关闭会话（窗口,窗格）
+
+$ exit
+
+结束后台的会话
+
+#通过会话编号
+
+$ tmux kill-session -t 0
+
+#通过会话名称
+
+$ tmux kill-session -t sessionName 
+
+查看所有会话
+
+$ tmux ls
+
+激活会话
+
+$ tmux attach -t sessionName
+Tmux 内使用前缀 Ctrl&#43;b 然后对应快捷键执行命令
+会话常用快捷操作
+
+  
+      
+          快捷键
+          说明
+      
+  
+  
+      
+          ?
+          所有快捷键，q退出
+      
+      
+          :new sessionName
+          创建新会话
+      
+      
+          s
+          切换会话
+      
+      
+          $
+          重命名当前会话
+      
+      
+          d
+          离开会话返回shell（与tmux detach功能相同）
+      
+      
+          Ctrl&#43;z
+          挂起会话，返回shell
+      
+  
+
+窗口常用快捷操作
+
+  
+      
+          快捷键
+          说明
+      
+  
+  
+      
+          c
+          创建新窗口
+      
+      
+          w
+          显示窗口
+      
+      
+          数字键
+          选择对应窗口
+      
+      
+          p
+          前一个窗口
+      
+      
+          n
+          后一个窗口
+      
+      
+          f
+          查找窗口
+      
+      
+          ,
+          重命名窗口
+      
+      
+          &amp;
+          关闭窗口（带提示）
+      
+  
+
+窗格常用快捷键
+
+  
+      
+          快捷键
+          说明
+      
+  
+  
+      
+          %
+          垂直分割
+      
+      
+          ”
+          水平分割
+      
+      
+          o
+          切换窗格
+      
+      
+          x
+          关闭窗格
+      
+      
+          space
+          切换窗格布局
+      
+      
+          q
+          显示窗格编号，按对应数字选择窗格
+      
+      
+          {
+          与上一个窗格调换位置
+      
+      
+          }
+          与下一个窗格调换位置
+      
+      
+          z
+          当前窗格最大化
+      
+      
+          !
+          取消所有窗口保留当前窗口
+      
+      
+          Ctrl&#43;方向键
+          以1个单元格为单位移动边缘以调整当前窗格大小
+      
+      
+          Alt&#43;方向键
+          以5个单元格为单位移动边缘以调整当前窗格大小
+      
+  
+
+vim 使用技巧 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim 使用技巧)
+下面的命令是我常用的一些快捷键操作，我使用的编辑器是 vscode，安装了 vim 插件。"/>
 
 
 <script type="application/ld+json">
@@ -97,7 +607,7 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "常用快捷键",
   "name": "常用快捷键",
-  "description": "tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl+b 然",
+  "description": "tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl+b 然后对应快捷键执行命令 会话常用快捷操作 快捷键 说明 ? 所有快捷键，q退出 :new sessionName 创建新会话 s 切换会话 $ 重命名当前会话 d 离开会话返回shell（与tmux detach功能相同） Ctrl+z 挂起会话，返回shell 窗口常用快捷操作 快捷键 说明 c 创建新窗口 w 显示窗口 数字键 选择对应窗口 p 前一个窗口 n 后一个窗口 f 查找窗口 , 重命名窗口 \u0026amp; 关闭窗口（带提示） 窗格常用快捷键 快捷键 说明 % 垂直分割 ” 水平分割 o 切换窗格 x 关闭窗格 space 切换窗格布局 q 显示窗格编号，按对应数字选择窗格 { 与上一个窗格调换位置 } 与下一个窗格调换位置 z 当前窗格最大化 ! 取消所有窗口保留当前窗口 Ctrl+方向键 以1个单元格为单位移动边缘以调整当前窗格大小 Alt+方向键 以5个单元格为单位移动边缘以调整当前窗格大小 vim 使用技巧 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim 使用技巧) 下面的命令是我常用的一些快捷键操作，我使用的编辑器是 vscode，安装了 vim 插件。\n",
   "keywords": [
     ""
   ],
@@ -348,32 +858,32 @@ var _hmt = _hmt || [];
                 </li></ul>
                 </li>
                 <li>
-                    <a href="#vim-%e4%bd%bf%e7%94%a8%e6%8a%80%e5%b7%a7-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsvim-%e4%bd%bf%e7%94%a8%e6%8a%80%e5%b7%a7" aria-label="vim 使用技巧 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim 使用技巧)">vim 使用技巧 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim</a> 使用技巧)</a><ul>
+                    <a href="#vim-%e4%bd%bf%e7%94%a8%e6%8a%80%e5%b7%a7--%e4%bd%bf%e7%94%a8%e6%8a%80%e5%b7%a7" aria-label="vim 使用技巧 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim 使用技巧)">vim 使用技巧 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim</a> 使用技巧)</a><ul>
                         
                 <li>
-                    <a href="#%e5%85%89%e6%a0%87%e7%a7%bb%e5%8a%a8-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts%e5%85%89%e6%a0%87%e7%a7%bb%e5%8a%a8" aria-label="光标移动 #">光标移动 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8">#</a></a></li>
+                    <a href="#%e5%85%89%e6%a0%87%e7%a7%bb%e5%8a%a8-" aria-label="光标移动 #">光标移动 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8">#</a></a></li>
                 <li>
-                    <a href="#ff-t-%e5%92%8c-t%e8%a1%8c%e5%86%85%e5%85%89%e6%a0%87%e8%b7%b3%e8%bd%ac-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsff-t-%e5%92%8c-t%e8%a1%8c%e5%86%85%e5%85%89%e6%a0%87%e8%b7%b3%e8%bd%ac" aria-label="f、F、 t 和 T，行内光标跳转 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f、F、 t 和 T，行内光标跳转)"><code>f</code>、<code>F</code>、 <code>t</code> 和 <code>T</code>，行内光标跳转 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f</a>、F、 t 和 T，行内光标跳转)</a></li>
+                    <a href="#ff-t-%e5%92%8c-t%e8%a1%8c%e5%86%85%e5%85%89%e6%a0%87%e8%b7%b3%e8%bd%ac-f-t-%e5%92%8c-t%e8%a1%8c%e5%86%85%e5%85%89%e6%a0%87%e8%b7%b3%e8%bd%ac" aria-label="f、F、 t 和 T，行内光标跳转 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f、F、 t 和 T，行内光标跳转)"><code>f</code>、<code>F</code>、 <code>t</code> 和 <code>T</code>，行内光标跳转 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f</a>、F、 t 和 T，行内光标跳转)</a></li>
                 <li>
-                    <a href="#%e6%a8%a1%e5%bc%8f%e5%88%87%e6%8d%a2-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts%e6%a8%a1%e5%bc%8f%e5%88%87%e6%8d%a2" aria-label="模式切换 #">模式切换 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2">#</a></a></li>
+                    <a href="#%e6%a8%a1%e5%bc%8f%e5%88%87%e6%8d%a2-" aria-label="模式切换 #">模式切换 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2">#</a></a></li>
                 <li>
-                    <a href="#%e6%8f%92%e5%85%a5%e5%88%a0%e9%99%a4%e5%a4%8d%e5%88%b6%e7%b2%98%e8%b4%b4-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts%e6%8f%92%e5%85%a5%e5%88%a0%e9%99%a4%e5%a4%8d%e5%88%b6%e7%b2%98%e8%b4%b4" aria-label="插入、删除、复制、粘贴 #">插入、删除、复制、粘贴 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%8F%92%E5%85%A5%E3%80%81%E5%88%A0%E9%99%A4%E3%80%81%E5%A4%8D%E5%88%B6%E3%80%81%E7%B2%98%E8%B4%B4">#</a></a></li>
+                    <a href="#%e6%8f%92%e5%85%a5%e5%88%a0%e9%99%a4%e5%a4%8d%e5%88%b6%e7%b2%98%e8%b4%b4-" aria-label="插入、删除、复制、粘贴 #">插入、删除、复制、粘贴 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%8F%92%E5%85%A5%E3%80%81%E5%88%A0%E9%99%A4%E3%80%81%E5%A4%8D%E5%88%B6%E3%80%81%E7%B2%98%E8%B4%B4">#</a></a></li>
                 <li>
-                    <a href="#%e4%bb%a3%e7%a0%81%e6%8a%98%e5%8f%a0-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts%e4%bb%a3%e7%a0%81%e6%8a%98%e5%8f%a0" aria-label="代码折叠 #">代码折叠 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0">#</a></a></li>
+                    <a href="#%e4%bb%a3%e7%a0%81%e6%8a%98%e5%8f%a0-" aria-label="代码折叠 #">代码折叠 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0">#</a></a></li>
                 <li>
-                    <a href="#%e7%aa%97%e5%8f%a3%e7%a7%bb%e5%8a%a8-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts%e7%aa%97%e5%8f%a3%e7%a7%bb%e5%8a%a8" aria-label="窗口移动 #">窗口移动 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E7%AA%97%E5%8F%A3%E7%A7%BB%E5%8A%A8">#</a></a></li>
+                    <a href="#%e7%aa%97%e5%8f%a3%e7%a7%bb%e5%8a%a8-" aria-label="窗口移动 #">窗口移动 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E7%AA%97%E5%8F%A3%E7%A7%BB%E5%8A%A8">#</a></a></li>
                 <li>
-                    <a href="#%e5%88%86%e5%b1%8f%e6%93%8d%e4%bd%9c-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts%e5%88%86%e5%b1%8f%e6%93%8d%e4%bd%9c" aria-label="分屏操作 #">分屏操作 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%88%86%E5%B1%8F%E6%93%8D%E4%BD%9C">#</a></a></li>
+                    <a href="#%e5%88%86%e5%b1%8f%e6%93%8d%e4%bd%9c-" aria-label="分屏操作 #">分屏操作 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%88%86%E5%B1%8F%E6%93%8D%E4%BD%9C">#</a></a></li>
                 <li>
-                    <a href="#%e5%a4%9a%e5%85%89%e6%a0%87%e6%93%8d%e4%bd%9c%e5%9d%97%e6%93%8d%e4%bd%9c-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts%e5%a4%9a%e5%85%89%e6%a0%87%e6%93%8d%e4%bd%9c%e5%9d%97%e6%93%8d%e4%bd%9c" aria-label="多光标操作（块操作） #">多光标操作（块操作） <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%A4%9A%E5%85%89%E6%A0%87%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9D%97%E6%93%8D%E4%BD%9C%EF%BC%89">#</a></a></li>
+                    <a href="#%e5%a4%9a%e5%85%89%e6%a0%87%e6%93%8d%e4%bd%9c%e5%9d%97%e6%93%8d%e4%bd%9c-" aria-label="多光标操作（块操作） #">多光标操作（块操作） <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%A4%9A%E5%85%89%E6%A0%87%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9D%97%E6%93%8D%E4%BD%9C%EF%BC%89">#</a></a></li>
                 <li>
-                    <a href="#visual-%e6%a8%a1%e5%bc%8f%e4%b8%8b%e7%9a%84%e6%a0%bc%e5%bc%8f%e5%8c%96%e6%93%8d%e4%bd%9c-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsvisual-%e6%a8%a1%e5%bc%8f%e4%b8%8b%e7%9a%84%e6%a0%bc%e5%bc%8f%e5%8c%96%e6%93%8d%e4%bd%9c" aria-label="visual 模式下的格式化操作 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual 模式下的格式化操作)">visual 模式下的格式化操作 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual</a> 模式下的格式化操作)</a></li>
+                    <a href="#visual-%e6%a8%a1%e5%bc%8f%e4%b8%8b%e7%9a%84%e6%a0%bc%e5%bc%8f%e5%8c%96%e6%93%8d%e4%bd%9c--%e6%a8%a1%e5%bc%8f%e4%b8%8b%e7%9a%84%e6%a0%bc%e5%bc%8f%e5%8c%96%e6%93%8d%e4%bd%9c" aria-label="visual 模式下的格式化操作 [#](https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual 模式下的格式化操作)">visual 模式下的格式化操作 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual</a> 模式下的格式化操作)</a></li>
                 <li>
-                    <a href="#%e6%9f%a5%e6%89%be%e5%92%8c%e6%9b%bf%e6%8d%a2-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts%e6%9f%a5%e6%89%be%e5%92%8c%e6%9b%bf%e6%8d%a2" aria-label="查找和替换 #">查找和替换 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9B%BF%E6%8D%A2">#</a></a></li>
+                    <a href="#%e6%9f%a5%e6%89%be%e5%92%8c%e6%9b%bf%e6%8d%a2-" aria-label="查找和替换 #">查找和替换 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9B%BF%E6%8D%A2">#</a></a></li>
                 <li>
-                    <a href="#start-positioncommandend-position-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts" aria-label="&amp;lt;start position&amp;gt;&amp;lt;command&amp;gt;&amp;lt;end position&amp;gt; #"><code>&lt;start position&gt;&lt;command&gt;&lt;end position&gt;</code> <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#">#</a></a></li>
+                    <a href="#start-positioncommandend-position-" aria-label="&lt;start position&gt;&lt;command&gt;&lt;end position&gt; #"><code>&lt;start position&gt;&lt;command&gt;&lt;end position&gt;</code> <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#">#</a></a></li>
                 <li>
-                    <a href="#commanda--i--sobj-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts" aria-label="&amp;lt;command&amp;gt;&amp;lt;a | i | s&amp;gt;&amp;lt;obj&amp;gt; #"><code>&lt;command&gt;&lt;a | i | s&gt;&lt;obj&gt;</code> <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#">#</a></a></li></ul>
+                    <a href="#commanda--i--sobj-" aria-label="&lt;command&gt;&lt;a | i | s&gt;&lt;obj&gt; #"><code>&lt;command&gt;&lt;a | i | s&gt;&lt;obj&gt;</code> <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#">#</a></a></li></ul>
                 </li>
                 <li>
                     <a href="#i3-wm" aria-label="i3 wm">i3 wm</a>
@@ -478,147 +988,146 @@ $ tmux kill-session -t sessionName
 </code></pre><h2 id="tmux-内使用前缀-ctrlb-然后对应快捷键执行命令">Tmux 内使用前缀 Ctrl+b 然后对应快捷键执行命令<a hidden class="anchor" aria-hidden="true" href="#tmux-内使用前缀-ctrlb-然后对应快捷键执行命令">#</a></h2>
 <h3 id="会话常用快捷操作">会话常用快捷操作<a hidden class="anchor" aria-hidden="true" href="#会话常用快捷操作">#</a></h3>
 <table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>?</td>
-<td>所有快捷键，q退出</td>
-</tr>
-<tr>
-<td>:new sessionName</td>
-<td>创建新会话</td>
-</tr>
-<tr>
-<td>s</td>
-<td>切换会话</td>
-</tr>
-<tr>
-<td>$</td>
-<td>重命名当前会话</td>
-</tr>
-<tr>
-<td>d</td>
-<td>离开会话返回shell（与tmux detach功能相同）</td>
-</tr>
-<tr>
-<td>Ctrl+z</td>
-<td>挂起会话，返回shell</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>快捷键</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>?</td>
+          <td>所有快捷键，q退出</td>
+      </tr>
+      <tr>
+          <td>:new sessionName</td>
+          <td>创建新会话</td>
+      </tr>
+      <tr>
+          <td>s</td>
+          <td>切换会话</td>
+      </tr>
+      <tr>
+          <td>$</td>
+          <td>重命名当前会话</td>
+      </tr>
+      <tr>
+          <td>d</td>
+          <td>离开会话返回shell（与tmux detach功能相同）</td>
+      </tr>
+      <tr>
+          <td>Ctrl+z</td>
+          <td>挂起会话，返回shell</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="窗口常用快捷操作">窗口常用快捷操作<a hidden class="anchor" aria-hidden="true" href="#窗口常用快捷操作">#</a></h3>
 <table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>c</td>
-<td>创建新窗口</td>
-</tr>
-<tr>
-<td>w</td>
-<td>显示窗口</td>
-</tr>
-<tr>
-<td>数字键</td>
-<td>选择对应窗口</td>
-</tr>
-<tr>
-<td>p</td>
-<td>前一个窗口</td>
-</tr>
-<tr>
-<td>n</td>
-<td>后一个窗口</td>
-</tr>
-<tr>
-<td>f</td>
-<td>查找窗口</td>
-</tr>
-<tr>
-<td>,</td>
-<td>重命名窗口</td>
-</tr>
-<tr>
-<td>&amp;</td>
-<td>关闭窗口（带提示）</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>快捷键</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>c</td>
+          <td>创建新窗口</td>
+      </tr>
+      <tr>
+          <td>w</td>
+          <td>显示窗口</td>
+      </tr>
+      <tr>
+          <td>数字键</td>
+          <td>选择对应窗口</td>
+      </tr>
+      <tr>
+          <td>p</td>
+          <td>前一个窗口</td>
+      </tr>
+      <tr>
+          <td>n</td>
+          <td>后一个窗口</td>
+      </tr>
+      <tr>
+          <td>f</td>
+          <td>查找窗口</td>
+      </tr>
+      <tr>
+          <td>,</td>
+          <td>重命名窗口</td>
+      </tr>
+      <tr>
+          <td>&amp;</td>
+          <td>关闭窗口（带提示）</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="窗格常用快捷键">窗格常用快捷键<a hidden class="anchor" aria-hidden="true" href="#窗格常用快捷键">#</a></h3>
 <table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%</td>
-<td>垂直分割</td>
-</tr>
-<tr>
-<td>”</td>
-<td>水平分割</td>
-</tr>
-<tr>
-<td>o</td>
-<td>切换窗格</td>
-</tr>
-<tr>
-<td>x</td>
-<td>关闭窗格</td>
-</tr>
-<tr>
-<td>space</td>
-<td>切换窗格布局</td>
-</tr>
-<tr>
-<td>q</td>
-<td>显示窗格编号，按对应数字选择窗格</td>
-</tr>
-<tr>
-<td>{</td>
-<td>与上一个窗格调换位置</td>
-</tr>
-<tr>
-<td>}</td>
-<td>与下一个窗格调换位置</td>
-</tr>
-<tr>
-<td>z</td>
-<td>当前窗格最大化</td>
-</tr>
-<tr>
-<td>!</td>
-<td>取消所有窗口保留当前窗口</td>
-</tr>
-<tr>
-<td>Ctrl+方向键</td>
-<td>以1个单元格为单位移动边缘以调整当前窗格大小</td>
-</tr>
-<tr>
-<td>Alt+方向键</td>
-<td>以5个单元格为单位移动边缘以调整当前窗格大小</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>快捷键</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>%</td>
+          <td>垂直分割</td>
+      </tr>
+      <tr>
+          <td>”</td>
+          <td>水平分割</td>
+      </tr>
+      <tr>
+          <td>o</td>
+          <td>切换窗格</td>
+      </tr>
+      <tr>
+          <td>x</td>
+          <td>关闭窗格</td>
+      </tr>
+      <tr>
+          <td>space</td>
+          <td>切换窗格布局</td>
+      </tr>
+      <tr>
+          <td>q</td>
+          <td>显示窗格编号，按对应数字选择窗格</td>
+      </tr>
+      <tr>
+          <td>{</td>
+          <td>与上一个窗格调换位置</td>
+      </tr>
+      <tr>
+          <td>}</td>
+          <td>与下一个窗格调换位置</td>
+      </tr>
+      <tr>
+          <td>z</td>
+          <td>当前窗格最大化</td>
+      </tr>
+      <tr>
+          <td>!</td>
+          <td>取消所有窗口保留当前窗口</td>
+      </tr>
+      <tr>
+          <td>Ctrl+方向键</td>
+          <td>以1个单元格为单位移动边缘以调整当前窗格大小</td>
+      </tr>
+      <tr>
+          <td>Alt+方向键</td>
+          <td>以5个单元格为单位移动边缘以调整当前窗格大小</td>
+      </tr>
+  </tbody>
 </table>
-<h1 id="vim-使用技巧-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsvim-使用技巧">vim 使用技巧 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim</a> 使用技巧)<a hidden class="anchor" aria-hidden="true" href="#vim-使用技巧-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsvim-使用技巧">#</a></h1>
+<h1 id="vim-使用技巧--使用技巧">vim 使用技巧 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim</a> 使用技巧)<a hidden class="anchor" aria-hidden="true" href="#vim-使用技巧--使用技巧">#</a></h1>
 <p>下面的命令是我常用的一些快捷键操作，我使用的编辑器是 vscode，安装了 vim 插件。</p>
 <blockquote>
-<p>如何在 vscode 中使用 vim？可以看看我的 <a href="https://www.pengfeixc.com/blogs/developer-handbook/vscode-configurations">vscode 配置</a></p>
-</blockquote>
-<h2 id="光标移动-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts光标移动">光标移动 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8">#</a><a hidden class="anchor" aria-hidden="true" href="#光标移动-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts光标移动">#</a></h2>
+<p>如何在 vscode 中使用 vim？可以看看我的 <a href="https://www.pengfeixc.com/blogs/developer-handbook/vscode-configurations">vscode 配置</a></p></blockquote>
+<h2 id="光标移动-">光标移动 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8">#</a><a hidden class="anchor" aria-hidden="true" href="#光标移动-">#</a></h2>
 <ul>
 <li><code>hjkl</code>：左下上右</li>
 <li><code>gj</code> 和 <code>gk</code>：移动至下一个或者上一个物理行，当一行出现 linewrap 时，使用 <code>j</code> 和 <code>k</code> 并不能按照视觉看到的一行进行移动</li>
@@ -637,7 +1146,7 @@ $ tmux kill-session -t sessionName
 <li><code>%</code>：匹配对应括号，并进行跳转</li>
 <li><code>*</code> 和 <code>#</code>：匹配当前光标所在的单词，移动光标到下一个或上一个</li>
 </ul>
-<h2 id="ff-t-和-t行内光标跳转-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsff-t-和-t行内光标跳转"><code>f</code>、<code>F</code>、 <code>t</code> 和 <code>T</code>，行内光标跳转 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f</a>、F、 t 和 T，行内光标跳转)<a hidden class="anchor" aria-hidden="true" href="#ff-t-和-t行内光标跳转-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsff-t-和-t行内光标跳转">#</a></h2>
+<h2 id="ff-t-和-t行内光标跳转-f-t-和-t行内光标跳转"><code>f</code>、<code>F</code>、 <code>t</code> 和 <code>T</code>，行内光标跳转 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#f</a>、F、 t 和 T，行内光标跳转)<a hidden class="anchor" aria-hidden="true" href="#ff-t-和-t行内光标跳转-f-t-和-t行内光标跳转">#</a></h2>
 <ul>
 <li><code>f</code>：当前行跳转到光标后的指定字符，按 <code>;</code> 跳转到下一个指定字符</li>
 <li><code>F</code>：当前行跳转到光标前的指定字符，按 <code>;</code> 跳转到下一个指定字符</li>
@@ -645,9 +1154,9 @@ $ tmux kill-session -t sessionName
 <li><code>T</code>：当前行跳转到光标前的指定字符后的一个字符，按 <code>;</code> 跳转到下一个指定字符后一个字符</li>
 </ul>
 <p>一般，我只用 <code>f</code> 和 <code>F</code>。</p>
-<h2 id="模式切换-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts模式切换">模式切换 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2">#</a><a hidden class="anchor" aria-hidden="true" href="#模式切换-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts模式切换">#</a></h2>
+<h2 id="模式切换-">模式切换 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2">#</a><a hidden class="anchor" aria-hidden="true" href="#模式切换-">#</a></h2>
 <p><code>v</code>：normal 模式进入 visual 模式 <code>V</code>: normal 模式进入 visual 模式，并选中当前行 <code>i</code>: normal 模式进入 insert 模式，光标出现在当前选中字符前 <code>I</code>: normal 模式进入 insert 模式，光标出现在行首 <code>a</code>: normal 模式进入 insert 模式，光标出现在当前选中字符后 <code>A</code>: normal 模式进入 insert 模式，光标出现在行尾 <code>esc</code>: 从 visual 和 insert 模式退回到 normal 模式 <code>o</code>：在当前行下方插入一行，并进入 insert 模式 <code>O</code>：在当前行上方插入一行，并进入 insert 模式</p>
-<h2 id="插入删除复制粘贴-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts插入删除复制粘贴">插入、删除、复制、粘贴 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%8F%92%E5%85%A5%E3%80%81%E5%88%A0%E9%99%A4%E3%80%81%E5%A4%8D%E5%88%B6%E3%80%81%E7%B2%98%E8%B4%B4">#</a><a hidden class="anchor" aria-hidden="true" href="#插入删除复制粘贴-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts插入删除复制粘贴">#</a></h2>
+<h2 id="插入删除复制粘贴-">插入、删除、复制、粘贴 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%8F%92%E5%85%A5%E3%80%81%E5%88%A0%E9%99%A4%E3%80%81%E5%A4%8D%E5%88%B6%E3%80%81%E7%B2%98%E8%B4%B4">#</a><a hidden class="anchor" aria-hidden="true" href="#插入删除复制粘贴-">#</a></h2>
 <p>在模式切换中已经包含了插入的相关快捷键。</p>
 <ul>
 <li><code>gi</code>：在上一个做出变化的地方进入插入模式</li>
@@ -671,24 +1180,22 @@ $ tmux kill-session -t sessionName
 <li><code>v + &lt;select area&gt; + &lt;action&gt;</code>：可以使用 v 进入 visual 模式，然后选中区域，最后使用 <code>y</code>、<code>c</code>、<code>d</code> 和 <code>r</code> 对选中区域进行操作。</li>
 </ul>
 <blockquote>
-<p><code>&lt;command&gt;&lt;pos&gt;</code> 模式：<code>&lt;command&gt;</code> 可以是 <code>y</code>、<code>d</code>、<code>c</code>等，（可以用于光标跳转的一系列字符） 可以是 <code>w</code>（一个单词的结尾）、<code>$</code>（行尾）、<code>^</code>（行首第一个非空字符）、<code>b</code>（单词的开头）、<code>0</code>(行首) 等等。</p>
-</blockquote>
+<p><code>&lt;command&gt;&lt;pos&gt;</code> 模式：<code>&lt;command&gt;</code> 可以是 <code>y</code>、<code>d</code>、<code>c</code>等，（可以用于光标跳转的一系列字符） 可以是 <code>w</code>（一个单词的结尾）、<code>$</code>（行尾）、<code>^</code>（行首第一个非空字符）、<code>b</code>（单词的开头）、<code>0</code>(行首) 等等。</p></blockquote>
 <blockquote>
 <p><code>&lt;verbs&gt;&lt;adjectives&gt;&lt;objects&gt;</code> 模式：你可以将 operator（<code>y</code>，<code>d</code>，<code>c</code>）作为 verbs，count、a 和 i 作为 adjectives，移动（hjkl、w、$、^、b、0等）作为 objects，例如:</p>
 <ul>
 <li><code>d3l</code>: 删除光标右侧三个字符</li>
 <li><code>dl</code>：adjectives 可以省略，所以 <code>dl</code> 等价于 <code>d1l</code></li>
 <li><code>diw</code>：删除光标下的单词不包括周围的空格</li>
-</ul>
-</blockquote>
-<h2 id="代码折叠-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts代码折叠">代码折叠 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0">#</a><a hidden class="anchor" aria-hidden="true" href="#代码折叠-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts代码折叠">#</a></h2>
+</ul></blockquote>
+<h2 id="代码折叠-">代码折叠 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0">#</a><a hidden class="anchor" aria-hidden="true" href="#代码折叠-">#</a></h2>
 <ul>
 <li><code>zc</code>：折叠代码</li>
 <li><code>zo</code>: 展开代码</li>
 <li><code>zM</code>: 全部折叠</li>
 <li><code>zR</code>: 全部展开</li>
 </ul>
-<h2 id="窗口移动-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts窗口移动">窗口移动 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E7%AA%97%E5%8F%A3%E7%A7%BB%E5%8A%A8">#</a><a hidden class="anchor" aria-hidden="true" href="#窗口移动-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts窗口移动">#</a></h2>
+<h2 id="窗口移动-">窗口移动 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E7%AA%97%E5%8F%A3%E7%A7%BB%E5%8A%A8">#</a><a hidden class="anchor" aria-hidden="true" href="#窗口移动-">#</a></h2>
 <p>（1）移动当前所在行的位置</p>
 <ul>
 <li><code>zz</code>：将当前光标所在行移动到窗口中间</li>
@@ -702,7 +1209,7 @@ $ tmux kill-session -t sessionName
 <li><code>ctrl + y</code>: 一行一行向上移动</li>
 <li><code>ctrl + u</code>: 向上移动窗口显示行数的一半</li>
 </ul>
-<h2 id="分屏操作-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts分屏操作">分屏操作 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%88%86%E5%B1%8F%E6%93%8D%E4%BD%9C">#</a><a hidden class="anchor" aria-hidden="true" href="#分屏操作-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts分屏操作">#</a></h2>
+<h2 id="分屏操作-">分屏操作 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%88%86%E5%B1%8F%E6%93%8D%E4%BD%9C">#</a><a hidden class="anchor" aria-hidden="true" href="#分屏操作-">#</a></h2>
 <p>（1）创建分屏</p>
 <p>使用命令：</p>
 <p><code>:split [file]</code> 或者 <code>:sp [file]</code>：添加一个横屏 <code>:vsplit [file]</code> 或者 <code>:vsp [file]</code>：添加一个竖屏</p>
@@ -714,21 +1221,21 @@ $ tmux kill-session -t sessionName
 <p><code>:only</code>：只保留当前分屏，关闭其他分屏 <code>ctrl + w c</code>：关闭当前窗口 <code>ctrl + w q</code>: 关闭当前窗口，若只有一个分屏，则退出 vim <code>ctrl + w o</code>: 关闭其他窗口</p>
 <p>（4）增加屏幕高度</p>
 <p><code>crtrl + w +</code>：增加高度 <code>ctrl + w -</code>：减小高度</p>
-<h2 id="多光标操作块操作-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts多光标操作块操作">多光标操作（块操作） <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%A4%9A%E5%85%89%E6%A0%87%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9D%97%E6%93%8D%E4%BD%9C%EF%BC%89">#</a><a hidden class="anchor" aria-hidden="true" href="#多光标操作块操作-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts多光标操作块操作">#</a></h2>
+<h2 id="多光标操作块操作-">多光标操作（块操作） <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E5%A4%9A%E5%85%89%E6%A0%87%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9D%97%E6%93%8D%E4%BD%9C%EF%BC%89">#</a><a hidden class="anchor" aria-hidden="true" href="#多光标操作块操作-">#</a></h2>
 <ol>
 <li>使用 <code>ctrl + v</code> 进入块操作</li>
 <li>可以使用 <code>hkjl</code>、<code>$</code> 等来插入多光标和移动光标</li>
 <li>使用 <code>I</code> 和 <code>A</code> 进入编辑</li>
 </ol>
 <p>同样可以使用 <code>v</code> 进入 visual 模式，选中一些行，然后按 <code>A</code> 在每行结尾插入光标进行编辑。</p>
-<h2 id="visual-模式下的格式化操作-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsvisual-模式下的格式化操作">visual 模式下的格式化操作 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual</a> 模式下的格式化操作)<a hidden class="anchor" aria-hidden="true" href="#visual-模式下的格式化操作-httpspengfeixccomblogsdeveloper-handbookvim-shortcutsvisual-模式下的格式化操作">#</a></h2>
+<h2 id="visual-模式下的格式化操作--模式下的格式化操作">visual 模式下的格式化操作 [#](<a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual">https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#visual</a> 模式下的格式化操作)<a hidden class="anchor" aria-hidden="true" href="#visual-模式下的格式化操作--模式下的格式化操作">#</a></h2>
 <p><code>v</code> 进入 visual 模式，进入 visual 模式后，可以通过 <code>hjkl</code> 选中一些行。可以对选中的行做如下操作。</p>
 <ul>
 <li><code>J</code>：把所有行连接起来变成一行</li>
 <li><code>&lt;</code> 或 <code>&gt;</code>：左右缩进</li>
 <li><code>=</code>：自动缩进，格式化代码（非常 nice）</li>
 </ul>
-<h2 id="查找和替换-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts查找和替换">查找和替换 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9B%BF%E6%8D%A2">#</a><a hidden class="anchor" aria-hidden="true" href="#查找和替换-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts查找和替换">#</a></h2>
+<h2 id="查找和替换-">查找和替换 <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9B%BF%E6%8D%A2">#</a><a hidden class="anchor" aria-hidden="true" href="#查找和替换-">#</a></h2>
 <p>替换格式如下，支持正则表达式。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>:<span style="color:#f92672">[</span>range<span style="color:#f92672">]</span>s/&lt;pattern&gt;/<span style="color:#f92672">[</span>string<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>flags<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>count<span style="color:#f92672">]</span>
 </span></span></code></pre></div><p>该命令表示在 <code>range</code> 的每一行中搜索<code>pattern</code>，并将其替换为 <code>string</code>。 <code>count</code>是一个乘以命令的正整数。</p>
@@ -753,7 +1260,7 @@ $ tmux kill-session -t sessionName
 <pre tabindex="0"><code>:s/foo/bar/gc`: `foo` 不会匹配 `Foo
 </code></pre><p>（6）指定查询范围</p>
 <p><code>:3,10s/foo/bar/g</code>：查询范围为第三行到第十行，将该范围内的 <code>foo</code> 替换为 <code>bar</code> <code>:.,$s/foo/bar/</code>：查询范围为当前行到最后一行，将该范围内的 <code>foo</code> 替换为 <code>bar</code>，<code>.</code> 表示当前行，<code>$</code> 表示最后一行 <code>:.,+4s/foo/bar/g</code>：查询范围为从当前行开始往下数四行（总共四行），将该范围内的 <code>foo</code> 替换为 <code>bar</code>，<code>.</code> 表示当前行，<code>+4</code> 表示接下来的四行</p>
-<h2 id="start-positioncommandend-position-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts"><code>&lt;start position&gt;&lt;command&gt;&lt;end position&gt;</code> <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#">#</a><a hidden class="anchor" aria-hidden="true" href="#start-positioncommandend-position-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts">#</a></h2>
+<h2 id="start-positioncommandend-position-"><code>&lt;start position&gt;&lt;command&gt;&lt;end position&gt;</code> <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#">#</a><a hidden class="anchor" aria-hidden="true" href="#start-positioncommandend-position-">#</a></h2>
 <p>例如 <code>0y$</code>，表示拷贝当前行。</p>
 <ul>
 <li><code>0</code>：先到行首</li>
@@ -761,10 +1268,9 @@ $ tmux kill-session -t sessionName
 <li><code>$</code>：表示一直拷贝到行尾</li>
 </ul>
 <p>&quot; hello &quot;</p>
-<h2 id="commanda--i--sobj-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts"><code>&lt;command&gt;&lt;a | i | s&gt;&lt;obj&gt;</code> <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#">#</a><a hidden class="anchor" aria-hidden="true" href="#commanda--i--sobj-httpspengfeixccomblogsdeveloper-handbookvim-shortcuts">#</a></h2>
+<h2 id="commanda--i--sobj-"><code>&lt;command&gt;&lt;a | i | s&gt;&lt;obj&gt;</code> <a href="https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#">#</a><a hidden class="anchor" aria-hidden="true" href="#commanda--i--sobj-">#</a></h2>
 <blockquote>
-<p><code>s</code> 需要插件支持，vscode-vim 自带这个功能</p>
-</blockquote>
+<p><code>s</code> 需要插件支持，vscode-vim 自带这个功能</p></blockquote>
 <p><code>a</code> 表示 around，<code>i</code> 表示 inner，<code>s</code> 表示 surround，<code>command</code> 可以是 <code>d</code> <code>c</code> <code>y</code>，<code>obj</code> 可以是引号、双引号、<code>w</code> 和 <code>t</code>，<code>t</code> 表示 tag，对 html 这种标记语言比较有用</p>
 <ul>
 <li><code>diw</code>：删除单词，不包括单词周围的符号，例如 <code>&quot; word &quot;</code>，光标在 <code>w</code>,删除后变成了 <code>&quot; &quot;</code></li>
@@ -813,7 +1319,7 @@ $ tmux kill-session -t sessionName
     <span>
         Copyright
         &copy;
-        -2024
+        -2025
         <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>

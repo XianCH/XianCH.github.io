@@ -7,7 +7,23 @@
 <meta name="robots" content="index, follow">
 <title>Golang相关练习题 | X14n&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？ #var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值 var a int a =5 a :=5 #new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象 #make 用来创建切片，通道和映射">
+<meta name="description" content="
+基础相关
+
+
+var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？
+#var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值
+var a int
+a =5
+a :=5
+
+#new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象
+#make 用来创建切片，通道和映射等内置数据结构，并初始化
+p := new(int)
+slience := make([]int,0,10)
+
+
+defer是做什么用的，如果一个程序里面有多个defer会怎么样？">
 <meta name="author" content="x14n">
 <link rel="canonical" href="https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -46,11 +62,24 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
-  
-
 <meta property="og:title" content="Golang相关练习题" />
-<meta property="og:description" content="基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？ #var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值 var a int a =5 a :=5 #new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象 #make 用来创建切片，通道和映射" />
+<meta property="og:description" content="
+基础相关
+
+
+var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？
+#var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值
+var a int
+a =5
+a :=5
+
+#new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象
+#make 用来创建切片，通道和映射等内置数据结构，并初始化
+p := new(int)
+slience := make([]int,0,10)
+
+
+defer是做什么用的，如果一个程序里面有多个defer会怎么样？" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/" />
 <meta property="og:image" content="https://XianCH.github.io/postsImg/golangtest.png" /><meta property="article:section" content="posts" />
@@ -60,7 +89,23 @@ var _hmt = _hmt || [];
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://XianCH.github.io/postsImg/golangtest.png" />
 <meta name="twitter:title" content="Golang相关练习题"/>
-<meta name="twitter:description" content="基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？ #var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值 var a int a =5 a :=5 #new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象 #make 用来创建切片，通道和映射"/>
+<meta name="twitter:description" content="
+基础相关
+
+
+var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？
+#var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值
+var a int
+a =5
+a :=5
+
+#new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象
+#make 用来创建切片，通道和映射等内置数据结构，并初始化
+p := new(int)
+slience := make([]int,0,10)
+
+
+defer是做什么用的，如果一个程序里面有多个defer会怎么样？"/>
 
 
 <script type="application/ld+json">
@@ -97,7 +142,7 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "Golang相关练习题",
   "name": "Golang相关练习题",
-  "description": "基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？ #var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值 var a int a =5 a :=5 #new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象 #make 用来创建切片，通道和映射",
+  "description": " 基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？\n#var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值 var a int a =5 a :=5 #new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象 #make 用来创建切片，通道和映射等内置数据结构，并初始化 p := new(int) slience := make([]int,0,10) defer是做什么用的，如果一个程序里面有多个defer会怎么样？\n",
   "keywords": [
     ""
   ],
@@ -417,7 +462,7 @@ var _hmt = _hmt || [];
         return rect.top + win.pageYOffset;
     }
 </script>
-        <div class="post-content"><h2 id="heading"><a hidden class="anchor" aria-hidden="true" href="#heading">#</a></h2>
+        <div class="post-content"><h2></h2>
 <h3 id="基础相关">基础相关<a hidden class="anchor" aria-hidden="true" href="#基础相关">#</a></h3>
 <ol>
 <li>
@@ -454,8 +499,8 @@ default:
 </code></pre></li>
 <li>
 <p>怎么用的map，会有并发问题吗？怎么求一个map的长度（len就可以，害）。sync.Map可以用len来求长度吗？（应该是想要问sync.Map的底层吧）</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//make示例
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">myMap</span> = make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">int</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//make示例</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">myMap</span> = make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">int</span>)
 </span></span><span style="display:flex;"><span>len(<span style="color:#66d9ef">map</span>)
 </span></span></code></pre></div><pre tabindex="0"><code>关于并发问题，标准的 Go map 不是并发安全的，也就是说，如果多个 goroutine 同时读写一个 map，可能会导致数据竞争和不确定的结果。为了在并发环境下安全使用 map，你可以使用互斥锁（sync.Mutex）来保护 map，或者使用 sync.Map，后者是 Go 1.9 引入的并发安全的映射类型。
 //用互斥锁来保护标准的&#39;map&#39;：
@@ -613,7 +658,7 @@ func main() {
     <span>
         Copyright
         &copy;
-        -2024
+        -2025
         <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>

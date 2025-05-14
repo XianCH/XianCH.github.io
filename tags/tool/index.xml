@@ -22,7 +22,178 @@
       <pubDate>Sun, 23 Jul 2023 07:20:24 +0000</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
-      <description>tmux常用命令 终端中使用 Tmux 命令 启动 tmux 使用 -s 命令指定会话名称，使用 -n 命令指定窗口名称 $ tmux new -s sessionName -n window 退出会话(tmux会话内命令) $ tmux detach 退出并关闭会话（窗口,窗格） $ exit 结束后台的会话 #通过会话编号 $ tmux kill-session -t 0 #通过会话名称 $ tmux kill-session -t sessionName 查看所有会话 $ tmux ls 激活会话 $ tmux attach -t sessionName Tmux 内使用前缀 Ctrl+b 然</description>
+      <description>&lt;h1 id=&#34;tmux常用命令&#34;&gt;tmux常用命令&lt;/h1&gt;
+&lt;h2 id=&#34;终端中使用-tmux-命令&#34;&gt;终端中使用 Tmux 命令&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;启动 tmux 使用 &lt;code&gt;-s&lt;/code&gt; 命令指定会话名称，使用 &lt;code&gt;-n&lt;/code&gt; 命令指定窗口名称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ tmux new -s sessionName -n window
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;退出会话(tmux会话内命令)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ tmux detach
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;退出并关闭会话（窗口,窗格）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ exit
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;结束后台的会话&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#通过会话编号
+
+$ tmux kill-session -t 0
+
+#通过会话名称
+
+$ tmux kill-session -t sessionName 
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;查看所有会话&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ tmux ls
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;激活会话&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ tmux attach -t sessionName
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;tmux-内使用前缀-ctrlb-然后对应快捷键执行命令&#34;&gt;Tmux 内使用前缀 Ctrl+b 然后对应快捷键执行命令&lt;/h2&gt;
+&lt;h3 id=&#34;会话常用快捷操作&#34;&gt;会话常用快捷操作&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;快捷键&lt;/th&gt;
+          &lt;th&gt;说明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;?&lt;/td&gt;
+          &lt;td&gt;所有快捷键，q退出&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;:new sessionName&lt;/td&gt;
+          &lt;td&gt;创建新会话&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;s&lt;/td&gt;
+          &lt;td&gt;切换会话&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$&lt;/td&gt;
+          &lt;td&gt;重命名当前会话&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;d&lt;/td&gt;
+          &lt;td&gt;离开会话返回shell（与tmux detach功能相同）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl+z&lt;/td&gt;
+          &lt;td&gt;挂起会话，返回shell&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;窗口常用快捷操作&#34;&gt;窗口常用快捷操作&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;快捷键&lt;/th&gt;
+          &lt;th&gt;说明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;c&lt;/td&gt;
+          &lt;td&gt;创建新窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;w&lt;/td&gt;
+          &lt;td&gt;显示窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;数字键&lt;/td&gt;
+          &lt;td&gt;选择对应窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;p&lt;/td&gt;
+          &lt;td&gt;前一个窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;n&lt;/td&gt;
+          &lt;td&gt;后一个窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;f&lt;/td&gt;
+          &lt;td&gt;查找窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;,&lt;/td&gt;
+          &lt;td&gt;重命名窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&amp;amp;&lt;/td&gt;
+          &lt;td&gt;关闭窗口（带提示）&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;窗格常用快捷键&#34;&gt;窗格常用快捷键&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;快捷键&lt;/th&gt;
+          &lt;th&gt;说明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;%&lt;/td&gt;
+          &lt;td&gt;垂直分割&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;”&lt;/td&gt;
+          &lt;td&gt;水平分割&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;o&lt;/td&gt;
+          &lt;td&gt;切换窗格&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;x&lt;/td&gt;
+          &lt;td&gt;关闭窗格&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;space&lt;/td&gt;
+          &lt;td&gt;切换窗格布局&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;q&lt;/td&gt;
+          &lt;td&gt;显示窗格编号，按对应数字选择窗格&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;{&lt;/td&gt;
+          &lt;td&gt;与上一个窗格调换位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;}&lt;/td&gt;
+          &lt;td&gt;与下一个窗格调换位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;z&lt;/td&gt;
+          &lt;td&gt;当前窗格最大化&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;!&lt;/td&gt;
+          &lt;td&gt;取消所有窗口保留当前窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl+方向键&lt;/td&gt;
+          &lt;td&gt;以1个单元格为单位移动边缘以调整当前窗格大小&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt+方向键&lt;/td&gt;
+          &lt;td&gt;以5个单元格为单位移动边缘以调整当前窗格大小&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;vim-使用技巧--使用技巧&#34;&gt;vim 使用技巧 [#](&lt;a href=&#34;https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim&#34;&gt;https://pengfeixc.com/blogs/developer-handbook/vim-shortcuts#vim&lt;/a&gt; 使用技巧)&lt;/h1&gt;
+&lt;p&gt;下面的命令是我常用的一些快捷键操作，我使用的编辑器是 vscode，安装了 vim 插件。&lt;/p&gt;</description>
     </item>
     
   </channel>

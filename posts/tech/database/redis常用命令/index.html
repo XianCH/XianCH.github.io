@@ -7,7 +7,34 @@
 <meta name="robots" content="index, follow">
 <title>Redis基础知识回顾(更新中) | X14n&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="基础数据类型及运用场景 String 常用命令 普通字符串的基本操作： # 设置 key-value 类型的值 &gt; SET name lin OK # 根据 key 获得对应的 value &gt; GET name &#34;lin&#34; # 判断某个 key 是否存在 &gt; EXISTS name (integer) 1 # 返回 key 所储存的字符串值的长度 &gt; STRLEN name (integer) 3 # 删除某个 key 对应的值 &gt; DEL name (integer) 1 批量设置 : # 批量设置 key-value 类型的值 &gt; MSET key1 value1 key2 value2 OK # 批量获取多个 key 对应的 value &gt; MGET">
+<meta name="description" content="基础数据类型及运用场景
+String
+常用命令
+普通字符串的基本操作：
+# 设置 key-value 类型的值
+&gt; SET name lin
+OK
+# 根据 key 获得对应的 value
+&gt; GET name
+&#34;lin&#34;
+# 判断某个 key 是否存在
+&gt; EXISTS name
+(integer) 1
+# 返回 key 所储存的字符串值的长度
+&gt; STRLEN name
+(integer) 3
+# 删除某个 key 对应的值
+&gt; DEL name
+(integer) 1
+批量设置 :
+# 批量设置 key-value 类型的值
+&gt; MSET key1 value1 key2 value2 
+OK
+# 批量获取多个 key 对应的 value
+&gt; MGET key1 key2 
+1) &#34;value1&#34;
+2) &#34;value2&#34;
+计数器（字符串的内容为整数的时候可以使用）：">
 <meta name="author" content="x14n">
 <link rel="canonical" href="https://XianCH.github.io/posts/tech/database/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -46,11 +73,35 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
-  
-
 <meta property="og:title" content="Redis基础知识回顾(更新中)" />
-<meta property="og:description" content="基础数据类型及运用场景 String 常用命令 普通字符串的基本操作： # 设置 key-value 类型的值 &gt; SET name lin OK # 根据 key 获得对应的 value &gt; GET name &#34;lin&#34; # 判断某个 key 是否存在 &gt; EXISTS name (integer) 1 # 返回 key 所储存的字符串值的长度 &gt; STRLEN name (integer) 3 # 删除某个 key 对应的值 &gt; DEL name (integer) 1 批量设置 : # 批量设置 key-value 类型的值 &gt; MSET key1 value1 key2 value2 OK # 批量获取多个 key 对应的 value &gt; MGET" />
+<meta property="og:description" content="基础数据类型及运用场景
+String
+常用命令
+普通字符串的基本操作：
+# 设置 key-value 类型的值
+&gt; SET name lin
+OK
+# 根据 key 获得对应的 value
+&gt; GET name
+&#34;lin&#34;
+# 判断某个 key 是否存在
+&gt; EXISTS name
+(integer) 1
+# 返回 key 所储存的字符串值的长度
+&gt; STRLEN name
+(integer) 3
+# 删除某个 key 对应的值
+&gt; DEL name
+(integer) 1
+批量设置 :
+# 批量设置 key-value 类型的值
+&gt; MSET key1 value1 key2 value2 
+OK
+# 批量获取多个 key 对应的 value
+&gt; MGET key1 key2 
+1) &#34;value1&#34;
+2) &#34;value2&#34;
+计数器（字符串的内容为整数的时候可以使用）：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://XianCH.github.io/posts/tech/database/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" />
 <meta property="og:image" content="https://XianCH.github.io/postsImg/redis.png" /><meta property="article:section" content="posts" />
@@ -60,7 +111,34 @@ var _hmt = _hmt || [];
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://XianCH.github.io/postsImg/redis.png" />
 <meta name="twitter:title" content="Redis基础知识回顾(更新中)"/>
-<meta name="twitter:description" content="基础数据类型及运用场景 String 常用命令 普通字符串的基本操作： # 设置 key-value 类型的值 &gt; SET name lin OK # 根据 key 获得对应的 value &gt; GET name &#34;lin&#34; # 判断某个 key 是否存在 &gt; EXISTS name (integer) 1 # 返回 key 所储存的字符串值的长度 &gt; STRLEN name (integer) 3 # 删除某个 key 对应的值 &gt; DEL name (integer) 1 批量设置 : # 批量设置 key-value 类型的值 &gt; MSET key1 value1 key2 value2 OK # 批量获取多个 key 对应的 value &gt; MGET"/>
+<meta name="twitter:description" content="基础数据类型及运用场景
+String
+常用命令
+普通字符串的基本操作：
+# 设置 key-value 类型的值
+&gt; SET name lin
+OK
+# 根据 key 获得对应的 value
+&gt; GET name
+&#34;lin&#34;
+# 判断某个 key 是否存在
+&gt; EXISTS name
+(integer) 1
+# 返回 key 所储存的字符串值的长度
+&gt; STRLEN name
+(integer) 3
+# 删除某个 key 对应的值
+&gt; DEL name
+(integer) 1
+批量设置 :
+# 批量设置 key-value 类型的值
+&gt; MSET key1 value1 key2 value2 
+OK
+# 批量获取多个 key 对应的 value
+&gt; MGET key1 key2 
+1) &#34;value1&#34;
+2) &#34;value2&#34;
+计数器（字符串的内容为整数的时候可以使用）："/>
 
 
 <script type="application/ld+json">
@@ -97,7 +175,7 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "Redis基础知识回顾(更新中)",
   "name": "Redis基础知识回顾(更新中)",
-  "description": "基础数据类型及运用场景 String 常用命令 普通字符串的基本操作： # 设置 key-value 类型的值 \u0026gt; SET name lin OK # 根据 key 获得对应的 value \u0026gt; GET name \u0026#34;lin\u0026#34; # 判断某个 key 是否存在 \u0026gt; EXISTS name (integer) 1 # 返回 key 所储存的字符串值的长度 \u0026gt; STRLEN name (integer) 3 # 删除某个 key 对应的值 \u0026gt; DEL name (integer) 1 批量设置 : # 批量设置 key-value 类型的值 \u0026gt; MSET key1 value1 key2 value2 OK # 批量获取多个 key 对应的 value \u0026gt; MGET",
+  "description": "基础数据类型及运用场景 String 常用命令 普通字符串的基本操作：\n# 设置 key-value 类型的值 \u0026gt; SET name lin OK # 根据 key 获得对应的 value \u0026gt; GET name \u0026#34;lin\u0026#34; # 判断某个 key 是否存在 \u0026gt; EXISTS name (integer) 1 # 返回 key 所储存的字符串值的长度 \u0026gt; STRLEN name (integer) 3 # 删除某个 key 对应的值 \u0026gt; DEL name (integer) 1 批量设置 :\n# 批量设置 key-value 类型的值 \u0026gt; MSET key1 value1 key2 value2 OK # 批量获取多个 key 对应的 value \u0026gt; MGET key1 key2 1) \u0026#34;value1\u0026#34; 2) \u0026#34;value2\u0026#34; 计数器（字符串的内容为整数的时候可以使用）：\n",
   "keywords": [
     ""
   ],
@@ -697,7 +775,7 @@ var _hmt = _hmt || [];
     <span>
         Copyright
         &copy;
-        -2024
+        -2025
         <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>

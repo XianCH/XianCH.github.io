@@ -46,9 +46,6 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
-  
-
 <meta property="og:title" content="arch安装以及i3wm配置" />
 <meta property="og:description" content="这里大概记录自己archlinux的安装过程，还有i3wm的配置" />
 <meta property="og:type" content="article" />
@@ -700,48 +697,48 @@ exec --no-startup-id ~/.config/polybar/launch.sh
 </code></pre><h2 id="安装中文输入法">安装中文输入法<a hidden class="anchor" aria-hidden="true" href="#安装中文输入法">#</a></h2>
 <p>配置中文输入法首先需要安装 fcitx 包与 fcitx-im 集合包，还有配置工具 fcitx-configtool：</p>
 <table>
-<thead>
-<tr>
-<th>1</th>
-<th>$ sudo pacman -S fcitx fcitx-im fcitx-configtool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>1</th>
+          <th>$ sudo pacman -S fcitx fcitx-im fcitx-configtool</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <p>然后编辑 /etc/profile 文件，末尾加入：</p>
 <table>
-<thead>
-<tr>
-<th>1234</th>
-<th># Fcitxexport GTK_IM_MODULE=fcitxexport QT_IM_MODULE=fcitxexport XMODIFIERS=&quot;@im=fcitx&quot;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>1234</th>
+          <th># Fcitxexport GTK_IM_MODULE=fcitxexport QT_IM_MODULE=fcitxexport XMODIFIERS=&quot;@im=fcitx&quot;</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <p>再到<a href="https://wiki.archlinux.org/index.php/Fcitx_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E4%B8%AD%E6%96%87">Fcitx#中文</a>选择一个中文输入法包安装：</p>
 <table>
-<thead>
-<tr>
-<th>1</th>
-<th>$ sudo pacman -S fcitx-googlepinyin</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>1</th>
+          <th>$ sudo pacman -S fcitx-googlepinyin</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="zsh">zsh<a hidden class="anchor" aria-hidden="true" href="#zsh">#</a></h2>
 <p>1、安装zsh</p>
@@ -896,7 +893,7 @@ pp : 粘贴
     <span>
         Copyright
         &copy;
-        -2024
+        -2025
         <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>

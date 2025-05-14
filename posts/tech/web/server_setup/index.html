@@ -5,14 +5,26 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>关于twitter架构图的思考 | X14n&#39;s Blog</title>
+<title>Server_setup | X14n&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="这个是elon发布的架构图
+<meta name="description" content="123.com 和 www.123.com 是两个不同的子域名，你需要在 DNS 和 Web 服务器中配置它们的关系（通常会设置为自动跳转或都指向同一个内容）。
 
-因为很多字看不清我在twitter上找了位架构师alex xu整理的图 https://twitter.com/alexxubyte/status/1594008281340530688
-1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，安卓用户拥有更高的性能和体验。而 iphone版 twitter感觉就是像是网站web端吧，，它需要依赖浏览器来加载和渲染内容，相对于原生应用程序，它可能会具有一些限制和性能上的劣势。如果twitter的ui代码出问题了，安卓用户应该会直接收到报错吧，这里都针对不同系统的用户有不同的拦截器吧。">
+具体原因分析
+
+
+DNS 配置不一致
+123.com 是主域名（根域名）。
+www.123.com 是主域名下的一个子域名（www 是子域名）。
+如果你的 DNS 服务商（如阿里云、Cloudflare、DNSPod 等）中：
+ 只配置了一个 A 记录（如 www.123.com -&gt; IP地址）
+
+ 那么 123.com 访问时可能无法正确解析，或访问到不同服务。
+
+
+
+服务器未做统一跳转或绑定">
 <meta name="author" content="x14n">
-<link rel="canonical" href="https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/">
+<link rel="canonical" href="https://XianCH.github.io/posts/tech/web/server_setup/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://XianCH.github.io/img/favicon.icon">
@@ -22,7 +34,7 @@
 <link rel="mask-icon" href="https://XianCH.github.io/img/main.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/">
+<link rel="alternate" hreflang="zh" href="https://XianCH.github.io/posts/tech/web/server_setup/">
 <noscript>
     <style>
         #theme-toggle,
@@ -49,24 +61,46 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-<meta property="og:title" content="关于twitter架构图的思考" />
-<meta property="og:description" content="这个是elon发布的架构图
+<meta property="og:title" content="Server_setup" />
+<meta property="og:description" content="123.com 和 www.123.com 是两个不同的子域名，你需要在 DNS 和 Web 服务器中配置它们的关系（通常会设置为自动跳转或都指向同一个内容）。
 
-因为很多字看不清我在twitter上找了位架构师alex xu整理的图 https://twitter.com/alexxubyte/status/1594008281340530688
-1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，安卓用户拥有更高的性能和体验。而 iphone版 twitter感觉就是像是网站web端吧，，它需要依赖浏览器来加载和渲染内容，相对于原生应用程序，它可能会具有一些限制和性能上的劣势。如果twitter的ui代码出问题了，安卓用户应该会直接收到报错吧，这里都针对不同系统的用户有不同的拦截器吧。" />
+具体原因分析
+
+
+DNS 配置不一致
+123.com 是主域名（根域名）。
+www.123.com 是主域名下的一个子域名（www 是子域名）。
+如果你的 DNS 服务商（如阿里云、Cloudflare、DNSPod 等）中：
+ 只配置了一个 A 记录（如 www.123.com -&gt; IP地址）
+
+ 那么 123.com 访问时可能无法正确解析，或访问到不同服务。
+
+
+
+服务器未做统一跳转或绑定" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/" />
-<meta property="og:image" content="https://XianCH.github.io/postsImg/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/twitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83.assets/main.jpg" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-05-01T10:16:51+00:00" />
-<meta property="article:modified_time" content="2023-09-22T10:16:51+00:00" />
+<meta property="og:url" content="https://XianCH.github.io/posts/tech/web/server_setup/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-05-15T01:38:06+08:00" />
+<meta property="article:modified_time" content="2025-05-15T01:38:06+08:00" />
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://XianCH.github.io/postsImg/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/twitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83.assets/main.jpg" />
-<meta name="twitter:title" content="关于twitter架构图的思考"/>
-<meta name="twitter:description" content="这个是elon发布的架构图
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Server_setup"/>
+<meta name="twitter:description" content="123.com 和 www.123.com 是两个不同的子域名，你需要在 DNS 和 Web 服务器中配置它们的关系（通常会设置为自动跳转或都指向同一个内容）。
 
-因为很多字看不清我在twitter上找了位架构师alex xu整理的图 https://twitter.com/alexxubyte/status/1594008281340530688
-1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，安卓用户拥有更高的性能和体验。而 iphone版 twitter感觉就是像是网站web端吧，，它需要依赖浏览器来加载和渲染内容，相对于原生应用程序，它可能会具有一些限制和性能上的劣势。如果twitter的ui代码出问题了，安卓用户应该会直接收到报错吧，这里都针对不同系统的用户有不同的拦截器吧。"/>
+具体原因分析
+
+
+DNS 配置不一致
+123.com 是主域名（根域名）。
+www.123.com 是主域名下的一个子域名（www 是子域名）。
+如果你的 DNS 服务商（如阿里云、Cloudflare、DNSPod 等）中：
+ 只配置了一个 A 记录（如 www.123.com -&gt; IP地址）
+
+ 那么 123.com 访问时可能无法正确解析，或访问到不同服务。
+
+
+
+服务器未做统一跳转或绑定"/>
 
 
 <script type="application/ld+json">
@@ -91,8 +125,8 @@ var _hmt = _hmt || [];
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "关于twitter架构图的思考",
-      "item": "https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/"
+      "name": "Server_setup",
+      "item": "https://XianCH.github.io/posts/tech/web/server_setup/"
     }
   ]
 }
@@ -101,24 +135,24 @@ var _hmt = _hmt || [];
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "关于twitter架构图的思考",
-  "name": "关于twitter架构图的思考",
-  "description": "这个是elon发布的架构图\n因为很多字看不清我在twitter上找了位架构师alex xu整理的图 https://twitter.com/alexxubyte/status/1594008281340530688\n1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，安卓用户拥有更高的性能和体验。而 iphone版 twitter感觉就是像是网站web端吧，，它需要依赖浏览器来加载和渲染内容，相对于原生应用程序，它可能会具有一些限制和性能上的劣势。如果twitter的ui代码出问题了，安卓用户应该会直接收到报错吧，这里都针对不同系统的用户有不同的拦截器吧。\n",
+  "headline": "Server_setup",
+  "name": "Server_setup",
+  "description": "123.com 和 www.123.com 是两个不同的子域名，你需要在 DNS 和 Web 服务器中配置它们的关系（通常会设置为自动跳转或都指向同一个内容）。 具体原因分析\nDNS 配置不一致\n123.com 是主域名（根域名）。\nwww.123.com 是主域名下的一个子域名（www 是子域名）。\n如果你的 DNS 服务商（如阿里云、Cloudflare、DNSPod 等）中：\n只配置了一个 A 记录（如 www.123.com -\u0026gt; IP地址） 那么 123.com 访问时可能无法正确解析，或访问到不同服务。 服务器未做统一跳转或绑定\n",
   "keywords": [
     ""
   ],
-  "articleBody": "这个是elon发布的架构图\n因为很多字看不清我在twitter上找了位架构师alex xu整理的图 https://twitter.com/alexxubyte/status/1594008281340530688\n1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，安卓用户拥有更高的性能和体验。而 iphone版 twitter感觉就是像是网站web端吧，，它需要依赖浏览器来加载和渲染内容，相对于原生应用程序，它可能会具有一些限制和性能上的劣势。如果twitter的ui代码出问题了，安卓用户应该会直接收到报错吧，这里都针对不同系统的用户有不同的拦截器吧。\n他们两个用到访问数据的方式不一样安卓用TLS API，TLS 是一种安全协议，可以很好的保护互联网中的安全信息，安全性相对高，缺点应该就是性能开销大吧，iphone用户用的是GraphQL是一种数据查询语言，可以精确的获取指定的资源，减少服务端响应的数量，提高性能和数量。\n2，Timeline Mixer这个模块根据用户向外输出的数据做获取，处理用户的时间线数据，用户时间线数据应该是指用户在Twitter上发布的推文(Tweet转发回复等内容组成的时间序列。在twitter中，每个用户都有自己的时间线，根据用户关注了谁，点进了什么广告，评论过的推文，发布过的推文做分析。这里的onboarding我不是很清楚什么意思。cursoring | pagination 通过cusoring 分页技术提高查询用户的时间线数据。tweet deduplication处理时间线数据的去重，避免同一条推文在用户时间线中出现多次。served data logging记录数据查询和处理的日志信息，以便后续的数据分析和性能优化。最后在把收集的信息提供给”用户发现用户“，”广告推送“，”用户引导“等服务\n3，Home Mixer主要负责为用户推荐相关的内容，包括主页上显示的推文、热门话题、推荐用户等。通过分析用户的社交关系、兴趣爱好、历史行为等信息，为用户推荐适合的内容。混合在一起，生成用户的个性化主页\n4,timeline mixer和home mixer的数据传到homeranker中，然后它为用户个性化地排序和推荐主页上显示的内容，包括推文、热门话题、推荐用户等。感觉homeranker是个很复杂的算法模型\n5,感觉这是机械学系的领域了，homeranker通过某种算法得到homescorer ，而 feature hydration 则是指将这些提取出来的特征与相应的推文信息进行关联，数据会从存储在 memcache 中的缓存中，后期计算的时可以使用？。Home Scorer 会将计算得分后的数据发送到 Manhattan ….\n",
-  "wordCount" : "1074",
+  "articleBody": "123.com 和 www.123.com 是两个不同的子域名，你需要在 DNS 和 Web 服务器中配置它们的关系（通常会设置为自动跳转或都指向同一个内容）。 具体原因分析\nDNS 配置不一致\n123.com 是主域名（根域名）。\nwww.123.com 是主域名下的一个子域名（www 是子域名）。\n如果你的 DNS 服务商（如阿里云、Cloudflare、DNSPod 等）中：\n只配置了一个 A 记录（如 www.123.com -\u003e IP地址） 那么 123.com 访问时可能无法正确解析，或访问到不同服务。 服务器未做统一跳转或绑定\nWeb 服务器（如 Nginx、Apache）可以区分你访问的是 123.com 还是 www.123.com，默认情况下它们是两个不同的 Host 请求：\n如果你只绑定了 server_name www.123.com，那访问 123.com 会 404 或跳到默认站点。 如果你没有设置重定向策略，用户访问哪个就显示哪个，不统一。 ✅ 推荐解决方案 ✅ 方法 1：在 DNS 中同时添加这两个记录 主机记录\t记录类型\t记录值 @\tA\tIP 地址 www\tA\tIP 地址\n@ 表示根域名（123.com） ✅ 方法 2：Nginx 中设置统一跳转（推荐） 示例：强制将 123.com 跳转到 www.123.com\n监听 123.com 的请求并重定向到 www.123.com server { listen 80; server_name 123.com; return 301 http://www.123.com$request_uri; }\n正常服务的 www.123.com server { listen 80; server_name www.123.com; root /var/www/your_site; index index.html; }\n这样不管用户输入哪个地址，都会统一跳转到 www.123.com，避免 SEO 问题、Cookie 混乱等问题。 ✅ 一、从阿里云下载证书\n登录阿里云控制台 → SSL证书服务 → 选择已签发的证书\n点击【下载证书】，选择服务器类型：\n如果你用的是 Nginx，就选择 Nginx\n如果是 Apache，就选 Apache\n下载后你会获得一个 .zip 压缩包，里面通常有这些文件：\n✅ Nginx 证书包示例内容：\nyourdomain.pem # 证书（包括中间证书） yourdomain.key # 私钥\n✅ Apache 证书包示例内容：\nyourdomain.crt # 证书 yourdomain.key # 私钥 chain.pem # 中间证书\n✅ 二、上传证书到服务器\n建议上传到 /etc/ssl/yourdomain/（或你自定义的路径）：\nscp yourdomain.* root@your_server:/etc/ssl/yourdomain/\n✅ 三、配置服务器（Nginx / Apache） 🔧 Nginx 配置示例\n编辑你的站点配置文件（如 /etc/nginx/conf.d/yourdomain.conf）：\nserver { listen 80; server_name yourdomain.com www.yourdomain.com; return 301 https://$host$request_uri; } server { listen 443 ssl; server_name yourdomain.com www.yourdomain.com; ssl_certificate /etc/ssl/yourdomain/yourdomain.pem; ssl_certificate_key /etc/ssl/yourdomain/yourdomain.key; ssl_session_cache shared:SSL:1m; ssl_session_timeout 10m; ssl_protocols TLSv1.2 TLSv1.3; ssl_ciphers HIGH:!aNULL:!MD5; root /var/www/your_site; index index.html index.htm; }\n然后重启 Nginx： sudo nginx -t # 检查配置是否正确 sudo systemctl reload nginx\n🔧 Apache 配置示例\n编辑虚拟主机配置（如 /etc/httpd/conf.d/ssl.conf 或 /etc/apache2/sites-available/yourdomain.conf）：\nServerName yourdomain.com ServerAlias www.yourdomain.com\nDocumentRoot /var/www/your_site SSLEngine on SSLCertificateFile /etc/ssl/yourdomain/yourdomain.crt SSLCertificateKeyFile /etc/ssl/yourdomain/yourdomain.key SSLCertificateChainFile /etc/ssl/yourdomain/chain.pem ",
+  "wordCount" : "1020",
   "inLanguage": "zh",
-  "image":"https://XianCH.github.io/postsImg/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/twitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83.assets/main.jpg","datePublished": "2023-05-01T10:16:51Z",
-  "dateModified": "2023-09-22T10:16:51Z",
+  "datePublished": "2025-05-15T01:38:06+08:00",
+  "dateModified": "2025-05-15T01:38:06+08:00",
   "author":[{
     "@type": "Person",
     "name": "x14n"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://XianCH.github.io/posts/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/"
+    "@id": "https://XianCH.github.io/posts/tech/web/server_setup/"
   },
   "publisher": {
     "@type": "Organization",
@@ -219,7 +253,7 @@ var _hmt = _hmt || [];
         <header class="post-header">
             <div class="breadcrumbs"><a href="https://XianCH.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/">Post</a>&nbsp;»&nbsp;<a href="https://XianCH.github.io/posts/tech/">Tech</a></div>
             <h1 class="post-title">
-                关于twitter架构图的思考
+                Server_setup
             </h1>
             <div class="post-meta">
 
@@ -240,7 +274,7 @@ var _hmt = _hmt || [];
 <span class="parent-post-meta">
     <span id="post_meta_style_1">
         <span class="fa fa-calendar-check-o"></span>
-        <span>2023-05-01
+        <span>2025-05-15
             &nbsp;&nbsp;
         </span>
     </span>
@@ -253,7 +287,7 @@ var _hmt = _hmt || [];
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1074字
+        <span>1020字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -273,7 +307,6 @@ var _hmt = _hmt || [];
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="https://XianCH.github.io/tags/other/" style="color: var(--secondary)!important;">Other</a>
             </span>
         </span>
     </span>
@@ -326,21 +359,229 @@ var _hmt = _hmt || [];
                 </span>
 
 </div>
-        </header> 
-<figure class="entry-cover1"><img style="zoom:;" loading="lazy" src="https://XianCH.github.io/postsImg/tech/other/%E5%85%B3%E4%BA%8Etwitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83/twitter%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%80%9D%E8%80%83.assets/main.jpg" alt="">
-    
-</figure>
-        <div class="post-content"><p>这个是elon发布的架构图</p>
-<p><img loading="lazy" src="twitter%e6%9e%b6%e6%9e%84%e5%9b%be%e7%9a%84%e6%80%9d%e8%80%83.assets/Fh6qtzdUAAARaTI.jpg" alt=""  />
-因为很多字看不清我在twitter上找了位架构师alex xu整理的图 <a href="https://twitter.com/alexxubyte/status/1594008281340530688">https://twitter.com/alexxubyte/status/1594008281340530688</a><img src="twitter架构图的思考.assets/Fh8OE2jUAAEIVRR.jpg" style="zoom:20%;" /><img src="twitter架构图的思考.assets/image-20230328044142610.png" alt="image-20230328044142610" style="zoom:50%;" /></p>
-<p>1，首先对安卓和iphone用户做了不同的处理，可以说这两个系统是两个应用把，安卓系统是一个原生应用程序，这意味着它是专门为安卓操作系统编写的应用程序，能够直接访问设备硬件和系统资源，安卓用户拥有更高的性能和体验。而 iphone版 twitter感觉就是像是网站web端吧，，它需要依赖浏览器来加载和渲染内容，相对于原生应用程序，它可能会具有一些限制和性能上的劣势。如果twitter的ui代码出问题了，安卓用户应该会直接收到报错吧，这里都针对不同系统的用户有不同的拦截器吧。</p>
-<p>他们两个用到访问数据的方式不一样安卓用TLS API，TLS 是一种安全协议，可以很好的保护互联网中的安全信息，安全性相对高，缺点应该就是性能开销大吧，iphone用户用的是GraphQL是一种数据查询语言，可以精确的获取指定的资源，减少服务端响应的数量，提高性能和数量。</p>
-<img src="twitter架构图的思考.assets/image-20230328044319436.png" alt="image-20230328044319436" style="zoom:50%;" />
-<p>2，Timeline Mixer这个模块根据用户向外输出的数据做获取，处理用户的时间线数据，用户时间线数据应该是指用户在Twitter上发布的推文(Tweet转发回复等内容组成的时间序列。在twitter中，每个用户都有自己的时间线，根据用户关注了谁，点进了什么广告，评论过的推文，发布过的推文做分析。这里的onboarding我不是很清楚什么意思。cursoring | pagination 通过cusoring 分页技术提高查询用户的时间线数据。tweet deduplication处理时间线数据的去重，避免同一条推文在用户时间线中出现多次。served data logging记录数据查询和处理的日志信息，以便后续的数据分析和性能优化。最后在把收集的信息提供给”用户发现用户“，”广告推送“，”用户引导“等服务</p>
-<p>3，Home Mixer主要负责为用户推荐相关的内容，包括主页上显示的推文、热门话题、推荐用户等。通过分析用户的社交关系、兴趣爱好、历史行为等信息，为用户推荐适合的内容。混合在一起，生成用户的个性化主页</p>
-<p>4,timeline mixer和home mixer的数据传到homeranker中，然后它为用户个性化地排序和推荐主页上显示的内容，包括推文、热门话题、推荐用户等。感觉homeranker是个很复杂的算法模型</p>
-<img src="twitter架构图的思考.assets/image-20230328055939667.png" alt="image-20230328055939667" style="zoom:60%;" />
-<p>5,感觉这是机械学系的领域了，homeranker通过某种算法得到homescorer ，而 feature hydration 则是指将这些提取出来的特征与相应的推文信息进行关联，数据会从存储在 memcache 中的缓存中，后期计算的时可以使用？。Home Scorer 会将计算得分后的数据发送到 Manhattan &hellip;.</p>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e7%9b%91%e5%90%ac-123com-%e7%9a%84%e8%af%b7%e6%b1%82%e5%b9%b6%e9%87%8d%e5%ae%9a%e5%90%91%e5%88%b0" aria-label="监听 123.com 的请求并重定向到 www.123.com">监听 123.com 的请求并重定向到 <a href="https://www.123.com">www.123.com</a></a></li>
+                <li>
+                    <a href="#%e6%ad%a3%e5%b8%b8%e6%9c%8d%e5%8a%a1%e7%9a%84" aria-label="正常服务的 www.123.com">正常服务的 <a href="https://www.123.com">www.123.com</a></a></li>
+                <li>
+                    <a href="#%e5%8f%af%e9%80%89%e5%bc%ba%e5%88%b6-http-%e8%b7%b3%e8%bd%ac%e5%88%b0-https" aria-label="可选：强制 HTTP 跳转到 HTTPS">可选：强制 HTTP 跳转到 HTTPS</a></li>
+                <li>
+                    <a href="#ubuntudebian" aria-label="Ubuntu/Debian">Ubuntu/Debian</a></li>
+                <li>
+                    <a href="#centos" aria-label="CentOS">CentOS</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><pre><code>123.com 和 www.123.com 是两个不同的子域名，你需要在 DNS 和 Web 服务器中配置它们的关系（通常会设置为自动跳转或都指向同一个内容）。
+</code></pre>
+<p>具体原因分析</p>
+<ol>
+<li>
+<p>DNS 配置不一致</p>
+<p>123.com 是主域名（根域名）。</p>
+<p><a href="https://www.123.com">www.123.com</a> 是主域名下的一个子域名（www 是子域名）。</p>
+<p>如果你的 DNS 服务商（如阿里云、Cloudflare、DNSPod 等）中：</p>
+<pre><code> 只配置了一个 A 记录（如 www.123.com -&gt; IP地址）
+
+ 那么 123.com 访问时可能无法正确解析，或访问到不同服务。
+</code></pre>
+</li>
+<li>
+<p>服务器未做统一跳转或绑定</p>
+</li>
+</ol>
+<p>Web 服务器（如 Nginx、Apache）可以区分你访问的是 123.com 还是 <a href="https://www.123.com">www.123.com</a>，默认情况下它们是两个不同的 Host 请求：</p>
+<pre><code>如果你只绑定了 server_name www.123.com，那访问 123.com 会 404 或跳到默认站点。
+
+如果你没有设置重定向策略，用户访问哪个就显示哪个，不统一。
+</code></pre>
+<p>✅ 推荐解决方案
+✅ 方法 1：在 DNS 中同时添加这两个记录
+主机记录	记录类型	记录值
+@	A	IP 地址
+www	A	IP 地址</p>
+<pre><code>@ 表示根域名（123.com）
+</code></pre>
+<p>✅ 方法 2：Nginx 中设置统一跳转（推荐）
+示例：强制将 123.com 跳转到 <a href="https://www.123.com">www.123.com</a></p>
+<h1 id="监听-123com-的请求并重定向到">监听 123.com 的请求并重定向到 <a href="https://www.123.com">www.123.com</a><a hidden class="anchor" aria-hidden="true" href="#监听-123com-的请求并重定向到">#</a></h1>
+<p>server {
+listen 80;
+server_name 123.com;
+return 301 <a href="http://www.123.com">http://www.123.com</a>$request_uri;
+}</p>
+<h1 id="正常服务的">正常服务的 <a href="https://www.123.com">www.123.com</a><a hidden class="anchor" aria-hidden="true" href="#正常服务的">#</a></h1>
+<p>server {
+listen 80;
+server_name <a href="https://www.123.com">www.123.com</a>;
+root /var/www/your_site;
+index index.html;
+}</p>
+<pre><code>这样不管用户输入哪个地址，都会统一跳转到 www.123.com，避免 SEO 问题、Cookie 混乱等问题。
+</code></pre>
+<p>✅ 一、从阿里云下载证书</p>
+<ol>
+<li>
+<p>登录阿里云控制台 → SSL证书服务 → 选择已签发的证书</p>
+</li>
+<li>
+<p>点击【下载证书】，选择服务器类型：</p>
+<p>如果你用的是 Nginx，就选择 Nginx</p>
+<p>如果是 Apache，就选 Apache</p>
+<p>下载后你会获得一个 .zip 压缩包，里面通常有这些文件：</p>
+</li>
+</ol>
+<p>✅ Nginx 证书包示例内容：</p>
+<p>yourdomain.pem           # 证书（包括中间证书）
+yourdomain.key           # 私钥</p>
+<p>✅ Apache 证书包示例内容：</p>
+<p>yourdomain.crt           # 证书
+yourdomain.key           # 私钥
+chain.pem                # 中间证书</p>
+<p>✅ 二、上传证书到服务器</p>
+<p>建议上传到 /etc/ssl/yourdomain/（或你自定义的路径）：</p>
+<p>scp yourdomain.* root@your_server:/etc/ssl/yourdomain/</p>
+<p>✅ 三、配置服务器（Nginx / Apache）
+🔧 Nginx 配置示例</p>
+<p>编辑你的站点配置文件（如 /etc/nginx/conf.d/yourdomain.conf）：</p>
+<pre tabindex="0"><code>server {
+    listen 80;
+    server_name yourdomain.com www.yourdomain.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name yourdomain.com www.yourdomain.com;
+</code></pre><pre><code>ssl_certificate /etc/ssl/yourdomain/yourdomain.pem;
+ssl_certificate_key /etc/ssl/yourdomain/yourdomain.key;
+
+ssl_session_cache shared:SSL:1m;
+ssl_session_timeout 10m;
+
+ssl_protocols TLSv1.2 TLSv1.3;
+ssl_ciphers HIGH:!aNULL:!MD5;
+
+root /var/www/your_site;
+index index.html index.htm;
+</code></pre>
+<p>}</p>
+<pre><code>然后重启 Nginx：
+</code></pre>
+<p>sudo nginx -t    # 检查配置是否正确
+sudo systemctl reload nginx</p>
+<p>🔧 Apache 配置示例</p>
+<p>编辑虚拟主机配置（如 /etc/httpd/conf.d/ssl.conf 或 /etc/apache2/sites-available/yourdomain.conf）：</p>
+<p>&lt;VirtualHost *:443&gt;
+ServerName yourdomain.com
+ServerAlias <a href="https://www.yourdomain.com">www.yourdomain.com</a></p>
+<pre><code>DocumentRoot /var/www/your_site
+
+SSLEngine on
+SSLCertificateFile /etc/ssl/yourdomain/yourdomain.crt
+SSLCertificateKeyFile /etc/ssl/yourdomain/yourdomain.key
+SSLCertificateChainFile /etc/ssl/yourdomain/chain.pem
+
+&lt;Directory &quot;/var/www/your_site&quot;&gt;
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+&lt;/Directory&gt;
+</code></pre>
+</VirtualHost>
+<h1 id="可选强制-http-跳转到-https">可选：强制 HTTP 跳转到 HTTPS<a hidden class="anchor" aria-hidden="true" href="#可选强制-http-跳转到-https">#</a></h1>
+<p>&lt;VirtualHost *:80&gt;
+ServerName yourdomain.com
+ServerAlias <a href="https://www.yourdomain.com">www.yourdomain.com</a>
+Redirect permanent / <a href="https://yourdomain.com/">https://yourdomain.com/</a>
+</VirtualHost></p>
+<pre><code>重启 Apache：
+</code></pre>
+<h1 id="ubuntudebian">Ubuntu/Debian<a hidden class="anchor" aria-hidden="true" href="#ubuntudebian">#</a></h1>
+<p>sudo a2enmod ssl
+sudo systemctl reload apache2</p>
+<h1 id="centos">CentOS<a hidden class="anchor" aria-hidden="true" href="#centos">#</a></h1>
+<p>sudo systemctl reload httpd</p>
+<p>✅ 四、验证是否生效</p>
+<pre><code>访问 https://yourdomain.com 看是否跳转成功
+
+用浏览器点 HTTPS 小锁 → 查看证书是否是阿里云颁发的
+
+可使用 SSL 检测工具：
+
+    https://www.ssllabs.com/ssltest/
+</code></pre>
 
 
         </div>
@@ -348,15 +589,10 @@ var _hmt = _hmt || [];
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="prev" href="https://XianCH.github.io/posts/tech/tool/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
-    <span class="title">« 上一页</span>
-    <br>
-    <span>常用快捷键</span>
-  </a>
-  <a class="next" href="https://XianCH.github.io/posts/tech/java/java%E5%A4%8D%E4%B9%A0/">
+  <a class="next" href="https://XianCH.github.io/posts/tech/front/javascript%E5%A4%8D%E4%B9%A0/">
     <span class="title">下一页 »</span>
     <br>
-    <span>java基础复习</span>
+    <span>Javascript复习</span>
   </a>
 </nav>
 

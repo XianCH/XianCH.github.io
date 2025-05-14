@@ -7,7 +7,85 @@
 <meta name="robots" content="index, follow">
 <title>Nvim_config(挖坑) | X14n&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="前言 最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题 一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以 自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为 一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么">
+<meta name="description" content="前言
+最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题
+一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以
+自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为
+一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么。
+需求列表
+
+文件管理
+文件搜索
+文件查找
+文字查找
+插件管理
+快捷键绑定
+内嵌终端
+debug
+语言服务
+语言格式化
+输入提示
+插件管理
+主题样式
+
+init.lua
+touch init.lua &amp;&amp; mkdir lua
+local option = vim.opt
+local buffer = vim.b
+local global = vim.g
+
+-- Globol Settings --
+option.showmode = false
+option.backspace = { &#34;indent&#34;, &#34;eol&#34;, &#34;start&#34; }
+option.tabstop = 4
+option.shiftwidth = 4
+option.expandtab = true
+option.shiftround = true
+option.autoindent = true
+option.smartindent = true
+option.number = true
+option.relativenumber = true
+option.wildmenu = true
+option.hlsearch = false
+option.ignorecase = true
+option.smartcase = true
+option.completeopt = { &#34;menu&#34;, &#34;menuone&#34; }
+option.cursorline = true
+option.termguicolors = true
+option.signcolumn = &#34;yes&#34;
+option.autoread = true
+option.title = true
+option.swapfile = false
+option.backup = false
+option.updatetime = 50
+option.mouse = &#34;a&#34;
+option.undofile = true
+option.undodir = vim.fn.expand(&#39;$HOME/.local/share/nvim/undo&#39;)
+option.exrc = true
+option.wrap = false
+option.splitright = true
+
+-- Buffer Settings --
+buffer.fileenconding = &#34;utf-8&#34;
+
+-- Global Settings --
+global.mapleader = &#34; &#34;
+
+-- Key mappings --
+vim.keymap.set({ &#34;n&#34;, &#34;i&#34;, &#34;v&#34; }, &#34;&lt;Left&gt;&#34;, &#34;&lt;Nop&gt;&#34;)
+vim.keymap.set({ &#34;n&#34;, &#34;i&#34;, &#34;v&#34; }, &#34;&lt;Right&gt;&#34;, &#34;&lt;Nop&gt;&#34;)
+vim.keymap.set({ &#34;n&#34;, &#34;i&#34;, &#34;v&#34; }, &#34;&lt;Up&gt;&#34;, &#34;&lt;Nop&gt;&#34;)
+vim.keymap.set({ &#34;n&#34;, &#34;i&#34;, &#34;v&#34; }, &#34;&lt;Down&gt;&#34;, &#34;&lt;Nop&gt;&#34;)
+
+vim.keymap.set(&#34;n&#34;, &#34;&lt;A-Tab&gt;&#34;, &#34;&lt;cmd&gt;bNext&lt;CR&gt;&#34;) 
+vim.keymap.set(&#34;n&#34;, &#34;&lt;leader&gt;bc&#34;, &#34;&lt;cmd&gt;bd&lt;CR&gt;&#34;)
+
+vim.keymap.set(&#34;v&#34;, &#34;J&#34;, &#34;:m &#39;&gt;&#43;1&lt;CR&gt;gv=gv&#34;)
+vim.keymap.set(&#34;v&#34;, &#34;K&#34;, &#34;:m &#39;&lt;-2&lt;CR&gt;gv=gv&#34;)
+
+vim.keymap.set({ &#34;v&#34;, &#34;n&#34; }, &#34;&lt;leader&gt;y&#34;, &#34;\&#34;&#43;y&#34;)
+插件管理（lazy.nvim）
+github地址：https://github.com/folke/lazy.nvim">
 <meta name="author" content="x14n">
 <link rel="canonical" href="https://XianCH.github.io/posts/tech/linux/nvim_config/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -46,11 +124,86 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
-  
-
 <meta property="og:title" content="Nvim_config(挖坑)" />
-<meta property="og:description" content="前言 最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题 一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以 自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为 一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么" />
+<meta property="og:description" content="前言
+最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题
+一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以
+自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为
+一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么。
+需求列表
+
+文件管理
+文件搜索
+文件查找
+文字查找
+插件管理
+快捷键绑定
+内嵌终端
+debug
+语言服务
+语言格式化
+输入提示
+插件管理
+主题样式
+
+init.lua
+touch init.lua &amp;&amp; mkdir lua
+local option = vim.opt
+local buffer = vim.b
+local global = vim.g
+
+-- Globol Settings --
+option.showmode = false
+option.backspace = { &#34;indent&#34;, &#34;eol&#34;, &#34;start&#34; }
+option.tabstop = 4
+option.shiftwidth = 4
+option.expandtab = true
+option.shiftround = true
+option.autoindent = true
+option.smartindent = true
+option.number = true
+option.relativenumber = true
+option.wildmenu = true
+option.hlsearch = false
+option.ignorecase = true
+option.smartcase = true
+option.completeopt = { &#34;menu&#34;, &#34;menuone&#34; }
+option.cursorline = true
+option.termguicolors = true
+option.signcolumn = &#34;yes&#34;
+option.autoread = true
+option.title = true
+option.swapfile = false
+option.backup = false
+option.updatetime = 50
+option.mouse = &#34;a&#34;
+option.undofile = true
+option.undodir = vim.fn.expand(&#39;$HOME/.local/share/nvim/undo&#39;)
+option.exrc = true
+option.wrap = false
+option.splitright = true
+
+-- Buffer Settings --
+buffer.fileenconding = &#34;utf-8&#34;
+
+-- Global Settings --
+global.mapleader = &#34; &#34;
+
+-- Key mappings --
+vim.keymap.set({ &#34;n&#34;, &#34;i&#34;, &#34;v&#34; }, &#34;&lt;Left&gt;&#34;, &#34;&lt;Nop&gt;&#34;)
+vim.keymap.set({ &#34;n&#34;, &#34;i&#34;, &#34;v&#34; }, &#34;&lt;Right&gt;&#34;, &#34;&lt;Nop&gt;&#34;)
+vim.keymap.set({ &#34;n&#34;, &#34;i&#34;, &#34;v&#34; }, &#34;&lt;Up&gt;&#34;, &#34;&lt;Nop&gt;&#34;)
+vim.keymap.set({ &#34;n&#34;, &#34;i&#34;, &#34;v&#34; }, &#34;&lt;Down&gt;&#34;, &#34;&lt;Nop&gt;&#34;)
+
+vim.keymap.set(&#34;n&#34;, &#34;&lt;A-Tab&gt;&#34;, &#34;&lt;cmd&gt;bNext&lt;CR&gt;&#34;) 
+vim.keymap.set(&#34;n&#34;, &#34;&lt;leader&gt;bc&#34;, &#34;&lt;cmd&gt;bd&lt;CR&gt;&#34;)
+
+vim.keymap.set(&#34;v&#34;, &#34;J&#34;, &#34;:m &#39;&gt;&#43;1&lt;CR&gt;gv=gv&#34;)
+vim.keymap.set(&#34;v&#34;, &#34;K&#34;, &#34;:m &#39;&lt;-2&lt;CR&gt;gv=gv&#34;)
+
+vim.keymap.set({ &#34;v&#34;, &#34;n&#34; }, &#34;&lt;leader&gt;y&#34;, &#34;\&#34;&#43;y&#34;)
+插件管理（lazy.nvim）
+github地址：https://github.com/folke/lazy.nvim" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://XianCH.github.io/posts/tech/linux/nvim_config/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-02-25T10:33:55+08:00" />
@@ -58,7 +211,85 @@ var _hmt = _hmt || [];
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Nvim_config(挖坑)"/>
-<meta name="twitter:description" content="前言 最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题 一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以 自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为 一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么"/>
+<meta name="twitter:description" content="前言
+最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题
+一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以
+自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为
+一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么。
+需求列表
+
+文件管理
+文件搜索
+文件查找
+文字查找
+插件管理
+快捷键绑定
+内嵌终端
+debug
+语言服务
+语言格式化
+输入提示
+插件管理
+主题样式
+
+init.lua
+touch init.lua &amp;&amp; mkdir lua
+local option = vim.opt
+local buffer = vim.b
+local global = vim.g
+
+-- Globol Settings --
+option.showmode = false
+option.backspace = { &#34;indent&#34;, &#34;eol&#34;, &#34;start&#34; }
+option.tabstop = 4
+option.shiftwidth = 4
+option.expandtab = true
+option.shiftround = true
+option.autoindent = true
+option.smartindent = true
+option.number = true
+option.relativenumber = true
+option.wildmenu = true
+option.hlsearch = false
+option.ignorecase = true
+option.smartcase = true
+option.completeopt = { &#34;menu&#34;, &#34;menuone&#34; }
+option.cursorline = true
+option.termguicolors = true
+option.signcolumn = &#34;yes&#34;
+option.autoread = true
+option.title = true
+option.swapfile = false
+option.backup = false
+option.updatetime = 50
+option.mouse = &#34;a&#34;
+option.undofile = true
+option.undodir = vim.fn.expand(&#39;$HOME/.local/share/nvim/undo&#39;)
+option.exrc = true
+option.wrap = false
+option.splitright = true
+
+-- Buffer Settings --
+buffer.fileenconding = &#34;utf-8&#34;
+
+-- Global Settings --
+global.mapleader = &#34; &#34;
+
+-- Key mappings --
+vim.keymap.set({ &#34;n&#34;, &#34;i&#34;, &#34;v&#34; }, &#34;&lt;Left&gt;&#34;, &#34;&lt;Nop&gt;&#34;)
+vim.keymap.set({ &#34;n&#34;, &#34;i&#34;, &#34;v&#34; }, &#34;&lt;Right&gt;&#34;, &#34;&lt;Nop&gt;&#34;)
+vim.keymap.set({ &#34;n&#34;, &#34;i&#34;, &#34;v&#34; }, &#34;&lt;Up&gt;&#34;, &#34;&lt;Nop&gt;&#34;)
+vim.keymap.set({ &#34;n&#34;, &#34;i&#34;, &#34;v&#34; }, &#34;&lt;Down&gt;&#34;, &#34;&lt;Nop&gt;&#34;)
+
+vim.keymap.set(&#34;n&#34;, &#34;&lt;A-Tab&gt;&#34;, &#34;&lt;cmd&gt;bNext&lt;CR&gt;&#34;) 
+vim.keymap.set(&#34;n&#34;, &#34;&lt;leader&gt;bc&#34;, &#34;&lt;cmd&gt;bd&lt;CR&gt;&#34;)
+
+vim.keymap.set(&#34;v&#34;, &#34;J&#34;, &#34;:m &#39;&gt;&#43;1&lt;CR&gt;gv=gv&#34;)
+vim.keymap.set(&#34;v&#34;, &#34;K&#34;, &#34;:m &#39;&lt;-2&lt;CR&gt;gv=gv&#34;)
+
+vim.keymap.set({ &#34;v&#34;, &#34;n&#34; }, &#34;&lt;leader&gt;y&#34;, &#34;\&#34;&#43;y&#34;)
+插件管理（lazy.nvim）
+github地址：https://github.com/folke/lazy.nvim"/>
 
 
 <script type="application/ld+json">
@@ -95,7 +326,7 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "Nvim_config(挖坑)",
   "name": "Nvim_config(挖坑)",
-  "description": "前言 最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题 一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以 自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为 一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么",
+  "description": "前言 最开始的时候主要是为了熟悉vim操作，所以就没有多关系配置方面的问题 一直以来一直使用的是网上一位大神使用的配置。由于使用的是别人的配置，所以 自己再不懂的情况下还是不知道怎么，这篇文章就是要给以前偷懒的自己填坑，作为 一个实用主义者，还是从自己的需求出发吧，需要用到什么就配置什么。\n需求列表 文件管理 文件搜索 文件查找 文字查找 插件管理 快捷键绑定 内嵌终端 debug 语言服务 语言格式化 输入提示 插件管理 主题样式 init.lua touch init.lua \u0026amp;\u0026amp; mkdir lua local option = vim.opt local buffer = vim.b local global = vim.g -- Globol Settings -- option.showmode = false option.backspace = { \u0026#34;indent\u0026#34;, \u0026#34;eol\u0026#34;, \u0026#34;start\u0026#34; } option.tabstop = 4 option.shiftwidth = 4 option.expandtab = true option.shiftround = true option.autoindent = true option.smartindent = true option.number = true option.relativenumber = true option.wildmenu = true option.hlsearch = false option.ignorecase = true option.smartcase = true option.completeopt = { \u0026#34;menu\u0026#34;, \u0026#34;menuone\u0026#34; } option.cursorline = true option.termguicolors = true option.signcolumn = \u0026#34;yes\u0026#34; option.autoread = true option.title = true option.swapfile = false option.backup = false option.updatetime = 50 option.mouse = \u0026#34;a\u0026#34; option.undofile = true option.undodir = vim.fn.expand(\u0026#39;$HOME/.local/share/nvim/undo\u0026#39;) option.exrc = true option.wrap = false option.splitright = true -- Buffer Settings -- buffer.fileenconding = \u0026#34;utf-8\u0026#34; -- Global Settings -- global.mapleader = \u0026#34; \u0026#34; -- Key mappings -- vim.keymap.set({ \u0026#34;n\u0026#34;, \u0026#34;i\u0026#34;, \u0026#34;v\u0026#34; }, \u0026#34;\u0026lt;Left\u0026gt;\u0026#34;, \u0026#34;\u0026lt;Nop\u0026gt;\u0026#34;) vim.keymap.set({ \u0026#34;n\u0026#34;, \u0026#34;i\u0026#34;, \u0026#34;v\u0026#34; }, \u0026#34;\u0026lt;Right\u0026gt;\u0026#34;, \u0026#34;\u0026lt;Nop\u0026gt;\u0026#34;) vim.keymap.set({ \u0026#34;n\u0026#34;, \u0026#34;i\u0026#34;, \u0026#34;v\u0026#34; }, \u0026#34;\u0026lt;Up\u0026gt;\u0026#34;, \u0026#34;\u0026lt;Nop\u0026gt;\u0026#34;) vim.keymap.set({ \u0026#34;n\u0026#34;, \u0026#34;i\u0026#34;, \u0026#34;v\u0026#34; }, \u0026#34;\u0026lt;Down\u0026gt;\u0026#34;, \u0026#34;\u0026lt;Nop\u0026gt;\u0026#34;) vim.keymap.set(\u0026#34;n\u0026#34;, \u0026#34;\u0026lt;A-Tab\u0026gt;\u0026#34;, \u0026#34;\u0026lt;cmd\u0026gt;bNext\u0026lt;CR\u0026gt;\u0026#34;) vim.keymap.set(\u0026#34;n\u0026#34;, \u0026#34;\u0026lt;leader\u0026gt;bc\u0026#34;, \u0026#34;\u0026lt;cmd\u0026gt;bd\u0026lt;CR\u0026gt;\u0026#34;) vim.keymap.set(\u0026#34;v\u0026#34;, \u0026#34;J\u0026#34;, \u0026#34;:m \u0026#39;\u0026gt;+1\u0026lt;CR\u0026gt;gv=gv\u0026#34;) vim.keymap.set(\u0026#34;v\u0026#34;, \u0026#34;K\u0026#34;, \u0026#34;:m \u0026#39;\u0026lt;-2\u0026lt;CR\u0026gt;gv=gv\u0026#34;) vim.keymap.set({ \u0026#34;v\u0026#34;, \u0026#34;n\u0026#34; }, \u0026#34;\u0026lt;leader\u0026gt;y\u0026#34;, \u0026#34;\\\u0026#34;+y\u0026#34;) 插件管理（lazy.nvim） github地址：https://github.com/folke/lazy.nvim\n",
   "keywords": [
     ""
   ],
@@ -512,7 +743,7 @@ var _hmt = _hmt || [];
     <span>
         Copyright
         &copy;
-        -2024
+        -2025
         <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>

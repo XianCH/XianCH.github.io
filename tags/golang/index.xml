@@ -40,7 +40,23 @@
       <pubDate>Fri, 22 Sep 2023 09:54:06 +0000</pubDate>
       
       <guid>https://XianCH.github.io/posts/tech/go/golang%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98/</guid>
-      <description>基础相关 var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？ #var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值 var a int a =5 a :=5 #new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象 #make 用来创建切片，通道和映射</description>
+      <description>&lt;h2&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;基础相关&#34;&gt;基础相关&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;var和:=来定义变量有什么不同？new和make初始化变量有什么不同呢？&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#var 用来定义单个或者多个变量变量,:=一般用来创建变量并且用来给变量复赋值
+var a int
+a =5
+a :=5
+
+#new 用来创建一个指向新分配零值对象的指针，并返回指向该实例的指针，new返回的是指针对象
+#make 用来创建切片，通道和映射等内置数据结构，并初始化
+p := new(int)
+slience := make([]int,0,10)
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;defer是做什么用的，如果一个程序里面有多个defer会怎么样？&lt;/p&gt;</description>
     </item>
     
     <item>

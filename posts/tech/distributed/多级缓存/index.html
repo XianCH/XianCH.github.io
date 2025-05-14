@@ -7,7 +7,14 @@
 <meta name="robots" content="index, follow">
 <title>多级缓存 | X14n&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="1.什么是多级缓存 传统的缓存策略一般是请求到达Tomcat后，先查询Redis，如果未命中则查询数据库，如图： 存在下面的问题： •请求要经过Tomcat处理，Tomcat的性能成为整个系统的瓶颈 •Redis缓存失效时，会对数据库产生冲击 多级缓存就是充分利用请求处理的每个环节，分别添">
+<meta name="description" content="1.什么是多级缓存
+传统的缓存策略一般是请求到达Tomcat后，先查询Redis，如果未命中则查询数据库，如图：
+
+
+存在下面的问题：
+•请求要经过Tomcat处理，Tomcat的性能成为整个系统的瓶颈
+•Redis缓存失效时，会对数据库产生冲击
+多级缓存就是充分利用请求处理的每个环节，分别添加缓存，减轻Tomcat压力，提升服务性能：">
 <meta name="author" content="x14n">
 <link rel="canonical" href="https://XianCH.github.io/posts/tech/distributed/%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -46,11 +53,15 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
-  
-
 <meta property="og:title" content="多级缓存" />
-<meta property="og:description" content="1.什么是多级缓存 传统的缓存策略一般是请求到达Tomcat后，先查询Redis，如果未命中则查询数据库，如图： 存在下面的问题： •请求要经过Tomcat处理，Tomcat的性能成为整个系统的瓶颈 •Redis缓存失效时，会对数据库产生冲击 多级缓存就是充分利用请求处理的每个环节，分别添" />
+<meta property="og:description" content="1.什么是多级缓存
+传统的缓存策略一般是请求到达Tomcat后，先查询Redis，如果未命中则查询数据库，如图：
+
+
+存在下面的问题：
+•请求要经过Tomcat处理，Tomcat的性能成为整个系统的瓶颈
+•Redis缓存失效时，会对数据库产生冲击
+多级缓存就是充分利用请求处理的每个环节，分别添加缓存，减轻Tomcat压力，提升服务性能：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://XianCH.github.io/posts/tech/distributed/%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98/" />
 <meta property="og:image" content="https://XianCH.github.io/postsImg/redistest.png" /><meta property="article:section" content="posts" />
@@ -60,7 +71,14 @@ var _hmt = _hmt || [];
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://XianCH.github.io/postsImg/redistest.png" />
 <meta name="twitter:title" content="多级缓存"/>
-<meta name="twitter:description" content="1.什么是多级缓存 传统的缓存策略一般是请求到达Tomcat后，先查询Redis，如果未命中则查询数据库，如图： 存在下面的问题： •请求要经过Tomcat处理，Tomcat的性能成为整个系统的瓶颈 •Redis缓存失效时，会对数据库产生冲击 多级缓存就是充分利用请求处理的每个环节，分别添"/>
+<meta name="twitter:description" content="1.什么是多级缓存
+传统的缓存策略一般是请求到达Tomcat后，先查询Redis，如果未命中则查询数据库，如图：
+
+
+存在下面的问题：
+•请求要经过Tomcat处理，Tomcat的性能成为整个系统的瓶颈
+•Redis缓存失效时，会对数据库产生冲击
+多级缓存就是充分利用请求处理的每个环节，分别添加缓存，减轻Tomcat压力，提升服务性能："/>
 
 
 <script type="application/ld+json">
@@ -97,7 +115,7 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "多级缓存",
   "name": "多级缓存",
-  "description": "1.什么是多级缓存 传统的缓存策略一般是请求到达Tomcat后，先查询Redis，如果未命中则查询数据库，如图： 存在下面的问题： •请求要经过Tomcat处理，Tomcat的性能成为整个系统的瓶颈 •Redis缓存失效时，会对数据库产生冲击 多级缓存就是充分利用请求处理的每个环节，分别添",
+  "description": "1.什么是多级缓存 传统的缓存策略一般是请求到达Tomcat后，先查询Redis，如果未命中则查询数据库，如图：\n存在下面的问题：\n•请求要经过Tomcat处理，Tomcat的性能成为整个系统的瓶颈\n•Redis缓存失效时，会对数据库产生冲击\n多级缓存就是充分利用请求处理的每个环节，分别添加缓存，减轻Tomcat压力，提升服务性能：\n",
   "keywords": [
     ""
   ],
@@ -648,8 +666,7 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <blockquote>
-<p><strong>注意</strong>：在默认情况下，当一个缓存元素过期的时候，Caffeine不会自动立即将其清理和驱逐。而是在一次读或写操作后，或者在空闲时间完成对失效数据的驱逐。</p>
-</blockquote>
+<p><strong>注意</strong>：在默认情况下，当一个缓存元素过期的时候，Caffeine不会自动立即将其清理和驱逐。而是在一次读或写操作后，或者在空闲时间完成对失效数据的驱逐。</p></blockquote>
 <h2 id="23实现jvm进程缓存">2.3.实现JVM进程缓存<a hidden class="anchor" aria-hidden="true" href="#23实现jvm进程缓存">#</a></h2>
 <h3 id="231需求">2.3.1.需求<a hidden class="anchor" aria-hidden="true" href="#231需求">#</a></h3>
 <p>利用Caffeine实现下列需求：</p>
@@ -1710,7 +1727,7 @@ var _hmt = _hmt || [];
     <span>
         Copyright
         &copy;
-        -2024
+        -2025
         <a href="https://XianCH.github.io/" style="color:#939393;">X14n&#39;s Blog</a>
         All Rights Reserved
     </span>
